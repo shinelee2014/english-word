@@ -1212,6 +1212,12 @@
       
       // Clean spelling input to only accept chars matching word structure, normalising all whitespace to a single regular space
       text = text.replace(/[^a-zA-Z\s']/g, '').replace(/\s+/g, ' ');
+      
+      // Truncate input length to target word length to avoid invisible trailing spaces/chars
+      if (text.length > word.length) {
+        text = text.slice(0, word.length);
+      }
+      
       e.target.value = text;
       
       renderSpellingBoxes(word, text);
@@ -1240,8 +1246,8 @@
         const box = document.createElement('div');
         
         if (char === ' ' || char === '\'' || char === '-') {
-          // Special delimiter boxes
-          box.className = "w-8 h-14 flex items-end justify-center font-bold text-3xl font-comic text-charcoal";
+          // Special delimiter boxes (whitespace-pre preserves spaces from collapsing visually)
+          box.className = "w-8 h-14 flex items-end justify-center font-bold text-3xl font-comic text-charcoal whitespace-pre";
           box.textContent = char;
         } else {
           // Standard letter box (taller and slightly wider for fingers)
@@ -1308,7 +1314,13 @@
 
     function checkSpelling() {
       const wordObj = getCurrentWord();
-      const input = document.getElementById('spelling-input');
+      
+      // 直接以方格显示的单词为准进行提取和检测，实现 100% 的“眼见即所得”
+      const boxes = document.getElementById('spelling-display-boxes').children;
+      let typedText = "";
+      for (let i = 0; i < boxes.length; i++) {
+        typedText += boxes[i].textContent;
+      }
       
       const normalize = (str) => {
         return str.trim()
@@ -1317,7 +1329,7 @@
                   .replace(/\s+/g, ' ');
       };
 
-      const typed = normalize(input.value);
+      const typed = normalize(typedText);
       const target = normalize(wordObj.word);
       
       // 纯字母比对，作为兜底验证（防止设备/键盘差异导致特殊字符遗漏）
