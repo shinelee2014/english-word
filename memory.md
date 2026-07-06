@@ -1,0 +1,46 @@
+# 项目决策与开发日志 (memory.md)
+
+> [!NOTE]
+> 本文件记录了当前项目专属的踩坑经验、技术决策及关键代码备忘。助理在扮演特定角色时，会优先加载此文件以防在本项目中重复犯错。
+
+---
+
+## 📌 1. 本地特有避坑记录
+
+*   **iOS/Safari 双击自动放大 Bug**：
+    *   *Bug描述*：在 iPad 上进行单词拼写时，孩子如果快速敲击自定义的虚拟键盘，会触发 iOS Safari 的双击缩放手势，导致整个页面比例失调，操作中断。
+    *   *规程要求*：所有触控交互按键（`.key-btn`、`button` 等）必须添加 CSS 样式 `touch-action: manipulation;`，并且设置 `-webkit-user-select: none;` 来禁用 iOS 默认的手势缩放和长按放大镜。
+*   **Web Speech API 异步加载延迟**：
+    *   *Bug描述*：在部分设备上刚打开网页时立即播放发音可能会失败，因为 `speechSynthesis.getVoices()` 还在异步加载。
+    *   *规程要求*：设置 `speak()` 方法时，如果特定口音的 Voice 还没有加载出来，必须 fallback 到语言代码 `lang = 'en-GB'`，确保无论如何都有声音输出。
+
+## ⚖️ 2. 重大技术决策日志 (ADR)
+
+*   **[2026-07-06] 离线零后端架构**：
+    *   *背景痛点*：用户计划部署在家庭威联通 NAS 上，为了降低系统维护复杂度和硬件开销，不希望运行 Node.js/Python 后端或数据库。
+    *   *最终选型*：前端 Vanilla JS + 原生本地 Web Speech TTS 引擎 + 浏览器 `localStorage` 数据存储。
+    *   *影响约束*：所有数据（小朋友进度、生词本）随浏览器缓存，清除浏览器缓存会导致进度丢失。后续需要考虑导入/导出进度的备份功能。
+*   **[2026-07-06] 多角色进度命名空间隔离**：
+    *   *背景痛点*：多孩子在同一台平板上使用，不能互相覆盖进度。
+    *   *最终选型*：每个小朋友的 LocalStorage 键名使用 `suz_eng_word_progress_[Name]` 和 `suz_eng_word_bookmarks_[Name]` 的格式前缀隔离。
+*   **[2026-07-06] Windows SMB 一键同步**：
+    *   *背景痛点*：本地开发修改后，需要同时更新到局域网 QNAP 网页目录和 GitHub 仓库，手动拖拽极易漏文件。
+    *   *最终选型*：因为 Windows 下直接映射了 QNAP 的 `Web` 共享文件夹，写了一个 PowerShell 脚本 [sync.ps1](file:///d:/antigravity/app/English%20word/sync.ps1) 用来一次性把文件复制到 `\\192.168.199.63\Web\english` 和 `git push` 到 GitHub。
+
+## 📝 3. 关键业务线与接口备忘
+
+*   **核心 API / 函数表**：
+    *   `speakCurrentWord()`：朗读单词，支持英音/美音切换和语速调节。
+    *   `speakSentence(index, isSeq)`：朗读课文中指定索引的句子，支持高亮和连读逻辑。
+    *   `isTouchDevice()`：检测当前设备是否支持触控。
+*   **本地存储结构**：
+    *   `suz_eng_word_kids`：存储所有小朋友名字的数组。
+    *   `suz_eng_word_active_kid`：当前选中的小朋友名字。
+
+## ⏱️ 4. 迭代开发记录
+
+### [2026-07-06] 课文点读与 iPad 深度优化
+*   **完成内容**：
+    1. 增加了“课文点读机”模块，内置 6A 完整 Story time 原文及翻译，支持单句点读、高亮和整篇自动播放连读。
+    2. 针对 iPad 平板触控进行了全面防双击缩放优化，加大了按钮高度，增强了按键触感物理微动效。
+    3. 编写了本地 `sync.ps1` 脚本，并实现了威联通 NAS 和 GitHub 的双通道自动同步。
