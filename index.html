@@ -160,8 +160,11 @@
           <select id="kid-select" onchange="switchKid(this.value)" class="bg-transparent text-xs font-bold focus:outline-none cursor-pointer">
             <!-- Dynamically populated -->
           </select>
-          <button onclick="addKidPrompt()" class="bg-sage text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full hover:bg-sage-dark font-extrabold focus:outline-none animate-bounce" title="添加新学习者">
+          <button onclick="addKidPrompt()" class="bg-sage text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full hover:bg-sage-dark font-extrabold focus:outline-none animate-bounce mr-2" title="添加新学习者">
             ＋
+          </button>
+          <button onclick="manualSaveProgress()" class="bg-sage hover:bg-sage-dark text-white text-xs px-2 py-0.5 rounded hand-drawn-border-sm font-bold focus:outline-none flex items-center gap-1 cursor-pointer" title="保存学习进度与生词本">
+            💾 保存
           </button>
         </div>
         <!-- Voice Accent Selector -->
@@ -1613,6 +1616,28 @@
       } catch (e) {
         console.error("保存学习进度失败", e);
       }
+    }
+
+    function showToast(message) {
+      const existing = document.getElementById('custom-toast');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.id = 'custom-toast';
+      toast.className = 'fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-sage text-white px-6 py-3 rounded-full font-bold shadow-lg hand-drawn-border-sm z-50 flex items-center gap-2 animate-bounce';
+      toast.innerHTML = `<span>🎉</span> <span>${message}</span>`;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.classList.add('transition-opacity', 'duration-500', 'opacity-0');
+        setTimeout(() => toast.remove(), 500);
+      }, 1800);
+    }
+
+    function manualSaveProgress() {
+      saveProgress();
+      saveBookmarks();
+      showToast(`${activeKid} 的学习进度和生词本已保存成功！`);
     }
 
     function switchKid(kidName) {
