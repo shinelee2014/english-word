@@ -592,9 +592,33 @@
 
   <!-- Core App Logic -->
   <script>
-    // Profile Management Keys
-    const KIDS_LIST_KEY = 'suz_eng_word_kids';
+    // Profile Management Keys (localStorage fallback)
+    const KIDS_LIST_KEY  = 'suz_eng_word_kids';
     const ACTIVE_KID_KEY = 'suz_eng_word_active_kid';
+
+    // Detect whether we are running on the NAS (has api.php) or on GitHub Pages
+    const USE_API = (window.location.hostname !== 'shinelee2014.github.io' &&
+                     window.location.hostname !== 'localhost' &&
+                     window.location.protocol !== 'file:');
+    // API base path (relative to current host so it works regardless of port)
+    const API_BASE = '/english/api.php';
+
+    // Unified async API helper
+    async function apiCall(params, body = null) {
+      if (!USE_API) return null;
+      try {
+        const url = API_BASE + '?' + new URLSearchParams(params).toString();
+        const opts = body
+          ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }
+          : { method: 'GET' };
+        const resp = await fetch(url, opts);
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        return await resp.json();
+      } catch (e) {
+        console.warn('[API] call failed, falling back to localStorage:', params, e);
+        return null;
+      }
+    }
     
     let kidsList = [];
     let activeKid = '默认小朋友';
@@ -622,8 +646,8 @@
     let ttsAccent = 'en-GB';
 
     // Page initialization
-    window.addEventListener('DOMContentLoaded', () => {
-      initProfiles();
+    window.addEventListener('DOMContentLoaded', async () => {
+      await initProfiles();
       setupTTSConfig();
       populateGradeSelector();
       onGradeChange(currentGrade);
@@ -1516,32 +1540,35 @@
     }
 
     // --- Profile Management Helper Functions ---
-    function initProfiles() {
+    async function initProfiles() {
       try {
-        const storedKids = localStorage.getItem(KIDS_LIST_KEY);
-        if (storedKids) {
-          kidsList = JSON.parse(storedKids);
-        }
-        if (kidsList.length === 0) {
-          kidsList = ['默认小朋友'];
+        // Try NAS API first
+        const apiData = await apiCall({ action: 'list' });
+        if (apiData && Array.isArray(apiData.kids)) {
+          kidsList = apiData.kids;
+          // Sync to localStorage as cache
           localStorage.setItem(KIDS_LIST_KEY, JSON.stringify(kidsList));
-        }
-        
-        const storedActive = localStorage.getItem(ACTIVE_KID_KEY);
-        if (storedActive && kidsList.includes(storedActive)) {
-          activeKid = storedActive;
+          activeKid = apiData.active || kidsList[0];
+          localStorage.setItem(ACTIVE_KID_KEY, activeKid);
         } else {
-          activeKid = kidsList[0];
+          // localStorage fallback
+          const storedKids = localStorage.getItem(KIDS_LIST_KEY);
+          if (storedKids) kidsList = JSON.parse(storedKids);
+          if (kidsList.length === 0) {
+            kidsList = ['默认小朋友'];
+            localStorage.setItem(KIDS_LIST_KEY, JSON.stringify(kidsList));
+          }
+          const storedActive = localStorage.getItem(ACTIVE_KID_KEY);
+          activeKid = (storedActive && kidsList.includes(storedActive)) ? storedActive : kidsList[0];
           localStorage.setItem(ACTIVE_KID_KEY, activeKid);
         }
-
         renderKidsDropdown();
-        loadKidData(activeKid);
+        await loadKidData(activeKid);
       } catch (e) {
         console.error("初始化小朋友档案失败", e);
         kidsList = ['默认小朋友'];
         activeKid = '默认小朋友';
-        loadKidData(activeKid);
+        await loadKidData(activeKid);
       }
     }
 
@@ -1558,64 +1585,56 @@
       });
     }
 
-    function loadKidData(kidName) {
+    async function loadKidData(kidName) {
       activeKid = kidName;
       localStorage.setItem(ACTIVE_KID_KEY, activeKid);
-      
-      // Load bookmarks
-      try {
-        const bookmarksKey = `suz_eng_word_bookmarks_${activeKid}`;
-        const stored = localStorage.getItem(bookmarksKey);
-        if (stored) {
-          bookmarkedWords = new Set(JSON.parse(stored));
-        } else {
-          bookmarkedWords = new Set();
-        }
-      } catch (e) {
-        console.error("加载生词本失败", e);
-        bookmarkedWords = new Set();
-      }
+      // Tell NAS about the active kid switch
+      apiCall({ action: 'setActive' }, { kid: activeKid });
 
-      // Load progress
-      try {
-        const progressKey = `suz_eng_word_progress_${activeKid}`;
-        const storedProgress = localStorage.getItem(progressKey);
-        if (storedProgress) {
-          kidProgress = JSON.parse(storedProgress);
-        } else {
-          kidProgress = {};
-        }
-      } catch (e) {
-        console.error("加载学习进度失败", e);
-        kidProgress = {};
+      // Try NAS API first, fall back to localStorage
+      const apiData = await apiCall({ action: 'load', kid: activeKid });
+      if (apiData) {
+        kidProgress     = apiData.progress  || {};
+        bookmarkedWords = new Set(apiData.bookmarks || []);
+        // Sync to localStorage cache
+        localStorage.setItem(`suz_eng_word_progress_${activeKid}`,  JSON.stringify(kidProgress));
+        localStorage.setItem(`suz_eng_word_bookmarks_${activeKid}`, JSON.stringify(Array.from(bookmarkedWords)));
+      } else {
+        // localStorage fallback
+        try {
+          const sp = localStorage.getItem(`suz_eng_word_progress_${activeKid}`);
+          kidProgress = sp ? JSON.parse(sp) : {};
+        } catch (e) { kidProgress = {}; }
+        try {
+          const sb = localStorage.getItem(`suz_eng_word_bookmarks_${activeKid}`);
+          bookmarkedWords = sb ? new Set(JSON.parse(sb)) : new Set();
+        } catch (e) { bookmarkedWords = new Set(); }
       }
 
       // Update UI elements
       renderGradeUnitProgress();
-      
-      // Refresh dictionary table if open
-      if (document.getElementById('view-dictionary').classList.contains('hidden') === false) {
+      if (!document.getElementById('view-dictionary').classList.contains('hidden')) {
         filterDictionary();
       }
     }
 
     function saveBookmarks() {
+      // Always cache locally
       try {
-        const bookmarksKey = `suz_eng_word_bookmarks_${activeKid}`;
-        localStorage.setItem(bookmarksKey, JSON.stringify(Array.from(bookmarkedWords)));
-      } catch (e) {
-        console.error("保存生词本失败", e);
-      }
+        localStorage.setItem(`suz_eng_word_bookmarks_${activeKid}`, JSON.stringify(Array.from(bookmarkedWords)));
+      } catch (e) { console.error("保存生词本(local)失败", e); }
+      // Also push to NAS (fire-and-forget)
+      apiCall({ action: 'save', kid: activeKid }, { bookmarks: Array.from(bookmarkedWords) });
     }
 
-    // Save progress to localStorage
+    // Save progress (localStorage + NAS)
     function saveProgress() {
+      // Always cache locally
       try {
-        const progressKey = `suz_eng_word_progress_${activeKid}`;
-        localStorage.setItem(progressKey, JSON.stringify(kidProgress));
-      } catch (e) {
-        console.error("保存学习进度失败", e);
-      }
+        localStorage.setItem(`suz_eng_word_progress_${activeKid}`, JSON.stringify(kidProgress));
+      } catch (e) { console.error("保存进度(local)失败", e); }
+      // Also push to NAS (fire-and-forget)
+      apiCall({ action: 'save', kid: activeKid }, { progress: kidProgress });
     }
 
     function showToast(message) {
@@ -1634,35 +1653,53 @@
       }, 1800);
     }
 
-    function manualSaveProgress() {
-      saveProgress();
-      saveBookmarks();
-      showToast(`${activeKid} 的学习进度和生词本已保存成功！`);
+    async function manualSaveProgress() {
+      // Save both locally and to NAS explicitly
+      try {
+        localStorage.setItem(`suz_eng_word_progress_${activeKid}`,  JSON.stringify(kidProgress));
+        localStorage.setItem(`suz_eng_word_bookmarks_${activeKid}`, JSON.stringify(Array.from(bookmarkedWords)));
+      } catch (e) {}
+      const result = await apiCall(
+        { action: 'save', kid: activeKid },
+        { progress: kidProgress, bookmarks: Array.from(bookmarkedWords) }
+      );
+      if (USE_API && result && result.success) {
+        showToast(`${activeKid} 的进度已保存到威联通 NAS！`);
+      } else {
+        showToast(`${activeKid} 的学习进度和生词本已保存成功！`);
+      }
     }
 
     function switchKid(kidName) {
       loadKidData(kidName);
     }
 
-    function addKidPrompt() {
+    async function addKidPrompt() {
       const name = prompt("请输入小朋友的名字或昵称:");
       if (!name) return;
       const cleanName = name.trim();
       if (!cleanName) return;
-      
+
       if (kidsList.includes(cleanName)) {
         alert("这个名字已经存在啦！");
         return;
       }
-      
+
+      // Add to NAS first, fall back to localStorage only
+      const result = await apiCall({ action: 'addKid' }, { kid: cleanName });
+      if (result && result.error === 'exists') {
+        alert("这个名字已经存在啦！");
+        return;
+      }
+
       kidsList.push(cleanName);
       localStorage.setItem(KIDS_LIST_KEY, JSON.stringify(kidsList));
       activeKid = cleanName;
       localStorage.setItem(ACTIVE_KID_KEY, activeKid);
-      
+
       renderKidsDropdown();
-      loadKidData(activeKid);
-      alert(`成功添加并切换到学习者: ${cleanName} 🎉`);
+      await loadKidData(activeKid);
+      showToast(`成功添加学习者: ${cleanName} 🎉`);
     }
 
     function renderGradeUnitProgress() {
