@@ -3,68 +3,1043 @@ const WORDS_DATA = {
     "name": "一年级上册",
     "units": {
       "Unit 1 Hello": [
-        { "word": "hello", "translation": "你好", "phonetic": "/həˈləʊ/" },
-        { "word": "hi", "translation": "你好", "phonetic": "/haɪ/" },
-        { "word": "good morning", "translation": "早上好", "phonetic": "/ɡʊd ˈmɔːnɪŋ/" },
-        { "word": "good afternoon", "translation": "下午好", "phonetic": "/ɡʊd ˌɑːftəˈnuːn/" }
+        {
+          "word": "mum",
+          "translation": "妈妈",
+          "phonetic": "/mʌm/"
+        },
+        {
+          "word": "dad",
+          "translation": "爸爸",
+          "phonetic": "/dæd/"
+        },
+        {
+          "word": "Hello",
+          "translation": "你好",
+          "phonetic": "/həˈləʊ/"
+        },
+        {
+          "word": "this",
+          "translation": "这，这个",
+          "phonetic": "/ðɪs/"
+        },
+        {
+          "word": "I'm",
+          "translation": "我是",
+          "phonetic": "/aɪm/"
+        },
+        {
+          "word": "is",
+          "translation": "是",
+          "phonetic": "/ɪz/"
+        },
+        {
+          "word": "Hi",
+          "translation": "你好",
+          "phonetic": "/haɪ/"
+        },
+        {
+          "word": "This is",
+          "translation": "这是",
+          "phonetic": "/ðɪs ɪz/"
+        },
+        {
+          "word": "Goodbye",
+          "translation": "再见",
+          "phonetic": "/ˌɡʊdˈbaɪ/"
+        },
+        {
+          "word": "Mr",
+          "translation": "先生",
+          "phonetic": "/ˈmɪstə/"
+        }
       ],
-      "Unit 2 My school bag": [
-        { "word": "book", "translation": "书", "phonetic": "/bʊk/" },
-        { "word": "ruler", "translation": "尺子", "phonetic": "/ˈruːlə/" },
-        { "word": "pencil", "translation": "铅笔", "phonetic": "/ˈpensl/" },
-        { "word": "rubber", "translation": "橡皮", "phonetic": "/ˈrʌbə/" }
+      "Unit 2 Good morning": [
+        {
+          "word": "Mr Green",
+          "translation": "格林先生",
+          "phonetic": "/ˈmɪstə ɡriːn/"
+        },
+        {
+          "word": "Good morning",
+          "translation": "早上好",
+          "phonetic": "/ɡʊd ˈmɔːnɪŋ/"
+        },
+        {
+          "word": "Good afternoon",
+          "translation": "下午好",
+          "phonetic": "/ɡʊd ˌɑːftəˈnuːn/"
+        },
+        {
+          "word": "Good evening",
+          "translation": "晚上好",
+          "phonetic": "/ɡʊd ˈiːvnɪŋ/"
+        },
+        {
+          "word": "Woof",
+          "translation": "汪（狗叫声）",
+          "phonetic": "/wʊf/"
+        }
       ],
-      "Unit 3 My face": [
-        { "word": "eye", "translation": "眼睛", "phonetic": "/aɪ/" },
-        { "word": "ear", "translation": "耳朵", "phonetic": "/ɪə/" },
-        { "word": "nose", "translation": "鼻子", "phonetic": "/nəʊz/" },
-        { "word": "mouth", "translation": "嘴巴", "phonetic": "/maʊθ/" },
-        { "word": "face", "translation": "脸", "phonetic": "/feɪs/" }
+      "Unit 3 This is my mum": [
+        {
+          "word": "no",
+          "translation": "不，不是",
+          "phonetic": "/nəʊ/"
+        },
+        {
+          "word": "puppy",
+          "translation": "小狗",
+          "phonetic": "/ˈpʌpi/"
+        },
+        {
+          "word": "Miss",
+          "translation": "小姐",
+          "phonetic": "/mɪs/"
+        },
+        {
+          "word": "Miss Li",
+          "translation": "李小姐，李老师",
+          "phonetic": "/mɪs liː/"
+        }
       ],
-      "Unit 4 Colors": [
-        { "word": "red", "translation": "红色", "phonetic": "/red/" },
-        { "word": "yellow", "translation": "黄色", "phonetic": "/ˈjeləʊ/" },
-        { "word": "blue", "translation": "蓝色", "phonetic": "/bluː/" },
-        { "word": "green", "translation": "绿色", "phonetic": "/ɡriːn/" }
+      "Unit 4 Good night": [
+        {
+          "word": "Good night",
+          "translation": "晚安",
+          "phonetic": "/ɡʊd naɪt/"
+        },
+        {
+          "word": "Is this",
+          "translation": "这是……吗",
+          "phonetic": "/ɪz ðɪs/"
+        },
+        {
+          "word": "morning",
+          "translation": "早上，上午",
+          "phonetic": "/ˈmɔːnɪŋ/"
+        },
+        {
+          "word": "a",
+          "translation": "一个",
+          "phonetic": "/ə/"
+        },
+        {
+          "word": "afternoon",
+          "translation": "下午",
+          "phonetic": "/ˌɑːftəˈnuːn/"
+        },
+        {
+          "word": "teddy",
+          "translation": "泰迪熊",
+          "phonetic": "/ˈtedi/"
+        },
+        {
+          "word": "evening",
+          "translation": "晚上，傍晚",
+          "phonetic": "/ˈiːvnɪŋ/"
+        },
+        {
+          "word": "box",
+          "translation": "盒子，箱子",
+          "phonetic": "/bɒks/"
+        },
+        {
+          "word": "night",
+          "translation": "夜，夜晚",
+          "phonetic": "/naɪt/"
+        },
+        {
+          "word": "yes",
+          "translation": "是，对",
+          "phonetic": "/jes/"
+        },
+        {
+          "word": "bag",
+          "translation": "包，袋",
+          "phonetic": "/bæɡ/"
+        }
+      ],
+      "Unit 5 I like bananas": [
+        {
+          "word": "cherry",
+          "translation": "樱桃",
+          "phonetic": "/ˈtʃeri/"
+        },
+        {
+          "word": "please",
+          "translation": "请",
+          "phonetic": "/pliːz/"
+        },
+        {
+          "word": "banana",
+          "translation": "香蕉",
+          "phonetic": "/bəˈnɑːnə/"
+        },
+        {
+          "word": "peach",
+          "translation": "桃子",
+          "phonetic": "/piːtʃ/"
+        },
+        {
+          "word": "grape",
+          "translation": "葡萄",
+          "phonetic": "/ɡreɪp/"
+        },
+        {
+          "word": "OK",
+          "translation": "好的，行",
+          "phonetic": "/ˌəʊˈkeɪ/"
+        },
+        {
+          "word": "Thank you",
+          "translation": "谢谢你",
+          "phonetic": "/θæŋk juː/"
+        },
+        {
+          "word": "Look",
+          "translation": "看",
+          "phonetic": "/lʊk/"
+        },
+        {
+          "word": "Great",
+          "translation": "太好了",
+          "phonetic": "/ɡreɪt/"
+        },
+        {
+          "word": "Wow",
+          "translation": "哇",
+          "phonetic": "/waʊ/"
+        }
+      ],
+      "Unit 6 Look at my balloon": [
+        {
+          "word": "look at",
+          "translation": "看",
+          "phonetic": "/lʊk æt/"
+        },
+        {
+          "word": "my",
+          "translation": "我的",
+          "phonetic": "/maɪ/"
+        },
+        {
+          "word": "balloon",
+          "translation": "气球",
+          "phonetic": "/bəˈluːn/"
+        },
+        {
+          "word": "pink",
+          "translation": "粉色的",
+          "phonetic": "/pɪŋk/"
+        },
+        {
+          "word": "it's",
+          "translation": "它是",
+          "phonetic": "/ɪts/"
+        },
+        {
+          "word": "nice",
+          "translation": "好的，漂亮的",
+          "phonetic": "/naɪs/"
+        },
+        {
+          "word": "oh",
+          "translation": "哦，啊",
+          "phonetic": "/əʊ/"
+        },
+        {
+          "word": "red",
+          "translation": "红色的",
+          "phonetic": "/red/"
+        },
+        {
+          "word": "blue",
+          "translation": "蓝色的",
+          "phonetic": "/bluː/"
+        },
+        {
+          "word": "green",
+          "translation": "绿色的",
+          "phonetic": "/ɡriːn/"
+        }
+      ],
+      "Unit 7 I can sing": [
+        {
+          "word": "I",
+          "translation": "我",
+          "phonetic": "/aɪ/"
+        },
+        {
+          "word": "can",
+          "translation": "能，会",
+          "phonetic": "/kæn/"
+        },
+        {
+          "word": "dance",
+          "translation": "跳舞",
+          "phonetic": "/dɑːns/"
+        },
+        {
+          "word": "robot",
+          "translation": "机器人",
+          "phonetic": "/ˈrəʊbɒt/"
+        },
+        {
+          "word": "sing",
+          "translation": "唱歌",
+          "phonetic": "/sɪŋ/"
+        },
+        {
+          "word": "draw",
+          "translation": "画画",
+          "phonetic": "/drɔː/"
+        },
+        {
+          "word": "cook",
+          "translation": "做饭",
+          "phonetic": "/kʊk/"
+        }
+      ],
+      "Unit 8 Put on your coat": [
+        {
+          "word": "put on",
+          "translation": "穿上，戴上",
+          "phonetic": "/pʊt ɒn/"
+        },
+        {
+          "word": "your",
+          "translation": "你的，你们的",
+          "phonetic": "/jɔː/"
+        },
+        {
+          "word": "coat",
+          "translation": "外套",
+          "phonetic": "/kəʊt/"
+        },
+        {
+          "word": "cold",
+          "translation": "冷的",
+          "phonetic": "/kəʊld/"
+        },
+        {
+          "word": "scarf",
+          "translation": "围巾",
+          "phonetic": "/skɑːf/"
+        },
+        {
+          "word": "beanie",
+          "translation": "小便帽",
+          "phonetic": "/ˈbiːni/"
+        },
+        {
+          "word": "sweater",
+          "translation": "毛衣",
+          "phonetic": "/ˈswetə/"
+        }
       ]
     }
   },
   "G1_S2": {
     "name": "一年级下册",
     "units": {
-      "Unit 1 Toys": [
-        { "word": "ball", "translation": "球", "phonetic": "/bɔːl/" },
-        { "word": "doll", "translation": "玩偶", "phonetic": "/dɒl/" },
-        { "word": "train", "translation": "火车", "phonetic": "/treɪn/" },
-        { "word": "car", "translation": "小汽车", "phonetic": "/kɑː/" }
+      "Unit 1 In the classroom": [
+        {
+          "word": "ruler",
+          "translation": "直尺",
+          "phonetic": "/ˈruːlə/"
+        },
+        {
+          "word": "rubber",
+          "translation": "橡皮",
+          "phonetic": "/ˈrʌbə/"
+        },
+        {
+          "word": "let's",
+          "translation": "让我们",
+          "phonetic": "/lets/"
+        },
+        {
+          "word": "count",
+          "translation": "数数",
+          "phonetic": "/kaʊnt/"
+        },
+        {
+          "word": "Cool",
+          "translation": "酷",
+          "phonetic": "/kuːl/"
+        },
+        {
+          "word": "yellow",
+          "translation": "黄色的",
+          "phonetic": "/ˈjeləʊ/"
+        },
+        {
+          "word": "one",
+          "translation": "一",
+          "phonetic": "/wʌn/"
+        },
+        {
+          "word": "two",
+          "translation": "二",
+          "phonetic": "/tuː/"
+        },
+        {
+          "word": "three",
+          "translation": "三",
+          "phonetic": "/θriː/"
+        },
+        {
+          "word": "four",
+          "translation": "四",
+          "phonetic": "/fɔː/"
+        },
+        {
+          "word": "five",
+          "translation": "五",
+          "phonetic": "/faɪv/"
+        }
+      ],
+      "Unit 2 In the library": [
+        {
+          "word": "pencil",
+          "translation": "铅笔",
+          "phonetic": "/ˈpensl/"
+        },
+        {
+          "word": "book",
+          "translation": "书",
+          "phonetic": "/bʊk/"
+        },
+        {
+          "word": "the",
+          "translation": "这，那个",
+          "phonetic": "/ðə/"
+        },
+        {
+          "word": "sorry",
+          "translation": "对不起",
+          "phonetic": "/ˈsɒri/"
+        },
+        {
+          "word": "Ouch",
+          "translation": "哎哟",
+          "phonetic": "/aʊtʃ/"
+        }
+      ],
+      "Unit 3 I like carrots": [
+        {
+          "word": "how many",
+          "translation": "几个，多少",
+          "phonetic": "/haʊ ˈmeni/"
+        },
+        {
+          "word": "like",
+          "translation": "喜欢",
+          "phonetic": "/laɪk/"
+        },
+        {
+          "word": "marble",
+          "translation": "玻璃球",
+          "phonetic": "/ˈmɑːbl/"
+        },
+        {
+          "word": "carrot",
+          "translation": "胡萝卜",
+          "phonetic": "/ˈkærət/"
+        },
+        {
+          "word": "onion",
+          "translation": "洋葱",
+          "phonetic": "/ˈʌnjən/"
+        },
+        {
+          "word": "pea",
+          "translation": "豌豆",
+          "phonetic": "/piː/"
+        },
+        {
+          "word": "pepper",
+          "translation": "甜椒",
+          "phonetic": "/ˈpepə/"
+        }
+      ],
+      "Unit 4 Spring": [
+        {
+          "word": "spring",
+          "translation": "春天",
+          "phonetic": "/sprɪŋ/"
+        },
+        {
+          "word": "tree",
+          "translation": "树",
+          "phonetic": "/triː/"
+        },
+        {
+          "word": "flower",
+          "translation": "花",
+          "phonetic": "/ˈflaʊə/"
+        },
+        {
+          "word": "beautiful",
+          "translation": "美丽的",
+          "phonetic": "/ˈbjuːtɪfl/"
+        },
+        {
+          "word": "bird",
+          "translation": "鸟",
+          "phonetic": "/bɜːd/"
+        },
+        {
+          "word": "kite",
+          "translation": "风筝",
+          "phonetic": "/kaɪt/"
+        },
+        {
+          "word": "colourful",
+          "translation": "五彩缤纷的",
+          "phonetic": "/ˈkʌləfl/"
+        }
+      ],
+      "Unit 5 Insects": [
+        {
+          "word": "What's",
+          "translation": "是什么",
+          "phonetic": "/wɒts/"
+        },
+        {
+          "word": "ladybird",
+          "translation": "瓢虫",
+          "phonetic": "/ˈleɪdibɜːd/"
+        },
+        {
+          "word": "cute",
+          "translation": "可爱的",
+          "phonetic": "/kjuːt/"
+        },
+        {
+          "word": "cicada",
+          "translation": "蝉",
+          "phonetic": "/sɪˈkɑːdə/"
+        },
+        {
+          "word": "butterfly",
+          "translation": "蝴蝶",
+          "phonetic": "/ˈbʌtəflaɪ/"
+        },
+        {
+          "word": "dragonfly",
+          "translation": "蜻蜓",
+          "phonetic": "/ˈdræɡənflaɪ/"
+        }
+      ],
+      "Unit 6 Let's play": [
+        {
+          "word": "run",
+          "translation": "跑",
+          "phonetic": "/rʌn/"
+        },
+        {
+          "word": "sticker",
+          "translation": "贴纸",
+          "phonetic": "/ˈstɪkə/"
+        },
+        {
+          "word": "yo-yo",
+          "translation": "溜溜球",
+          "phonetic": "/ˈjəʊ jəʊ/"
+        }
+      ],
+      "Unit 7 Action": [
+        {
+          "word": "jump",
+          "translation": "跳",
+          "phonetic": "/dʒʌmp/"
+        },
+        {
+          "word": "hop",
+          "translation": "单脚跳",
+          "phonetic": "/hɒp/"
+        },
+        {
+          "word": "walk",
+          "translation": "走",
+          "phonetic": "/wɔːk/"
+        },
+        {
+          "word": "happy",
+          "translation": "快乐的",
+          "phonetic": "/ˈhæpi/"
+        }
+      ],
+      "Unit 8 Animals on the farm": [
+        {
+          "word": "pig",
+          "translation": "猪",
+          "phonetic": "/pɪɡ/"
+        },
+        {
+          "word": "lamb",
+          "translation": "羊羔",
+          "phonetic": "/læm/"
+        },
+        {
+          "word": "duck",
+          "translation": "鸭子",
+          "phonetic": "/dʌk/"
+        },
+        {
+          "word": "cow",
+          "translation": "奶牛",
+          "phonetic": "/kaʊ/"
+        },
+        {
+          "word": "in",
+          "translation": "在……里面",
+          "phonetic": "/ɪn/"
+        },
+        {
+          "word": "bottle",
+          "translation": "瓶子",
+          "phonetic": "/ˈbɒtl/"
+        },
+        {
+          "word": "hankie",
+          "translation": "手帕",
+          "phonetic": "/ˈhæŋki/"
+        }
       ]
     }
   },
   "G2_S1": {
     "name": "二年级上册",
     "units": {
-      "Unit 1 Family": [
-        { "word": "father", "translation": "父亲", "phonetic": "/ˈfɑːðə/" },
-        { "word": "mother", "translation": "母亲", "phonetic": "/ˈmʌðə/" },
-        { "word": "brother", "translation": "兄弟", "phonetic": "/ˈbrʌðə/" },
-        { "word": "sister", "translation": "姐妹", "phonetic": "/ˈsɪstə/" }
+      "Unit 1 She's my sister": [
+        {
+          "word": "sister",
+          "translation": "姐妹",
+          "phonetic": "/ˈsɪstə/"
+        },
+        {
+          "word": "brother",
+          "translation": "兄弟",
+          "phonetic": "/ˈbrʌðə/"
+        },
+        {
+          "word": "father",
+          "translation": "父亲",
+          "phonetic": "/ˈfɑːðə/"
+        },
+        {
+          "word": "mother",
+          "translation": "母亲",
+          "phonetic": "/ˈmʌðə/"
+        },
+        {
+          "word": "grandfather",
+          "translation": "祖父/外祖父",
+          "phonetic": "/ˈɡrændfɑːðə/"
+        },
+        {
+          "word": "grandmother",
+          "translation": "祖母/外祖母",
+          "phonetic": "/ˈɡrændmʌðə/"
+        },
+        {
+          "word": "cousin",
+          "translation": "表兄弟姐妹",
+          "phonetic": "/ˈkʌzn/"
+        }
       ],
-      "Unit 2 Actions": [
-        { "word": "run", "translation": "跑", "phonetic": "/rʌn/" },
-        { "word": "jump", "translation": "跳", "phonetic": "/dʒʌmp/" },
-        { "word": "swim", "translation": "游泳", "phonetic": "/swɪm/" },
-        { "word": "fly", "translation": "飞", "phonetic": "/flaɪ/" }
+      "Unit 2 I have a rabbit": [
+        {
+          "word": "rabbit",
+          "translation": "兔子",
+          "phonetic": "/ˈræbɪt/"
+        },
+        {
+          "word": "hamster",
+          "translation": "仓鼠",
+          "phonetic": "/ˈhæmstə/"
+        },
+        {
+          "word": "parrot",
+          "translation": "鹦鹉",
+          "phonetic": "/ˈpærət/"
+        },
+        {
+          "word": "turtle",
+          "translation": "海龟",
+          "phonetic": "/ˈtɜːtl/"
+        },
+        {
+          "word": "pet",
+          "translation": "宠物",
+          "phonetic": "/pet/"
+        },
+        {
+          "word": "cute",
+          "translation": "可爱的",
+          "phonetic": "/kjuːt/"
+        }
+      ],
+      "Unit 3 Look at the slide": [
+        {
+          "word": "slide",
+          "translation": "滑梯",
+          "phonetic": "/slaɪd/"
+        },
+        {
+          "word": "swing",
+          "translation": "秋千",
+          "phonetic": "/swɪŋ/"
+        },
+        {
+          "word": "see-saw",
+          "translation": "跷跷板",
+          "phonetic": "/ˈsiː sɔː/"
+        },
+        {
+          "word": "park",
+          "translation": "公园",
+          "phonetic": "/pɑːk/"
+        },
+        {
+          "word": "fun",
+          "translation": "有趣",
+          "phonetic": "/fʌn/"
+        }
+      ],
+      "Unit 4 I can play the guitar": [
+        {
+          "word": "guitar",
+          "translation": "吉他",
+          "phonetic": "/ɡɪˈtɑː/"
+        },
+        {
+          "word": "piano",
+          "translation": "钢琴",
+          "phonetic": "/piˈænə/"
+        },
+        {
+          "word": "violin",
+          "translation": "小提琴",
+          "phonetic": "/ˌvaɪəˈlɪn/"
+        },
+        {
+          "word": "drum",
+          "translation": "鼓",
+          "phonetic": "/drʌm/"
+        },
+        {
+          "word": "music",
+          "translation": "音乐",
+          "phonetic": "/ˈmjuːzɪk/"
+        }
+      ],
+      "Unit 5 At the market": [
+        {
+          "word": "potato",
+          "translation": "土豆",
+          "phonetic": "/pəˈteɪtə/"
+        },
+        {
+          "word": "tomato",
+          "translation": "西红柿",
+          "phonetic": "/təˈmɑːtəʊ/"
+        },
+        {
+          "word": "carrot",
+          "translation": "胡萝卜",
+          "phonetic": "/ˈkærət/"
+        },
+        {
+          "word": "bean",
+          "translation": "豆",
+          "phonetic": "/biːn/"
+        },
+        {
+          "word": "market",
+          "translation": "市场",
+          "phonetic": "/ˈmɑːkɪt/"
+        }
+      ],
+      "Unit 6 A sweet house": [
+        {
+          "word": "house",
+          "translation": "房子",
+          "phonetic": "/haʊs/"
+        },
+        {
+          "word": "cake",
+          "translation": "蛋糕",
+          "phonetic": "/keɪk/"
+        },
+        {
+          "word": "candy",
+          "translation": "糖果",
+          "phonetic": "/ˈkændi/"
+        },
+        {
+          "word": "cookie",
+          "translation": "曲奇",
+          "phonetic": "/ˈkʊki/"
+        },
+        {
+          "word": "delicious",
+          "translation": "美味的",
+          "phonetic": "/dɪˈlɪʃəs/"
+        }
+      ],
+      "Unit 7 I like my bedroom": [
+        {
+          "word": "bedroom",
+          "translation": "卧室",
+          "phonetic": "/ˈbedruːm/"
+        },
+        {
+          "word": "bed",
+          "translation": "床",
+          "phonetic": "/bed/"
+        },
+        {
+          "word": "desk",
+          "translation": "书桌",
+          "phonetic": "/desk/"
+        },
+        {
+          "word": "chair",
+          "translation": "椅子",
+          "phonetic": "/tʃeə/"
+        },
+        {
+          "word": "wardrobe",
+          "translation": "衣柜",
+          "phonetic": "/ˈwɔːdrəʊb/"
+        }
+      ],
+      "Unit 8 In the toy shop": [
+        {
+          "word": "toy",
+          "translation": "玩具",
+          "phonetic": "/tɔɪ/"
+        },
+        {
+          "word": "doll",
+          "translation": "洋娃娃",
+          "phonetic": "/dɒl/"
+        },
+        {
+          "word": "ball",
+          "translation": "球",
+          "phonetic": "/bɔːl/"
+        },
+        {
+          "word": "robot",
+          "translation": "机器人",
+          "phonetic": "/ˈrəʊbɒt/"
+        },
+        {
+          "word": "teddy",
+          "translation": "泰迪熊",
+          "phonetic": "/ˈtedi/"
+        }
       ]
     }
   },
   "G2_S2": {
     "name": "二年级下册",
     "units": {
-      "Unit 1 Fruits": [
-        { "word": "apple", "translation": "苹果", "phonetic": "/ˈæpl/" },
-        { "word": "banana", "translation": "香蕉", "phonetic": "/bəˈnɑːnə/" },
-        { "word": "pear", "translation": "梨", "phonetic": "/peə/" },
-        { "word": "peach", "translation": "桃子", "phonetic": "/piːtʃ/" }
+      "Unit 1 What can you see?": [
+        {
+          "word": "tree",
+          "translation": "树",
+          "phonetic": "/triː/"
+        },
+        {
+          "word": "flower",
+          "translation": "花",
+          "phonetic": "/ˈflaʊə/"
+        },
+        {
+          "word": "bird",
+          "translation": "鸟",
+          "phonetic": "/bɜːd/"
+        },
+        {
+          "word": "butterfly",
+          "translation": "蝴蝶",
+          "phonetic": "/ˈbʌtəflaɪ/"
+        },
+        {
+          "word": "beautiful",
+          "translation": "美丽的",
+          "phonetic": "/ˈbjuːtɪfl/"
+        }
+      ],
+      "Unit 2 I can swim": [
+        {
+          "word": "swim",
+          "translation": "游泳",
+          "phonetic": "/swɪm/"
+        },
+        {
+          "word": "skate",
+          "translation": "滑冰",
+          "phonetic": "/skeɪt/"
+        },
+        {
+          "word": "fly",
+          "translation": "飞",
+          "phonetic": "/flaɪ/"
+        },
+        {
+          "word": "sport",
+          "translation": "运动",
+          "phonetic": "/spɔːt/"
+        }
+      ],
+      "Unit 3 I like my school": [
+        {
+          "word": "school",
+          "translation": "学校",
+          "phonetic": "/skuːl/"
+        },
+        {
+          "word": "classroom",
+          "translation": "教室",
+          "phonetic": "/ˈklɑːsruːm/"
+        },
+        {
+          "word": "library",
+          "translation": "图书馆",
+          "phonetic": "/ˈlaɪbrəri/"
+        },
+        {
+          "word": "playground",
+          "translation": "操场",
+          "phonetic": "/ˈpleɪɡraʊnd/"
+        }
+      ],
+      "Unit 4 How is the weather?": [
+        {
+          "word": "sunny",
+          "translation": "晴朗的",
+          "phonetic": "/ˈsʌni/"
+        },
+        {
+          "word": "rainy",
+          "translation": "下雨的",
+          "phonetic": "/ˈreɪni/"
+        },
+        {
+          "word": "windy",
+          "translation": "有风的",
+          "phonetic": "/ˈwɪndi/"
+        },
+        {
+          "word": "cloudy",
+          "translation": "多云的",
+          "phonetic": "/ˈklaʊdi/"
+        },
+        {
+          "word": "snowy",
+          "translation": "下雪的",
+          "phonetic": "/ˈsnəʊi/"
+        }
+      ],
+      "Unit 5 A busy day": [
+        {
+          "word": "morning",
+          "translation": "早上",
+          "phonetic": "/ˈmɔːnɪŋ/"
+        },
+        {
+          "word": "afternoon",
+          "translation": "下午",
+          "phonetic": "/ˌɑːftəˈnuːn/"
+        },
+        {
+          "word": "evening",
+          "translation": "晚上",
+          "phonetic": "/ˈiːvnɪŋ/"
+        },
+        {
+          "word": "night",
+          "translation": "夜晚",
+          "phonetic": "/naɪt/"
+        },
+        {
+          "word": "busy",
+          "translation": "忙碌的",
+          "phonetic": "/ˈbɪzi/"
+        }
+      ],
+      "Unit 6 I like my town": [
+        {
+          "word": "town",
+          "translation": "城镇",
+          "phonetic": "/taʊn/"
+        },
+        {
+          "word": "shop",
+          "translation": "商店",
+          "phonetic": "/ʃɒp/"
+        },
+        {
+          "word": "zoo",
+          "translation": "动物园",
+          "phonetic": "/zuː/"
+        },
+        {
+          "word": "street",
+          "translation": "街道",
+          "phonetic": "/striːt/"
+        }
+      ],
+      "Unit 7 At the zoo": [
+        {
+          "word": "tiger",
+          "translation": "老虎",
+          "phonetic": "/ˈtaɪɡə/"
+        },
+        {
+          "word": "lion",
+          "translation": "狮子",
+          "phonetic": "/ˈlaɪən/"
+        },
+        {
+          "word": "panda",
+          "translation": "熊猫",
+          "phonetic": "/ˈpændə/"
+        },
+        {
+          "word": "elephant",
+          "translation": "大象",
+          "phonetic": "/ˈelɪfənt/"
+        },
+        {
+          "word": "monkey",
+          "translation": "猴子",
+          "phonetic": "/ˈmʌŋki/"
+        }
+      ],
+      "Unit 8 What's the time?": [
+        {
+          "word": "time",
+          "translation": "时间",
+          "phonetic": "/tiːm/"
+        },
+        {
+          "word": "clock",
+          "translation": "钟",
+          "phonetic": "/klɒk/"
+        },
+        {
+          "word": "o'clock",
+          "translation": "点钟",
+          "phonetic": "/əˈklɒk/"
+        }
       ]
     }
   },
@@ -72,84 +1047,340 @@ const WORDS_DATA = {
     "name": "三年级上册",
     "units": {
       "Unit 1 Where's my book?": [
-        { "word": "Where's", "translation": "在哪里", "phonetic": "/weəz/" },
-        { "word": "isn't", "translation": "不是", "phonetic": "/ˈɪznt/" },
-        { "word": "on", "translation": "在……上面", "phonetic": "/ɒn/" },
-        { "word": "sofa", "translation": "沙发", "phonetic": "/ˈsəʊfə/" },
-        { "word": "under", "translation": "在……下面", "phonetic": "/ˈʌndə/" },
-        { "word": "behind", "translation": "在……后面", "phonetic": "/bɪˈhaɪnd/" },
-        { "word": "vase", "translation": "花瓶", "phonetic": "/vɑːz/" },
-        { "word": "basket", "translation": "篮子", "phonetic": "/ˈbɑːskɪt/" },
-        { "word": "miaow", "translation": "喵", "phonetic": "/miˈaʊ/" },
-        { "word": "How nice", "translation": "太好了！", "phonetic": "/haʊ naɪs/" }
+        {
+          "word": "Where's",
+          "translation": "在哪里",
+          "phonetic": "/weəz/"
+        },
+        {
+          "word": "isn't",
+          "translation": "不是",
+          "phonetic": "/ˈɪznt/"
+        },
+        {
+          "word": "on",
+          "translation": "在……上面",
+          "phonetic": "/ɒn/"
+        },
+        {
+          "word": "sofa",
+          "translation": "沙发",
+          "phonetic": "/ˈsəʊfə/"
+        },
+        {
+          "word": "under",
+          "translation": "在……下面",
+          "phonetic": "/ˈʌndə/"
+        },
+        {
+          "word": "behind",
+          "translation": "在……后面",
+          "phonetic": "/bɪˈhaɪnd/"
+        },
+        {
+          "word": "vase",
+          "translation": "花瓶",
+          "phonetic": "/vɑːz/"
+        },
+        {
+          "word": "basket",
+          "translation": "篮子",
+          "phonetic": "/ˈbɑːskɪt/"
+        },
+        {
+          "word": "miaow",
+          "translation": "喵",
+          "phonetic": "/miˈaʊ/"
+        },
+        {
+          "word": "How nice",
+          "translation": "太好了！",
+          "phonetic": "/haʊ naɪs/"
+        }
       ],
       "Unit 2 What's for dinner?": [
-        { "word": "dinner", "translation": "晚餐，正餐", "phonetic": "/ˈdɪnə/" },
-        { "word": "ready", "translation": "准备好的", "phonetic": "/ˈredi/" },
-        { "word": "for", "translation": "给、对、供", "phonetic": "/fɔː/" },
-        { "word": "rice", "translation": "米饭", "phonetic": "/raɪs/" },
-        { "word": "broccoli", "translation": "西兰花", "phonetic": "/ˈbrɒkəli/" },
-        { "word": "fish", "translation": "鱼；鱼肉", "phonetic": "/fɪʃ/" },
-        { "word": "soup", "translation": "汤；羹", "phonetic": "/suːp/" },
-        { "word": "meat", "translation": "肉类", "phonetic": "/miːt/" },
-        { "word": "noodles", "translation": "面条", "phonetic": "/ˈnuːdlz/" }
+        {
+          "word": "dinner",
+          "translation": "晚餐，正餐",
+          "phonetic": "/ˈdɪnə/"
+        },
+        {
+          "word": "ready",
+          "translation": "准备好的",
+          "phonetic": "/ˈredi/"
+        },
+        {
+          "word": "for",
+          "translation": "给、对、供",
+          "phonetic": "/fɔː/"
+        },
+        {
+          "word": "rice",
+          "translation": "米饭",
+          "phonetic": "/raɪs/"
+        },
+        {
+          "word": "broccoli",
+          "translation": "西兰花",
+          "phonetic": "/ˈbrɒkəli/"
+        },
+        {
+          "word": "fish",
+          "translation": "鱼；鱼肉",
+          "phonetic": "/fɪʃ/"
+        },
+        {
+          "word": "soup",
+          "translation": "汤；羹",
+          "phonetic": "/suːp/"
+        },
+        {
+          "word": "meat",
+          "translation": "肉类",
+          "phonetic": "/miːt/"
+        },
+        {
+          "word": "noodles",
+          "translation": "面条",
+          "phonetic": "/ˈnuːdlz/"
+        }
       ],
       "Unit 3 My school subjects": [
-        { "word": "PE", "translation": "体育课", "phonetic": "/ˌpiː ˈiː/" },
-        { "word": "Maths", "translation": "数学课", "phonetic": "/mæθs/" },
-        { "word": "Chinese", "translation": "语文课", "phonetic": "/ˌtʃaɪˈniːz/" },
-        { "word": "English", "translation": "英语课", "phonetic": "/ˈɪŋɡlɪʃ/" },
-        { "word": "today", "translation": "今天", "phonetic": "/təˈdeɪ/" },
-        { "word": "fun", "translation": "有趣的", "phonetic": "/fʌn/" },
-        { "word": "easy", "translation": "简单的", "phonetic": "/ˈiːzi/" },
-        { "word": "Art", "translation": "美术课", "phonetic": "/ɑːt/" },
-        { "word": "Music", "translation": "音乐课", "phonetic": "/ˈmjuːzɪk/" }
+        {
+          "word": "PE",
+          "translation": "体育课",
+          "phonetic": "/ˌpiː ˈiː/"
+        },
+        {
+          "word": "Maths",
+          "translation": "数学课",
+          "phonetic": "/mæθs/"
+        },
+        {
+          "word": "Chinese",
+          "translation": "语文课",
+          "phonetic": "/ˌtʃaɪˈniːz/"
+        },
+        {
+          "word": "English",
+          "translation": "英语课",
+          "phonetic": "/ˈɪŋɡlɪʃ/"
+        },
+        {
+          "word": "today",
+          "translation": "今天",
+          "phonetic": "/təˈdeɪ/"
+        },
+        {
+          "word": "fun",
+          "translation": "有趣的",
+          "phonetic": "/fʌn/"
+        },
+        {
+          "word": "easy",
+          "translation": "简单的",
+          "phonetic": "/ˈiːzi/"
+        },
+        {
+          "word": "Art",
+          "translation": "美术课",
+          "phonetic": "/ɑːt/"
+        },
+        {
+          "word": "Music",
+          "translation": "音乐课",
+          "phonetic": "/ˈmjuːzɪk/"
+        }
       ],
       "Unit 4 My body parts": [
-        { "word": "eye", "translation": "眼睛", "phonetic": "/aɪ/" },
-        { "word": "nose", "translation": "鼻子", "phonetic": "/nəʊz/" },
-        { "word": "mouth", "translation": "嘴巴", "phonetic": "/maʊθ/" },
-        { "word": "hair", "translation": "头发", "phonetic": "/heə/" },
-        { "word": "ear", "translation": "耳朵", "phonetic": "/ɪə/" },
-        { "word": "face", "translation": "脸；面孔", "phonetic": "/feɪs/" }
+        {
+          "word": "eye",
+          "translation": "眼睛",
+          "phonetic": "/aɪ/"
+        },
+        {
+          "word": "nose",
+          "translation": "鼻子",
+          "phonetic": "/nəʊz/"
+        },
+        {
+          "word": "mouth",
+          "translation": "嘴巴",
+          "phonetic": "/maʊθ/"
+        },
+        {
+          "word": "hair",
+          "translation": "头发",
+          "phonetic": "/heə/"
+        },
+        {
+          "word": "ear",
+          "translation": "耳朵",
+          "phonetic": "/ɪə/"
+        },
+        {
+          "word": "face",
+          "translation": "脸；面孔",
+          "phonetic": "/feɪs/"
+        }
       ],
       "Unit 5 Can you ride a bike?": [
-        { "word": "Can you", "translation": "你会吗？", "phonetic": "/kæn juː/" },
-        { "word": "skip", "translation": "跳绳", "phonetic": "/skɪp/" },
-        { "word": "skate", "translation": "滑冰", "phonetic": "/skeɪt/" },
-        { "word": "play", "translation": "玩耍；游戏", "phonetic": "/pleɪ/" },
-        { "word": "can't", "translation": "不能；不会", "phonetic": "/kɑːnt/" },
-        { "word": "ride a bike", "translation": "骑自行车", "phonetic": "/raɪd ə baɪk/" },
-        { "word": "swim", "translation": "游泳", "phonetic": "/swɪm/" }
+        {
+          "word": "Can you",
+          "translation": "你会吗？",
+          "phonetic": "/kæn juː/"
+        },
+        {
+          "word": "skip",
+          "translation": "跳绳",
+          "phonetic": "/skɪp/"
+        },
+        {
+          "word": "skate",
+          "translation": "滑冰",
+          "phonetic": "/skeɪt/"
+        },
+        {
+          "word": "play",
+          "translation": "玩耍；游戏",
+          "phonetic": "/pleɪ/"
+        },
+        {
+          "word": "can't",
+          "translation": "不能；不会",
+          "phonetic": "/kɑːnt/"
+        },
+        {
+          "word": "ride a bike",
+          "translation": "骑自行车",
+          "phonetic": "/raɪd ə baɪk/"
+        },
+        {
+          "word": "swim",
+          "translation": "游泳",
+          "phonetic": "/swɪm/"
+        }
       ],
       "Unit 6 Let's go shopping": [
-        { "word": "go shopping", "translation": "购物", "phonetic": "/ɡəʊ ˈʃɒpɪŋ/" },
-        { "word": "Hooray", "translation": "好极了！", "phonetic": "/hʊˈreɪ/" },
-        { "word": "dress", "translation": "连衣裙", "phonetic": "/dres/" },
-        { "word": "shorts", "translation": "短裤", "phonetic": "/ʃɔːts/" },
-        { "word": "T-shirt", "translation": "T恤衫", "phonetic": "/ˈtiː ʃɜːt/" },
-        { "word": "blouse", "translation": "女式短上衣，衬衫", "phonetic": "/blaʊz/" },
-        { "word": "hat", "translation": "帽子", "phonetic": "/hæt/" },
-        { "word": "skirt", "translation": "短裙", "phonetic": "/skɜːt/" }
+        {
+          "word": "go shopping",
+          "translation": "购物",
+          "phonetic": "/ɡəʊ ˈʃɒpɪŋ/"
+        },
+        {
+          "word": "Hooray",
+          "translation": "好极了！",
+          "phonetic": "/hʊˈreɪ/"
+        },
+        {
+          "word": "dress",
+          "translation": "连衣裙",
+          "phonetic": "/dres/"
+        },
+        {
+          "word": "shorts",
+          "translation": "短裤",
+          "phonetic": "/ʃɔːts/"
+        },
+        {
+          "word": "T-shirt",
+          "translation": "T恤衫",
+          "phonetic": "/ˈtiː ʃɜːt/"
+        },
+        {
+          "word": "blouse",
+          "translation": "女式短上衣，衬衫",
+          "phonetic": "/blaʊz/"
+        },
+        {
+          "word": "hat",
+          "translation": "帽子",
+          "phonetic": "/hæt/"
+        },
+        {
+          "word": "skirt",
+          "translation": "短裙",
+          "phonetic": "/skɜːt/"
+        }
       ],
       "Unit 7 Summer fun": [
-        { "word": "summer", "translation": "夏天；夏季", "phonetic": "/ˈsʌmə/" },
-        { "word": "beach", "translation": "海滩；沙滩", "phonetic": "/biːtʃ/" },
-        { "word": "pool", "translation": "游泳池", "phonetic": "/puːl/" },
-        { "word": "eat", "translation": "吃", "phonetic": "/iːt/" },
-        { "word": "drink", "translation": "喝；饮", "phonetic": "/drɪŋk/" },
-        { "word": "ice cream", "translation": "冰淇淋", "phonetic": "/ˌaɪs ˈkriːm/" },
-        { "word": "orange juice", "translation": "橙汁", "phonetic": "/ˈɒrɪndʒ dʒuːs/" },
-        { "word": "watermelon", "translation": "西瓜", "phonetic": "/ˈwɔːtəmelən/" }
+        {
+          "word": "summer",
+          "translation": "夏天；夏季",
+          "phonetic": "/ˈsʌmə/"
+        },
+        {
+          "word": "beach",
+          "translation": "海滩；沙滩",
+          "phonetic": "/biːtʃ/"
+        },
+        {
+          "word": "pool",
+          "translation": "游泳池",
+          "phonetic": "/puːl/"
+        },
+        {
+          "word": "eat",
+          "translation": "吃",
+          "phonetic": "/iːt/"
+        },
+        {
+          "word": "drink",
+          "translation": "喝；饮",
+          "phonetic": "/drɪŋk/"
+        },
+        {
+          "word": "ice cream",
+          "translation": "冰淇淋",
+          "phonetic": "/ˌaɪs ˈkriːm/"
+        },
+        {
+          "word": "orange juice",
+          "translation": "橙汁",
+          "phonetic": "/ˈɒrɪndʒ dʒuːs/"
+        },
+        {
+          "word": "watermelon",
+          "translation": "西瓜",
+          "phonetic": "/ˈwɔːtəmelən/"
+        }
       ],
       "Unit 8 At the park": [
-        { "word": "push", "translation": "推动（人或物）", "phonetic": "/pʊʃ/" },
-        { "word": "don't", "translation": "不，不要", "phonetic": "/dəʊnt/" },
-        { "word": "queue up", "translation": "排队等候", "phonetic": "/kjuː ʌp/" },
-        { "word": "talk", "translation": "说话；讲话", "phonetic": "/tɔːk/" },
-        { "word": "How about", "translation": "……怎么样？", "phonetic": "/haʊ əˈbaʊt/" },
-        { "word": "Sorry", "translation": "对不起", "phonetic": "/ˈsɒri/" },
-        { "word": "shout", "translation": "大声说；喊叫", "phonetic": "/ʃaʊt/" }
+        {
+          "word": "push",
+          "translation": "推动（人或物）",
+          "phonetic": "/pʊʃ/"
+        },
+        {
+          "word": "don't",
+          "translation": "不，不要",
+          "phonetic": "/dəʊnt/"
+        },
+        {
+          "word": "queue up",
+          "translation": "排队等候",
+          "phonetic": "/kjuː ʌp/"
+        },
+        {
+          "word": "talk",
+          "translation": "说话；讲话",
+          "phonetic": "/tɔːk/"
+        },
+        {
+          "word": "How about",
+          "translation": "……怎么样？",
+          "phonetic": "/haʊ əˈbaʊt/"
+        },
+        {
+          "word": "Sorry",
+          "translation": "对不起",
+          "phonetic": "/ˈsɒri/"
+        },
+        {
+          "word": "shout",
+          "translation": "大声说；喊叫",
+          "phonetic": "/ʃaʊt/"
+        }
       ]
     }
   },
@@ -157,10 +1388,305 @@ const WORDS_DATA = {
     "name": "三年级下册",
     "units": {
       "Unit 1 In class": [
-        { "word": "please", "translation": "请", "phonetic": "/pliːz/" },
-        { "word": "open", "translation": "打开", "phonetic": "/ˈəʊpən/" },
-        { "word": "close", "translation": "关上", "phonetic": "/kləʊz/" },
-        { "word": "blackboard", "translation": "黑板", "phonetic": "/ˈblækbɔːd/" }
+        {
+          "word": "stand up",
+          "translation": "起立",
+          "phonetic": "/stænd ʌp/"
+        },
+        {
+          "word": "sit down",
+          "translation": "坐下",
+          "phonetic": "/sɪt daʊn/"
+        },
+        {
+          "word": "open",
+          "translation": "打开",
+          "phonetic": "/ˈəʊpən/"
+        },
+        {
+          "word": "close",
+          "translation": "关上",
+          "phonetic": "/kləʊz/"
+        },
+        {
+          "word": "book",
+          "translation": "书",
+          "phonetic": "/bʊk/"
+        },
+        {
+          "word": "blackboard",
+          "translation": "黑板",
+          "phonetic": "/ˈblækbɔːd/"
+        },
+        {
+          "word": "window",
+          "translation": "窗",
+          "phonetic": "/ˈwɪndəʊ/"
+        },
+        {
+          "word": "door",
+          "translation": "门",
+          "phonetic": "/dɔː/"
+        }
+      ],
+      "Unit 2 In the library": [
+        {
+          "word": "shout",
+          "translation": "喊叫",
+          "phonetic": "/ʃaʊt/"
+        },
+        {
+          "word": "run",
+          "translation": "跑",
+          "phonetic": "/rʌn/"
+        },
+        {
+          "word": "eat",
+          "translation": "吃",
+          "phonetic": "/iːt/"
+        },
+        {
+          "word": "talk",
+          "translation": "谈话",
+          "phonetic": "/tɔːk/"
+        },
+        {
+          "word": "library",
+          "translation": "图书馆",
+          "phonetic": "/ˈlaɪbrəri/"
+        },
+        {
+          "word": "sleep",
+          "translation": "睡觉",
+          "phonetic": "/sliːp/"
+        },
+        {
+          "word": "drink",
+          "translation": "喝",
+          "phonetic": "/drɪŋk/"
+        }
+      ],
+      "Unit 3 Is this your pencil?": [
+        {
+          "word": "pencil",
+          "translation": "铅笔",
+          "phonetic": "/ˈpensl/"
+        },
+        {
+          "word": "pen",
+          "translation": "钢笔",
+          "phonetic": "/pen/"
+        },
+        {
+          "word": "ruler",
+          "translation": "直尺",
+          "phonetic": "/ˈruːlə/"
+        },
+        {
+          "word": "rubber",
+          "translation": "橡皮",
+          "phonetic": "/ˈrʌbə/"
+        },
+        {
+          "word": "pencilcase",
+          "translation": "铅笔盒",
+          "phonetic": "/ˈpensl keɪs/"
+        },
+        {
+          "word": "crayon",
+          "translation": "蜡笔",
+          "phonetic": "/ˈkreɪən/"
+        },
+        {
+          "word": "schoolbag",
+          "translation": "书包",
+          "phonetic": "/ˈskuːlbæɡ/"
+        }
+      ],
+      "Unit 4 Where's the bird?": [
+        {
+          "word": "desk",
+          "translation": "书桌",
+          "phonetic": "/desk/"
+        },
+        {
+          "word": "chair",
+          "translation": "椅子",
+          "phonetic": "/tʃeə/"
+        },
+        {
+          "word": "in",
+          "translation": "在……里",
+          "phonetic": "/ɪn/"
+        },
+        {
+          "word": "on",
+          "translation": "在……上",
+          "phonetic": "/ɒn/"
+        },
+        {
+          "word": "under",
+          "translation": "在……下",
+          "phonetic": "/ˈʌndə/"
+        },
+        {
+          "word": "behind",
+          "translation": "在……后",
+          "phonetic": "/bɪˈhaɪnd/"
+        },
+        {
+          "word": "near",
+          "translation": "在……附近",
+          "phonetic": "/nɪə/"
+        }
+      ],
+      "Unit 5 How old are you?": [
+        {
+          "word": "one",
+          "translation": "一",
+          "phonetic": "/wʌn/"
+        },
+        {
+          "word": "two",
+          "translation": "二",
+          "phonetic": "/tuː/"
+        },
+        {
+          "word": "three",
+          "translation": "三",
+          "phonetic": "/θriː/"
+        },
+        {
+          "word": "four",
+          "translation": "四",
+          "phonetic": "/fɔː/"
+        },
+        {
+          "word": "five",
+          "translation": "五",
+          "phonetic": "/faɪv/"
+        },
+        {
+          "word": "six",
+          "translation": "六",
+          "phonetic": "/sɪks/"
+        },
+        {
+          "word": "seven",
+          "translation": "七",
+          "phonetic": "/ˈsevn/"
+        },
+        {
+          "word": "eight",
+          "translation": "八",
+          "phonetic": "/eɪt/"
+        },
+        {
+          "word": "nine",
+          "translation": "九",
+          "phonetic": "/naɪn/"
+        },
+        {
+          "word": "ten",
+          "translation": "十",
+          "phonetic": "/ten/"
+        }
+      ],
+      "Unit 6 What time is it?": [
+        {
+          "word": "time",
+          "translation": "时间",
+          "phonetic": "/taɪm/"
+        },
+        {
+          "word": "breakfast",
+          "translation": "早餐",
+          "phonetic": "/ˈbrekfəst/"
+        },
+        {
+          "word": "lunch",
+          "translation": "午餐",
+          "phonetic": "/lʌntʃ/"
+        },
+        {
+          "word": "dinner",
+          "translation": "晚餐",
+          "phonetic": "/ˈdɪnə/"
+        },
+        {
+          "word": "bed",
+          "translation": "床",
+          "phonetic": "/bed/"
+        },
+        {
+          "word": "clock",
+          "translation": "钟",
+          "phonetic": "/klɒk/"
+        }
+      ],
+      "Unit 7 On the farm": [
+        {
+          "word": "pig",
+          "translation": "猪",
+          "phonetic": "/pɪɡ/"
+        },
+        {
+          "word": "cow",
+          "translation": "奶牛",
+          "phonetic": "/kaʊ/"
+        },
+        {
+          "word": "duck",
+          "translation": "鸭子",
+          "phonetic": "/dʌk/"
+        },
+        {
+          "word": "chicken",
+          "translation": "鸡",
+          "phonetic": "/ˈtʃɪkɪn/"
+        },
+        {
+          "word": "sheep",
+          "translation": "羊",
+          "phonetic": "/ʃiːp/"
+        },
+        {
+          "word": "horse",
+          "translation": "马",
+          "phonetic": "/hɔːs/"
+        }
+      ],
+      "Unit 8 We're twins!": [
+        {
+          "word": "man",
+          "translation": "男人",
+          "phonetic": "/mæn/"
+        },
+        {
+          "word": "woman",
+          "translation": "女人",
+          "phonetic": "/ˈwʊmən/"
+        },
+        {
+          "word": "boy",
+          "translation": "男孩",
+          "phonetic": "/bɔɪ/"
+        },
+        {
+          "word": "girl",
+          "translation": "女孩",
+          "phonetic": "/ɡɜːl/"
+        },
+        {
+          "word": "baby",
+          "translation": "婴儿",
+          "phonetic": "/ˈbeɪbi/"
+        },
+        {
+          "word": "twin",
+          "translation": "双胞胎之一",
+          "phonetic": "/twɪn/"
+        }
       ]
     }
   },
@@ -168,12 +1694,415 @@ const WORDS_DATA = {
     "name": "四年级上册",
     "units": {
       "Unit 1 I like dogs": [
-        { "word": "dog", "translation": "狗", "phonetic": "/dɒɡ/" },
-        { "word": "cat", "translation": "猫", "phonetic": "/kæt/" },
-        { "word": "panda", "translation": "熊猫", "phonetic": "/ˈpændə/" },
-        { "word": "tiger", "translation": "老虎", "phonetic": "/ˈtaɪɡə/" },
-        { "word": "monkey", "translation": "猴子", "phonetic": "/ˈmʌŋki/" },
-        { "word": "lion", "translation": "狮子", "phonetic": "/ˈlaɪən/" }
+        {
+          "word": "like",
+          "translation": "喜欢",
+          "phonetic": "/laɪk/"
+        },
+        {
+          "word": "dog",
+          "translation": "狗",
+          "phonetic": "/dɒɡ/"
+        },
+        {
+          "word": "animal",
+          "translation": "动物",
+          "phonetic": "/ˈænɪml/"
+        },
+        {
+          "word": "cat",
+          "translation": "猫",
+          "phonetic": "/kæt/"
+        },
+        {
+          "word": "panda",
+          "translation": "熊猫",
+          "phonetic": "/ˈpændə/"
+        },
+        {
+          "word": "fat",
+          "translation": "胖的",
+          "phonetic": "/fæt/"
+        },
+        {
+          "word": "elephant",
+          "translation": "大象",
+          "phonetic": "/ˈelɪfənt/"
+        },
+        {
+          "word": "horse",
+          "translation": "马",
+          "phonetic": "/hɔːs/"
+        },
+        {
+          "word": "lion",
+          "translation": "狮子",
+          "phonetic": "/ˈlaɪən/"
+        },
+        {
+          "word": "monkey",
+          "translation": "猴子",
+          "phonetic": "/ˈmʌŋki/"
+        },
+        {
+          "word": "tiger",
+          "translation": "老虎",
+          "phonetic": "/ˈtaɪɡə/"
+        }
+      ],
+      "Unit 2 Let's make a fruit salad": [
+        {
+          "word": "make",
+          "translation": "制作",
+          "phonetic": "/meɪk/"
+        },
+        {
+          "word": "fruit",
+          "translation": "水果",
+          "phonetic": "/fruːt/"
+        },
+        {
+          "word": "salad",
+          "translation": "色拉",
+          "phonetic": "/ˈsæləd/"
+        },
+        {
+          "word": "pineapple",
+          "translation": "菠萝",
+          "phonetic": "/ˈpaɪnæpl/"
+        },
+        {
+          "word": "mango",
+          "translation": "芒果",
+          "phonetic": "/ˈmæŋɡəʊ/"
+        },
+        {
+          "word": "banana",
+          "translation": "香蕉",
+          "phonetic": "/bəˈnɑːnə/"
+        },
+        {
+          "word": "grape",
+          "translation": "葡萄",
+          "phonetic": "/ɡreɪp/"
+        },
+        {
+          "word": "some",
+          "translation": "一些",
+          "phonetic": "/sʌm/"
+        },
+        {
+          "word": "any",
+          "translation": "任何的",
+          "phonetic": "/ˈeni/"
+        },
+        {
+          "word": "here you are",
+          "translation": "给你",
+          "phonetic": "/hɪə juː ɑː/"
+        }
+      ],
+      "Unit 3 How many?": [
+        {
+          "word": "how many",
+          "translation": "多少",
+          "phonetic": "/haʊ ˈmeni/"
+        },
+        {
+          "word": "number",
+          "translation": "数字",
+          "phonetic": "/ˈnʌmbə/"
+        },
+        {
+          "word": "thirteen",
+          "translation": "十三",
+          "phonetic": "/ˌθɜːˈtiːn/"
+        },
+        {
+          "word": "fourteen",
+          "translation": "十四",
+          "phonetic": "/ˌfɔːˈtiːn/"
+        },
+        {
+          "word": "fifteen",
+          "translation": "十五",
+          "phonetic": "/ˌfɪfˈtiːn/"
+        },
+        {
+          "word": "sixteen",
+          "translation": "十六",
+          "phonetic": "/ˌsɪksˈtiːn/"
+        },
+        {
+          "word": "seventeen",
+          "translation": "十七",
+          "phonetic": "/ˌsevnˈtiːn/"
+        },
+        {
+          "word": "eighteen",
+          "translation": "十八",
+          "phonetic": "/ˌeɪˈtiːn/"
+        },
+        {
+          "word": "nineteen",
+          "translation": "十九",
+          "phonetic": "/ˌnaɪnˈtiːn/"
+        },
+        {
+          "word": "twenty",
+          "translation": "二十",
+          "phonetic": "/ˈtwenti/"
+        },
+        {
+          "word": "sticker",
+          "translation": "贴纸",
+          "phonetic": "/ˈstɪkə/"
+        }
+      ],
+      "Unit 4 I can play basketball": [
+        {
+          "word": "basketball",
+          "translation": "篮球",
+          "phonetic": "/ˈbɑːskɪtbɔːl/"
+        },
+        {
+          "word": "football",
+          "translation": "足球",
+          "phonetic": "/ˈfʊtbɔːl/"
+        },
+        {
+          "word": "jump",
+          "translation": "跳",
+          "phonetic": "/dʒʌmp/"
+        },
+        {
+          "word": "run",
+          "translation": "跑",
+          "phonetic": "/rʌn/"
+        },
+        {
+          "word": "fly",
+          "translation": "飞",
+          "phonetic": "/flaɪ/"
+        },
+        {
+          "word": "skate",
+          "translation": "滑冰",
+          "phonetic": "/skeɪt/"
+        },
+        {
+          "word": "swim",
+          "translation": "游泳",
+          "phonetic": "/swɪm/"
+        },
+        {
+          "word": "well",
+          "translation": "好",
+          "phonetic": "/wel/"
+        },
+        {
+          "word": "sad",
+          "translation": "难过的",
+          "phonetic": "/sæd/"
+        }
+      ],
+      "Unit 5 Our new home": [
+        {
+          "word": "home",
+          "translation": "家",
+          "phonetic": "/həʊm/"
+        },
+        {
+          "word": "bedroom",
+          "translation": "卧室",
+          "phonetic": "/ˈbedruːm/"
+        },
+        {
+          "word": "living room",
+          "translation": "客厅",
+          "phonetic": "/ˈlɪvɪŋ ruːm/"
+        },
+        {
+          "word": "kitchen",
+          "translation": "厨房",
+          "phonetic": "/ˈkɪtʃɪn/"
+        },
+        {
+          "word": "bathroom",
+          "translation": "浴室",
+          "phonetic": "/ˈbɑːθruːm/"
+        },
+        {
+          "word": "sofa",
+          "translation": "沙发",
+          "phonetic": "/ˈsəʊfə/"
+        },
+        {
+          "word": "fridge",
+          "translation": "冰箱",
+          "phonetic": "/frɪdʒ/"
+        },
+        {
+          "word": "table",
+          "translation": "桌子",
+          "phonetic": "/ˈteɪbl/"
+        },
+        {
+          "word": "bed",
+          "translation": "床",
+          "phonetic": "/bed/"
+        },
+        {
+          "word": "phone",
+          "translation": "电话",
+          "phonetic": "/fəʊn/"
+        }
+      ],
+      "Unit 6 At the snack bar": [
+        {
+          "word": "snack bar",
+          "translation": "小吃店",
+          "phonetic": "/snæk bɑː/"
+        },
+        {
+          "word": "hamburger",
+          "translation": "汉堡包",
+          "phonetic": "/ˈhæmbɜːɡə/"
+        },
+        {
+          "word": "sandwich",
+          "translation": "三明治",
+          "phonetic": "/ˈsænwɪdʒ/"
+        },
+        {
+          "word": "chips",
+          "translation": "薯条",
+          "phonetic": "/tʃɪps/"
+        },
+        {
+          "word": "noodles",
+          "translation": "面条",
+          "phonetic": "/ˈnuːdlz/"
+        },
+        {
+          "word": "coffee",
+          "translation": "咖啡",
+          "phonetic": "/ˈkɒfi/"
+        },
+        {
+          "word": "juice",
+          "translation": "果汁",
+          "phonetic": "/dʒuːs/"
+        },
+        {
+          "word": "tea",
+          "translation": "茶",
+          "phonetic": "/tiː/"
+        },
+        {
+          "word": "milk",
+          "translation": "牛奶",
+          "phonetic": "/mɪlk/"
+        }
+      ],
+      "Unit 7 How much is it?": [
+        {
+          "word": "how much",
+          "translation": "多少钱",
+          "phonetic": "/haʊ mʌtʃ/"
+        },
+        {
+          "word": "shoes",
+          "translation": "鞋子",
+          "phonetic": "/ʃuːz/"
+        },
+        {
+          "word": "socks",
+          "translation": "袜子",
+          "phonetic": "/sɒks/"
+        },
+        {
+          "word": "umbrella",
+          "translation": "雨伞",
+          "phonetic": "/ʌmˈbrelə/"
+        },
+        {
+          "word": "fan",
+          "translation": "扇子",
+          "phonetic": "/fæn/"
+        },
+        {
+          "word": "ninety",
+          "translation": "九十",
+          "phonetic": "/ˈnaɪnti/"
+        },
+        {
+          "word": "hundred",
+          "translation": "百",
+          "phonetic": "/ˈhʌndrəd/"
+        },
+        {
+          "word": "cheap",
+          "translation": "便宜的",
+          "phonetic": "/tʃiːp/"
+        },
+        {
+          "word": "expensive",
+          "translation": "昂贵的",
+          "phonetic": "/ɪkˈspensɪv/"
+        }
+      ],
+      "Unit 8 Dolls": [
+        {
+          "word": "doll",
+          "translation": "洋娃娃",
+          "phonetic": "/dɒl/"
+        },
+        {
+          "word": "hair",
+          "translation": "头发",
+          "phonetic": "/heə/"
+        },
+        {
+          "word": "eye",
+          "translation": "眼睛",
+          "phonetic": "/aɪ/"
+        },
+        {
+          "word": "nose",
+          "translation": "鼻子",
+          "phonetic": "/nəʊz/"
+        },
+        {
+          "word": "mouth",
+          "translation": "嘴巴",
+          "phonetic": "/maʊθ/"
+        },
+        {
+          "word": "ear",
+          "translation": "耳朵",
+          "phonetic": "/ɪə/"
+        },
+        {
+          "word": "head",
+          "translation": "头部",
+          "phonetic": "/hed/"
+        },
+        {
+          "word": "body",
+          "translation": "身体",
+          "phonetic": "/ˈbɒdi/"
+        },
+        {
+          "word": "hand",
+          "translation": "手",
+          "phonetic": "/hænd/"
+        },
+        {
+          "word": "foot",
+          "translation": "脚",
+          "phonetic": "/fʊt/"
+        }
       ]
     }
   },
@@ -181,23 +2110,706 @@ const WORDS_DATA = {
     "name": "四年级下册",
     "units": {
       "Unit 1 Our school subjects": [
-        { "word": "school", "translation": "学校", "phonetic": "/skuːl/" },
-        { "word": "subject", "translation": "科目", "phonetic": "/ˈsʌbdʒɪkt/" },
-        { "word": "English", "translation": "英语", "phonetic": "/ˈɪŋɡlɪʃ/" },
-        { "word": "Chinese", "translation": "语文", "phonetic": "/ˌtʃaɪˈniːz/" },
-        { "word": "Maths", "translation": "数学", "phonetic": "/mæθs/" }
+        {
+          "word": "Chinese",
+          "translation": "语文",
+          "phonetic": "/ˌtʃaɪˈniːz/"
+        },
+        {
+          "word": "Maths",
+          "translation": "数学",
+          "phonetic": "/mæθs/"
+        },
+        {
+          "word": "English",
+          "translation": "英语",
+          "phonetic": "/ˈɪŋɡlɪʃ/"
+        },
+        {
+          "word": "PE",
+          "translation": "体育",
+          "phonetic": "/ˌpiː ˈiː/"
+        },
+        {
+          "word": "Music",
+          "translation": "音乐",
+          "phonetic": "/ˈmjuːzɪk/"
+        },
+        {
+          "word": "Art",
+          "translation": "美术",
+          "phonetic": "/ɑːt/"
+        },
+        {
+          "word": "subject",
+          "translation": "科目",
+          "phonetic": "/ˈsʌbdʒɪkt/"
+        },
+        {
+          "word": "school",
+          "translation": "学校",
+          "phonetic": "/skuːl/"
+        },
+        {
+          "word": "timetable",
+          "translation": "课程表",
+          "phonetic": "/ˈtaɪmteɪbl/"
+        }
+      ],
+      "Unit 2 After school": [
+        {
+          "word": "Monday",
+          "translation": "星期一",
+          "phonetic": "/ˈmʌndeɪ/"
+        },
+        {
+          "word": "Tuesday",
+          "translation": "星期二",
+          "phonetic": "/ˈtjuːzdeɪ/"
+        },
+        {
+          "word": "Wednesday",
+          "translation": "星期三",
+          "phonetic": "/ˈwenzdeɪ/"
+        },
+        {
+          "word": "Thursday",
+          "translation": "星期四",
+          "phonetic": "/ˈθɜːzdeɪ/"
+        },
+        {
+          "word": "Friday",
+          "translation": "星期五",
+          "phonetic": "/ˈfraɪdeɪ/"
+        },
+        {
+          "word": "Saturday",
+          "translation": "星期六",
+          "phonetic": "/ˈsætədeɪ/"
+        },
+        {
+          "word": "Sunday",
+          "translation": "星期日",
+          "phonetic": "/ˈsʌndeɪ/"
+        },
+        {
+          "word": "match",
+          "translation": "比赛",
+          "phonetic": "/mætʃ/"
+        },
+        {
+          "word": "table tennis",
+          "translation": "乒乓球",
+          "phonetic": "/ˈteɪbl tenis/"
+        }
+      ],
+      "Unit 3 My day": [
+        {
+          "word": "go to school",
+          "translation": "上学",
+          "phonetic": "/ɡəʊ tuː skuːl/"
+        },
+        {
+          "word": "have lunch",
+          "translation": "吃午餐",
+          "phonetic": "/hæv lʌntʃ/"
+        },
+        {
+          "word": "go home",
+          "translation": "回家",
+          "phonetic": "/ɡəʊ həʊm/"
+        },
+        {
+          "word": "do homework",
+          "translation": "做作业",
+          "phonetic": "/duː ˈhəʊmwɜːk/"
+        },
+        {
+          "word": "watch TV",
+          "translation": "看电视",
+          "phonetic": "/wɒtʃ ˌtiːˈviː/"
+        },
+        {
+          "word": "go to bed",
+          "translation": "上床睡觉",
+          "phonetic": "/ɡəʊ tuː bed/"
+        },
+        {
+          "word": "usually",
+          "translation": "通常",
+          "phonetic": "/ˈjuːʒuəli/"
+        }
+      ],
+      "Unit 4 Drawing in the park": [
+        {
+          "word": "draw",
+          "translation": "画画",
+          "phonetic": "/drɔː/"
+        },
+        {
+          "word": "flower",
+          "translation": "花",
+          "phonetic": "/ˈflaʊə/"
+        },
+        {
+          "word": "river",
+          "translation": "河流",
+          "phonetic": "/ˈrɪvə/"
+        },
+        {
+          "word": "boat",
+          "translation": "小船",
+          "phonetic": "/bəʊt/"
+        },
+        {
+          "word": "hill",
+          "translation": "小山",
+          "phonetic": "/hɪl/"
+        },
+        {
+          "word": "lake",
+          "translation": "湖泊",
+          "phonetic": "/leɪk/"
+        },
+        {
+          "word": "park",
+          "translation": "公园",
+          "phonetic": "/pɑːk/"
+        },
+        {
+          "word": "sky",
+          "translation": "天空",
+          "phonetic": "/skaɪ/"
+        }
+      ],
+      "Unit 5 Seasons": [
+        {
+          "word": "spring",
+          "translation": "春天",
+          "phonetic": "/sprɪŋ/"
+        },
+        {
+          "word": "summer",
+          "translation": "夏天",
+          "phonetic": "/ˈsʌmə/"
+        },
+        {
+          "word": "autumn",
+          "translation": "秋天",
+          "phonetic": "/ˈɔːtəm/"
+        },
+        {
+          "word": "winter",
+          "translation": "冬天",
+          "phonetic": "/ˈwɪntə/"
+        },
+        {
+          "word": "hot",
+          "translation": "热的",
+          "phonetic": "/hɒt/"
+        },
+        {
+          "word": "warm",
+          "translation": "温暖的",
+          "phonetic": "/wɔːm/"
+        },
+        {
+          "word": "cool",
+          "translation": "凉爽的",
+          "phonetic": "/kuːl/"
+        },
+        {
+          "word": "cold",
+          "translation": "寒冷的",
+          "phonetic": "/kəʊld/"
+        },
+        {
+          "word": "picnic",
+          "translation": "野餐",
+          "phonetic": "/ˈpɪknɪk/"
+        }
+      ],
+      "Unit 6 Whose dress is this?": [
+        {
+          "word": "dress",
+          "translation": "连衣裙",
+          "phonetic": "/dres/"
+        },
+        {
+          "word": "skirt",
+          "translation": "短裙",
+          "phonetic": "/skɜːt/"
+        },
+        {
+          "word": "trousers",
+          "translation": "裤子",
+          "phonetic": "/ˈtraʊzəz/"
+        },
+        {
+          "word": "gloves",
+          "translation": "手套",
+          "phonetic": "/ɡlʌvz/"
+        },
+        {
+          "word": "coat",
+          "translation": "外套",
+          "phonetic": "/kəʊt/"
+        },
+        {
+          "word": "sweater",
+          "translation": "毛衣",
+          "phonetic": "/ˈswetə/"
+        },
+        {
+          "word": "whose",
+          "translation": "谁的",
+          "phonetic": "/huːz/"
+        }
+      ],
+      "Unit 7 What's the matter?": [
+        {
+          "word": "thirsty",
+          "translation": "口渴的",
+          "phonetic": "/ˈθɜːsti/"
+        },
+        {
+          "word": "hungry",
+          "translation": "饥饿的",
+          "phonetic": "/ˈhʌŋɡri/"
+        },
+        {
+          "word": "tired",
+          "translation": "疲劳的",
+          "phonetic": "/ˈtaɪəd/"
+        },
+        {
+          "word": "ill",
+          "translation": "有病的",
+          "phonetic": "/ɪl/"
+        },
+        {
+          "word": "happy",
+          "translation": "高兴的",
+          "phonetic": "/ˈhæpi/"
+        },
+        {
+          "word": "sad",
+          "translation": "难过的",
+          "phonetic": "/sæd/"
+        },
+        {
+          "word": "water",
+          "translation": "水",
+          "phonetic": "/ˈwɔːtə/"
+        }
+      ],
+      "Unit 8 How are you?": [
+        {
+          "word": "cough",
+          "translation": "咳嗽",
+          "phonetic": "/kɒf/"
+        },
+        {
+          "word": "headache",
+          "translation": "头痛",
+          "phonetic": "/ˈhedeɪk/"
+        },
+        {
+          "word": "fever",
+          "translation": "发烧",
+          "phonetic": "/ˈfiːvə/"
+        },
+        {
+          "word": "fine",
+          "translation": "好的",
+          "phonetic": "/faɪn/"
+        },
+        {
+          "word": "doctor",
+          "translation": "医生",
+          "phonetic": "/ˈdɒktə/"
+        },
+        {
+          "word": "hear",
+          "translation": "听到",
+          "phonetic": "/hɪə/"
+        },
+        {
+          "word": "phone",
+          "translation": "电话",
+          "phonetic": "/fəʊn/"
+        }
       ]
     }
   },
   "G5_S1": {
     "name": "五年级上册",
     "units": {
-      "Unit 1 Goldilocks in the forest": [
-        { "word": "forest", "translation": "森林", "phonetic": "/ˈfɒrɪst/" },
-        { "word": "house", "translation": "房子", "phonetic": "/haʊs/" },
-        { "word": "soup", "translation": "汤", "phonetic": "/suːp/" },
-        { "word": "hard", "translation": "硬的", "phonetic": "/hɑːd/" },
-        { "word": "soft", "translation": "软的", "phonetic": "/sɒft/" }
+      "Unit 1 Goldilocks and the three bears": [
+        {
+          "word": "bear",
+          "translation": "熊",
+          "phonetic": "/beə/"
+        },
+        {
+          "word": "forest",
+          "translation": "森林",
+          "phonetic": "/ˈfɒrɪst/"
+        },
+        {
+          "word": "there",
+          "translation": "引导词（与be连用表示有）",
+          "phonetic": "/ðeə/"
+        },
+        {
+          "word": "house",
+          "translation": "房子",
+          "phonetic": "/haʊs/"
+        },
+        {
+          "word": "soup",
+          "translation": "汤",
+          "phonetic": "/suːp/"
+        },
+        {
+          "word": "just right",
+          "translation": "正合适",
+          "phonetic": "/dʒʌst raɪt/"
+        },
+        {
+          "word": "room",
+          "translation": "房间",
+          "phonetic": "/ruːm/"
+        },
+        {
+          "word": "hard",
+          "translation": "硬的",
+          "phonetic": "/hɑːd/"
+        },
+        {
+          "word": "soft",
+          "translation": "软的",
+          "phonetic": "/sɒft/"
+        },
+        {
+          "word": "afraid",
+          "translation": "害怕的",
+          "phonetic": "/əˈfreɪd/"
+        }
+      ],
+      "Unit 2 A new student": [
+        {
+          "word": "student",
+          "translation": "学生",
+          "phonetic": "/ˈstjuːdnt/"
+        },
+        {
+          "word": "swing",
+          "translation": "秋千",
+          "phonetic": "/swɪŋ/"
+        },
+        {
+          "word": "classroom",
+          "translation": "教室",
+          "phonetic": "/ˈklɑːsruːm/"
+        },
+        {
+          "word": "push",
+          "translation": "推",
+          "phonetic": "/pʊʃ/"
+        },
+        {
+          "word": "second",
+          "translation": "第二",
+          "phonetic": "/ˈsekənd/"
+        },
+        {
+          "word": "heavy",
+          "translation": "重的",
+          "phonetic": "/ˈhevi/"
+        },
+        {
+          "word": "floor",
+          "translation": "楼层",
+          "phonetic": "/flɔː/"
+        },
+        {
+          "word": "stop",
+          "translation": "停止",
+          "phonetic": "/stɒp/"
+        },
+        {
+          "word": "computer",
+          "translation": "计算机",
+          "phonetic": "/kəmˈpjuːtə/"
+        },
+        {
+          "word": "high",
+          "translation": "高的",
+          "phonetic": "/haɪ/"
+        },
+        {
+          "word": "third",
+          "translation": "第三",
+          "phonetic": "/θɜːd/"
+        },
+        {
+          "word": "first",
+          "translation": "第一",
+          "phonetic": "/fɜːst/"
+        }
+      ],
+      "Unit 3 Our animal friends": [
+        {
+          "word": "body",
+          "translation": "身体",
+          "phonetic": "/ˈbɒdi/"
+        },
+        {
+          "word": "wing",
+          "translation": "翅膀",
+          "phonetic": "/wɪŋ/"
+        },
+        {
+          "word": "foot",
+          "translation": "脚",
+          "phonetic": "/fʊt/"
+        },
+        {
+          "word": "leg",
+          "translation": "腿",
+          "phonetic": "/leɡ/"
+        },
+        {
+          "word": "rabbit",
+          "translation": "兔子",
+          "phonetic": "/ˈræbɪt/"
+        },
+        {
+          "word": "give",
+          "translation": "给",
+          "phonetic": "/ɡɪv/"
+        },
+        {
+          "word": "arm",
+          "translation": "手臂",
+          "phonetic": "/ɑːm/"
+        },
+        {
+          "word": "finger",
+          "translation": "手指",
+          "phonetic": "/ˈfɪŋɡə/"
+        },
+        {
+          "word": "tail",
+          "translation": "尾巴",
+          "phonetic": "/teɪl/"
+        }
+      ],
+      "Unit 4 Hobbies": [
+        {
+          "word": "hobby",
+          "translation": "兴趣爱好",
+          "phonetic": "/ˈhɒbi/"
+        },
+        {
+          "word": "read",
+          "translation": "阅读",
+          "phonetic": "/riːd/"
+        },
+        {
+          "word": "write",
+          "translation": "写字",
+          "phonetic": "/raɪt/"
+        },
+        {
+          "word": "play",
+          "translation": "玩",
+          "phonetic": "/pleɪ/"
+        },
+        {
+          "word": "collect",
+          "translation": "收集",
+          "phonetic": "/kəˈlekt/"
+        },
+        {
+          "word": "dance",
+          "translation": "跳舞",
+          "phonetic": "/dɑːns/"
+        },
+        {
+          "word": "sing",
+          "translation": "唱歌",
+          "phonetic": "/sɪŋ/"
+        },
+        {
+          "word": "draw",
+          "translation": "画画",
+          "phonetic": "/drɔː/"
+        }
+      ],
+      "Unit 5 What do they do?": [
+        {
+          "word": "writer",
+          "translation": "作家",
+          "phonetic": "/ˈraɪtə/"
+        },
+        {
+          "word": "doctor",
+          "translation": "医生",
+          "phonetic": "/ˈdɒktə/"
+        },
+        {
+          "word": "nurse",
+          "translation": "护士",
+          "phonetic": "/nɜːs/"
+        },
+        {
+          "word": "cook",
+          "translation": "厨师",
+          "phonetic": "/kʊk/"
+        },
+        {
+          "word": "teacher",
+          "translation": "老师",
+          "phonetic": "/ˈtiːtʃə/"
+        },
+        {
+          "word": "driver",
+          "translation": "司机",
+          "phonetic": "/ˈdraɪvə/"
+        },
+        {
+          "word": "farmer",
+          "translation": "农民",
+          "phonetic": "/ˈfɑːmə/"
+        },
+        {
+          "word": "worker",
+          "translation": "工人",
+          "phonetic": "/ˈwɜːkə/"
+        }
+      ],
+      "Unit 6 My e-friend": [
+        {
+          "word": "e-friend",
+          "translation": "网友",
+          "phonetic": "/ˈiː frend/"
+        },
+        {
+          "word": "internet",
+          "translation": "互联网",
+          "phonetic": "/ˈɪntənet/"
+        },
+        {
+          "word": "country",
+          "translation": "国家",
+          "phonetic": "/ˈkʌntri/"
+        },
+        {
+          "word": "speak",
+          "translation": "说话，语言",
+          "phonetic": "/spiːk/"
+        },
+        {
+          "word": "write",
+          "translation": "写，书写",
+          "phonetic": "/raɪt/"
+        },
+        {
+          "word": "study",
+          "translation": "学习",
+          "phonetic": "/ˈstʌdi/"
+        },
+        {
+          "word": "English",
+          "translation": "英语",
+          "phonetic": "/ˈɪŋɡlɪʃ/"
+        },
+        {
+          "word": "Chinese",
+          "translation": "中文",
+          "phonetic": "/ˌtʃaɪˈniːz/"
+        }
+      ],
+      "Unit 7 At weekends": [
+        {
+          "word": "weekend",
+          "translation": "周末",
+          "phonetic": "/ˌwiːkˈend/"
+        },
+        {
+          "word": "picnic",
+          "translation": "野餐",
+          "phonetic": "/ˈpɪknɪk/"
+        },
+        {
+          "word": "visit",
+          "translation": "拜访，参观",
+          "phonetic": "/ˈvɪzɪt/"
+        },
+        {
+          "word": "play",
+          "translation": "玩，游戏",
+          "phonetic": "/pleɪ/"
+        },
+        {
+          "word": "watch",
+          "translation": "观看",
+          "phonetic": "/wɒtʃ/"
+        },
+        {
+          "word": "read",
+          "translation": "读，阅读",
+          "phonetic": "/riːd/"
+        },
+        {
+          "word": "go",
+          "translation": "去，出发",
+          "phonetic": "/ɡəʊ/"
+        }
+      ],
+      "Unit 8 At Christmas": [
+        {
+          "word": "Christmas",
+          "translation": "圣诞节",
+          "phonetic": "/ˈkrɪsməs/"
+        },
+        {
+          "word": "tree",
+          "translation": "树",
+          "phonetic": "/triː/"
+        },
+        {
+          "word": "present",
+          "translation": "礼物",
+          "phonetic": "/ˈpreznt/"
+        },
+        {
+          "word": "card",
+          "translation": "卡片",
+          "phonetic": "/kɑːd/"
+        },
+        {
+          "word": "grandfather",
+          "translation": "爷爷/外公",
+          "phonetic": "/ˈɡrændfɑːðə/"
+        },
+        {
+          "word": "grandmother",
+          "translation": "奶奶/外婆",
+          "phonetic": "/ˈɡrændmʌðə/"
+        },
+        {
+          "word": "parents",
+          "translation": "父母",
+          "phonetic": "/ˈpeərənts/"
+        },
+        {
+          "word": "family",
+          "translation": "家庭",
+          "phonetic": "/ˈfæməli/"
+        }
       ]
     }
   },
@@ -205,10 +2817,335 @@ const WORDS_DATA = {
     "name": "五年级下册",
     "units": {
       "Unit 1 Cinderella": [
-        { "word": "prince", "translation": "王子", "phonetic": "/prɪns/" },
-        { "word": "fairy", "translation": "仙女", "phonetic": "/ˈfeəri/" },
-        { "word": "mushroom", "translation": "蘑菇", "phonetic": "/ˈmʌʃrʊm/" },
-        { "word": "fit", "translation": "合适", "phonetic": "/fɪt/" }
+        {
+          "word": "Cinderella",
+          "translation": "灰姑娘",
+          "phonetic": "/ˌsɪndəˈrelə/"
+        },
+        {
+          "word": "prince",
+          "translation": "王子",
+          "phonetic": "/prɪns/"
+        },
+        {
+          "word": "fairy",
+          "translation": "仙女",
+          "phonetic": "/ˈfeəri/"
+        },
+        {
+          "word": "party",
+          "translation": "聚会，晚会",
+          "phonetic": "/ˈpɑːti/"
+        },
+        {
+          "word": "carriage",
+          "translation": "马车",
+          "phonetic": "/ˈkærɪdʒ/"
+        },
+        {
+          "word": "slipper",
+          "translation": "拖鞋，水晶鞋",
+          "phonetic": "/ˈslɪpə/"
+        },
+        {
+          "word": "fit",
+          "translation": "合适",
+          "phonetic": "/fɪt/"
+        },
+        {
+          "word": "marry",
+          "translation": "结婚，娶，嫁",
+          "phonetic": "/ˈmæri/"
+        }
+      ],
+      "Unit 2 How do you come to school?": [
+        {
+          "word": "metro",
+          "translation": "地铁",
+          "phonetic": "/ˈmetrəʊ/"
+        },
+        {
+          "word": "taxi",
+          "translation": "出租车",
+          "phonetic": "/ˈtæksi/"
+        },
+        {
+          "word": "bus",
+          "translation": "公共汽车",
+          "phonetic": "/bʌs/"
+        },
+        {
+          "word": "bike",
+          "translation": "自行车",
+          "phonetic": "/baɪk/"
+        },
+        {
+          "word": "walk",
+          "translation": "步行",
+          "phonetic": "/wɔːk/"
+        },
+        {
+          "word": "far",
+          "translation": "远的",
+          "phonetic": "/fɑː/"
+        },
+        {
+          "word": "near",
+          "translation": "近的",
+          "phonetic": "/nɪə/"
+        },
+        {
+          "word": "street",
+          "translation": "街道",
+          "phonetic": "/striːt/"
+        }
+      ],
+      "Unit 3 Asking the way": [
+        {
+          "word": "ask",
+          "translation": "问，询问",
+          "phonetic": "/ɑːsk/"
+        },
+        {
+          "word": "way",
+          "translation": "路线，路",
+          "phonetic": "/weɪ/"
+        },
+        {
+          "word": "left",
+          "translation": "左边",
+          "phonetic": "/left/"
+        },
+        {
+          "word": "right",
+          "translation": "右边",
+          "phonetic": "/raɪt/"
+        },
+        {
+          "word": "straight",
+          "translation": "直的",
+          "phonetic": "/streɪt/"
+        },
+        {
+          "word": "turn",
+          "translation": "转弯",
+          "phonetic": "/tɜːn/"
+        },
+        {
+          "word": "cross",
+          "translation": "穿过",
+          "phonetic": "/krɒs/"
+        },
+        {
+          "word": "station",
+          "translation": "车站",
+          "phonetic": "/ˈsteɪʃn/"
+        }
+      ],
+      "Unit 4 Seeing the doctor": [
+        {
+          "word": "fever",
+          "translation": "发烧",
+          "phonetic": "/ˈfiːvə/"
+        },
+        {
+          "word": "headache",
+          "translation": "头痛",
+          "phonetic": "/ˈhedeɪk/"
+        },
+        {
+          "word": "cold",
+          "translation": "感冒",
+          "phonetic": "/kəʊld/"
+        },
+        {
+          "word": "toothache",
+          "translation": "牙痛",
+          "phonetic": "/ˈtuːθeɪk/"
+        },
+        {
+          "word": "medicine",
+          "translation": "药",
+          "phonetic": "/ˈmedsn/"
+        },
+        {
+          "word": "rest",
+          "translation": "休息",
+          "phonetic": "/rest/"
+        },
+        {
+          "word": "water",
+          "translation": "水",
+          "phonetic": "/ˈwɔːtə/"
+        },
+        {
+          "word": "check",
+          "translation": "检查",
+          "phonetic": "/tʃek/"
+        }
+      ],
+      "Unit 5 Helping our parents": [
+        {
+          "word": "clean",
+          "translation": "清洁",
+          "phonetic": "/kliːn/"
+        },
+        {
+          "word": "cook",
+          "translation": "做饭",
+          "phonetic": "/kʊk/"
+        },
+        {
+          "word": "wash",
+          "translation": "洗",
+          "phonetic": "/wɒʃ/"
+        },
+        {
+          "word": "sweep",
+          "translation": "扫",
+          "phonetic": "/swiːp/"
+        },
+        {
+          "word": "busy",
+          "translation": "忙碌的",
+          "phonetic": "/ˈbɪzi/"
+        },
+        {
+          "word": "parent",
+          "translation": "父母",
+          "phonetic": "/ˈpeərənt/"
+        },
+        {
+          "word": "help",
+          "translation": "帮助",
+          "phonetic": "/help/"
+        },
+        {
+          "word": "tidy",
+          "translation": "整洁的",
+          "phonetic": "/ˈtaɪdi/"
+        }
+      ],
+      "Unit 6 In the kitchen": [
+        {
+          "word": "kitchen",
+          "translation": "厨房",
+          "phonetic": "/ˈkɪtʃɪn/"
+        },
+        {
+          "word": "tomato",
+          "translation": "西红柿",
+          "phonetic": "/təˈmɑːtəʊ/"
+        },
+        {
+          "word": "potato",
+          "translation": "马铃薯",
+          "phonetic": "/pəˈteɪtə/"
+        },
+        {
+          "word": "meat",
+          "translation": "肉",
+          "phonetic": "/miːt/"
+        },
+        {
+          "word": "fish",
+          "translation": "鱼",
+          "phonetic": "/fɪʃ/"
+        },
+        {
+          "word": "bread",
+          "translation": "面包",
+          "phonetic": "/bred/"
+        },
+        {
+          "word": "milk",
+          "translation": "牛奶",
+          "phonetic": "/mɪlk/"
+        },
+        {
+          "word": "egg",
+          "translation": "鸡蛋",
+          "phonetic": "/eɡ/"
+        }
+      ],
+      "Unit 7 Chinese festivals": [
+        {
+          "word": "Spring Festival",
+          "translation": "春节",
+          "phonetic": "/sprɪŋ ˈfestɪvl/"
+        },
+        {
+          "word": "Dragon Boat Festival",
+          "translation": "端午节",
+          "phonetic": "/ˈdræɡən bəʊt ˈfestɪvl/"
+        },
+        {
+          "word": "Mid-Autumn Festival",
+          "translation": "中秋节",
+          "phonetic": "/mɪd ˈɔːtəm ˈfestɪvl/"
+        },
+        {
+          "word": "Double Ninth Festival",
+          "translation": "重阳节",
+          "phonetic": "/ˈdʌbl naɪnθ ˈfestɪvl/"
+        },
+        {
+          "word": "rice cake",
+          "translation": "米糕",
+          "phonetic": "/raɪs keɪk/"
+        },
+        {
+          "word": "moon cake",
+          "translation": "月饼",
+          "phonetic": "/muːn keɪk/"
+        },
+        {
+          "word": "dragon boat",
+          "translation": "龙舟",
+          "phonetic": "/ˈdræɡən bəʊt/"
+        }
+      ],
+      "Unit 8 Birthdays": [
+        {
+          "word": "birthday",
+          "translation": "生日",
+          "phonetic": "/ˈbɜːθdeɪ/"
+        },
+        {
+          "word": "party",
+          "translation": "聚会",
+          "phonetic": "/ˈpɑːti/"
+        },
+        {
+          "word": "cake",
+          "translation": "蛋糕",
+          "phonetic": "/keɪk/"
+        },
+        {
+          "word": "present",
+          "translation": "礼物",
+          "phonetic": "/ˈpreznt/"
+        },
+        {
+          "word": "card",
+          "translation": "卡片",
+          "phonetic": "/kɑːd/"
+        },
+        {
+          "word": "month",
+          "translation": "月份",
+          "phonetic": "/mʌnθ/"
+        },
+        {
+          "word": "date",
+          "translation": "日期",
+          "phonetic": "/deɪt/"
+        },
+        {
+          "word": "candle",
+          "translation": "蜡烛",
+          "phonetic": "/ˈkændl/"
+        }
       ]
     }
   },
@@ -216,173 +3153,785 @@ const WORDS_DATA = {
     "name": "六年级上册",
     "units": {
       "Unit 1 The king's new clothes": [
-        { "word": "try one's best", "translation": "尽某人最大的努力", "phonetic": "/traɪ wʌnz best/" },
-        { "word": "act", "translation": "扮演，演出", "phonetic": "/ækt/" },
-        { "word": "play", "translation": "戏剧；扮演", "phonetic": "/pleɪ/" },
-        { "word": "poster", "translation": "海报，招贴画", "phonetic": "/ˈpəʊstə/" },
-        { "word": "last", "translation": "上一个的，最近的", "phonetic": "/lɑːst/" },
-        { "word": "take part", "translation": "参与", "phonetic": "/teɪk pɑːt/" },
-        { "word": "practise", "translation": "练习，训练", "phonetic": "/ˈpræktɪs/" },
-        { "word": "afraid", "translation": "害怕，畏惧", "phonetic": "/əˈfreɪd/" },
-        { "word": "calm down", "translation": "平静，安静", "phonetic": "/kɑːm daʊn/" },
-        { "word": "begin", "translation": "开始", "phonetic": "/bɪˈɡɪn/" },
-        { "word": "forget", "translation": "忘记，遗忘", "phonetic": "/fəˈɡet/" },
-        { "word": "the words", "translation": "歌词", "phonetic": "/ðə wɜːdz/" },
-        { "word": "remember", "translation": "记起；记住", "phonetic": "/rɪˈmembə/" },
-        { "word": "finish", "translation": "完成，做好", "phonetic": "/ˈfɪnɪʃ/" },
-        { "word": "keep", "translation": "继续，重复", "phonetic": "/kiːp/" },
-        { "word": "ago", "translation": "以前", "phonetic": "/əˈɡəʊ/" },
-        { "word": "movement", "translation": "运动，动作", "phonetic": "/ˈmuːvmənt/" },
-        { "word": "skill", "translation": "技能，技术", "phonetic": "/skɪl/" },
-        { "word": "in front of", "translation": "在……前面", "phonetic": "/ɪn frʌnt ɒv/" },
-        { "word": "ready", "translation": "准备好的", "phonetic": "/ˈredi/" },
-        { "word": "long ago", "translation": "很久以前", "phonetic": "/lɒŋ əˈɡəʊ/" },
-        { "word": "snail", "translation": "蜗牛", "phonetic": "/sneɪl/" },
-        { "word": "top", "translation": "顶端，顶部", "phonetic": "/tɒp/" }
+        {
+          "word": "try one's best",
+          "translation": "尽某人最大的努力",
+          "phonetic": "/traɪ wʌnz best/"
+        },
+        {
+          "word": "act",
+          "translation": "扮演，演出",
+          "phonetic": "/ækt/"
+        },
+        {
+          "word": "play",
+          "translation": "戏剧；扮演",
+          "phonetic": "/pleɪ/"
+        },
+        {
+          "word": "poster",
+          "translation": "海报，招贴画",
+          "phonetic": "/ˈpəʊstə/"
+        },
+        {
+          "word": "last",
+          "translation": "上一个的，最近的",
+          "phonetic": "/lɑːst/"
+        },
+        {
+          "word": "take part",
+          "translation": "参与",
+          "phonetic": "/teɪk pɑːt/"
+        },
+        {
+          "word": "practise",
+          "translation": "练习，训练",
+          "phonetic": "/ˈpræktɪs/"
+        },
+        {
+          "word": "afraid",
+          "translation": "害怕，畏惧",
+          "phonetic": "/əˈfreɪd/"
+        },
+        {
+          "word": "calm down",
+          "translation": "平静，安静",
+          "phonetic": "/kɑːm daʊn/"
+        },
+        {
+          "word": "begin",
+          "translation": "开始",
+          "phonetic": "/bɪˈɡɪn/"
+        },
+        {
+          "word": "forget",
+          "translation": "忘记，遗忘",
+          "phonetic": "/fəˈɡet/"
+        },
+        {
+          "word": "the words",
+          "translation": "歌词",
+          "phonetic": "/ðə wɜːdz/"
+        },
+        {
+          "word": "remember",
+          "translation": "记起；记住",
+          "phonetic": "/rɪˈmembə/"
+        },
+        {
+          "word": "finish",
+          "translation": "完成，做好",
+          "phonetic": "/ˈfɪnɪʃ/"
+        },
+        {
+          "word": "keep",
+          "translation": "继续，重复",
+          "phonetic": "/kiːp/"
+        },
+        {
+          "word": "ago",
+          "translation": "以前",
+          "phonetic": "/əˈɡəʊ/"
+        },
+        {
+          "word": "movement",
+          "translation": "运动，动作",
+          "phonetic": "/ˈmuːvmənt/"
+        },
+        {
+          "word": "skill",
+          "translation": "技能，技术",
+          "phonetic": "/skɪl/"
+        },
+        {
+          "word": "in front of",
+          "translation": "在……前面",
+          "phonetic": "/ɪn frʌnt ɒv/"
+        },
+        {
+          "word": "ready",
+          "translation": "准备好的",
+          "phonetic": "/ˈredi/"
+        },
+        {
+          "word": "long ago",
+          "translation": "很久以前",
+          "phonetic": "/lɒŋ əˈɡəʊ/"
+        },
+        {
+          "word": "snail",
+          "translation": "蜗牛",
+          "phonetic": "/sneɪl/"
+        },
+        {
+          "word": "top",
+          "translation": "顶端，顶部",
+          "phonetic": "/tɒp/"
+        }
       ],
       "Unit 2 What a day!": [
-        { "word": "honesty", "translation": "诚实", "phonetic": "/ˈɒnɪsti/" },
-        { "word": "storybook", "translation": "儿童故事书", "phonetic": "/ˈstɔːribʊk/" },
-        { "word": "lie", "translation": "谎言，说话", "phonetic": "/laɪ/" },
-        { "word": "break", "translation": "弄坏，损坏", "phonetic": "/breɪk/" },
-        { "word": "yesterday", "translation": "在昨天；昨天", "phonetic": "/ˈjestədeɪ/" },
-        { "word": "repair", "translation": "修理，修补", "phonetic": "/rɪˈpeə/" },
-        { "word": "say", "translation": "说，讲", "phonetic": "/seɪ/" },
-        { "word": "poor", "translation": "贫穷的", "phonetic": "/pɔː/" },
-        { "word": "man", "translation": "男人", "phonetic": "/mæn/" },
-        { "word": "old", "translation": "老的，年纪大的", "phonetic": "/əʊld/" },
-        { "word": "ox", "translation": "牛", "phonetic": "/ɒks/" },
-        { "word": "away from home", "translation": "离开家", "phonetic": "/əˈweɪ frɒm həʊm/" },
-        { "word": "nephew", "translation": "侄子，外甥", "phonetic": "/ˈnefjuː/" },
-        { "word": "sell", "translation": "卖，出售", "phonetic": "/sel/" },
-        { "word": "buyer", "translation": "买主，买方", "phonetic": "/ˈbaɪə/" },
-        { "word": "get back", "translation": "重新获得", "phonetic": "/ɡet bæk/" },
-        { "word": "name", "translation": "名声，名誉", "phonetic": "/neɪm/" },
-        { "word": "watch", "translation": "照看，看护", "phonetic": "/wɒtʃ/" },
-        { "word": "wolf", "translation": "狼", "phonetic": "/wʊlf/" },
-        { "word": "answer", "translation": "答复，回答", "phonetic": "/ˈɑːnsə/" },
-        { "word": "cry", "translation": "哭，哭泣", "phonetic": "/kraɪ/" }
+        {
+          "word": "honesty",
+          "translation": "诚实",
+          "phonetic": "/ˈɒnɪsti/"
+        },
+        {
+          "word": "storybook",
+          "translation": "儿童故事书",
+          "phonetic": "/ˈstɔːribʊk/"
+        },
+        {
+          "word": "lie",
+          "translation": "谎言，说话",
+          "phonetic": "/laɪ/"
+        },
+        {
+          "word": "break",
+          "translation": "弄坏，损坏",
+          "phonetic": "/breɪk/"
+        },
+        {
+          "word": "yesterday",
+          "translation": "在昨天；昨天",
+          "phonetic": "/ˈjestədeɪ/"
+        },
+        {
+          "word": "repair",
+          "translation": "修理，修补",
+          "phonetic": "/rɪˈpeə/"
+        },
+        {
+          "word": "say",
+          "translation": "说，讲",
+          "phonetic": "/seɪ/"
+        },
+        {
+          "word": "poor",
+          "translation": "贫穷的",
+          "phonetic": "/pɔː/"
+        },
+        {
+          "word": "man",
+          "translation": "男人",
+          "phonetic": "/mæn/"
+        },
+        {
+          "word": "old",
+          "translation": "老的，年纪大的",
+          "phonetic": "/əʊld/"
+        },
+        {
+          "word": "ox",
+          "translation": "牛",
+          "phonetic": "/ɒks/"
+        },
+        {
+          "word": "away from home",
+          "translation": "离开家",
+          "phonetic": "/əˈweɪ frɒm həʊm/"
+        },
+        {
+          "word": "nephew",
+          "translation": "侄子，外甥",
+          "phonetic": "/ˈnefjuː/"
+        },
+        {
+          "word": "sell",
+          "translation": "卖，出售",
+          "phonetic": "/sel/"
+        },
+        {
+          "word": "buyer",
+          "translation": "买主，买方",
+          "phonetic": "/ˈbaɪə/"
+        },
+        {
+          "word": "get back",
+          "translation": "重新获得",
+          "phonetic": "/ɡet bæk/"
+        },
+        {
+          "word": "name",
+          "translation": "名声，名誉",
+          "phonetic": "/neɪm/"
+        },
+        {
+          "word": "watch",
+          "translation": "照看，看护",
+          "phonetic": "/wɒtʃ/"
+        },
+        {
+          "word": "wolf",
+          "translation": "狼",
+          "phonetic": "/wʊlf/"
+        },
+        {
+          "word": "answer",
+          "translation": "答复，回答",
+          "phonetic": "/ˈɑːnsə/"
+        },
+        {
+          "word": "cry",
+          "translation": "哭，哭泣",
+          "phonetic": "/kraɪ/"
+        }
       ],
       "Unit 3 Holiday fun": [
-        { "word": "hero", "translation": "崇拜的对象", "phonetic": "/ˈhɪərəʊ/" },
-        { "word": "famous", "translation": "著名的，出名的", "phonetic": "/ˈfeɪməs/" },
-        { "word": "scientist", "translation": "科学家", "phonetic": "/ˈsaɪəntɪst/" },
-        { "word": "inventor", "translation": "发明家，发明者", "phonetic": "/ɪnˈventə/" },
-        { "word": "hybrid rice", "translation": "杂交水稻", "phonetic": "/ˈhaɪbrɪd raɪs/" },
-        { "word": "dream", "translation": "梦想，愿望", "phonetic": "/driːm/" },
-        { "word": "cool", "translation": "凉快，凉爽", "phonetic": "/kuːl/" },
-        { "word": "all over the world", "translation": "世界各地，全世界", "phonetic": "/ɔːl ˈəʊvə ðə wɜːld/" },
-        { "word": "be born", "translation": "出生，诞生", "phonetic": "/bi bɔːn/" },
-        { "word": "pass away", "translation": "去世", "phonetic": "/pɑːs əˈweɪ/" },
-        { "word": "study", "translation": "研究，调查", "phonetic": "/ˈstʌdi/" },
-        { "word": "call", "translation": "称呼，把……叫作", "phonetic": "/kɔːl/" },
-        { "word": "come true", "translation": "实现，成为现实", "phonetic": "/kʌm truː/" },
-        { "word": "farming", "translation": "务农", "phonetic": "/ˈfɑːmɪŋ/" },
-        { "word": "age", "translation": "年龄，年纪", "phonetic": "/eɪdʒ/" },
-        { "word": "grow up", "translation": "长大，成长", "phonetic": "/ɡrəʊ ʌp/" },
-        { "word": "work on", "translation": "从事，致力于", "phonetic": "/wɜːk ɒn/" },
-        { "word": "difficult", "translation": "困难的", "phonetic": "/ˈdɪfɪkəlt/" },
-        { "word": "develop", "translation": "开发，研制", "phonetic": "/dɪˈveləp/" },
-        { "word": "bamboo", "translation": "竹，竹子", "phonetic": "/bæmˈbuː/" },
-        { "word": "silk", "translation": "丝绸", "phonetic": "/sɪlk/" },
-        { "word": "dear", "translation": "昂贵的，价格高的", "phonetic": "/dɪə/" },
-        { "word": "paper", "translation": "纸，纸张", "phonetic": "/ˈpeɪpə/" },
-        { "word": "at first", "translation": "起初，起先", "phonetic": "/æt fɜːst/" }
+        {
+          "word": "hero",
+          "translation": "崇拜的对象",
+          "phonetic": "/ˈhɪərəʊ/"
+        },
+        {
+          "word": "famous",
+          "translation": "著名的，出名的",
+          "phonetic": "/ˈfeɪməs/"
+        },
+        {
+          "word": "scientist",
+          "translation": "科学家",
+          "phonetic": "/ˈsaɪəntɪst/"
+        },
+        {
+          "word": "inventor",
+          "translation": "发明家，发明者",
+          "phonetic": "/ɪnˈventə/"
+        },
+        {
+          "word": "hybrid rice",
+          "translation": "杂交水稻",
+          "phonetic": "/ˈhaɪbrɪd raɪs/"
+        },
+        {
+          "word": "dream",
+          "translation": "梦想，愿望",
+          "phonetic": "/driːm/"
+        },
+        {
+          "word": "cool",
+          "translation": "凉快，凉爽",
+          "phonetic": "/kuːl/"
+        },
+        {
+          "word": "all over the world",
+          "translation": "世界各地，全世界",
+          "phonetic": "/ɔːl ˈəʊvə ðə wɜːld/"
+        },
+        {
+          "word": "be born",
+          "translation": "出生，诞生",
+          "phonetic": "/bi bɔːn/"
+        },
+        {
+          "word": "pass away",
+          "translation": "去世",
+          "phonetic": "/pɑːs əˈweɪ/"
+        },
+        {
+          "word": "study",
+          "translation": "研究，调查",
+          "phonetic": "/ˈstʌdi/"
+        },
+        {
+          "word": "call",
+          "translation": "称呼，把……叫作",
+          "phonetic": "/kɔːl/"
+        },
+        {
+          "word": "come true",
+          "translation": "实现，成为现实",
+          "phonetic": "/kʌm truː/"
+        },
+        {
+          "word": "farming",
+          "translation": "务农",
+          "phonetic": "/ˈfɑːmɪŋ/"
+        },
+        {
+          "word": "age",
+          "translation": "年龄，年纪",
+          "phonetic": "/eɪdʒ/"
+        },
+        {
+          "word": "grow up",
+          "translation": "长大，成长",
+          "phonetic": "/ɡrəʊ ʌp/"
+        },
+        {
+          "word": "work on",
+          "translation": "从事，致力于",
+          "phonetic": "/wɜːk ɒn/"
+        },
+        {
+          "word": "difficult",
+          "translation": "困难的",
+          "phonetic": "/ˈdɪfɪkəlt/"
+        },
+        {
+          "word": "develop",
+          "translation": "开发，研制",
+          "phonetic": "/dɪˈveləp/"
+        },
+        {
+          "word": "bamboo",
+          "translation": "竹，竹子",
+          "phonetic": "/bæmˈbuː/"
+        },
+        {
+          "word": "silk",
+          "translation": "丝绸",
+          "phonetic": "/sɪlk/"
+        },
+        {
+          "word": "dear",
+          "translation": "昂贵的，价格高的",
+          "phonetic": "/dɪə/"
+        },
+        {
+          "word": "paper",
+          "translation": "纸，纸张",
+          "phonetic": "/ˈpeɪpə/"
+        },
+        {
+          "word": "at first",
+          "translation": "起初，起先",
+          "phonetic": "/æt fɜːst/"
+        }
       ],
       "Unit 4 Then and now": [
-        { "word": "ninth", "translation": "第九", "phonetic": "/naɪnθ/" },
-        { "word": "lunar month", "translation": "农历，阴历", "phonetic": "/ˈluːnə mʌnθ/" },
-        { "word": "show", "translation": "表示", "phonetic": "/ʃəʊ/" },
-        { "word": "love", "translation": "爱，关爱", "phonetic": "/lʌv/" },
-        { "word": "smartphone", "translation": "智能手机", "phonetic": "/ˈsmɑːtfəʊn/" },
-        { "word": "wish", "translation": "祝，祝愿", "phonetic": "/wɪʃ/" },
-        { "word": "a long life", "translation": "长寿", "phonetic": "/ə lɒŋ laɪf/" },
-        { "word": "blow out", "translation": "吹灭，熄灭", "phonetic": "/bləʊ aʊt/" },
-        { "word": "candle", "translation": "蜡烛", "phonetic": "/ˈkændl/" },
-        { "word": "photo", "translation": "照片", "phonetic": "/ˈfəʊtəʊ/" },
-        { "word": "time flies", "translation": "时光飞逝，光阴似箭", "phonetic": "/taɪm flaɪz/" },
-        { "word": "kid", "translation": "小孩", "phonetic": "/kɪd/" },
-        { "word": "March", "translation": "三月", "phonetic": "/mɑːtʃ/" },
-        { "word": "April", "translation": "四月", "phonetic": "/ˈeɪprəl/" },
-        { "word": "July", "translation": "七月", "phonetic": "/dʒuˈlaɪ/" },
-        { "word": "August", "translation": "八月", "phonetic": "/ˈɔːɡəst/" },
-        { "word": "November", "translation": "十一月", "phonetic": "/nəʊˈvembə/" }
+        {
+          "word": "ninth",
+          "translation": "第九",
+          "phonetic": "/naɪnθ/"
+        },
+        {
+          "word": "lunar month",
+          "translation": "农历，阴历",
+          "phonetic": "/ˈluːnə mʌnθ/"
+        },
+        {
+          "word": "show",
+          "translation": "表示",
+          "phonetic": "/ʃəʊ/"
+        },
+        {
+          "word": "love",
+          "translation": "爱，关爱",
+          "phonetic": "/lʌv/"
+        },
+        {
+          "word": "smartphone",
+          "translation": "智能手机",
+          "phonetic": "/ˈsmɑːtfəʊn/"
+        },
+        {
+          "word": "wish",
+          "translation": "祝，祝愿",
+          "phonetic": "/wɪʃ/"
+        },
+        {
+          "word": "a long life",
+          "translation": "长寿",
+          "phonetic": "/ə lɒŋ laɪf/"
+        },
+        {
+          "word": "blow out",
+          "translation": "吹灭，熄灭",
+          "phonetic": "/bləʊ aʊt/"
+        },
+        {
+          "word": "candle",
+          "translation": "蜡烛",
+          "phonetic": "/ˈkændl/"
+        },
+        {
+          "word": "photo",
+          "translation": "照片",
+          "phonetic": "/ˈfəʊtəʊ/"
+        },
+        {
+          "word": "time flies",
+          "translation": "时光飞逝，光阴似箭",
+          "phonetic": "/taɪm flaɪz/"
+        },
+        {
+          "word": "kid",
+          "translation": "小孩",
+          "phonetic": "/kɪd/"
+        },
+        {
+          "word": "March",
+          "translation": "三月",
+          "phonetic": "/mɑːtʃ/"
+        },
+        {
+          "word": "April",
+          "translation": "四月",
+          "phonetic": "/ˈeɪprəl/"
+        },
+        {
+          "word": "July",
+          "translation": "七月",
+          "phonetic": "/dʒuˈlaɪ/"
+        },
+        {
+          "word": "August",
+          "translation": "八月",
+          "phonetic": "/ˈɔːɡəst/"
+        },
+        {
+          "word": "November",
+          "translation": "十一月",
+          "phonetic": "/nəʊˈvembə/"
+        }
       ],
       "Unit 5 Signs": [
-        { "word": "rubbish bin", "translation": "垃圾桶", "phonetic": "/ˈrʌbɪʃ bɪn/" },
-        { "word": "ground", "translation": "地，地面", "phonetic": "/ɡraʊnd/" },
-        { "word": "skin", "translation": "（某些水果和蔬菜的）皮，壳", "phonetic": "/skɪn/" },
-        { "word": "pick up", "translation": "捡起", "phonetic": "/pɪk ʌp/" },
-        { "word": "throw", "translation": "抛，扔", "phonetic": "/θrəʊ/" },
-        { "word": "will", "translation": "将，将要", "phonetic": "/wɪl/" },
-        { "word": "fall", "translation": "突然倒下，跌倒", "phonetic": "/fɔːl/" },
-        { "word": "go plogging", "translation": "去拾荒慢跑", "phonetic": "/ɡəʊ ˈplɒɡɪŋ/" },
-        { "word": "jogging", "translation": "慢跑锻炼", "phonetic": "/ˈdʒɒɡɪŋ/" },
-        { "word": "at the same time", "translation": "同时，一起", "phonetic": "/æt ðə seɪm taɪm/" },
-        { "word": "gate", "translation": "大门", "phonetic": "/ɡeɪt/" },
-        { "word": "on time", "translation": "准时，按时", "phonetic": "/ɒn taɪm/" },
-        { "word": "cleaning", "translation": "打扫，清洁", "phonetic": "/ˈkliːnɪŋ/" },
-        { "word": "group", "translation": "组，群", "phonetic": "/ɡruːp/" },
-        { "word": "start", "translation": "发起", "phonetic": "/stɑːt/" }
+        {
+          "word": "rubbish bin",
+          "translation": "垃圾桶",
+          "phonetic": "/ˈrʌbɪʃ bɪn/"
+        },
+        {
+          "word": "ground",
+          "translation": "地，地面",
+          "phonetic": "/ɡraʊnd/"
+        },
+        {
+          "word": "skin",
+          "translation": "（某些水果和蔬菜的）皮，壳",
+          "phonetic": "/skɪn/"
+        },
+        {
+          "word": "pick up",
+          "translation": "捡起",
+          "phonetic": "/pɪk ʌp/"
+        },
+        {
+          "word": "throw",
+          "translation": "抛，扔",
+          "phonetic": "/θrəʊ/"
+        },
+        {
+          "word": "will",
+          "translation": "将，将要",
+          "phonetic": "/wɪl/"
+        },
+        {
+          "word": "fall",
+          "translation": "突然倒下，跌倒",
+          "phonetic": "/fɔːl/"
+        },
+        {
+          "word": "go plogging",
+          "translation": "去拾荒慢跑",
+          "phonetic": "/ɡəʊ ˈplɒɡɪŋ/"
+        },
+        {
+          "word": "jogging",
+          "translation": "慢跑锻炼",
+          "phonetic": "/ˈdʒɒɡɪŋ/"
+        },
+        {
+          "word": "at the same time",
+          "translation": "同时，一起",
+          "phonetic": "/æt ðə seɪm taɪm/"
+        },
+        {
+          "word": "gate",
+          "translation": "大门",
+          "phonetic": "/ɡeɪt/"
+        },
+        {
+          "word": "on time",
+          "translation": "准时，按时",
+          "phonetic": "/ɒn taɪm/"
+        },
+        {
+          "word": "cleaning",
+          "translation": "打扫，清洁",
+          "phonetic": "/ˈkliːnɪŋ/"
+        },
+        {
+          "word": "group",
+          "translation": "组，群",
+          "phonetic": "/ɡruːp/"
+        },
+        {
+          "word": "start",
+          "translation": "发起",
+          "phonetic": "/stɑːt/"
+        }
       ],
       "Unit 6 Keep our city clean": [
-        { "word": "go green", "translation": "践行绿色环保的生活方式", "phonetic": "/ɡəʊ ɡriːn/" },
-        { "word": "turn off", "translation": "关掉", "phonetic": "/tɜːn ɒf/" },
-        { "word": "tap", "translation": "水龙头", "phonetic": "/tæp/" },
-        { "word": "light", "translation": "电灯", "phonetic": "/laɪt/" },
-        { "word": "both", "translation": "两个，两个都", "phonetic": "/bəʊθ/" },
-        { "word": "side", "translation": "一面", "phonetic": "/saɪd/" },
-        { "word": "eat up", "translation": "吃完，吃光", "phonetic": "/iːt ʌp/" },
-        { "word": "project", "translation": "项目", "phonetic": "/ˈprɒdʒekt/" },
-        { "word": "the Earth", "translation": "地球", "phonetic": "/ði ɜːθ/" },
-        { "word": "colour", "translation": "为……着色", "phonetic": "/ˈkʌlə/" },
-        { "word": "hour", "translation": "小时", "phonetic": "/ˈaʊə/" },
-        { "word": "save", "translation": "节省，节约", "phonetic": "/seɪv/" },
-        { "word": "electricity", "translation": "电，电能", "phonetic": "/ɪˌlekˈtrɪsəti/" },
-        { "word": "last", "translation": "持续", "phonetic": "/lɑːst/" },
-        { "word": "brush", "translation": "刷净", "phonetic": "/brʌʃ/" },
-        { "word": "tooth", "translation": "牙，齿", "phonetic": "/tuːθ/" },
-        { "word": "waste", "translation": "浪费", "phonetic": "/weɪst/" },
-        { "word": "vegetable", "translation": "蔬菜", "phonetic": "/ˈvedʒtəbl/" },
-        { "word": "plastic", "translation": "塑料的", "phonetic": "/ˈplæstɪk/" }
+        {
+          "word": "go green",
+          "translation": "践行绿色环保的生活方式",
+          "phonetic": "/ɡəʊ ɡriːn/"
+        },
+        {
+          "word": "turn off",
+          "translation": "关掉",
+          "phonetic": "/tɜːn ɒf/"
+        },
+        {
+          "word": "tap",
+          "translation": "水龙头",
+          "phonetic": "/tæp/"
+        },
+        {
+          "word": "light",
+          "translation": "电灯",
+          "phonetic": "/laɪt/"
+        },
+        {
+          "word": "both",
+          "translation": "两个，两个都",
+          "phonetic": "/bəʊθ/"
+        },
+        {
+          "word": "side",
+          "translation": "一面",
+          "phonetic": "/saɪd/"
+        },
+        {
+          "word": "eat up",
+          "translation": "吃完，吃光",
+          "phonetic": "/iːt ʌp/"
+        },
+        {
+          "word": "project",
+          "translation": "项目",
+          "phonetic": "/ˈprɒdʒekt/"
+        },
+        {
+          "word": "the Earth",
+          "translation": "地球",
+          "phonetic": "/ði ɜːθ/"
+        },
+        {
+          "word": "colour",
+          "translation": "为……着色",
+          "phonetic": "/ˈkʌlə/"
+        },
+        {
+          "word": "hour",
+          "translation": "小时",
+          "phonetic": "/ˈaʊə/"
+        },
+        {
+          "word": "save",
+          "translation": "节省，节约",
+          "phonetic": "/seɪv/"
+        },
+        {
+          "word": "electricity",
+          "translation": "电，电能",
+          "phonetic": "/ɪˌlekˈtrɪsəti/"
+        },
+        {
+          "word": "last",
+          "translation": "持续",
+          "phonetic": "/lɑːst/"
+        },
+        {
+          "word": "brush",
+          "translation": "刷净",
+          "phonetic": "/brʌʃ/"
+        },
+        {
+          "word": "tooth",
+          "translation": "牙，齿",
+          "phonetic": "/tuːθ/"
+        },
+        {
+          "word": "waste",
+          "translation": "浪费",
+          "phonetic": "/weɪst/"
+        },
+        {
+          "word": "vegetable",
+          "translation": "蔬菜",
+          "phonetic": "/ˈvedʒtəbl/"
+        },
+        {
+          "word": "plastic",
+          "translation": "塑料的",
+          "phonetic": "/ˈplæstɪk/"
+        }
       ],
       "Unit 7 Protect our Earth": [
-        { "word": "glass", "translation": "玻璃", "phonetic": "/ɡlɑːs/" },
-        { "word": "bottle", "translation": "瓶子", "phonetic": "/ˈbɒtl/" },
-        { "word": "cardboard", "translation": "硬纸板，卡纸板", "phonetic": "/ˈkɑːdbɔːd/" },
-        { "word": "box", "translation": "盒，箱", "phonetic": "/bɒks/" },
-        { "word": "be made of", "translation": "用……做的", "phonetic": "/bi meɪd ɒv/" },
-        { "word": "button", "translation": "纽扣，扣子", "phonetic": "/ˈbʌtn/" },
-        { "word": "happen", "translation": "发生，出现", "phonetic": "/ˈhæpən/" },
-        { "word": "hat", "translation": "帽子", "phonetic": "/hæt/" },
-        { "word": "do with", "translation": "处理", "phonetic": "/du wɪð/" },
-        { "word": "throw away", "translation": "扔掉，丢弃", "phonetic": "/θrəʊ əˈweɪ/" },
-        { "word": "recycling bin", "translation": "废物回收箱", "phonetic": "/ˌriːˈsaɪklɪŋ bɪn/" },
-        { "word": "truck", "translation": "卡车，货运汽车", "phonetic": "/trʌk/" },
-        { "word": "make friends with", "translation": "和……交朋友", "phonetic": "/meɪk frendz wɪð/" }
+        {
+          "word": "glass",
+          "translation": "玻璃",
+          "phonetic": "/ɡlɑːs/"
+        },
+        {
+          "word": "bottle",
+          "translation": "瓶子",
+          "phonetic": "/ˈbɒtl/"
+        },
+        {
+          "word": "cardboard",
+          "translation": "硬纸板，卡纸板",
+          "phonetic": "/ˈkɑːdbɔːd/"
+        },
+        {
+          "word": "box",
+          "translation": "盒，箱",
+          "phonetic": "/bɒks/"
+        },
+        {
+          "word": "be made of",
+          "translation": "用……做的",
+          "phonetic": "/bi meɪd ɒv/"
+        },
+        {
+          "word": "button",
+          "translation": "纽扣，扣子",
+          "phonetic": "/ˈbʌtn/"
+        },
+        {
+          "word": "happen",
+          "translation": "发生，出现",
+          "phonetic": "/ˈhæpən/"
+        },
+        {
+          "word": "hat",
+          "translation": "帽子",
+          "phonetic": "/hæt/"
+        },
+        {
+          "word": "do with",
+          "translation": "处理",
+          "phonetic": "/du wɪð/"
+        },
+        {
+          "word": "throw away",
+          "translation": "扔掉，丢弃",
+          "phonetic": "/θrəʊ əˈweɪ/"
+        },
+        {
+          "word": "recycling bin",
+          "translation": "废物回收箱",
+          "phonetic": "/ˌriːˈsaɪklɪŋ bɪn/"
+        },
+        {
+          "word": "truck",
+          "translation": "卡车，货运汽车",
+          "phonetic": "/trʌk/"
+        },
+        {
+          "word": "make friends with",
+          "translation": "和……交朋友",
+          "phonetic": "/meɪk frendz wɪð/"
+        }
       ],
       "Unit 8 Chinese New Year": [
-        { "word": "high-speed train", "translation": "高速列车", "phonetic": "/haɪ spiːd treɪn/" },
-        { "word": "e-book", "translation": "电子书", "phonetic": "/iː bʊk/" },
-        { "word": "meeting", "translation": "会议，集会", "phonetic": "/ˈmiːtɪŋ/" },
-        { "word": "shop", "translation": "商店，店铺", "phonetic": "/ʃɒp/" },
-        { "word": "smart", "translation": "智能的", "phonetic": "/smɑːt/" },
-        { "word": "win", "translation": "获胜，赢", "phonetic": "/wɪn/" },
-        { "word": "surprise", "translation": "意想不到的事，令人惊奇的事", "phonetic": "/səˈpraɪz/" },
-        { "word": "wrong", "translation": "有问题的", "phonetic": "/rɒŋ/" },
-        { "word": "change", "translation": "变化；改变", "phonetic": "/tʃeɪndʒ/" },
-        { "word": "life", "translation": "生活", "phonetic": "/laɪf/" },
-        { "word": "in the past", "translation": "在过去", "phonetic": "/ɪn ðə pɑːst/" },
-        { "word": "travel", "translation": "行进", "phonetic": "/ˈtrævl/" },
-        { "word": "office", "translation": "办公室，办公楼", "phonetic": "/ˈɒfɪs/" },
-        { "word": "these days", "translation": "如今，而今", "phonetic": "/ðiːz deɪz/" },
-        { "word": "work from home", "translation": "居家办公", "phonetic": "/wɜːk frɒm həʊm/" },
-        { "word": "pay", "translation": "付钱，支付", "phonetic": "/peɪ/" },
-        { "word": "cash", "translation": "现金", "phonetic": "/kæʃ/" },
-        { "word": "helper", "translation": "帮手，助手", "phonetic": "/ˈhelpə/" },
-        { "word": "fifty", "translation": "五十", "phonetic": "/ˈfɪfti/" },
-        { "word": "email", "translation": "电子邮件", "phonetic": "/ˈiːmeɪl/" },
-        { "word": "technology", "translation": "科技", "phonetic": "/tekˈnɒlədʒi/" }
+        {
+          "word": "high-speed train",
+          "translation": "高速列车",
+          "phonetic": "/haɪ spiːd treɪn/"
+        },
+        {
+          "word": "e-book",
+          "translation": "电子书",
+          "phonetic": "/iː bʊk/"
+        },
+        {
+          "word": "meeting",
+          "translation": "会议，集会",
+          "phonetic": "/ˈmiːtɪŋ/"
+        },
+        {
+          "word": "shop",
+          "translation": "商店，店铺",
+          "phonetic": "/ʃɒp/"
+        },
+        {
+          "word": "smart",
+          "translation": "智能的",
+          "phonetic": "/smɑːt/"
+        },
+        {
+          "word": "win",
+          "translation": "获胜，赢",
+          "phonetic": "/wɪn/"
+        },
+        {
+          "word": "surprise",
+          "translation": "意想不到的事，令人惊奇的事",
+          "phonetic": "/səˈpraɪz/"
+        },
+        {
+          "word": "wrong",
+          "translation": "有问题的",
+          "phonetic": "/rɒŋ/"
+        },
+        {
+          "word": "change",
+          "translation": "变化；改变",
+          "phonetic": "/tʃeɪndʒ/"
+        },
+        {
+          "word": "life",
+          "translation": "生活",
+          "phonetic": "/laɪf/"
+        },
+        {
+          "word": "in the past",
+          "translation": "在过去",
+          "phonetic": "/ɪn ðə pɑːst/"
+        },
+        {
+          "word": "travel",
+          "translation": "行进",
+          "phonetic": "/ˈtrævl/"
+        },
+        {
+          "word": "office",
+          "translation": "办公室，办公楼",
+          "phonetic": "/ˈɒfɪs/"
+        },
+        {
+          "word": "these days",
+          "translation": "如今，而今",
+          "phonetic": "/ðiːz deɪz/"
+        },
+        {
+          "word": "work from home",
+          "translation": "居家办公",
+          "phonetic": "/wɜːk frɒm həʊm/"
+        },
+        {
+          "word": "pay",
+          "translation": "付钱，支付",
+          "phonetic": "/peɪ/"
+        },
+        {
+          "word": "cash",
+          "translation": "现金",
+          "phonetic": "/kæʃ/"
+        },
+        {
+          "word": "helper",
+          "translation": "帮手，助手",
+          "phonetic": "/ˈhelpə/"
+        },
+        {
+          "word": "fifty",
+          "translation": "五十",
+          "phonetic": "/ˈfɪfti/"
+        },
+        {
+          "word": "email",
+          "translation": "电子邮件",
+          "phonetic": "/ˈiːmeɪl/"
+        },
+        {
+          "word": "technology",
+          "translation": "科技",
+          "phonetic": "/tekˈnɒlədʒi/"
+        }
       ]
     }
   },
@@ -390,11 +3939,265 @@ const WORDS_DATA = {
     "name": "六年级下册",
     "units": {
       "Unit 1 The lion and the mouse": [
-        { "word": "large", "translation": "巨大的", "phonetic": "/lɑːdʒ/" },
-        { "word": "strong", "translation": "强壮的", "phonetic": "/strong/" },
-        { "word": "sharp", "translation": "锋利的", "phonetic": "/ʃɑːp/" },
-        { "word": "weak", "translation": "虚弱的", "phonetic": "/wiːk/" },
-        { "word": "tiny", "translation": "微小的", "phonetic": "/ˈtaɪni/" }
+        {
+          "word": "large",
+          "translation": "巨大的，大的",
+          "phonetic": "/lɑːdʒ/"
+        },
+        {
+          "word": "strong",
+          "translation": "强壮的，强烈的",
+          "phonetic": "/strɒŋ/"
+        },
+        {
+          "word": "weak",
+          "translation": "虚弱的",
+          "phonetic": "/wiːk/"
+        },
+        {
+          "word": "loud",
+          "translation": "大声的，响亮的",
+          "phonetic": "/laʊd/"
+        },
+        {
+          "word": "bite",
+          "translation": "咬",
+          "phonetic": "/baɪt/"
+        },
+        {
+          "word": "sharp",
+          "translation": "锋利的，尖锐的",
+          "phonetic": "/ʃɑːp/"
+        },
+        {
+          "word": "net",
+          "translation": "网",
+          "phonetic": "/net/"
+        }
+      ],
+      "Unit 2 Good habits": [
+        {
+          "word": "habit",
+          "translation": "习惯",
+          "phonetic": "/ˈhæbɪt/"
+        },
+        {
+          "word": "never",
+          "translation": "从不",
+          "phonetic": "/ˈnevə/"
+        },
+        {
+          "word": "late",
+          "translation": "迟的，晚的",
+          "phonetic": "/leɪt/"
+        },
+        {
+          "word": "tidy",
+          "translation": "整洁的",
+          "phonetic": "/ˈtaɪdi/"
+        },
+        {
+          "word": "bad",
+          "translation": "坏的",
+          "phonetic": "/bæd/"
+        },
+        {
+          "word": "early",
+          "translation": "早的",
+          "phonetic": "/ˈɜːli/"
+        },
+        {
+          "word": "brush",
+          "translation": "刷，刷净",
+          "phonetic": "/brʌʃ/"
+        },
+        {
+          "word": "teeth",
+          "translation": "牙齿",
+          "phonetic": "/tiːθ/"
+        }
+      ],
+      "Unit 3 A healthy diet": [
+        {
+          "word": "diet",
+          "translation": "饮食",
+          "phonetic": "/ˈdaɪət/"
+        },
+        {
+          "word": "health",
+          "translation": "健康",
+          "phonetic": "/helθ/"
+        },
+        {
+          "word": "sweet",
+          "translation": "甜的；糖果",
+          "phonetic": "/swiːt/"
+        },
+        {
+          "word": "food",
+          "translation": "食物",
+          "phonetic": "/fuːd/"
+        },
+        {
+          "word": "cola",
+          "translation": "可乐",
+          "phonetic": "/ˈkəʊlə/"
+        },
+        {
+          "word": "little",
+          "translation": "少许的，微小的",
+          "phonetic": "/ˈlɪtl/"
+        },
+        {
+          "word": "meat",
+          "translation": "肉",
+          "phonetic": "/miːt/"
+        }
+      ],
+      "Unit 4 Road safety": [
+        {
+          "word": "safety",
+          "translation": "安全",
+          "phonetic": "/ˈseɪfti/"
+        },
+        {
+          "word": "road",
+          "translation": "路，道路",
+          "phonetic": "/rəʊd/"
+        },
+        {
+          "word": "rule",
+          "translation": "规则",
+          "phonetic": "/ruːl/"
+        },
+        {
+          "word": "light",
+          "translation": "灯，光",
+          "phonetic": "/laɪt/"
+        },
+        {
+          "word": "cross",
+          "translation": "穿过",
+          "phonetic": "/krɒs/"
+        },
+        {
+          "word": "safe",
+          "translation": "安全的",
+          "phonetic": "/seɪf/"
+        },
+        {
+          "word": "danger",
+          "translation": "危险",
+          "phonetic": "/ˈdeɪndʒə/"
+        }
+      ],
+      "Unit 5 A summer holiday": [
+        {
+          "word": "holiday",
+          "translation": "假日，假期",
+          "phonetic": "/ˈhɒlədeɪ/"
+        },
+        {
+          "word": "travel",
+          "translation": "旅行，传播",
+          "phonetic": "/ˈtrævl/"
+        },
+        {
+          "word": "trip",
+          "translation": "出行，旅游",
+          "phonetic": "/trɪp/"
+        },
+        {
+          "word": "plan",
+          "translation": "计划",
+          "phonetic": "/plæn/"
+        },
+        {
+          "word": "London",
+          "translation": "伦敦",
+          "phonetic": "/ˈlʌndən/"
+        }
+      ],
+      "Unit 6 Planning for the weekend": [
+        {
+          "word": "weekend",
+          "translation": "周末",
+          "phonetic": "/ˌwiːkˈend/"
+        },
+        {
+          "word": "concert",
+          "translation": "音乐会",
+          "phonetic": "/ˈkɒnsət/"
+        },
+        {
+          "word": "play",
+          "translation": "戏剧，表演",
+          "phonetic": "/pleɪ/"
+        },
+        {
+          "word": "show",
+          "translation": "演出，展示",
+          "phonetic": "/ʃəʊ/"
+        },
+        {
+          "word": "weather",
+          "translation": "天气",
+          "phonetic": "/ˈweðə/"
+        }
+      ],
+      "Unit 7 Summer holiday plans": [
+        {
+          "word": "plans",
+          "translation": "计划（复数）",
+          "phonetic": "/plænz/"
+        },
+        {
+          "word": "future",
+          "translation": "未来",
+          "phonetic": "/ˈfjuːtʃə/"
+        },
+        {
+          "word": "will",
+          "translation": "将要",
+          "phonetic": "/wɪl/"
+        },
+        {
+          "word": "stay",
+          "translation": "逗留，保持",
+          "phonetic": "/steɪ/"
+        }
+      ],
+      "Unit 8 Our dreams": [
+        {
+          "word": "dream",
+          "translation": "梦想，梦",
+          "phonetic": "/driːm/"
+        },
+        {
+          "word": "dentist",
+          "translation": "牙医",
+          "phonetic": "/ˈdentɪst/"
+        },
+        {
+          "word": "artist",
+          "translation": "艺术家",
+          "phonetic": "/ˈɑːtɪst/"
+        },
+        {
+          "word": "writer",
+          "translation": "作家",
+          "phonetic": "/ˈraɪtə/"
+        },
+        {
+          "word": "player",
+          "translation": "选手，演员",
+          "phonetic": "/ˈpleɪə/"
+        },
+        {
+          "word": "astronaut",
+          "translation": "宇航员",
+          "phonetic": "/ˈæstrənɔːt/"
+        }
       ]
     }
   }
@@ -403,239 +4206,2314 @@ const WORDS_DATA = {
 const TEXTS_DATA = {
   "G3_S1": {
     "Unit 1 Where's my book?": {
-      title: "Where's my book?",
-      sentences: [
-        { en: "Where's my book?", cn: "我的书在哪里？" },
-        { en: "Is it on the sofa?", cn: "它在沙发上吗？" },
-        { en: "No, it isn't.", cn: "不，它不在。" },
-        { en: "Is it under the vase?", cn: "它在花瓶下面吗？" },
-        { en: "No, it isn't.", cn: "不，它不在。" },
-        { en: "Look! It's behind the basket.", cn: "看！它在篮子后面。" },
-        { en: "How nice!", cn: "太好了！" },
-        { en: "Miaow!", cn: "喵！" }
+      "title": "Where's my book?",
+      "sentences": [
+        {
+          "en": "Where's my book?",
+          "cn": "我的书在哪里？"
+        },
+        {
+          "en": "Is it on the sofa?",
+          "cn": "它在沙发上吗？"
+        },
+        {
+          "en": "No, it isn't.",
+          "cn": "不，它不在。"
+        },
+        {
+          "en": "Is it under the vase?",
+          "cn": "它在花瓶下面吗？"
+        },
+        {
+          "en": "No, it isn't.",
+          "cn": "不，它不在。"
+        },
+        {
+          "en": "Look! It's behind the basket.",
+          "cn": "看！它在篮子后面。"
+        },
+        {
+          "en": "How nice!",
+          "cn": "太好了！"
+        },
+        {
+          "en": "Miaow!",
+          "cn": "喵！"
+        }
       ]
     },
     "Unit 2 What's for dinner?": {
-      title: "What's for dinner?",
-      sentences: [
-        { en: "Dad: Dinner is ready!", cn: "爸爸：晚饭准备好了！" },
-        { en: "Tim: What's for dinner, Dad?", cn: "蒂姆：爸爸，晚饭吃什么？" },
-        { en: "Dad: Rice, broccoli, fish and soup.", cn: "爸爸：米饭、西兰花、鱼和汤。" },
-        { en: "Tim: Great! I like fish. Mmm, yummy!", cn: "蒂姆：太好了！我喜欢鱼。嗯，真好吃！" },
-        { en: "Helen: Do you want some meat and noodles?", cn: "海伦：你想吃点肉和面条吗？" },
-        { en: "Tim: No, thanks.", cn: "蒂姆：不要了，谢谢。" }
+      "title": "What's for dinner?",
+      "sentences": [
+        {
+          "en": "Dad: Dinner is ready!",
+          "cn": "爸爸：晚饭准备好了！"
+        },
+        {
+          "en": "Tim: What's for dinner, Dad?",
+          "cn": "蒂姆：爸爸，晚饭吃什么？"
+        },
+        {
+          "en": "Dad: Rice, broccoli, fish and soup.",
+          "cn": "爸爸：米饭、西兰花、鱼和汤。"
+        },
+        {
+          "en": "Tim: Great! I like fish. Mmm, yummy!",
+          "cn": "蒂姆：太好了！我喜欢鱼。嗯，真好吃！"
+        },
+        {
+          "en": "Helen: Do you want some meat and noodles?",
+          "cn": "海伦：你想吃点肉和面条吗？"
+        },
+        {
+          "en": "Tim: No, thanks.",
+          "cn": "蒂姆：不要了，谢谢。"
+        }
       ]
     },
     "Unit 3 My school subjects": {
-      title: "My school subjects",
-      sentences: [
-        { en: "Tim: What classes do you have today?", cn: "蒂姆：今天你有什么课？" },
-        { en: "Helen: We have Chinese, English and Maths.", cn: "海伦：我们有语文课、英语课和数学课。" },
-        { en: "Tim: I have PE and Art today.", cn: "蒂姆：今天我有体育课和美术课。" },
-        { en: "Helen: PE is fun.", cn: "海伦：体育课很有趣。" },
-        { en: "Tim: Yes, and Maths is easy.", cn: "蒂姆：是的，而且数学很简单。" },
-        { en: "Helen: I have Music today too.", cn: "海伦：今天我也有音乐课。" }
+      "title": "My school subjects",
+      "sentences": [
+        {
+          "en": "Tim: What classes do you have today?",
+          "cn": "蒂姆：今天你有什么课？"
+        },
+        {
+          "en": "Helen: We have Chinese, English and Maths.",
+          "cn": "海伦：我们有语文课、英语课和数学课。"
+        },
+        {
+          "en": "Tim: I have PE and Art today.",
+          "cn": "蒂姆：今天我有体育课和美术课。"
+        },
+        {
+          "en": "Helen: PE is fun.",
+          "cn": "海伦：体育课很有趣。"
+        },
+        {
+          "en": "Tim: Yes, and Maths is easy.",
+          "cn": "蒂姆：是的，而且数学很简单。"
+        },
+        {
+          "en": "Helen: I have Music today too.",
+          "cn": "海伦：今天我也有音乐课。"
+        }
       ]
     },
     "Unit 4 My body parts": {
-      title: "My body parts",
-      sentences: [
-        { en: "Look at my robot.", cn: "看我的机器人。" },
-        { en: "It has big eyes and a small nose.", cn: "它有大大的眼睛和一只小小的鼻子。" },
-        { en: "Look! This is its mouth.", cn: "看！这是它的嘴巴。" },
-        { en: "It has no hair, but it has two big ears.", cn: "它没有头发，但它有两只大耳朵。" },
-        { en: "What a funny face!", cn: "多么有趣的一张脸啊！" }
+      "title": "My body parts",
+      "sentences": [
+        {
+          "en": "Look at my robot.",
+          "cn": "看我的机器人。"
+        },
+        {
+          "en": "It has big eyes and a small nose.",
+          "cn": "它有大大的眼睛和一只小小的鼻子。"
+        },
+        {
+          "en": "Look! This is its mouth.",
+          "cn": "看！这是它的嘴巴。"
+        },
+        {
+          "en": "It has no hair, but it has two big ears.",
+          "cn": "它没有头发，但它有两只大耳朵。"
+        },
+        {
+          "en": "What a funny face!",
+          "cn": "多么有趣的一张脸啊！"
+        }
       ]
     },
     "Unit 5 Can you ride a bike?": {
-      title: "Can you ride a bike?",
-      sentences: [
-        { en: "Helen: Can you ride a bike, Tim?", cn: "海伦：蒂姆，你会骑自行车吗？" },
-        { en: "Tim: Yes, I can. I can skate too.", cn: "蒂姆：是的，我会。我也会滑冰。" },
-        { en: "Helen: Can you swim?", cn: "海伦：你会游泳吗？" },
-        { en: "Tim: No, I can't. I want to play in the pool.", cn: "蒂姆：不，我不会。我想在泳池里玩耍。" },
-        { en: "Helen: Let's skip together.", cn: "海伦：让我们一起跳绳吧。" }
+      "title": "Can you ride a bike?",
+      "sentences": [
+        {
+          "en": "Helen: Can you ride a bike, Tim?",
+          "cn": "海伦：蒂姆，你会骑自行车吗？"
+        },
+        {
+          "en": "Tim: Yes, I can. I can skate too.",
+          "cn": "蒂姆：是的，我会。我也会滑冰。"
+        },
+        {
+          "en": "Helen: Can you swim?",
+          "cn": "海伦：你会游泳吗？"
+        },
+        {
+          "en": "Tim: No, I can't. I want to play in the pool.",
+          "cn": "蒂姆：不，我不会。我想在泳池里玩耍。"
+        },
+        {
+          "en": "Helen: Let's skip together.",
+          "cn": "海伦：让我们一起跳绳吧。"
+        }
       ]
     },
     "Unit 6 Let's go shopping": {
-      title: "Let's go shopping",
-      sentences: [
-        { en: "Helen: Let's go shopping, Mum.", cn: "海伦：妈妈，我们去购物吧。" },
-        { en: "Mum: OK. Look at this beautiful dress.", cn: "妈妈：好的。看这条漂亮的连衣裙。" },
-        { en: "Helen: Hooray! I like this skirt and hat.", cn: "海伦：好极了！我喜欢这条短裙和帽子。" },
-        { en: "Mum: Do you want this T-shirt or blouse?", cn: "妈妈：你想要这件T恤衫还是衬衫？" },
-        { en: "Helen: I want the T-shirt. What about shorts for Tim?", cn: "海伦：我想要T恤衫。给蒂姆买条短裤怎么样？" },
-        { en: "Mum: Yes, let's buy them.", cn: "妈妈：好的，我们买吧。" }
+      "title": "Let's go shopping",
+      "sentences": [
+        {
+          "en": "Helen: Let's go shopping, Mum.",
+          "cn": "海伦：妈妈，我们去购物吧。"
+        },
+        {
+          "en": "Mum: OK. Look at this beautiful dress.",
+          "cn": "妈妈：好的。看这条漂亮的连衣裙。"
+        },
+        {
+          "en": "Helen: Hooray! I like this skirt and hat.",
+          "cn": "海伦：好极了！我喜欢这条短裙和帽子。"
+        },
+        {
+          "en": "Mum: Do you want this T-shirt or blouse?",
+          "cn": "妈妈：你想要这件T恤衫还是衬衫？"
+        },
+        {
+          "en": "Helen: I want the T-shirt. What about shorts for Tim?",
+          "cn": "海伦：我想要T恤衫。给蒂姆买条短裤怎么样？"
+        },
+        {
+          "en": "Mum: Yes, let's buy them.",
+          "cn": "妈妈：好的，我们买吧。"
+        }
       ]
     },
     "Unit 7 Summer fun": {
-      title: "Summer fun",
-      sentences: [
-        { en: "It is summer now. The weather is hot.", cn: "现在是夏天。天气很热。" },
-        { en: "We can go to the beach and swim in the pool.", cn: "我们可以去海滩，在泳池里游泳。" },
-        { en: "Let's eat some ice cream and watermelon.", cn: "让我们吃些冰淇淋和西瓜。" },
-        { en: "I like drinking cold orange juice.", cn: "我喜欢喝冰凉的橙汁。" },
-        { en: "Summer fun is great!", cn: "夏天的乐趣太棒了！" }
+      "title": "Summer fun",
+      "sentences": [
+        {
+          "en": "It is summer now. The weather is hot.",
+          "cn": "现在是夏天。天气很热。"
+        },
+        {
+          "en": "We can go to the beach and swim in the pool.",
+          "cn": "我们可以去海滩，在泳池里游泳。"
+        },
+        {
+          "en": "Let's eat some ice cream and watermelon.",
+          "cn": "让我们吃些冰淇淋和西瓜。"
+        },
+        {
+          "en": "I like drinking cold orange juice.",
+          "cn": "我喜欢喝冰凉的橙汁。"
+        },
+        {
+          "en": "Summer fun is great!",
+          "cn": "夏天的乐趣太棒了！"
+        }
       ]
     },
     "Unit 8 At the park": {
-      title: "At the park",
-      sentences: [
-        { en: "Teacher: We are at the park now.", cn: "老师：我们现在在公园里。" },
-        { en: "Tim: Please don't push! We should queue up.", cn: "蒂姆：请不要推！我们应该排队。" },
-        { en: "Helen: Don't talk or shout here.", cn: "海伦：不要在这里说话或大喊大叫。" },
-        { en: "Tim: How about a game?", cn: "蒂姆：玩个游戏怎么样？" },
-        { en: "Teacher: Sorry, you can't run on the grass.", cn: "老师：对不起，你们不能在草地上奔跑。" }
+      "title": "At the park",
+      "sentences": [
+        {
+          "en": "Teacher: We are at the park now.",
+          "cn": "老师：我们现在在公园里。"
+        },
+        {
+          "en": "Tim: Please don't push! We should queue up.",
+          "cn": "蒂姆：请不要推！我们应该排队。"
+        },
+        {
+          "en": "Helen: Don't talk or shout here.",
+          "cn": "海伦：不要在这里说话或大喊大叫。"
+        },
+        {
+          "en": "Tim: How about a game?",
+          "cn": "蒂姆：玩个游戏怎么样？"
+        },
+        {
+          "en": "Teacher: Sorry, you can't run on the grass.",
+          "cn": "老师：对不起，你们不能在草地上奔跑。"
+        }
       ]
     }
   },
   "G6_S1": {
     "Unit 1 The king's new clothes": {
-      title: "The king's new clothes",
-      sentences: [
-        { en: "Long long ago, there was a king.", cn: "很久很久以前，有一位国王。" },
-        { en: "He liked new clothes.", cn: "他喜欢新衣服。" },
-        { en: "One day, two men visited the king.", cn: "一天，两个男人拜访了国王。" },
-        { en: "“My king, we can make new clothes for you.”", cn: "“我的国王，我们可以为您制作新衣服。”" },
-        { en: "The king was happy.", cn: "国王很高兴。" },
-        { en: "The two men showed the king his new clothes.", cn: "这两个男人给国王展示了他的新衣服。" },
-        { en: "“My king, please try on these magic clothes.”", cn: "“我的国王，请试穿这些神奇的衣服。”" },
-        { en: "“Clever people can see them. Foolish people can't see them.”", cn: "“聪明的人能看见它们。愚蠢的人看不见它们。”" },
-        { en: "The king walked through the city in his new clothes.", cn: "国王穿着他的新衣服走过城市。" },
-        { en: "There were a lot of people in the street.", cn: "街上有很多人。" },
-        { en: "They looked at the king and shouted, “What beautiful clothes!”", cn: "他们看着国王并大喊：“多么漂亮的衣服啊！”" },
-        { en: "A little boy pointed at the king and laughed, “Ha! Ha! The king isn't wearing any clothes!”", cn: "一个小男孩指着国王并嘲笑道：“哈哈！国王没有穿任何衣服！”" }
+      "title": "The king's new clothes",
+      "sentences": [
+        {
+          "en": "Long long ago, there was a king.",
+          "cn": "很久很久以前，有一位国王。"
+        },
+        {
+          "en": "He liked new clothes.",
+          "cn": "他喜欢新衣服。"
+        },
+        {
+          "en": "One day, two men visited the king.",
+          "cn": "一天，两个男人拜访了国王。"
+        },
+        {
+          "en": "“My king, we can make new clothes for you.”",
+          "cn": "“我的国王，我们可以为您制作新衣服。”"
+        },
+        {
+          "en": "The king was happy.",
+          "cn": "国王很高兴。"
+        },
+        {
+          "en": "The two men showed the king his new clothes.",
+          "cn": "这两个男人给国王展示了他的新衣服。"
+        },
+        {
+          "en": "“My king, please try on these magic clothes.”",
+          "cn": "“我的国王，请试穿这些神奇的衣服。”"
+        },
+        {
+          "en": "“Clever people can see them. Foolish people can't see them.”",
+          "cn": "“聪明的人能看见它们。愚蠢的人看不见它们。”"
+        },
+        {
+          "en": "The king walked through the city in his new clothes.",
+          "cn": "国王穿着他的新衣服走过城市。"
+        },
+        {
+          "en": "There were a lot of people in the street.",
+          "cn": "街上有很多人。"
+        },
+        {
+          "en": "They looked at the king and shouted, “What beautiful clothes!”",
+          "cn": "他们看着国王并大喊：“多么漂亮的衣服啊！”"
+        },
+        {
+          "en": "A little boy pointed at the king and laughed, “Ha! Ha! The king isn't wearing any clothes!”",
+          "cn": "一个小男孩指着国王并嘲笑道：“哈哈！国王没有穿任何衣服！”"
+        }
       ]
     },
     "Unit 2 What a day!": {
-      title: "What a day!",
-      sentences: [
-        { en: "Sunday, 20th September", cn: "9月20日，星期日" },
-        { en: "It was sunny in the morning.", cn: "早上天气晴朗。" },
-        { en: "Su Hai, Mike, Liu Tao and I went to the park by bike.", cn: "苏海、迈克、刘涛和我骑自行车去了公园。" },
-        { en: "There was a parrot show in the park.", cn: "公园里有一场鹦鹉表演。" },
-        { en: "We saw some interesting parrots.", cn: "我们看了一些有趣的鹦鹉。" },
-        { en: "Then, the weather became windy and cloudy.", cn: "然后，天气变得有风且多云。" },
-        { en: "We flew kites high in the sky.", cn: "我们把风筝放得高高的。" },
-        { en: "It was time for lunch.", cn: "该吃午饭了。" },
-        { en: "We brought some dumplings, some bread and honey and some drinks.", cn: "我们带了一些饺子、一些面包和蜂蜜，以及一些饮料。" },
-        { en: "We saw some ants on the bread and honey.", cn: "我们在面包和蜂蜜上看到了一些蚂蚁。" },
-        { en: "There were some bees too.", cn: "也有一些蜜蜂。" },
-        { en: "We could not eat our lunch!", cn: "我们没能吃成午饭！" },
-        { en: "In the afternoon, there were black clouds in the sky.", cn: "下午，天空中有乌云。" },
-        { en: "It rained.", cn: "下雨了。" },
-        { en: "We were hungry and wet.", cn: "我们又饿又湿。" },
-        { en: "What a day!", cn: "多么糟糕的一天啊！" }
+      "title": "What a day!",
+      "sentences": [
+        {
+          "en": "Sunday, 20th September",
+          "cn": "9月20日，星期日"
+        },
+        {
+          "en": "It was sunny in the morning.",
+          "cn": "早上天气晴朗。"
+        },
+        {
+          "en": "Su Hai, Mike, Liu Tao and I went to the park by bike.",
+          "cn": "苏海、迈克、刘涛和我骑自行车去了公园。"
+        },
+        {
+          "en": "There was a parrot show in the park.",
+          "cn": "公园里有一场鹦鹉表演。"
+        },
+        {
+          "en": "We saw some interesting parrots.",
+          "cn": "我们看了一些有趣的鹦鹉。"
+        },
+        {
+          "en": "Then, the weather became windy and cloudy.",
+          "cn": "然后，天气变得有风且多云。"
+        },
+        {
+          "en": "We flew kites high in the sky.",
+          "cn": "我们把风筝放得高高的。"
+        },
+        {
+          "en": "It was time for lunch.",
+          "cn": "该吃午饭了。"
+        },
+        {
+          "en": "We brought some dumplings, some bread and honey and some drinks.",
+          "cn": "我们带了一些饺子、一些面包和蜂蜜，以及一些饮料。"
+        },
+        {
+          "en": "We saw some ants on the bread and honey.",
+          "cn": "我们在面包和蜂蜜上看到了一些蚂蚁。"
+        },
+        {
+          "en": "There were some bees too.",
+          "cn": "也有一些蜜蜂。"
+        },
+        {
+          "en": "We could not eat our lunch!",
+          "cn": "我们没能吃成午饭！"
+        },
+        {
+          "en": "In the afternoon, there were black clouds in the sky.",
+          "cn": "下午，天空中有乌云。"
+        },
+        {
+          "en": "It rained.",
+          "cn": "下雨了。"
+        },
+        {
+          "en": "We were hungry and wet.",
+          "cn": "我们又饿又湿。"
+        },
+        {
+          "en": "What a day!",
+          "cn": "多么糟糕的一天啊！"
+        }
       ]
     },
     "Unit 3 Holiday fun": {
-      title: "Holiday fun",
-      sentences: [
-        { en: "Mike: Hi, Liu Tao. Did you have a good time last holiday?", cn: "迈克：嗨，刘涛。上个假期你玩得开心吗？" },
-        { en: "Liu Tao: Yes, I did. I went to the Bund with my family. It was fun.", cn: "刘涛：是的，我玩得很开心。我和我的家人去了外滩。很有趣。" },
-        { en: "Mike: What did you do there?", cn: "迈克：你在那里做了什么？" },
-        { en: "Liu Tao: We took many pictures.", cn: "刘涛：我们拍了许多照片。" },
-        { en: "Mike: Hello, Su Hai. Did you go anywhere interesting?", cn: "迈克：你好，苏海。你去什么有趣的地方了吗？" },
-        { en: "Su Hai: Yes, I went to Beijing. I visited the Great Wall.", cn: "苏海：是的，我去了北京。我游览了长城。" },
-        { en: "Mike: Did you go with your parents?", cn: "迈克：你是和你的父母一起去的吗？" },
-        { en: "Su Hai: No, I went with my cousin. We saw a lot of interesting things there.", cn: "苏海：没有，我是和我的表哥/表姐一起去的。我们在那里看到了很多有趣的东西。" },
-        { en: "Mike: What about you, Wang Bing? Where did you go?", cn: "迈克：你呢，王兵？你去哪儿了？" },
-        { en: "Wang Bing: I went to a farm.", cn: "王兵：我去了农场。" },
-        { en: "Mike: Did you pick any fruit?", cn: "迈克：你摘水果了吗？" },
-        { en: "Wang Bing: Yes, I did. I picked some apples and oranges. They were very sweet.", cn: "王兵：是的，我摘了。我摘了一些苹果和橙子。它们非常甜。" },
-        { en: "Mike: How about you, Helen?", cn: "迈克：你呢，海伦？" },
-        { en: "Helen: I didn't go anywhere. I stayed at home and read books. I learned a lot.", cn: "海伦：我哪儿也没去。我待在家里看书。我学到了很多东西。" },
-        { en: "Mike: That sounds like a quiet holiday.", cn: "迈克：那听起来像是一个安静的假期。" }
+      "title": "Holiday fun",
+      "sentences": [
+        {
+          "en": "Mike: Hi, Liu Tao. Did you have a good time last holiday?",
+          "cn": "迈克：嗨，刘涛。上个假期你玩得开心吗？"
+        },
+        {
+          "en": "Liu Tao: Yes, I did. I went to the Bund with my family. It was fun.",
+          "cn": "刘涛：是的，我玩得很开心。我和我的家人去了外滩。很有趣。"
+        },
+        {
+          "en": "Mike: What did you do there?",
+          "cn": "迈克：你在那里做了什么？"
+        },
+        {
+          "en": "Liu Tao: We took many pictures.",
+          "cn": "刘涛：我们拍了许多照片。"
+        },
+        {
+          "en": "Mike: Hello, Su Hai. Did you go anywhere interesting?",
+          "cn": "迈克：你好，苏海。你去什么有趣的地方了吗？"
+        },
+        {
+          "en": "Su Hai: Yes, I went to Beijing. I visited the Great Wall.",
+          "cn": "苏海：是的，我去了北京。我游览了长城。"
+        },
+        {
+          "en": "Mike: Did you go with your parents?",
+          "cn": "迈克：你是和你的父母一起去的吗？"
+        },
+        {
+          "en": "Su Hai: No, I went with my cousin. We saw a lot of interesting things there.",
+          "cn": "苏海：没有，我是和我的表哥/表姐一起去的。我们在那里看到了很多有趣的东西。"
+        },
+        {
+          "en": "Mike: What about you, Wang Bing? Where did you go?",
+          "cn": "迈克：你呢，王兵？你去哪儿了？"
+        },
+        {
+          "en": "Wang Bing: I went to a farm.",
+          "cn": "王兵：我去了农场。"
+        },
+        {
+          "en": "Mike: Did you pick any fruit?",
+          "cn": "迈克：你摘水果了吗？"
+        },
+        {
+          "en": "Wang Bing: Yes, I did. I picked some apples and oranges. They were very sweet.",
+          "cn": "王兵：是的，我摘了。我摘了一些苹果和橙子。它们非常甜。"
+        },
+        {
+          "en": "Mike: How about you, Helen?",
+          "cn": "迈克：你呢，海伦？"
+        },
+        {
+          "en": "Helen: I didn't go anywhere. I stayed at home and read books. I learned a lot.",
+          "cn": "海伦：我哪儿也没去。我待在家里看书。我学到了很多东西。"
+        },
+        {
+          "en": "Mike: That sounds like a quiet holiday.",
+          "cn": "迈克：那听起来像是一个安静的假期。"
+        }
       ]
     },
     "Unit 4 Then and now": {
-      title: "Then and now",
-      sentences: [
-        { en: "Six years ago, Mike could read and draw, but he could not write. Now he can do many things.", cn: "六年前，迈克会读书和画画，但他不会写字。现在他能做很多事情。" },
-        { en: "Twenty years ago, Mr Brown wrote letters to his friends.", cn: "二十年前，布朗先生给他的朋友们写信。" },
-        { en: "He used the telephone at home and in the office to call people.", cn: "他在家里和办公室使用电话给人们打电话。" },
-        { en: "Now he has a mobile phone and he can call people anywhere. He also writes emails.", cn: "现在他有一部手机，他可以随时随地给人们打电话。他还写电子邮件。" },
-        { en: "Thirty years ago, Mike's grandpa listened to the radio and read newspapers for news.", cn: "三十年前，迈克的爷爷通过听广播和读报纸来获取新闻。" },
-        { en: "Now he can read and watch news on the Internet. He reads e-books too.", cn: "现在他可以在网上阅读和观看新闻。他也阅读电子书。" },
-        { en: "Twenty years ago, Mrs Brown made friends at school. She bought things from shops.", cn: "二十年前，布朗夫人在学校里交朋友。她从商店里买东西。" },
-        { en: "Now she has e-friends from all over the world. She does shopping on the Internet too.", cn: "现在她有来自世界各地的网友。她也在网上购物。" }
+      "title": "Then and now",
+      "sentences": [
+        {
+          "en": "Six years ago, Mike could read and draw, but he could not write. Now he can do many things.",
+          "cn": "六年前，迈克会读书和画画，但他不会写字。现在他能做很多事情。"
+        },
+        {
+          "en": "Twenty years ago, Mr Brown wrote letters to his friends.",
+          "cn": "二十年前，布朗先生给他的朋友们写信。"
+        },
+        {
+          "en": "He used the telephone at home and in the office to call people.",
+          "cn": "他在家里和办公室使用电话给人们打电话。"
+        },
+        {
+          "en": "Now he has a mobile phone and he can call people anywhere. He also writes emails.",
+          "cn": "现在他有一部手机，他可以随时随地给人们打电话。他还写电子邮件。"
+        },
+        {
+          "en": "Thirty years ago, Mike's grandpa listened to the radio and read newspapers for news.",
+          "cn": "三十年前，迈克的爷爷通过听广播和读报纸来获取新闻。"
+        },
+        {
+          "en": "Now he can read and watch news on the Internet. He reads e-books too.",
+          "cn": "现在他可以在网上阅读和观看新闻。他也阅读电子书。"
+        },
+        {
+          "en": "Twenty years ago, Mrs Brown made friends at school. She bought things from shops.",
+          "cn": "二十年前，布朗夫人在学校里交朋友。她从商店里买东西。"
+        },
+        {
+          "en": "Now she has e-friends from all over the world. She does shopping on the Internet too.",
+          "cn": "现在她有来自世界各地的网友。她也在网上购物。"
+        }
       ]
     },
     "Unit 5 Signs": {
-      title: "Signs",
-      sentences: [
-        { en: "Mike, Helen and Tim are at a shopping centre.", cn: "迈克、海伦和蒂姆在一个购物中心。" },
-        { en: "Mike: Be careful, Tim!", cn: "迈克：当心，蒂姆！" },
-        { en: "Helen: Can you see the sign?", cn: "海伦：你能看见那个标志吗？" },
-        { en: "Tim: What does it mean?", cn: "蒂姆：它是什么意思？" },
-        { en: "Helen: It means the floor is wet.", cn: "海伦：它的意思是地面是湿的。" },
-        { en: "Then, they see a juice shop.", cn: "然后，他们看到了一家果汁店。" },
-        { en: "Helen: Do you want some juice?", cn: "海伦：你们想喝点果汁吗？" },
-        { en: "Mike & Tim: Yes, please.", cn: "迈克和蒂姆：是的，谢谢。" },
-        { en: "Tim: Here's a sign. What does it mean, Mike?", cn: "蒂姆：这儿有一个标志。迈克，它是什么意思？" },
-        { en: "Mike: It means you can't litter here. No littering.", cn: "迈克：它的意思是你不可以在这里扔垃圾。禁止扔垃圾。" },
-        { en: "There is a bookshop. Helen wants to go in.", cn: "有一家书店。海伦想要进去。" },
-        { en: "Mike: You can't take your juice into the shop, Helen.", cn: "迈克：你不能把你的果汁带进店里，海伦。" },
-        { en: "Tim: Can you see that sign? It means you can't eat or drink there.", cn: "蒂姆：你能看见那个标志吗？它的意思是你不可以在那里吃东西或喝饮料。" },
-        { en: "Helen: I'm sorry.", cn: "海伦：对不起。" },
-        { en: "Now they are eating some noodles in a restaurant.", cn: "现在他们正在一家餐馆里吃面条。" },
-        { en: "Helen: Is someone smoking? I can smell it.", cn: "海伦：有人在吸烟吗？我闻到味道了。" },
-        { en: "Tim: Please don't smoke here. Can you see that sign? It means you can't smoke here.", cn: "蒂姆：请不要在这里吸烟。你能看见那个标志吗？它的意思是你不可以在这里吸烟。" },
-        { en: "Man: OK. Sorry!", cn: "男士：好的。对不起！" }
+      "title": "Signs",
+      "sentences": [
+        {
+          "en": "Mike, Helen and Tim are at a shopping centre.",
+          "cn": "迈克、海伦和蒂姆在一个购物中心。"
+        },
+        {
+          "en": "Mike: Be careful, Tim!",
+          "cn": "迈克：当心，蒂姆！"
+        },
+        {
+          "en": "Helen: Can you see the sign?",
+          "cn": "海伦：你能看见那个标志吗？"
+        },
+        {
+          "en": "Tim: What does it mean?",
+          "cn": "蒂姆：它是什么意思？"
+        },
+        {
+          "en": "Helen: It means the floor is wet.",
+          "cn": "海伦：它的意思是地面是湿的。"
+        },
+        {
+          "en": "Then, they see a juice shop.",
+          "cn": "然后，他们看到了一家果汁店。"
+        },
+        {
+          "en": "Helen: Do you want some juice?",
+          "cn": "海伦：你们想喝点果汁吗？"
+        },
+        {
+          "en": "Mike & Tim: Yes, please.",
+          "cn": "迈克和蒂姆：是的，谢谢。"
+        },
+        {
+          "en": "Tim: Here's a sign. What does it mean, Mike?",
+          "cn": "蒂姆：这儿有一个标志。迈克，它是什么意思？"
+        },
+        {
+          "en": "Mike: It means you can't litter here. No littering.",
+          "cn": "迈克：它的意思是你不可以在这里扔垃圾。禁止扔垃圾。"
+        },
+        {
+          "en": "There is a bookshop. Helen wants to go in.",
+          "cn": "有一家书店。海伦想要进去。"
+        },
+        {
+          "en": "Mike: You can't take your juice into the shop, Helen.",
+          "cn": "迈克：你不能把你的果汁带进店里，海伦。"
+        },
+        {
+          "en": "Tim: Can you see that sign? It means you can't eat or drink there.",
+          "cn": "蒂姆：你能看见那个标志吗？它的意思是你不可以在那里吃东西或喝饮料。"
+        },
+        {
+          "en": "Helen: I'm sorry.",
+          "cn": "海伦：对不起。"
+        },
+        {
+          "en": "Now they are eating some noodles in a restaurant.",
+          "cn": "现在他们正在一家餐馆里吃面条。"
+        },
+        {
+          "en": "Helen: Is someone smoking? I can smell it.",
+          "cn": "海伦：有人在吸烟吗？我闻到味道了。"
+        },
+        {
+          "en": "Tim: Please don't smoke here. Can you see that sign? It means you can't smoke here.",
+          "cn": "蒂姆：请不要在这里吸烟。你能看见那个标志吗？它的意思是你不可以在这里吸烟。"
+        },
+        {
+          "en": "Man: OK. Sorry!",
+          "cn": "男士：好的。对不起！"
+        }
       ]
     },
     "Unit 6 Keep our city clean": {
-      title: "Keep our city clean",
-      sentences: [
-        { en: "Miss Li: Look at these pictures of our city. Is our city clean?", cn: "李老师：看这些我们城市的图片。我们的城市干净吗？" },
-        { en: "Students: No, it isn't.", cn: "学生们：不，它不干净。" },
-        { en: "Miss Li: What makes our city dirty?", cn: "李老师：什么使我们的城市变脏的？" },
-        { en: "Su Hai: Smoke from cars makes the air dirty.", cn: "苏海：汽车排放的废气使空气变脏。" },
-        { en: "Wang Bing: Black smoke from factories makes the air dirty too.", cn: "王兵：工厂排放的黑烟也使空气变脏。" },
-        { en: "Liu Tao: Rubbish makes the streets messy and dirty.", cn: "刘涛：垃圾使街道变得又乱又脏。" },
-        { en: "Su Hai: The river is dirty. There's rubbish in the water and the fish are dead.", cn: "苏海：这条河很脏。水里有垃圾，鱼都死了。" },
-        { en: "Miss Li: What can we do to keep our city clean?", cn: "李老师：我们可以做些什么来保持我们的城市干净？" },
-        { en: "Su Hai: We can take the bus and the metro to school.", cn: "苏海：我们可以坐公交车和地铁上学。" },
-        { en: "Nancy: We can walk to school too.", cn: "南希：我们也可以步行上学。" },
-        { en: "Wang Bing: We can move some factories away from our city. We can put rubbish in the bin.", cn: "王兵：我们可以把一些工厂搬离我们的城市。我们可以把垃圾放进垃圾桶里。" },
-        { en: "Liu Tao: We can plant more trees. They help keep the air clean.", cn: "刘涛：我们可以种植更多的树木。它们有助于保持空气干净。" },
-        { en: "Miss Li: Your ideas are great. Well done, class!", cn: "李老师：你们的主意太棒了。做得好，同学们！" }
+      "title": "Keep our city clean",
+      "sentences": [
+        {
+          "en": "Miss Li: Look at these pictures of our city. Is our city clean?",
+          "cn": "李老师：看这些我们城市的图片。我们的城市干净吗？"
+        },
+        {
+          "en": "Students: No, it isn't.",
+          "cn": "学生们：不，它不干净。"
+        },
+        {
+          "en": "Miss Li: What makes our city dirty?",
+          "cn": "李老师：什么使我们的城市变脏的？"
+        },
+        {
+          "en": "Su Hai: Smoke from cars makes the air dirty.",
+          "cn": "苏海：汽车排放的废气使空气变脏。"
+        },
+        {
+          "en": "Wang Bing: Black smoke from factories makes the air dirty too.",
+          "cn": "王兵：工厂排放的黑烟也使空气变脏。"
+        },
+        {
+          "en": "Liu Tao: Rubbish makes the streets messy and dirty.",
+          "cn": "刘涛：垃圾使街道变得又乱又脏。"
+        },
+        {
+          "en": "Su Hai: The river is dirty. There's rubbish in the water and the fish are dead.",
+          "cn": "苏海：这条河很脏。水里有垃圾，鱼都死了。"
+        },
+        {
+          "en": "Miss Li: What can we do to keep our city clean?",
+          "cn": "李老师：我们可以做些什么来保持我们的城市干净？"
+        },
+        {
+          "en": "Su Hai: We can take the bus and the metro to school.",
+          "cn": "苏海：我们可以坐公交车和地铁上学。"
+        },
+        {
+          "en": "Nancy: We can walk to school too.",
+          "cn": "南希：我们也可以步行上学。"
+        },
+        {
+          "en": "Wang Bing: We can move some factories away from our city. We can put rubbish in the bin.",
+          "cn": "王兵：我们可以把一些工厂搬离我们的城市。我们可以把垃圾放进垃圾桶里。"
+        },
+        {
+          "en": "Liu Tao: We can plant more trees. They help keep the air clean.",
+          "cn": "刘涛：我们可以种植更多的树木。它们有助于保持空气干净。"
+        },
+        {
+          "en": "Miss Li: Your ideas are great. Well done, class!",
+          "cn": "李老师：你们的主意太棒了。做得好，同学们！"
+        }
       ]
     },
     "Unit 7 Protect the Earth": {
-      title: "Protect the Earth",
-      sentences: [
-        { en: "Save water.", cn: "节约用水。" },
-        { en: "Water is useful. We drink water and use water to clean things every day.", cn: "水是有用的。我们每天喝水并用水来清洗东西。" },
-        { en: "In many places, there is not much water. We should not waste water. We should reuse and save it.", cn: "在许多地方，水并不多。我们不应该浪费水。我们应该循环使用并节约它。" },
-        { en: "Save energy.", cn: "节约能源。" },
-        { en: "Most of our energy comes from coal and oil. There is not much coal or oil on Earth. We should save energy.", cn: "我们的大部分能源来自煤炭和石油。地球上的煤炭和石油并不多。我们应该节约能源。" },
-        { en: "We should not drive so much because cars use a lot of energy.", cn: "我们不应该开那么多车，因为汽车消耗大量能源。" },
-        { en: "Save trees.", cn: "保护树木。" },
-        { en: "Wood comes from trees.", cn: "木头来自树木。" },
-        { en: "We use wood to make tables, chairs and many other things.", cn: "我们用木头制作桌子、椅子和许多其他东西。" },
-        { en: "We should not cut down too many trees because trees help keep the air clean.", cn: "我们不应该砍伐太多的树木，因为树木有助于保持空气干净。" },
-        { en: "Don't use too much plastic.", cn: "不要使用太多的塑料制品。" },
-        { en: "We use plastic to make bags and bottles, but too much plastic is bad for the Earth.", cn: "我们用塑料制作袋子和瓶子，但是太多的塑料对地球有害。" },
-        { en: "We should not use too many plastic bags or bottles. We should use paper bags and glass bottles.", cn: "我们不应该使用太多的塑料袋或塑料瓶。我们应该使用纸袋和玻璃瓶。" }
+      "title": "Protect the Earth",
+      "sentences": [
+        {
+          "en": "Save water.",
+          "cn": "节约用水。"
+        },
+        {
+          "en": "Water is useful. We drink water and use water to clean things every day.",
+          "cn": "水是有用的。我们每天喝水并用水来清洗东西。"
+        },
+        {
+          "en": "In many places, there is not much water. We should not waste water. We should reuse and save it.",
+          "cn": "在许多地方，水并不多。我们不应该浪费水。我们应该循环使用并节约它。"
+        },
+        {
+          "en": "Save energy.",
+          "cn": "节约能源。"
+        },
+        {
+          "en": "Most of our energy comes from coal and oil. There is not much coal or oil on Earth. We should save energy.",
+          "cn": "我们的大部分能源来自煤炭和石油。地球上的煤炭和石油并不多。我们应该节约能源。"
+        },
+        {
+          "en": "We should not drive so much because cars use a lot of energy.",
+          "cn": "我们不应该开那么多车，因为汽车消耗大量能源。"
+        },
+        {
+          "en": "Save trees.",
+          "cn": "保护树木。"
+        },
+        {
+          "en": "Wood comes from trees.",
+          "cn": "木头来自树木。"
+        },
+        {
+          "en": "We use wood to make tables, chairs and many other things.",
+          "cn": "我们用木头制作桌子、椅子和许多其他东西。"
+        },
+        {
+          "en": "We should not cut down too many trees because trees help keep the air clean.",
+          "cn": "我们不应该砍伐太多的树木，因为树木有助于保持空气干净。"
+        },
+        {
+          "en": "Don't use too much plastic.",
+          "cn": "不要使用太多的塑料制品。"
+        },
+        {
+          "en": "We use plastic to make bags and bottles, but too much plastic is bad for the Earth.",
+          "cn": "我们用塑料制作袋子和瓶子，但是太多的塑料对地球有害。"
+        },
+        {
+          "en": "We should not use too many plastic bags or bottles. We should use paper bags and glass bottles.",
+          "cn": "我们不应该使用太多的塑料袋或塑料瓶。我们应该使用纸袋和玻璃瓶。"
+        }
       ]
     },
     "Unit 8 Chinese New Year": {
-      title: "Chinese New Year",
-      sentences: [
-        { en: "Dear Su Hai,", cn: "亲爱的苏海：" },
-        { en: "How are you? It’s going to be Chinese New Year next week. I’m very excited!", cn: "你好吗？下周就是春节了。我非常激动！" },
-        { en: "Tomorrow, my family and I are going to buy some new clothes and food.", cn: "明天，我和我的家人打算去买一些新衣服和食物。" },
-        { en: "Then, in the evening, we’re going to make some cakes and tangyuan.", cn: "然后，在晚上，我们打算做一些糕点和汤圆。" },
-        { en: "On Chinese New Year’s Eve, we’re going to have dinner with my grandparents, my aunt and uncle and my cousin.", cn: "除夕夜，我们打算和我的爷爷奶奶、叔叔阿姨以及我的堂兄弟姐妹一起吃年夜饭。" },
-        { en: "Then, we’re going to buy some flowers.", cn: "然后，我们打算去买一些花。" },
-        { en: "On Chinese New Year’s Day, my parents are going to give me red packets.", cn: "大年初一，我的父母打算给我红包。" },
-        { en: "Then, we’re going to watch a lion dance in the afternoon.", cn: "然后，我们打算在下午观看舞狮表演。" },
-        { en: "On the second day of Chinese New Year, we’re going to watch fireworks in the evening.", cn: "大年初二，我们打算在晚上观看烟花表演。" },
-        { en: "What are you going to do at Chinese New Year?", cn: "在春节你打算做什么？" },
-        { en: "Love, Anna", cn: "爱你的，安娜" }
+      "title": "Chinese New Year",
+      "sentences": [
+        {
+          "en": "Dear Su Hai,",
+          "cn": "亲爱的苏海："
+        },
+        {
+          "en": "How are you? It’s going to be Chinese New Year next week. I’m very excited!",
+          "cn": "你好吗？下周就是春节了。我非常激动！"
+        },
+        {
+          "en": "Tomorrow, my family and I are going to buy some new clothes and food.",
+          "cn": "明天，我和我的家人打算去买一些新衣服和食物。"
+        },
+        {
+          "en": "Then, in the evening, we’re going to make some cakes and tangyuan.",
+          "cn": "然后，在晚上，我们打算做一些糕点和汤圆。"
+        },
+        {
+          "en": "On Chinese New Year’s Eve, we’re going to have dinner with my grandparents, my aunt and uncle and my cousin.",
+          "cn": "除夕夜，我们打算和我的爷爷奶奶、叔叔阿姨以及我的堂兄弟姐妹一起吃年夜饭。"
+        },
+        {
+          "en": "Then, we’re going to buy some flowers.",
+          "cn": "然后，我们打算去买一些花。"
+        },
+        {
+          "en": "On Chinese New Year’s Day, my parents are going to give me red packets.",
+          "cn": "大年初一，我的父母打算给我红包。"
+        },
+        {
+          "en": "Then, we’re going to watch a lion dance in the afternoon.",
+          "cn": "然后，我们打算在下午观看舞狮表演。"
+        },
+        {
+          "en": "On the second day of Chinese New Year, we’re going to watch fireworks in the evening.",
+          "cn": "大年初二，我们打算在晚上观看烟花表演。"
+        },
+        {
+          "en": "What are you going to do at Chinese New Year?",
+          "cn": "在春节你打算做什么？"
+        },
+        {
+          "en": "Love, Anna",
+          "cn": "爱你的，安娜"
+        }
+      ]
+    }
+  },
+  "G1_S1": {
+    "Unit 1 Hello": {
+      "title": "Hello",
+      "sentences": [
+        {
+          "en": "Hello, I'm mum.",
+          "cn": "你好，我是妈妈。"
+        },
+        {
+          "en": "Hello, I'm dad.",
+          "cn": "你好，我是爸爸。"
+        },
+        {
+          "en": "This is Mr Green.",
+          "cn": "这是格林先生。"
+        },
+        {
+          "en": "Hi, Mr Green. Goodbye!",
+          "cn": "你好，格林先生。再见！"
+        }
+      ]
+    },
+    "Unit 2 Good morning": {
+      "title": "Good morning",
+      "sentences": [
+        {
+          "en": "Good morning, Miss Li.",
+          "cn": "早上好，李老师。"
+        },
+        {
+          "en": "Good morning, class.",
+          "cn": "早上好，同学们。"
+        },
+        {
+          "en": "Good afternoon, Mr Green.",
+          "cn": "下午好，格林先生。"
+        },
+        {
+          "en": "Woof! Woof!",
+          "cn": "汪！汪！"
+        }
+      ]
+    },
+    "Unit 3 This is my mum": {
+      "title": "This is my mum",
+      "sentences": [
+        {
+          "en": "This is my mum.",
+          "cn": "这是我的妈妈。"
+        },
+        {
+          "en": "This is my dad.",
+          "cn": "这是我的爸爸。"
+        },
+        {
+          "en": "This is Miss Li.",
+          "cn": "这是李老师。"
+        },
+        {
+          "en": "Hello, puppy!",
+          "cn": "你好，小狗！"
+        }
+      ]
+    },
+    "Unit 4 Good night": {
+      "title": "Good night",
+      "sentences": [
+        {
+          "en": "Good evening, dad.",
+          "cn": "晚上好，爸爸。"
+        },
+        {
+          "en": "Is this a teddy?",
+          "cn": "这是一个泰迪熊吗？"
+        },
+        {
+          "en": "Yes, it is.",
+          "cn": "是的，它是。"
+        },
+        {
+          "en": "Good night, mum.",
+          "cn": "晚安，妈妈。"
+        }
+      ]
+    },
+    "Unit 5 I like bananas": {
+      "title": "I like bananas",
+      "sentences": [
+        {
+          "en": "Look! Banana, cherry and peach.",
+          "cn": "看！香蕉、樱桃和桃子。"
+        },
+        {
+          "en": "Banana, please.",
+          "cn": "请给我香蕉。"
+        },
+        {
+          "en": "OK. Here you are.",
+          "cn": "好的。给你。"
+        },
+        {
+          "en": "Thank you. Great!",
+          "cn": "谢谢你。太棒了！"
+        }
+      ]
+    },
+    "Unit 6 Look at my balloon": {
+      "title": "Look at my balloon",
+      "sentences": [
+        {
+          "en": "Look at my balloon.",
+          "cn": "看我的气球。"
+        },
+        {
+          "en": "Oh, it's nice. It is red.",
+          "cn": "哦，它很漂亮。它是红色的。"
+        },
+        {
+          "en": "It's blue and green.",
+          "cn": "它是蓝色和绿色的。"
+        },
+        {
+          "en": "Wow, look at my pink balloon!",
+          "cn": "哇，看我的粉色气球！"
+        }
+      ]
+    },
+    "Unit 7 I can sing": {
+      "title": "I can sing",
+      "sentences": [
+        {
+          "en": "I can sing. Tra-la-la.",
+          "cn": "我会唱歌。啦啦啦。"
+        },
+        {
+          "en": "I can dance.",
+          "cn": "我会跳舞。"
+        },
+        {
+          "en": "Look at the robot. It can cook.",
+          "cn": "看这个机器人。它会做饭。"
+        },
+        {
+          "en": "I can draw a robot.",
+          "cn": "我会画一个机器人。"
+        }
+      ]
+    },
+    "Unit 8 Put on your coat": {
+      "title": "Put on your coat",
+      "sentences": [
+        {
+          "en": "It is cold today.",
+          "cn": "今天很冷。"
+        },
+        {
+          "en": "Put on your coat.",
+          "cn": "穿上你的外套。"
+        },
+        {
+          "en": "Put on your scarf and beanie.",
+          "cn": "戴上你的围巾和帽子。"
+        },
+        {
+          "en": "Look at my new sweater.",
+          "cn": "看我的新毛衣。"
+        }
+      ]
+    }
+  },
+  "G1_S2": {
+    "Unit 1 In the classroom": {
+      "title": "In the classroom",
+      "sentences": [
+        {
+          "en": "Let's count the rulers.",
+          "cn": "让我们来数数直尺。"
+        },
+        {
+          "en": "One, two, three, four, five.",
+          "cn": "一，二，三，四，五。"
+        },
+        {
+          "en": "Look! A yellow rubber.",
+          "cn": "看！一块黄色的橡皮。"
+        },
+        {
+          "en": "Cool!",
+          "cn": "酷！"
+        }
+      ]
+    },
+    "Unit 2 In the library": {
+      "title": "In the library",
+      "sentences": [
+        {
+          "en": "Is this your pencil?",
+          "cn": "这是你的铅笔吗？"
+        },
+        {
+          "en": "No. It's a book.",
+          "cn": "不。这是一本书。"
+        },
+        {
+          "en": "Ouch! My book!",
+          "cn": "哎哟！我的书！"
+        },
+        {
+          "en": "I'm sorry. That's OK.",
+          "cn": "对不起。没关系。"
+        }
+      ]
+    },
+    "Unit 3 I like carrots": {
+      "title": "I like carrots",
+      "sentences": [
+        {
+          "en": "How many marbles?",
+          "cn": "有几个玻璃球？"
+        },
+        {
+          "en": "Three marbles.",
+          "cn": "三个玻璃球。"
+        },
+        {
+          "en": "I like carrots and onions.",
+          "cn": "我喜欢胡萝卜和洋葱。"
+        },
+        {
+          "en": "Would you like some peas? Yes, please.",
+          "cn": "你想要点戏豆吗？好的，谢谢。"
+        }
+      ]
+    },
+    "Unit 4 Spring": {
+      "title": "Spring",
+      "sentences": [
+        {
+          "en": "Spring is beautiful.",
+          "cn": "春天很美丽。"
+        },
+        {
+          "en": "Look at the green tree and flowers.",
+          "cn": "看绿色的树和花朵。"
+        },
+        {
+          "en": "I can see a bird.",
+          "cn": "我能看见一只鸟。"
+        },
+        {
+          "en": "Let's fly a colourful kite.",
+          "cn": "让我们放一个五彩缤纷的风筝吧。"
+        }
+      ]
+    },
+    "Unit 5 Insects": {
+      "title": "Insects",
+      "sentences": [
+        {
+          "en": "What's this?",
+          "cn": "这是什么？"
+        },
+        {
+          "en": "It is a ladybird. It is cute.",
+          "cn": "它是一只瓢虫。它很可爱。"
+        },
+        {
+          "en": "Look at the butterfly and dragonfly.",
+          "cn": "看蝴蝶和蜻蜓。"
+        },
+        {
+          "en": "I can hear a cicada.",
+          "cn": "我能听到一只蝉叫。"
+        }
+      ]
+    },
+    "Unit 6 Let's play": {
+      "title": "Let's play",
+      "sentences": [
+        {
+          "en": "Are you ready? Let's play.",
+          "cn": "准备好了吗？我们玩吧。"
+        },
+        {
+          "en": "I have a yo-yo and some stickers.",
+          "cn": "我有一个溜溜球和一些贴纸。"
+        },
+        {
+          "en": "Let's run and play games.",
+          "cn": "让我们跑起来玩游戏吧。"
+        }
+      ]
+    },
+    "Unit 7 Action": {
+      "title": "Action",
+      "sentences": [
+        {
+          "en": "Look! I can jump and hop.",
+          "cn": "看！我会跳，也会单脚跳。"
+        },
+        {
+          "en": "Let's walk together.",
+          "cn": "让我们一起走走吧。"
+        },
+        {
+          "en": "We are so happy!",
+          "cn": "我们太高兴了！"
+        }
+      ]
+    },
+    "Unit 8 Animals on the farm": {
+      "title": "Animals on the farm",
+      "sentences": [
+        {
+          "en": "What's that?",
+          "cn": "那是什么？"
+        },
+        {
+          "en": "It is a pig. Baa! It is a lamb.",
+          "cn": "它是一只猪。咩！它是一只小羊。"
+        },
+        {
+          "en": "Look at the duck and cow on the farm.",
+          "cn": "看农场里的鸭子和奶牛。"
+        },
+        {
+          "en": "My hankie is in the bottle.",
+          "cn": "我的手帕在瓶子里。"
+        }
+      ]
+    }
+  },
+  "G2_S1": {
+    "Unit 1 She's my sister": {
+      "title": "She's my sister",
+      "sentences": [
+        {
+          "en": "Who is she? She is my sister.",
+          "cn": "她是是谁？她是我的妹妹。"
+        },
+        {
+          "en": "This is my father and mother. Welcome!",
+          "cn": "这是我的爸爸和妈妈。欢迎！"
+        },
+        {
+          "en": "Look at my grandfather and grandmother.",
+          "cn": "看我的爷爷和奶奶。"
+        },
+        {
+          "en": "He is my cousin. We like to play.",
+          "cn": "他是我的表弟。我们喜欢一起玩。"
+        }
+      ]
+    },
+    "Unit 2 I have a rabbit": {
+      "title": "I have a rabbit",
+      "sentences": [
+        {
+          "en": "I have a rabbit. It is cute.",
+          "cn": "我有一只兔子。它很可爱。"
+        },
+        {
+          "en": "Do you have a pet? Yes, I have a hamster.",
+          "cn": "你有宠物吗？是的，我有一只仓鼠。"
+        },
+        {
+          "en": "Look at the parrot. It is very big.",
+          "cn": "看这只鹦鹉。它非常大。"
+        },
+        {
+          "en": "Is that a turtle? Yes, it is.",
+          "cn": "那是一只海龟吗？是的，它是。"
+        }
+      ]
+    },
+    "Unit 3 Look at the slide": {
+      "title": "Look at the slide",
+      "sentences": [
+        {
+          "en": "Let's go to the park.",
+          "cn": "让我们去公园吧。"
+        },
+        {
+          "en": "Look at the slide and the swing.",
+          "cn": "看这个滑梯和秋千。"
+        },
+        {
+          "en": "I want to play on the see-saw.",
+          "cn": "我想在秋千/跷跷板上玩。"
+        },
+        {
+          "en": "We have so much fun. I'm happy.",
+          "cn": "我们玩得太开心了。我很幸福。"
+        }
+      ]
+    },
+    "Unit 4 I can play the guitar": {
+      "title": "I can play the guitar",
+      "sentences": [
+        {
+          "en": "Can you play the guitar? Yes, I can.",
+          "cn": "你会弹吉他吗？是的，我会。"
+        },
+        {
+          "en": "I can play the piano very well.",
+          "cn": "我钢琴弹得很好。"
+        },
+        {
+          "en": "She likes music. She plays the violin.",
+          "cn": "她喜欢音乐。她拉小提琴。"
+        },
+        {
+          "en": "Listen to the drum. Boom, boom!",
+          "cn": "听这个鼓声。咚，咚！"
+        }
+      ]
+    },
+    "Unit 5 At the market": {
+      "title": "At the market",
+      "sentences": [
+        {
+          "en": "Let's buy some vegetables at the market.",
+          "cn": "让我们在市场买点蔬菜吧。"
+        },
+        {
+          "en": "Look at these potatoes and tomatoes. They are fresh.",
+          "cn": "看这些土豆和西红柿。它们很新鲜。"
+        },
+        {
+          "en": "I want some carrots and beans. They are cheap.",
+          "cn": "我想要一些胡萝卜和豆子。它们很便宜。"
+        }
+      ]
+    },
+    "Unit 6 A sweet house": {
+      "title": "A sweet house",
+      "sentences": [
+        {
+          "en": "Welcome to my sweet house.",
+          "cn": "欢迎来到我的糖果小屋。"
+        },
+        {
+          "en": "Look at the cake, candy and cookies.",
+          "cn": "看蛋糕、糖果和曲奇饼。"
+        },
+        {
+          "en": "I like delicious chocolate and ice cream.",
+          "cn": "我喜欢美味的巧克力和冰淇淋。"
+        }
+      ]
+    },
+    "Unit 7 I like my bedroom": {
+      "title": "I like my bedroom",
+      "sentences": [
+        {
+          "en": "I like my bedroom. It is clean and tidy.",
+          "cn": "我喜欢我的卧室。它又干净又整洁。"
+        },
+        {
+          "en": "There is a bed, a desk and a chair.",
+          "cn": "这有一张床、一张书桌和一把椅子。"
+        },
+        {
+          "en": "Where is the wardrobe? It is next to the bed.",
+          "cn": "衣柜在哪里？它在床的旁边。"
+        }
+      ]
+    },
+    "Unit 8 In the toy shop": {
+      "title": "In the toy shop",
+      "sentences": [
+        {
+          "en": "Let's go to the toy shop to buy a gift.",
+          "cn": "让我们去玩具店买件礼物吧。"
+        },
+        {
+          "en": "I want a doll and a ball.",
+          "cn": "我想要一个洋娃娃和一个球。"
+        },
+        {
+          "en": "Look at the robot, train and teddy.",
+          "cn": "看这个机器人、小火车和泰迪熊。"
+        }
+      ]
+    }
+  },
+  "G2_S2": {
+    "Unit 1 What can you see?": {
+      "title": "What can you see?",
+      "sentences": [
+        {
+          "en": "What can you see in the park?",
+          "cn": "在公园里你能看到什么？"
+        },
+        {
+          "en": "I can see a green tree and a beautiful flower.",
+          "cn": "我能看到一棵绿树和一朵美丽的花。"
+        },
+        {
+          "en": "Look at the bird and butterfly. They are nice.",
+          "cn": "看小鸟和蝴蝶。它们很漂亮。"
+        }
+      ]
+    },
+    "Unit 2 I can swim": {
+      "title": "I can swim",
+      "sentences": [
+        {
+          "en": "I can swim and skate. I like sports.",
+          "cn": "我会游泳和滑冰。我喜欢运动。"
+        },
+        {
+          "en": "Can you fly like a bird? No, I can't.",
+          "cn": "你能像鸟一样飞吗？不，我不能。"
+        },
+        {
+          "en": "I can jump and run very well.",
+          "cn": "我会跳，也跑得很好。"
+        }
+      ]
+    },
+    "Unit 3 I like my school": {
+      "title": "I like my school",
+      "sentences": [
+        {
+          "en": "I like my school and my friends.",
+          "cn": "我喜欢我的学校和我的朋友。"
+        },
+        {
+          "en": "This is my classroom and that is the library.",
+          "cn": "这是我的教室，那是图书馆。"
+        },
+        {
+          "en": "Let's play on the playground with our teacher.",
+          "cn": "让我们和老师一起在操场上玩吧。"
+        }
+      ]
+    },
+    "Unit 4 How is the weather?": {
+      "title": "How is the weather?",
+      "sentences": [
+        {
+          "en": "How is the weather today? It is sunny.",
+          "cn": "今天天气怎么样？今天是晴天。"
+        },
+        {
+          "en": "It is rainy and windy. I feel cold.",
+          "cn": "今天又下雨又有风。我感觉冷。"
+        },
+        {
+          "en": "Look! It is snowy and cloudy. Let's make a snowman.",
+          "cn": "看！下雪了，而且多云。我们来堆雪人吧。"
+        }
+      ]
+    },
+    "Unit 5 A busy day": {
+      "title": "A busy day",
+      "sentences": [
+        {
+          "en": "I have a busy day.",
+          "cn": "我度过了忙碌的一天。"
+        },
+        {
+          "en": "I get up in the morning and go to school.",
+          "cn": "我早上起床去上学。"
+        },
+        {
+          "en": "In the afternoon I have lunch, and sleep at night.",
+          "cn": "我下午吃午饭，晚上睡觉。"
+        }
+      ]
+    },
+    "Unit 6 I like my town": {
+      "title": "I like my town",
+      "sentences": [
+        {
+          "en": "I live in a clean town. I love it.",
+          "cn": "我住在一个干净的城镇。我爱它。"
+        },
+        {
+          "en": "There is a park, a shop and a school.",
+          "cn": "这有一个公园、一个商店和一个学校。"
+        },
+        {
+          "en": "Look at the zoo and the street.",
+          "cn": "看这个动物园和街道。"
+        }
+      ]
+    },
+    "Unit 7 At the zoo": {
+      "title": "At the zoo",
+      "sentences": [
+        {
+          "en": "We are at the zoo now. Look at the animals.",
+          "cn": "我们现在在动物园。看这些动物。"
+        },
+        {
+          "en": "I can see a tiger, a lion and a bear.",
+          "cn": "我能看到一只老虎、一只狮子和一只熊。"
+        },
+        {
+          "en": "The panda is cute. The elephant is very tall.",
+          "cn": "熊猫很可爱。大象非常高。"
+        }
+      ]
+    },
+    "Unit 8 What's the time?": {
+      "title": "What's the time?",
+      "sentences": [
+        {
+          "en": "What is the time? It is eight o'clock.",
+          "cn": "几点了？现在是八点整。"
+        },
+        {
+          "en": "Look at the clock on the wall. It is twelve.",
+          "cn": "看墙上的钟。现在是十二点。"
+        }
+      ]
+    }
+  },
+  "G3_S2": {
+    "Unit 1 In class": {
+      "title": "In class",
+      "sentences": [
+        {
+          "en": "Stand up, please. Good morning, class.",
+          "cn": "请起立。早上好，同学们。"
+        },
+        {
+          "en": "Sit down, please. Open your books.",
+          "cn": "请坐。打开你们的书。"
+        },
+        {
+          "en": "Mike, close the window and open the door.",
+          "cn": "迈克，关上窗户，打开门。"
+        },
+        {
+          "en": "Look at the blackboard, please.",
+          "cn": "请看黑板。"
+        }
+      ]
+    },
+    "Unit 2 In the library": {
+      "title": "In the library",
+      "sentences": [
+        {
+          "en": "Shh! Don't shout or talk in the library.",
+          "cn": "嘘！不要在图书馆大喊大叫或说话。"
+        },
+        {
+          "en": "Don't run or sleep here.",
+          "cn": "不要在这里奔跑或睡觉。"
+        },
+        {
+          "en": "Would you like to eat and drink? No, thank you.",
+          "cn": "你想吃点喝点吗？不，谢谢。"
+        }
+      ]
+    },
+    "Unit 3 Is this your pencil?": {
+      "title": "Is this your pencil?",
+      "sentences": [
+        {
+          "en": "Is this your pencil? No, it's my pen.",
+          "cn": "这是你的铅笔吗？不，这是我的钢笔。"
+        },
+        {
+          "en": "Where is my rubber? It's in the pencilcase.",
+          "cn": "我的橡皮在哪里？它在铅笔盒里。"
+        },
+        {
+          "en": "Look at my new schoolbag and crayons.",
+          "cn": "看我的新书包和蜡笔。"
+        }
+      ]
+    },
+    "Unit 4 Where's the bird?": {
+      "title": "Where's the bird?",
+      "sentences": [
+        {
+          "en": "Where is the bird? It's under the desk.",
+          "cn": "鸟在哪里？它在课桌下面。"
+        },
+        {
+          "en": "Is it on the chair? No, it is behind the chair.",
+          "cn": "它在椅子上吗？不，它在椅子后面。"
+        },
+        {
+          "en": "Look! It is in the box near the window.",
+          "cn": "看！它在窗户附近的盒子里。"
+        }
+      ]
+    },
+    "Unit 5 How old are you?": {
+      "title": "How old are you?",
+      "sentences": [
+        {
+          "en": "How old are you? I'm nine.",
+          "cn": "你多大了？我九岁了。"
+        },
+        {
+          "en": "I'm ten. Look at the candles on the cake.",
+          "cn": "我十岁了。看蛋糕上的蜡烛。"
+        },
+        {
+          "en": "Let's count. One, two, three... seven, eight, nine, ten.",
+          "cn": "让我们数一数。一、二、三……七、八、九、十。"
+        }
+      ]
+    },
+    "Unit 6 What time is it?": {
+      "title": "What time is it?",
+      "sentences": [
+        {
+          "en": "Wake up, Taotao! What time is it? It's seven.",
+          "cn": "醒醒，涛涛！几点了？七点了。"
+        },
+        {
+          "en": "It's time for breakfast. Hurry up!",
+          "cn": "该吃早饭了。快点！"
+        },
+        {
+          "en": "It's twelve o'clock. Let's have lunch.",
+          "cn": "十二点了。让我们吃午饭吧。"
+        },
+        {
+          "en": "Time for dinner and bed. Good night.",
+          "cn": "该吃晚饭和睡觉了。晚安。"
+        }
+      ]
+    },
+    "Unit 7 On the farm": {
+      "title": "On the farm",
+      "sentences": [
+        {
+          "en": "Welcome to my farm.",
+          "cn": "欢迎来到我的农场。"
+        },
+        {
+          "en": "What are they? They are pigs and cows.",
+          "cn": "它们是什么？它们是猪和奶牛。"
+        },
+        {
+          "en": "Are those ducks? Yes, they are.",
+          "cn": "那些是鸭子吗？是的，它们是。"
+        },
+        {
+          "en": "Look at these pears and apples.",
+          "cn": "看这些梨和苹果。"
+        }
+      ]
+    },
+    "Unit 8 We're twins!": {
+      "title": "We're twins!",
+      "sentences": [
+        {
+          "en": "What is his name? His name is Tim.",
+          "cn": "他的名字是什么？他的名字叫蒂姆。"
+        },
+        {
+          "en": "Who is that girl? She is a baby.",
+          "cn": "那个女孩是谁？她是个婴儿。"
+        }
+      ]
+    }
+  },
+  "G4_S1": {
+    "Unit 1 I like dogs": {
+      "title": "I like dogs",
+      "sentences": [
+        {
+          "en": "Look at these animals.",
+          "cn": "看这些动物。"
+        },
+        {
+          "en": "I like dogs. They are cute.",
+          "cn": "我喜欢狗。它们很可爱。"
+        },
+        {
+          "en": "Look at this cat. It is fat.",
+          "cn": "看这只猫。它胖胖的。"
+        },
+        {
+          "en": "I like elephants and lions.",
+          "cn": "我喜欢大象和狮子。"
+        },
+        {
+          "en": "Don't like tigers. They are scary.",
+          "cn": "不喜欢老虎。它们很可怕。"
+        }
+      ]
+    },
+    "Unit 2 Let's make a fruit salad": {
+      "title": "Let's make a fruit salad",
+      "sentences": [
+        {
+          "en": "Let's make a fruit salad.",
+          "cn": "让我们来做水果沙拉吧。"
+        },
+        {
+          "en": "I have a pineapple and a mango.",
+          "cn": "我有一个菠萝和一个芒果。"
+        },
+        {
+          "en": "Do you have any grapes or bananas?",
+          "cn": "你有葡萄或香蕉吗？"
+        },
+        {
+          "en": "Yes, I have some grapes. Here you are.",
+          "cn": "是的，我有一些葡萄。给你。"
+        },
+        {
+          "en": "Thank you! Our fruit salad is nice.",
+          "cn": "谢谢你！我们的水果沙拉很棒。"
+        }
+      ]
+    },
+    "Unit 3 How many?": {
+      "title": "How many?",
+      "sentences": [
+        {
+          "en": "Look! I have many stickers.",
+          "cn": "看！我有许多贴纸。"
+        },
+        {
+          "en": "How many stickers do you have?",
+          "cn": "你有多少张贴纸？"
+        },
+        {
+          "en": "Let's count. Thirteen, fourteen, fifteen... fifteen stickers.",
+          "cn": "让我们数数。十三、十四、十五……十五张贴纸。"
+        },
+        {
+          "en": "I have twenty. What a big number!",
+          "cn": "我有二十张。真是一个大数字！"
+        }
+      ]
+    },
+    "Unit 4 I can play basketball": {
+      "title": "I can play basketball",
+      "sentences": [
+        {
+          "en": "Can you play basketball?",
+          "cn": "你会打篮球吗？"
+        },
+        {
+          "en": "Yes, I can play basketball very well.",
+          "cn": "是的，我篮球打得很好。"
+        },
+        {
+          "en": "Can you play football? No, I can't.",
+          "cn": "你会踢足球吗？不，我不会。"
+        },
+        {
+          "en": "I can't fly, but I can jump and run. Don't be sad.",
+          "cn": "我不会飞，但我会跳和跑。不要难过。"
+        }
+      ]
+    },
+    "Unit 5 Our new home": {
+      "title": "Our new home",
+      "sentences": [
+        {
+          "en": "Welcome to our new home.",
+          "cn": "欢迎来到我们的新家。"
+        },
+        {
+          "en": "This is the bedroom and that is the living room.",
+          "cn": "这是卧室，那是客厅。"
+        },
+        {
+          "en": "Where is the kitchen? It's next to the bathroom.",
+          "cn": "厨房在哪里？它在浴室旁边。"
+        },
+        {
+          "en": "Where is my phone? It's on the table near the sofa.",
+          "cn": "我的电话在哪里？它在沙发旁的桌子上。"
+        }
+      ]
+    },
+    "Unit 6 At the snack bar": {
+      "title": "At the snack bar",
+      "sentences": [
+        {
+          "en": "What would you like at the snack bar?",
+          "cn": "在小吃店你想吃点什么？"
+        },
+        {
+          "en": "I'd like a hamburger and some chips.",
+          "cn": "我想要一个汉堡包和一些薯条。"
+        },
+        {
+          "en": "Would you like some noodles or a sandwich?",
+          "cn": "你想要面条还是三明治？"
+        },
+        {
+          "en": "I want a glass of milk and some tea, please.",
+          "cn": "请给我一杯牛奶和一些茶。"
+        }
+      ]
+    },
+    "Unit 7 How much is it?": {
+      "title": "How much is it?",
+      "sentences": [
+        {
+          "en": "How much are these shoes?",
+          "cn": "这些鞋子多少钱？"
+        },
+        {
+          "en": "They are ninety yuan. They are cheap.",
+          "cn": "它们九十元。挺便宜的。"
+        },
+        {
+          "en": "How much is this umbrella? It is one hundred yuan.",
+          "cn": "这把雨伞多少钱？它一百元。"
+        },
+        {
+          "en": "Oh, that is expensive. I like this fan.",
+          "cn": "噢，那太贵了。我喜欢这把扇子。"
+        }
+      ]
+    },
+    "Unit 8 Dolls": {
+      "title": "Dolls",
+      "sentences": [
+        {
+          "en": "Look at my doll. She is beautiful.",
+          "cn": "看我的洋娃娃。她很漂亮。"
+        },
+        {
+          "en": "Her hair is long. Her eyes and ears are big.",
+          "cn": "她的头发很长。她的眼睛和耳朵很大。"
+        },
+        {
+          "en": "She has a small nose and mouth.",
+          "cn": "她有一个小鼻子和嘴巴。"
+        },
+        {
+          "en": "Her head is big, but her hands and feet are small.",
+          "cn": "她的头很大，但是她的手和脚很小。"
+        }
+      ]
+    }
+  },
+  "G4_S2": {
+    "Unit 1 Our school subjects": {
+      "title": "Our school subjects",
+      "sentences": [
+        {
+          "en": "What subjects do we have today?",
+          "cn": "今天我们有什么科目？"
+        },
+        {
+          "en": "We have Chinese, Maths and English.",
+          "cn": "我们有语文、数学和英语。"
+        },
+        {
+          "en": "I like PE and Music. What about you?",
+          "cn": "我喜欢体育和音乐。你呢？"
+        },
+        {
+          "en": "Look at our school timetable. We have Art today.",
+          "cn": "看我们的学校课程表。今天我们有美术课。"
+        }
+      ]
+    },
+    "Unit 2 After school": {
+      "title": "After school",
+      "sentences": [
+        {
+          "en": "What day is today? It is Wednesday.",
+          "cn": "今天星期几？今天星期三。"
+        },
+        {
+          "en": "Do you have school on Saturday? No, we don't.",
+          "cn": "你星期六上学吗？不，我们不上学。"
+        },
+        {
+          "en": "We have a table tennis match on Friday afternoon.",
+          "cn": "我们星期五下午有一场乒乓球比赛。"
+        },
+        {
+          "en": "Let's play table tennis after school on Monday.",
+          "cn": "让我们周一下学后打乒乓球吧。"
+        }
+      ]
+    },
+    "Unit 3 My day": {
+      "title": "My day",
+      "sentences": [
+        {
+          "en": "I usually get up at six in the morning.",
+          "cn": "我通常在早上六点起床。"
+        },
+        {
+          "en": "I go to school and have lunch at twelve.",
+          "cn": "我上学，十二点吃午饭。"
+        },
+        {
+          "en": "I go home, do my homework and watch TV.",
+          "cn": "我回家，做家庭作业，然后看电视。"
+        },
+        {
+          "en": "I go to bed at nine at night.",
+          "cn": "I go to bed at nine at night."
+        }
+      ]
+    },
+    "Unit 4 Drawing in the park": {
+      "title": "Drawing in the park",
+      "sentences": [
+        {
+          "en": "Let's draw in the park today.",
+          "cn": "让我们今天在公园里画画吧。"
+        },
+        {
+          "en": "Look at the river and the red flowers on the hill.",
+          "cn": "看河水和小山上的红花。"
+        },
+        {
+          "en": "Can you draw a boat on the lake?",
+          "cn": "你能在湖上画一只小船吗？"
+        },
+        {
+          "en": "Yes, I can. Look! The birds are flying in the sky.",
+          "cn": "是的，我会。看！鸟儿正在天空中飞翔。"
+        }
+      ]
+    },
+    "Unit 5 Seasons": {
+      "title": "Seasons",
+      "sentences": [
+        {
+          "en": "We have four seasons. Spring, summer, autumn and winter.",
+          "cn": "我们有四个季节。春、夏、秋、冬。"
+        },
+        {
+          "en": "Spring is warm. We can go for a picnic.",
+          "cn": "春天很暖和。我们可以去野餐。"
+        },
+        {
+          "en": "Summer is hot. Autumn is cool.",
+          "cn": "夏天很热。秋天很凉爽。"
+        },
+        {
+          "en": "Winter is cold. We can skate and play.",
+          "cn": "冬天很冷。我们可以滑冰和玩耍。"
+        }
+      ]
+    },
+    "Unit 6 Whose dress is this?": {
+      "title": "Whose dress is this?",
+      "sentences": [
+        {
+          "en": "Whose dress is this? It's my sister's dress.",
+          "cn": "这是谁的连衣裙？这是我妹妹的。"
+        },
+        {
+          "en": "Whose trousers and gloves are those?",
+          "cn": "那些是谁的裤子和手套？"
+        },
+        {
+          "en": "They are mine. What about this coat and sweater?",
+          "cn": "它们是我的。这件外套和毛衣呢？"
+        },
+        {
+          "en": "They are yours.",
+          "cn": "它们是你的。"
+        }
+      ]
+    },
+    "Unit 7 What's the matter?": {
+      "title": "What's the matter?",
+      "sentences": [
+        {
+          "en": "What's the matter? Are you tired?",
+          "cn": "怎么了？你累了吗？"
+        },
+        {
+          "en": "No, I'm thirsty and hungry.",
+          "cn": "没有，我又渴又饿。"
+        },
+        {
+          "en": "Here is some water and cake for you.",
+          "cn": "这有些水 and 蛋糕给你。"
+        },
+        {
+          "en": "Are you ill? Yes, I'm sad.",
+          "cn": "你病了吗？是的，我很伤心。"
+        }
+      ]
+    },
+    "Unit 8 How are you?": {
+      "title": "How are you?",
+      "sentences": [
+        {
+          "en": "Hello, how are you? I'm not fine.",
+          "cn": "你好，你好吗？我不太好。"
+        },
+        {
+          "en": "I have a cough and a fever.",
+          "cn": "我咳嗽而且发烧。"
+        },
+        {
+          "en": "Do you have a headache? Yes.",
+          "cn": "你头疼吗？是的。"
+        },
+        {
+          "en": "Let's see the doctor. I can hear you on the phone.",
+          "cn": "让我们去看医生。我能在电话里听到你说话。"
+        }
+      ]
+    }
+  },
+  "G5_S1": {
+    "Unit 1 Goldilocks and the three bears": {
+      "title": "Goldilocks and the three bears",
+      "sentences": [
+        {
+          "en": "There is a house in the forest.",
+          "cn": "森林里有一座房子。"
+        },
+        {
+          "en": "Goldilocks is in the house.",
+          "cn": "金发女孩在房子里。"
+        },
+        {
+          "en": "She eats the bear's soup. It is just right.",
+          "cn": "她吃了熊的汤。正合适。"
+        },
+        {
+          "en": "She sleeps in the bed. It is very soft.",
+          "cn": "她在床上睡觉。床很软。"
+        },
+        {
+          "en": "The three bears come home. Goldilocks is afraid.",
+          "cn": "三只熊回家了。金发女孩很害怕。"
+        }
+      ]
+    },
+    "Unit 2 A new student": {
+      "title": "A new student",
+      "sentences": [
+        {
+          "en": "This is our new student, Nancy.",
+          "cn": "这是我们的新学生，南希。"
+        },
+        {
+          "en": "Our classroom is on the second floor.",
+          "cn": "我们的教室在二楼。"
+        },
+        {
+          "en": "There is a computer room on the third floor.",
+          "cn": "三楼有一个计算机室。"
+        },
+        {
+          "en": "Let's play on the swing. Push me, Nancy!",
+          "cn": "我们玩秋千吧。推我，南希！"
+        }
+      ]
+    },
+    "Unit 3 Our animal friends": {
+      "title": "Our animal friends",
+      "sentences": [
+        {
+          "en": "I have two animal friends.",
+          "cn": "我有两个动物朋友。"
+        },
+        {
+          "en": "One is a rabbit. It has long ears and a short tail.",
+          "cn": "一个是兔子。它有长耳朵和短尾巴。"
+        },
+        {
+          "en": "The other has big eyes, but no arms or legs.",
+          "cn": "另一个有大眼睛，但是没有手臂或腿。"
+        },
+        {
+          "en": "Give it some fish food. It can swim.",
+          "cn": "给它一些鱼食。它会游泳。"
+        }
+      ]
+    },
+    "Unit 4 Hobbies": {
+      "title": "Hobbies",
+      "sentences": [
+        {
+          "en": "What's your hobby?",
+          "cn": "你的兴趣爱好是什么？"
+        },
+        {
+          "en": "I like to read and write stories.",
+          "cn": "我喜欢阅读和写故事。"
+        },
+        {
+          "en": "We like to collect stickers and play football.",
+          "cn": "我们喜欢收集贴纸和踢足球。"
+        },
+        {
+          "en": "He likes to dance, sing and draw pictures.",
+          "cn": "他喜欢跳舞、唱歌和画画。"
+        }
+      ]
+    },
+    "Unit 5 What do they do?": {
+      "title": "What do they do?",
+      "sentences": [
+        {
+          "en": "My father is a writer. My mother is a doctor.",
+          "cn": "我的爸爸是作家。我的妈妈是医生。"
+        },
+        {
+          "en": "Is your brother a nurse? No, he is a cook.",
+          "cn": "你的哥哥是护士吗？不，他是厨师。"
+        },
+        {
+          "en": "He is a driver. He drives a big bus.",
+          "cn": "他是司机。他开一辆大公共汽车。"
+        },
+        {
+          "en": "My uncle is a farmer. He works on the farm.",
+          "cn": "我的叔叔是农民。他在农场工作。"
+        }
+      ]
+    },
+    "Unit 6 My e-friend": {
+      "title": "My e-friend",
+      "sentences": [
+        {
+          "en": "I have an e-friend on the internet.",
+          "cn": "我在互联网上有一个网友。"
+        },
+        {
+          "en": "He lives in another country.",
+          "cn": "他住在另一个国家。"
+        },
+        {
+          "en": "He can speak English and write in Chinese.",
+          "cn": "He can speak English and write in Chinese."
+        },
+        {
+          "en": "We study English together by email.",
+          "cn": "我们通过电子邮件一起学习英语。"
+        }
+      ]
+    },
+    "Unit 7 At weekends": {
+      "title": "At weekends",
+      "sentences": [
+        {
+          "en": "What do you do at weekends?",
+          "cn": "你周末都做什么？"
+        },
+        {
+          "en": "I usually go for a picnic with my family.",
+          "cn": "我通常和家人一起去野餐。"
+        },
+        {
+          "en": "Sometimes I visit my grandparents and watch TV.",
+          "cn": "有时我拜访我爷爷奶奶并看电视。"
+        },
+        {
+          "en": "We always have fun at weekends.",
+          "cn": "我们周末总是玩得很开心。"
+        }
+      ]
+    },
+    "Unit 8 At Christmas": {
+      "title": "At Christmas",
+      "sentences": [
+        {
+          "en": "Merry Christmas, family!",
+          "cn": "圣诞快乐，家人！"
+        },
+        {
+          "en": "Look at our beautiful Christmas tree.",
+          "cn": "看我们的漂亮圣诞树。"
+        },
+        {
+          "en": "We put presents under the tree.",
+          "cn": "我们把礼物放在树下。"
+        },
+        {
+          "en": "Here are cards for my grandfather and grandmother.",
+          "cn": "这是给爷爷和奶奶的卡片。"
+        }
+      ]
+    }
+  },
+  "G5_S2": {
+    "Unit 1 Cinderella": {
+      "title": "Cinderella",
+      "sentences": [
+        {
+          "en": "Cinderella wants to go to the party.",
+          "cn": "灰姑娘想去参加聚会。"
+        },
+        {
+          "en": "A fairy comes and makes a carriage.",
+          "cn": "一个仙女走来，做了一辆马车。"
+        },
+        {
+          "en": "She wears slipper and fits very well.",
+          "cn": "她穿着水晶鞋，非常合适。"
+        },
+        {
+          "en": "She marries the prince. They are happy.",
+          "cn": "她嫁给了王子。他们很幸福。"
+        }
+      ]
+    },
+    "Unit 2 How do you come to school?": {
+      "title": "How do you come to school?",
+      "sentences": [
+        {
+          "en": "How do you come to school, Tim?",
+          "cn": "蒂姆，你怎样来上学？"
+        },
+        {
+          "en": "I come by metro. It is fast.",
+          "cn": "我坐地铁来。这很快。"
+        },
+        {
+          "en": "Sometimes I take a taxi or a bus.",
+          "cn": "有时我打车或坐公交车。"
+        },
+        {
+          "en": "I live near the street, so I walk.",
+          "cn": "我住在街附近，所以我步行。"
+        }
+      ]
+    },
+    "Unit 3 Asking the way": {
+      "title": "Asking the way",
+      "sentences": [
+        {
+          "en": "Excuse me, I want to ask the way.",
+          "cn": "打扰一下，我想问路。"
+        },
+        {
+          "en": "Go straight and turn left at the corner.",
+          "cn": "一直走，在拐角处向左转。"
+        },
+        {
+          "en": "Turn right and cross the street.",
+          "cn": "向右转并穿过街道。"
+        },
+        {
+          "en": "You can see the station on your right.",
+          "cn": "你可以在你的右边看到车站。"
+        }
+      ]
+    },
+    "Unit 4 Seeing the doctor": {
+      "title": "Seeing the doctor",
+      "sentences": [
+        {
+          "en": "I am not well. Let's see the doctor.",
+          "cn": "我不舒服。让我们去看医生。"
+        },
+        {
+          "en": "Do you have a fever, headache or cold?",
+          "cn": "你发烧、头痛还是感冒了？"
+        },
+        {
+          "en": "Yes, I have a toothache too.",
+          "cn": "是的，我还牙痛。"
+        },
+        {
+          "en": "Take some medicine and have a good rest. Drink water.",
+          "cn": "吃点药，好好休息。多喝水。"
+        }
+      ]
+    },
+    "Unit 5 Helping our parents": {
+      "title": "Helping our parents",
+      "sentences": [
+        {
+          "en": "We helper our parents every day.",
+          "cn": "我们每天帮助父母。"
+        },
+        {
+          "en": "I clean the table and cook dinner.",
+          "cn": "我擦桌子、做晚饭。"
+        },
+        {
+          "en": "My sister washes the clothes and sweeps the floor.",
+          "cn": "我姐姐洗衣服、扫地。"
+        },
+        {
+          "en": "We are busy, but we make our rooms tidy.",
+          "cn": "我们很忙，但是我们让房间保持整洁。"
+        }
+      ]
+    },
+    "Unit 6 In the kitchen": {
+      "title": "In the kitchen",
+      "sentences": [
+        {
+          "en": "Mum is cooking in the kitchen.",
+          "cn": "妈妈正在厨房里做饭。"
+        },
+        {
+          "en": "She washes tomatoes and potatoes.",
+          "cn": "她清洗西红柿和土豆。"
+        },
+        {
+          "en": "We have meat, fish, bread and eggs.",
+          "cn": "我们有肉、鱼、面包和鸡蛋。"
+        },
+        {
+          "en": "Drink some milk, please.",
+          "cn": "请喝点牛奶。"
+        }
+      ]
+    },
+    "Unit 7 Chinese festivals": {
+      "title": "Chinese festivals",
+      "sentences": [
+        {
+          "en": "We have many Chinese festivals.",
+          "cn": "我们有许多中国节日。"
+        },
+        {
+          "en": "Spring Festival is popular. We eat rice cakes.",
+          "cn": "春节很流行。我们吃年糕。"
+        },
+        {
+          "en": "We eat moon cakes at Mid-Autumn Festival.",
+          "cn": "我们在中秋节吃月饼。"
+        },
+        {
+          "en": "We climb hills at Double Ninth Festival.",
+          "cn": "我们在重阳节爬山。"
+        }
+      ]
+    },
+    "Unit 8 Birthdays": {
+      "title": "Birthdays",
+      "sentences": [
+        {
+          "en": "Happy birthday! Let's have a party.",
+          "cn": "生日快乐！让我们开个派对。"
+        },
+        {
+          "en": "Here is a big birthday cake and some cards.",
+          "cn": "这是一块大生日蛋糕和一些卡片。"
+        },
+        {
+          "en": "How many candles on the cake? Ten candles.",
+          "cn": "蛋糕上有几根蜡烛？十根蜡烛。"
+        }
+      ]
+    }
+  },
+  "G6_S2": {
+    "Unit 1 The lion and the mouse": {
+      "title": "The lion and the mouse",
+      "sentences": [
+        {
+          "en": "There was a large lion in the forest.",
+          "cn": "森林里有一只巨大的狮子。"
+        },
+        {
+          "en": "A tiny mouse ran by and woke him up.",
+          "cn": "一只微小的老鼠跑过，吵醒了他。"
+        },
+        {
+          "en": "The lion caught the mouse with his strong paw.",
+          "cn": "狮子用他强壮的爪子抓住了老鼠。"
+        },
+        {
+          "en": "The mouse said “Please don't eat me, I can help you one day.”",
+          "cn": "老鼠说：“请不要吃我，有一天我可以帮助你。”"
+        },
+        {
+          "en": "The lion laughed. Later, the lion was caught in a net.",
+          "cn": "狮子笑了。后来，狮子被网罩住了。"
+        },
+        {
+          "en": "The mouse bit the net with his sharp teeth. The lion was free.",
+          "cn": "老鼠用锋利的牙齿咬开网。狮子自由了。"
+        }
+      ]
+    },
+    "Unit 2 Good habits": {
+      "title": "Good habits",
+      "sentences": [
+        {
+          "en": "Wang Bing has many good habits.",
+          "cn": "王兵有许多好习惯。"
+        },
+        {
+          "en": "He gets up early and never goes to bed late.",
+          "cn": "他起床很早，从不睡得很晚。"
+        },
+        {
+          "en": "He keeps his room clean and tidy.",
+          "cn": "他保持他的房间干净整洁。"
+        },
+        {
+          "en": "He brushes his teeth in the morning and at night.",
+          "cn": "他在早上和晚上刷牙。"
+        }
+      ]
+    },
+    "Unit 3 A healthy diet": {
+      "title": "A healthy diet",
+      "sentences": [
+        {
+          "en": "Mike has a healthy diet. He eats well.",
+          "cn": "迈克有健康的饮食习惯。他吃得很好。"
+        },
+        {
+          "en": "He has a lot of rice, some meat and fish.",
+          "cn": "他吃许多米饭，一些肉和鱼。"
+        },
+        {
+          "en": "He eats a lot of vegetables and fruit every day.",
+          "cn": "他每天吃许多蔬菜和水果。"
+        },
+        {
+          "en": "He drinks a little milk and a lot of water.",
+          "cn": "他喝一点牛奶和许多水。"
+        }
+      ]
+    },
+    "Unit 4 Road safety": {
+      "title": "Road safety",
+      "sentences": [
+        {
+          "en": "How can we cross the road safely?",
+          "cn": "我们怎么能安全地穿过马路？"
+        },
+        {
+          "en": "We must look at the traffic lights first.",
+          "cn": "我们必须先看红绿灯。"
+        },
+        {
+          "en": "We must cross the street at the zebra crossing.",
+          "cn": "我们必须在人行横道/斑马线穿过街道。"
+        },
+        {
+          "en": "Look left and right to see if there is any danger.",
+          "cn": "左右看，看看有没有危险。"
+        }
+      ]
+    },
+    "Unit 5 A summer holiday": {
+      "title": "A summer holiday",
+      "sentences": [
+        {
+          "en": "Where are you going for the summer holiday?",
+          "cn": "你暑假打算去哪里？"
+        },
+        {
+          "en": "I am going to London. I will travel by plane.",
+          "cn": "我准备去伦敦。我将坐飞机去旅行。"
+        },
+        {
+          "en": "I want to see the Big Ben and take many photos.",
+          "cn": "我想去看大本钟并拍很多照片。"
+        }
+      ]
+    },
+    "Unit 6 Planning for the weekend": {
+      "title": "Planning for the weekend",
+      "sentences": [
+        {
+          "en": "What are you going to do this weekend?",
+          "cn": "你这个周末打算做什么？"
+        },
+        {
+          "en": "I am going to have a picnic and go to a concert.",
+          "cn": "我准备去野餐并去听音乐会。"
+        },
+        {
+          "en": "Let's watch the play and show together.",
+          "cn": "让我们一起看这戏剧和表演吧。"
+        },
+        {
+          "en": "The weather will be fine, so we will have fun.",
+          "cn": "天气会很好，所以我们会玩得很开心。"
+        }
+      ]
+    },
+    "Unit 7 Summer holiday plans": {
+      "title": "Summer holiday plans",
+      "sentences": [
+        {
+          "en": "What will you do in the future?",
+          "cn": "你未来打算做什么？"
+        },
+        {
+          "en": "I will go to the sea for my summer holiday.",
+          "cn": "我暑假准备去海边。"
+        },
+        {
+          "en": "I will stay there for a week and play on the beach.",
+          "cn": "我将在那待一周并在沙滩上玩耍。"
+        }
+      ]
+    },
+    "Unit 8 Our dreams": {
+      "title": "Our dreams",
+      "sentences": [
+        {
+          "en": "What is your dream? I want to be a dentist.",
+          "cn": "你的梦想是什么？我想成为一名牙医。"
+        },
+        {
+          "en": "I want to be an artist and paint beautiful pictures.",
+          "cn": "我想成为一名艺术家，画美丽的画。"
+        },
+        {
+          "en": "He wants to be an astronaut and fly into space.",
+          "cn": "他想成为一名宇航员并飞入太空。"
+        }
       ]
     }
   }
 };
-
