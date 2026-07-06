@@ -1168,8 +1168,8 @@
       const word = getCurrentWord().word;
       let text = e.target.value;
       
-      // Clean spelling input to only accept chars matching word structure (handling spaces and apostrophes)
-      text = text.replace(/[^a-zA-Z\s']/g, '');
+      // Clean spelling input to only accept chars matching word structure, normalising all whitespace to a single regular space
+      text = text.replace(/[^a-zA-Z\s']/g, '').replace(/\s+/g, ' ');
       e.target.value = text;
       
       renderSpellingBoxes(word, text);
@@ -1267,8 +1267,8 @@
     function checkSpelling() {
       const wordObj = getCurrentWord();
       const input = document.getElementById('spelling-input');
-      const typed = input.value.trim().toLowerCase();
-      const target = wordObj.word.trim().toLowerCase();
+      const typed = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+      const target = wordObj.word.trim().toLowerCase().replace(/\s+/g, ' ');
       
       const feedback = document.getElementById('spelling-feedback');
       feedback.classList.remove('hidden');
