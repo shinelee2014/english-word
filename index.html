@@ -1207,6 +1207,9 @@
       const word = getCurrentWord().word;
       let text = e.target.value;
       
+      // Normalize curly quotes/apostrophes to straight single quote
+      text = text.replace(/[\u2018\u2019\u00b4`‘’]/g, "'");
+      
       // Clean spelling input to only accept chars matching word structure, normalising all whitespace to a single regular space
       text = text.replace(/[^a-zA-Z\s']/g, '').replace(/\s+/g, ' ');
       e.target.value = text;
@@ -1306,13 +1309,25 @@
     function checkSpelling() {
       const wordObj = getCurrentWord();
       const input = document.getElementById('spelling-input');
-      const typed = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
-      const target = wordObj.word.trim().toLowerCase().replace(/\s+/g, ' ');
+      
+      const normalize = (str) => {
+        return str.trim()
+                  .toLowerCase()
+                  .replace(/[\u2018\u2019\u00b4`‘’]/g, "'") // 统一中英文弯引号为标准单引号
+                  .replace(/\s+/g, ' ');
+      };
+
+      const typed = normalize(input.value);
+      const target = normalize(wordObj.word);
+      
+      // 纯字母比对，作为兜底验证（防止设备/键盘差异导致特殊字符遗漏）
+      const typedAlpha = typed.replace(/[^a-z0-9]/g, '');
+      const targetAlpha = target.replace(/[^a-z0-9]/g, '');
       
       const feedback = document.getElementById('spelling-feedback');
       feedback.classList.remove('hidden');
 
-      if (typed === target) {
+      if (typed === target || typedAlpha === targetAlpha) {
         feedback.className = "mb-6 p-3 hand-drawn-border-sm text-center font-bold bg-sage text-white bounce-custom";
         feedback.textContent = "🎉 太棒了，拼写正确！";
         
