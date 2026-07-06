@@ -185,7 +185,7 @@
         <button onclick="switchView('home')" class="bg-cream-light hover:bg-cream-dark px-4 py-1.5 text-sm font-bold hand-drawn-border-sm">
           返回主页
         </button>
-        <button onclick="switchView('dictionary')" class="bg-mustard hover:bg-yellow-300 px-4 py-1.5 text-sm font-bold hand-drawn-border-sm">
+        <button onclick="viewEncyclopedia()" class="bg-mustard hover:bg-yellow-300 px-4 py-1.5 text-sm font-bold hand-drawn-border-sm">
           单词大全 📖
         </button>
       </div>
@@ -782,6 +782,11 @@
       if (viewId === 'home') {
         onGradeChange(currentGrade);
       }
+
+      if (viewId === 'dictionary') {
+        populateDictFilters();
+        filterDictionary();
+      }
     }
 
     // ==========================================
@@ -1176,10 +1181,11 @@
       const optionsContainer = document.getElementById('listening-options');
       optionsContainer.innerHTML = "";
       
-      options.forEach(opt => {
+      options.forEach((opt, index) => {
         const btn = document.createElement('button');
+        const letter = ['A', 'B', 'C', 'D'][index];
         btn.className = "listening-opt-btn p-5 md:p-6 text-base md:text-lg font-bold text-left hand-drawn-border-sm bg-white active:bg-cream-dark transition-all flex items-center gap-3 w-full key-btn";
-        btn.innerHTML = `<span class="bg-wood text-white px-2.5 py-1 text-xs rounded hand-drawn-border-sm no-press">${opt === wordObj ? 'A' : 'B'}</span> ${opt.translation}`;
+        btn.innerHTML = `<span class="bg-wood text-white px-2.5 py-1 text-xs rounded hand-drawn-border-sm no-press">${letter}</span> ${opt.translation}`;
         
         btn.onclick = () => selectListeningOption(btn, opt === wordObj, wordObj.translation);
         optionsContainer.appendChild(btn);
