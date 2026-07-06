@@ -953,6 +953,25 @@
     // STAGE CHALLENGE CORE LOGIC
     // ==========================================
     
+    function saveActiveSession() {
+      if (!currentUnit || !activeKid) return;
+      if (!kidProgress[currentGrade]) {
+        kidProgress[currentGrade] = {};
+      }
+      
+      // 保存未通关前的中间状态
+      kidProgress[currentGrade][currentUnit] = {
+        completed: false,
+        activeSession: {
+          phase: currentPhase,
+          wordIndex: currentWordIndex,
+          wrongWords: Array.from(wrongWordsThisRound),
+          shuffledWords: currentWords.map(w => w.word)
+        }
+      };
+      saveProgress();
+    }
+
     function startChallenge() {
       const unitSelect = document.getElementById('unit-select');
       currentUnit = unitSelect.value;
@@ -968,12 +987,49 @@
         return;
       }
 
-      // Shuffle current words for training
-      shuffleArray(currentWords);
+      // 检查是否有未完成的断点进度
+      const progressInfo = kidProgress[currentGrade] ? kidProgress[currentGrade][currentUnit] : null;
+      let resumeSession = false;
       
-      currentWordIndex = 0;
-      currentPhase = 1; // start from phase 1: Recognition
-      wrongWordsThisRound.clear();
+      if (progressInfo && progressInfo.completed === false && progressInfo.activeSession) {
+        const sess = progressInfo.activeSession;
+        const msg = `检测到你上次有未完成的学习进度：\n- 阶段: 第 ${sess.phase} 阶段\n- 进度: 第 ${sess.wordIndex + 1}/${sess.shuffledWords.length} 个单词\n\n是否从上次的进度继续学习？\n[确定] 继续学习  /  [取消] 重新开始`;
+        if (confirm(msg)) {
+          resumeSession = true;
+        }
+      }
+
+      if (resumeSession) {
+        const sess = progressInfo.activeSession;
+        currentPhase = sess.phase;
+        currentWordIndex = sess.wordIndex;
+        wrongWordsThisRound = new Set(sess.wrongWords || []);
+        
+        // 按照之前的乱序列表重新组合单词对象，保证进度一致性
+        const mappedWords = [];
+        sess.shuffledWords.forEach(wordStr => {
+          const matchedObj = currentWords.find(w => w.word === wordStr);
+          if (matchedObj) mappedWords.push(matchedObj);
+        });
+        
+        if (mappedWords.length === currentWords.length) {
+          currentWords = mappedWords;
+        } else {
+          // 如果数据库发生变化，则重新开始
+          shuffleArray(currentWords);
+          currentWordIndex = 0;
+          currentPhase = 1;
+          wrongWordsThisRound.clear();
+          saveActiveSession();
+        }
+      } else {
+        // 重新乱序开始
+        shuffleArray(currentWords);
+        currentWordIndex = 0;
+        currentPhase = 1; 
+        wrongWordsThisRound.clear();
+        saveActiveSession();
+      }
 
       switchView('challenge');
       updateChallengeHeader();
@@ -1007,6 +1063,9 @@
       const activeInd = document.getElementById(`phase-${phase}-indicator`);
       activeInd.classList.remove('bg-cream-light', 'opacity-60');
       activeInd.classList.add('bg-mustard', 'opacity-100');
+
+      // 实时同步当前进度的断点状态
+      saveActiveSession();
 
       // Hide all panels
       document.getElementById('panel-recognition').classList.add('hidden');
@@ -1388,6 +1447,7 @@
         kidProgress[currentGrade] = {};
       }
       kidProgress[currentGrade][currentUnit] = {
+        completed: true,
         date: Date.now(),
         wrongCount: wrongWordsThisRound.size,
         totalCount: currentWords.length
@@ -1751,10 +1811,17 @@
         
         let statusText = "<span class='text-gray-400 font-medium'>未通关</span>";
         if (progressInfo) {
-          if (progressInfo.wrongCount === 0) {
-            statusText = "<span class='text-sage-dark font-extrabold flex items-center gap-0.5'>🏆 全对通关</span>";
-          } else {
-            statusText = `<span class='text-wood-dark font-bold'>✅ 已通关 <span class='text-terracotta'>(生词:${progressInfo.wrongCount})</span></span>`;
+          if (progressInfo.completed !== false) {
+            // Completed
+            if (progressInfo.wrongCount === 0) {
+              statusText = "<span class='text-sage-dark font-extrabold flex items-center gap-0.5'>🏆 全对通关</span>";
+            } else {
+              statusText = `<span class='text-wood-dark font-bold'>✅ 已通关 <span class='text-terracotta'>(生词:${progressInfo.wrongCount})</span></span>`;
+            }
+          } else if (progressInfo.activeSession) {
+            // In-progress session
+            const sess = progressInfo.activeSession;
+            statusText = `<span class='text-amber-600 font-bold flex items-center gap-0.5 animate-pulse'>📝 学习中(阶段${sess.phase})</span>`;
           }
         }
         
