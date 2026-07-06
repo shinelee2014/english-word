@@ -230,18 +230,25 @@
         </div>
 
         <!-- Play Modes -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <button onclick="startChallenge()" class="flex-1 bg-sage text-white text-lg font-bold py-4 px-6 hand-drawn-border flex items-center justify-center gap-2 hover:bg-sage-dark">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 justify-center">
+          <button onclick="startChallenge()" class="bg-sage text-white text-base md:text-lg font-bold py-4 px-4 hand-drawn-border flex items-center justify-center gap-2 key-btn">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
             </svg>
-            开始多维闯关
+            开始单词闯关
+          </button>
+
+          <button onclick="openTextbook()" class="bg-mustard text-charcoal text-base md:text-lg font-bold py-4 px-4 hand-drawn-border flex items-center justify-center gap-2 key-btn">
+            <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+            课文朗读点读
           </button>
           
-          <button onclick="viewEncyclopedia()" class="flex-1 bg-cream-light text-charcoal hover:bg-cream-dark text-lg font-bold py-4 px-6 hand-drawn-border flex items-center justify-center gap-2">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+          <button onclick="viewEncyclopedia()" class="bg-cream-light text-charcoal hover:bg-cream-dark text-base md:text-lg font-bold py-4 px-4 hand-drawn-border flex items-center justify-center gap-2 key-btn">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             浏览单词列表
           </button>
@@ -528,6 +535,46 @@
       </div>
     </section>
 
+    <!-- SECTION 5: TEXTBOOK READ (课文点读) VIEW -->
+    <section id="view-textbook" class="view-section hidden max-w-4xl mx-auto w-full py-4 animate-fade-in">
+      <div class="paper-texture p-6 hand-drawn-border no-press flex flex-col min-h-[500px]">
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full mb-6 pb-4 border-b-2 border-charcoal gap-3">
+          <div class="flex items-center gap-3">
+            <button onclick="switchView('home')" class="bg-white border-2 border-charcoal p-2 rounded-xl active:scale-95 transition-all key-btn text-sm font-bold flex items-center gap-1">
+              ⬅️ 返回主页
+            </button>
+            <h2 id="textbook-title-header" class="text-xl md:text-2xl font-extrabold text-charcoal font-comic">Unit 1 The king's new clothes</h2>
+          </div>
+          <div class="flex gap-2 w-full sm:w-auto">
+            <button onclick="playAllTextbook()" id="btn-play-all-text" class="flex-1 bg-sage text-white font-bold px-4 py-2.5 text-sm hand-drawn-border-sm key-btn flex items-center justify-center gap-1">
+              🔊 连续朗读
+            </button>
+            <button onclick="stopAllTextbook()" id="btn-stop-all-text" class="flex-1 hidden bg-terracotta text-white font-bold px-4 py-2.5 text-sm hand-drawn-border-sm key-btn flex items-center justify-center gap-1">
+              ⏹️ 停止播放
+            </button>
+          </div>
+        </div>
+
+        <!-- Bilingual Sentences list -->
+        <div class="w-full bg-white border-2 border-charcoal rounded-xl p-4 md:p-6 mb-6 flex-grow overflow-y-auto max-h-[550px] scroll-smooth" id="textbook-scroller">
+          <div id="textbook-sentences-container" class="space-y-4">
+            <!-- Sentences populated dynamically by JS -->
+          </div>
+        </div>
+        
+        <!-- Bottom Settings & Tips -->
+        <div class="w-full bg-cream-light p-4 rounded-xl border-2 border-charcoal no-press text-xs font-semibold text-wood-dark flex flex-col sm:flex-row justify-between items-center gap-3">
+          <div>💡 提示：点击任意句子都可以直接开始点读听写，当前句会自动高亮哦！</div>
+          <div class="flex items-center gap-4">
+            <label class="font-bold flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" id="textbook-show-chinese" checked onchange="toggleTextbookChinese()" class="w-4 h-4 rounded border-charcoal text-sage"> 显示中文翻译
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
@@ -697,9 +744,179 @@
       });
       document.getElementById(`view-${viewId}`).classList.remove('hidden');
       
+      // Stop textbook reading if switching away
+      if (viewId !== 'textbook') {
+        stopAllTextbook();
+      }
+
       if (viewId === 'home') {
         onGradeChange(currentGrade);
       }
+    }
+
+    // ==========================================
+    // --- TEXTBOOK READ LOGIC (课文点读逻辑) ---
+    // ==========================================
+    let textbookPlaying = false;
+    let textbookPlayIndex = 0;
+    let textbookSentences = [];
+
+    function openTextbook() {
+      const gradeTexts = TEXTS_DATA[currentGrade];
+      const unitText = gradeTexts ? gradeTexts[currentUnit] : null;
+      
+      const container = document.getElementById('textbook-sentences-container');
+      container.innerHTML = "";
+      stopAllTextbook();
+
+      // Update UI title
+      const gradeInfo = WORDS_DATA[currentGrade];
+      document.getElementById('textbook-title-header').textContent = `${gradeInfo ? gradeInfo.name : currentGrade} - ${currentUnit}`;
+
+      if (!unitText || !unitText.sentences || unitText.sentences.length === 0) {
+        container.innerHTML = `
+          <div class="flex flex-col items-center justify-center text-center p-12 text-wood-dark">
+            <span class="text-5xl mb-4">📭</span>
+            <h3 class="text-xl font-bold mb-2">暂无本单元课文</h3>
+            <p class="text-sm max-w-md">本单元的 Story time 课文数据还未添加。您可以在 words_data.js 中找到 TEXTS_DATA 变量并为您喜爱的单元扩充课文配方！</p>
+            <button onclick="switchView('home')" class="mt-6 bg-sage text-white font-bold px-6 py-2.5 hand-drawn-border key-btn text-sm">
+              返回主页
+            </button>
+          </div>
+        `;
+        document.getElementById('btn-play-all-text').classList.add('hidden');
+        switchView('textbook');
+        return;
+      }
+
+      document.getElementById('btn-play-all-text').classList.remove('hidden');
+      textbookSentences = unitText.sentences;
+
+      // Render sentences
+      textbookSentences.forEach((s, idx) => {
+        const row = document.createElement('div');
+        row.id = `sentence-row-${idx}`;
+        row.className = "sentence-row p-3 rounded-xl border-2 border-transparent hover:border-charcoal hover:bg-cream-light cursor-pointer transition-all flex items-start gap-4";
+        row.onclick = () => playTextbookSentence(idx);
+
+        const showChinese = document.getElementById('textbook-show-chinese').checked;
+
+        row.innerHTML = `
+          <button class="mt-1 bg-white p-2 rounded-full border-2 border-charcoal flex-shrink-0 active:scale-90 key-btn" title="朗读此句">
+            <svg class="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+            </svg>
+          </button>
+          <div class="flex-grow">
+            <p class="en-text text-lg md:text-xl font-bold text-charcoal leading-relaxed font-comic select-text">${s.en}</p>
+            <p class="cn-text text-sm md:text-base text-wood font-bold select-text ${showChinese ? '' : 'hidden'}">${s.cn}</p>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+
+      switchView('textbook');
+    }
+
+    function toggleTextbookChinese() {
+      const showChinese = document.getElementById('textbook-show-chinese').checked;
+      const cnTexts = document.querySelectorAll('#textbook-sentences-container .cn-text');
+      cnTexts.forEach(el => {
+        if (showChinese) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+    }
+
+    function playTextbookSentence(index) {
+      if (textbookPlaying) {
+        stopAllTextbook();
+      }
+      speakSentence(index, false);
+    }
+
+    function speakSentence(index, isSeq = false) {
+      if (index < 0 || index >= textbookSentences.length) {
+        stopAllTextbook();
+        return;
+      }
+
+      // Clear previous highlights
+      document.querySelectorAll('#textbook-sentences-container .sentence-row').forEach(row => {
+        row.classList.remove('bg-mustard', 'bg-opacity-20', 'border-charcoal');
+        row.classList.add('border-transparent');
+      });
+
+      // Highlight current row
+      const currentRow = document.getElementById(`sentence-row-${index}`);
+      if (currentRow) {
+        currentRow.classList.remove('border-transparent');
+        currentRow.classList.add('bg-mustard', 'bg-opacity-20', 'border-charcoal');
+        currentRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      window.speechSynthesis.cancel();
+
+      const text = textbookSentences[index].en;
+      // Strip speaker name prefixes
+      const cleanSpeechText = text.replace(/^[A-Za-z\s&]+:/, '');
+
+      const utterance = new SpeechSynthesisUtterance(cleanSpeechText);
+      
+      // Get current playback settings from page selectors
+      const rateInput = document.getElementById('voice-rate');
+      const accentSelect = document.getElementById('voice-accent');
+      
+      utterance.rate = rateInput ? parseFloat(rateInput.value) : 0.9;
+      
+      const voices = window.speechSynthesis.getVoices();
+      const accent = accentSelect ? accentSelect.value : 'en-GB';
+      const preferredVoice = voices.find(v => v.lang.startsWith(accent));
+      if (preferredVoice) utterance.voice = preferredVoice;
+      else utterance.lang = accent;
+
+      utterance.onend = () => {
+        if (isSeq && textbookPlaying) {
+          textbookPlayIndex++;
+          speakSentence(textbookPlayIndex, true);
+        } else if (!isSeq) {
+          setTimeout(() => {
+            if (!textbookPlaying && currentRow) {
+              currentRow.classList.remove('bg-mustard', 'bg-opacity-20', 'border-charcoal');
+              currentRow.classList.add('border-transparent');
+            }
+          }, 1200);
+        }
+      };
+
+      utterance.onerror = () => {
+        stopAllTextbook();
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function playAllTextbook() {
+      textbookPlaying = true;
+      textbookPlayIndex = 0;
+      document.getElementById('btn-play-all-text').classList.add('hidden');
+      document.getElementById('btn-stop-all-text').classList.remove('hidden');
+      speakSentence(textbookPlayIndex, true);
+    }
+
+    function stopAllTextbook() {
+      textbookPlaying = false;
+      window.speechSynthesis.cancel();
+      document.getElementById('btn-play-all-text').classList.remove('hidden');
+      document.getElementById('btn-stop-all-text').classList.add('hidden');
+      
+      // Clear highlights
+      document.querySelectorAll('#textbook-sentences-container .sentence-row').forEach(row => {
+        row.classList.remove('bg-mustard', 'bg-opacity-20', 'border-charcoal');
+        row.classList.add('border-transparent');
+      });
     }
 
     // ==========================================

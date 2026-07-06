@@ -326,3 +326,155 @@ const WORDS_DATA = {
     }
   }
 };
+
+const TEXTS_DATA = {
+  "G6_S1": {
+    "Unit 1 The king's new clothes": {
+      title: "The king's new clothes",
+      sentences: [
+        { en: "Long long ago, there was a king.", cn: "很久很久以前，有一位国王。" },
+        { en: "He liked new clothes.", cn: "他喜欢新衣服。" },
+        { en: "One day, two men visited the king.", cn: "一天，两个男人拜访了国王。" },
+        { en: "“My king, we can make new clothes for you.”", cn: "“我的国王，我们可以为您制作新衣服。”" },
+        { en: "The king was happy.", cn: "国王很高兴。" },
+        { en: "The two men showed the king his new clothes.", cn: "这两个男人给国王展示了他的新衣服。" },
+        { en: "“My king, please try on these magic clothes.”", cn: "“我的国王，请试穿这些神奇的衣服。”" },
+        { en: "“Clever people can see them. Foolish people can't see them.”", cn: "“聪明的人能看见它们。愚蠢的人看不见它们。”" },
+        { en: "The king walked through the city in his new clothes.", cn: "国王穿着他的新衣服走过城市。" },
+        { en: "There were a lot of people in the street.", cn: "街上有很多人。" },
+        { en: "They looked at the king and shouted, “What beautiful clothes!”", cn: "他们看着国王并大喊：“多么漂亮的衣服啊！”" },
+        { en: "A little boy pointed at the king and laughed, “Ha! Ha! The king isn't wearing any clothes!”", cn: "一个小男孩指着国王并嘲笑道：“哈哈！国王没有穿任何衣服！”" }
+      ]
+    },
+    "Unit 2 What a day!": {
+      title: "What a day!",
+      sentences: [
+        { en: "Sunday, 20th September", cn: "9月20日，星期日" },
+        { en: "It was sunny in the morning.", cn: "早上天气晴朗。" },
+        { en: "Su Hai, Mike, Liu Tao and I went to the park by bike.", cn: "苏海、迈克、刘涛和我骑自行车去了公园。" },
+        { en: "There was a parrot show in the park.", cn: "公园里有一场鹦鹉表演。" },
+        { en: "We saw some interesting parrots.", cn: "我们看了一些有趣的鹦鹉。" },
+        { en: "Then, the weather became windy and cloudy.", cn: "然后，天气变得有风且多云。" },
+        { en: "We flew kites high in the sky.", cn: "我们把风筝放得高高的。" },
+        { en: "It was time for lunch.", cn: "该吃午饭了。" },
+        { en: "We brought some dumplings, some bread and honey and some drinks.", cn: "我们带了一些饺子、一些面包和蜂蜜，以及一些饮料。" },
+        { en: "We saw some ants on the bread and honey.", cn: "我们在面包和蜂蜜上看到了一些蚂蚁。" },
+        { en: "There were some bees too.", cn: "也有一些蜜蜂。" },
+        { en: "We could not eat our lunch!", cn: "我们没能吃成午饭！" },
+        { en: "In the afternoon, there were black clouds in the sky.", cn: "下午，天空中有乌云。" },
+        { en: "It rained.", cn: "下雨了。" },
+        { en: "We were hungry and wet.", cn: "我们又饿又湿。" },
+        { en: "What a day!", cn: "多么糟糕的一天啊！" }
+      ]
+    },
+    "Unit 3 Holiday fun": {
+      title: "Holiday fun",
+      sentences: [
+        { en: "Mike: Hi, Liu Tao. Did you have a good time last holiday?", cn: "迈克：嗨，刘涛。上个假期你玩得开心吗？" },
+        { en: "Liu Tao: Yes, I did. I went to the Bund with my family. It was fun.", cn: "刘涛：是的，我玩得很开心。我和我的家人去了外滩。很有趣。" },
+        { en: "Mike: What did you do there?", cn: "迈克：你在那里做了什么？" },
+        { en: "Liu Tao: We took many pictures.", cn: "刘涛：我们拍了许多照片。" },
+        { en: "Mike: Hello, Su Hai. Did you go anywhere interesting?", cn: "迈克：你好，苏海。你去什么有趣的地方了吗？" },
+        { en: "Su Hai: Yes, I went to Beijing. I visited the Great Wall.", cn: "苏海：是的，我去了北京。我游览了长城。" },
+        { en: "Mike: Did you go with your parents?", cn: "迈克：你是和你的父母一起去的吗？" },
+        { en: "Su Hai: No, I went with my cousin. We saw a lot of interesting things there.", cn: "苏海：没有，我是和我的表哥/表姐一起去的。我们在那里看到了很多有趣的东西。" },
+        { en: "Mike: What about you, Wang Bing? Where did you go?", cn: "迈克：你呢，王兵？你去哪儿了？" },
+        { en: "Wang Bing: I went to a farm.", cn: "王兵：我去了农场。" },
+        { en: "Mike: Did you pick any fruit?", cn: "迈克：你摘水果了吗？" },
+        { en: "Wang Bing: Yes, I did. I picked some apples and oranges. They were very sweet.", cn: "王兵：是的，我摘了。我摘了一些苹果和橙子。它们非常甜。" },
+        { en: "Mike: How about you, Helen?", cn: "迈克：你呢，海伦？" },
+        { en: "Helen: I didn't go anywhere. I stayed at home and read books. I learned a lot.", cn: "海伦：我哪儿也没去。我待在家里看书。我学到了很多东西。" },
+        { en: "Mike: That sounds like a quiet holiday.", cn: "迈克：那听起来像是一个安静的假期。" }
+      ]
+    },
+    "Unit 4 Then and now": {
+      title: "Then and now",
+      sentences: [
+        { en: "Six years ago, Mike could read and draw, but he could not write. Now he can do many things.", cn: "六年前，迈克会读书和画画，但他不会写字。现在他能做很多事情。" },
+        { en: "Twenty years ago, Mr Brown wrote letters to his friends.", cn: "二十年前，布朗先生给他的朋友们写信。" },
+        { en: "He used the telephone at home and in the office to call people.", cn: "他在家里和办公室使用电话给人们打电话。" },
+        { en: "Now he has a mobile phone and he can call people anywhere. He also writes emails.", cn: "现在他有一部手机，他可以随时随地给人们打电话。他还写电子邮件。" },
+        { en: "Thirty years ago, Mike's grandpa listened to the radio and read newspapers for news.", cn: "三十年前，迈克的爷爷通过听广播和读报纸来获取新闻。" },
+        { en: "Now he can read and watch news on the Internet. He reads e-books too.", cn: "现在他可以在网上阅读和观看新闻。他也阅读电子书。" },
+        { en: "Twenty years ago, Mrs Brown made friends at school. She bought things from shops.", cn: "二十年前，布朗夫人在学校里交朋友。她从商店里买东西。" },
+        { en: "Now she has e-friends from all over the world. She does shopping on the Internet too.", cn: "现在她有来自世界各地的网友。她也在网上购物。" }
+      ]
+    },
+    "Unit 5 Signs": {
+      title: "Signs",
+      sentences: [
+        { en: "Mike, Helen and Tim are at a shopping centre.", cn: "迈克、海伦和蒂姆在一个购物中心。" },
+        { en: "Mike: Be careful, Tim!", cn: "迈克：当心，蒂姆！" },
+        { en: "Helen: Can you see the sign?", cn: "海伦：你能看见那个标志吗？" },
+        { en: "Tim: What does it mean?", cn: "蒂姆：它是什么意思？" },
+        { en: "Helen: It means the floor is wet.", cn: "海伦：它的意思是地面是湿的。" },
+        { en: "Then, they see a juice shop.", cn: "然后，他们看到了一家果汁店。" },
+        { en: "Helen: Do you want some juice?", cn: "海伦：你们想喝点果汁吗？" },
+        { en: "Mike & Tim: Yes, please.", cn: "迈克和蒂姆：是的，谢谢。" },
+        { en: "Tim: Here's a sign. What does it mean, Mike?", cn: "蒂姆：这儿有一个标志。迈克，它是什么意思？" },
+        { en: "Mike: It means you can't litter here. No littering.", cn: "迈克：它的意思是你不可以在这里扔垃圾。禁止扔垃圾。" },
+        { en: "There is a bookshop. Helen wants to go in.", cn: "有一家书店。海伦想要进去。" },
+        { en: "Mike: You can't take your juice into the shop, Helen.", cn: "迈克：你不能把你的果汁带进店里，海伦。" },
+        { en: "Tim: Can you see that sign? It means you can't eat or drink there.", cn: "蒂姆：你能看见那个标志吗？它的意思是你不可以在那里吃东西或喝饮料。" },
+        { en: "Helen: I'm sorry.", cn: "海伦：对不起。" },
+        { en: "Now they are eating some noodles in a restaurant.", cn: "现在他们正在一家餐馆里吃面条。" },
+        { en: "Helen: Is someone smoking? I can smell it.", cn: "海伦：有人在吸烟吗？我闻到味道了。" },
+        { en: "Tim: Please don't smoke here. Can you see that sign? It means you can't smoke here.", cn: "蒂姆：请不要在这里吸烟。你能看见那个标志吗？它的意思是你不可以在这里吸烟。" },
+        { en: "Man: OK. Sorry!", cn: "男士：好的。对不起！" }
+      ]
+    },
+    "Unit 6 Keep our city clean": {
+      title: "Keep our city clean",
+      sentences: [
+        { en: "Miss Li: Look at these pictures of our city. Is our city clean?", cn: "李老师：看这些我们城市的图片。我们的城市干净吗？" },
+        { en: "Students: No, it isn't.", cn: "学生们：不，它不干净。" },
+        { en: "Miss Li: What makes our city dirty?", cn: "李老师：什么使我们的城市变脏的？" },
+        { en: "Su Hai: Smoke from cars makes the air dirty.", cn: "苏海：汽车排放的废气使空气变脏。" },
+        { en: "Wang Bing: Black smoke from factories makes the air dirty too.", cn: "王兵：工厂排放的黑烟也使空气变脏。" },
+        { en: "Liu Tao: Rubbish makes the streets messy and dirty.", cn: "刘涛：垃圾使街道变得又乱又脏。" },
+        { en: "Su Hai: The river is dirty. There's rubbish in the water and the fish are dead.", cn: "苏海：这条河很脏。水里有垃圾，鱼都死了。" },
+        { en: "Miss Li: What can we do to keep our city clean?", cn: "李老师：我们可以做些什么来保持我们的城市干净？" },
+        { en: "Su Hai: We can take the bus and the metro to school.", cn: "苏海：我们可以坐公交车和地铁上学。" },
+        { en: "Nancy: We can walk to school too.", cn: "南希：我们也可以步行上学。" },
+        { en: "Wang Bing: We can move some factories away from our city. We can put rubbish in the bin.", cn: "王兵：我们可以把一些工厂搬离我们的城市。我们可以把垃圾放进垃圾桶里。" },
+        { en: "Liu Tao: We can plant more trees. They help keep the air clean.", cn: "刘涛：我们可以种植更多的树木。它们有助于保持空气干净。" },
+        { en: "Miss Li: Your ideas are great. Well done, class!", cn: "李老师：你们的主意太棒了。做得好，同学们！" }
+      ]
+    },
+    "Unit 7 Protect the Earth": {
+      title: "Protect the Earth",
+      sentences: [
+        { en: "Save water.", cn: "节约用水。" },
+        { en: "Water is useful. We drink water and use water to clean things every day.", cn: "水是有用的。我们每天喝水并用水来清洗东西。" },
+        { en: "In many places, there is not much water. We should not waste water. We should reuse and save it.", cn: "在许多地方，水并不多。我们不应该浪费水。我们应该循环使用并节约它。" },
+        { en: "Save energy.", cn: "节约能源。" },
+        { en: "Most of our energy comes from coal and oil. There is not much coal or oil on Earth. We should save energy.", cn: "我们的大部分能源来自煤炭和石油。地球上的煤炭和石油并不多。我们应该节约能源。" },
+        { en: "We should not drive so much because cars use a lot of energy.", cn: "我们不应该开那么多车，因为汽车消耗大量能源。" },
+        { en: "Save trees.", cn: "保护树木。" },
+        { en: "Wood comes from trees.", cn: "木头来自树木。" },
+        { en: "We use wood to make tables, chairs and many other things.", cn: "我们用木头制作桌子、椅子和许多其他东西。" },
+        { en: "We should not cut down too many trees because trees help keep the air clean.", cn: "我们不应该砍伐太多的树木，因为树木有助于保持空气干净。" },
+        { en: "Don't use too much plastic.", cn: "不要使用太多的塑料制品。" },
+        { en: "We use plastic to make bags and bottles, but too much plastic is bad for the Earth.", cn: "我们用塑料制作袋子和瓶子，但是太多的塑料对地球有害。" },
+        { en: "We should not use too many plastic bags or bottles. We should use paper bags and glass bottles.", cn: "我们不应该使用太多的塑料袋或塑料瓶。我们应该使用纸袋和玻璃瓶。" }
+      ]
+    },
+    "Unit 8 Chinese New Year": {
+      title: "Chinese New Year",
+      sentences: [
+        { en: "Dear Su Hai,", cn: "亲爱的苏海：" },
+        { en: "How are you? It’s going to be Chinese New Year next week. I’m very excited!", cn: "你好吗？下周就是春节了。我非常激动！" },
+        { en: "Tomorrow, my family and I are going to buy some new clothes and food.", cn: "明天，我和我的家人打算去买一些新衣服和食物。" },
+        { en: "Then, in the evening, we’re going to make some cakes and tangyuan.", cn: "然后，在晚上，我们打算做一些糕点和汤圆。" },
+        { en: "On Chinese New Year’s Eve, we’re going to have dinner with my grandparents, my aunt and uncle and my cousin.", cn: "除夕夜，我们打算和我的爷爷奶奶、叔叔阿姨以及我的堂兄弟姐妹一起吃年夜饭。" },
+        { en: "Then, we’re going to buy some flowers.", cn: "然后，我们打算去买一些花。" },
+        { en: "On Chinese New Year’s Day, my parents are going to give me red packets.", cn: "大年初一，我的父母打算给我红包。" },
+        { en: "Then, we’re going to watch a lion dance in the afternoon.", cn: "然后，我们打算在下午观看舞狮表演。" },
+        { en: "On the second day of Chinese New Year, we’re going to watch fireworks in the evening.", cn: "大年初二，我们打算在晚上观看烟花表演。" },
+        { en: "What are you going to do at Chinese New Year?", cn: "在春节你打算做什么？" },
+        { en: "Love, Anna", cn: "爱你的，安娜" }
+      ]
+    }
+  }
+};
+
