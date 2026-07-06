@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>苏州小学英语单词通关系统（译林版）</title>
+  <!-- Google Fonts: Round hand-drawn style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Fredoka', 'system-ui', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+            comic: ['Comic Neue', 'Fredoka', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              light: '#FCFAF6',
+              DEFAULT: '#F8F4EA',
+              dark: '#EFECE2',
+            },
+            paper: '#FFFDF9',
+            wood: {
+              light: '#A8927A',
+              DEFAULT: '#8D7B68',
+              dark: '#6F5F50',
+            },
+            sage: {
+              light: '#A3B49E',
+              DEFAULT: '#8EA788',
+              dark: '#768E70',
+            },
+            charcoal: '#3D3433',
+            mustard: '#F2D388',
+            terracotta: '#E07A5F',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom hand-drawn borders and styles */
+    .hand-drawn-border {
+      border: 3px solid #3D3433;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      box-shadow: 4px 4px 0px 0px #3D3433;
+      transition: all 0.2s ease;
+    }
+    .hand-drawn-border:active:not(.no-press) {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px 0px #3D3433;
+    }
+    .hand-drawn-border-sm {
+      border: 2px solid #3D3433;
+      border-radius: 120px 10px 95px 12px/12px 95px 10px 120px;
+      box-shadow: 2px 2px 0px 0px #3D3433;
+      transition: all 0.15s ease;
+    }
+    .hand-drawn-border-sm:active:not(.no-press) {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px 0px #3D3433;
+    }
+    .hand-drawn-dashed {
+      border: 2px dashed #8D7B68;
+      border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+    }
+    /* Pencil stroke divider */
+    .pencil-divider {
+      height: 3px;
+      background: #3D3433;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    /* Custom Paper texture */
+    .paper-texture {
+      background-color: #FFFDF9;
+      background-image: 
+        radial-gradient(rgba(141, 123, 104, 0.05) 9%, transparent 9%),
+        radial-gradient(rgba(141, 123, 104, 0.05) 9%, transparent 9%);
+      background-size: 12px 12px;
+      background-position: 0 0, 6px 6px;
+    }
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8F4EA;
+      border-left: 2px solid #3D3433;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8D7B68;
+      border: 2px solid #3D3433;
+      border-radius: 6px;
+    }
+    /* Simple Animations */
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-1deg); }
+      50% { transform: rotate(1deg); }
+    }
+    .wiggle {
+      animation: wiggle 0.2s ease-in-out infinite;
+    }
+    @keyframes bounce-custom {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .bounce-custom {
+      animation: bounce-custom 0.5s ease-in-out;
+    }
+
+    /* iPad and Touch Screen Optimizations */
+    button, select, input, .grade-btn, .listening-opt-btn, #spelling-display-boxes div, #spelling-keypad button {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    
+    /* Tactile active feedback for key/touch buttons */
+    .key-btn {
+      transition: transform 0.1s ease, background-color 0.1s ease;
+    }
+    .key-btn:active {
+      transform: scale(0.96) translateY(2px) !important;
+      background-color: #EFECE2 !important;
+      box-shadow: 1px 1px 0px 0px #3D3433 !important;
+    }
+  </style>
+</head>
+<body class="bg-cream text-charcoal min-h-screen font-sans flex flex-col antialiased selection:bg-mustard selection:text-charcoal">
+
+  <!-- Header -->
+  <header class="border-b-4 border-charcoal bg-white p-4 relative z-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <!-- Cute Handdrawn Icon -->
+        <div class="bg-mustard p-2.5 hand-drawn-border-sm no-press flex items-center justify-center">
+          <svg class="w-8 h-8 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold font-comic tracking-wide text-charcoal flex items-center gap-2">
+            Suzhou Primary English <span class="bg-sage text-white text-xs px-2 py-0.5 rounded-full hand-drawn-border-sm no-press">江苏译林版</span>
+          </h1>
+          <p class="text-sm font-semibold text-wood-dark">苏州市小学生英语单词快速通关工具 🎒</p>
+        </div>
+      </div>
+
+      <!-- Quick Controls -->
+      <div class="flex flex-wrap items-center gap-3">
+        <!-- Kid Profile Selector -->
+        <div class="flex items-center gap-1.5 bg-cream-dark px-3 py-1.5 hand-drawn-border-sm no-press">
+          <span class="text-xs font-bold text-charcoal">👤 学习者:</span>
+          <select id="kid-select" onchange="switchKid(this.value)" class="bg-transparent text-xs font-bold focus:outline-none cursor-pointer">
+            <!-- Dynamically populated -->
+          </select>
+          <button onclick="addKidPrompt()" class="bg-sage text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full hover:bg-sage-dark font-extrabold focus:outline-none animate-bounce" title="添加新学习者">
+            ＋
+          </button>
+        </div>
+        <!-- Voice Accent Selector -->
+        <div class="flex items-center gap-2 bg-cream-dark px-3 py-1.5 hand-drawn-border-sm no-press">
+          <span class="text-xs font-bold text-charcoal">发音音调:</span>
+          <select id="voice-accent" class="bg-transparent text-xs font-bold focus:outline-none cursor-pointer">
+            <option value="en-US">美音 (US)</option>
+            <option value="en-GB" selected>英音 (UK)</option>
+          </select>
+        </div>
+        <!-- Rate Control -->
+        <div class="flex items-center gap-2 bg-cream-dark px-3 py-1.5 hand-drawn-border-sm no-press">
+          <span class="text-xs font-bold text-charcoal">语速:</span>
+          <input type="range" id="voice-rate" min="0.5" max="1.5" step="0.1" value="0.9" class="w-16 h-1 bg-wood rounded-lg appearance-none cursor-pointer">
+          <span id="rate-value" class="text-xs font-bold w-6">0.9x</span>
+        </div>
+        <!-- Navigation Buttons -->
+        <button onclick="switchView('home')" class="bg-cream-light hover:bg-cream-dark px-4 py-1.5 text-sm font-bold hand-drawn-border-sm">
+          返回主页
+        </button>
+        <button onclick="switchView('dictionary')" class="bg-mustard hover:bg-yellow-300 px-4 py-1.5 text-sm font-bold hand-drawn-border-sm">
+          单词大全 📖
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-grow max-w-6xl w-full mx-auto p-4 md:p-6 flex flex-col justify-center">
+    
+    <!-- SECTION 1: HOME/SETTINGS VIEW -->
+    <section id="view-home" class="view-section py-8 max-w-2xl mx-auto w-full">
+      <div class="paper-texture p-6 md:p-8 hand-drawn-border no-press relative">
+        <!-- Decorative Pencil drawing effect -->
+        <div class="absolute -top-3 -right-3 bg-mustard text-charcoal px-3 py-1 text-xs font-bold hand-drawn-border-sm no-press rotate-6">
+          1-6年级全覆盖!
+        </div>
+
+        <h2 class="text-3xl font-bold text-center mb-2 font-comic">开启你的单词冒险 🚀</h2>
+        <p class="text-center text-wood-dark font-medium mb-6">选择你的年级和单元，开启快乐通关之路</p>
+        
+        <div class="pencil-divider mb-6"></div>
+
+        <!-- Grade Selector Grid -->
+        <div class="mb-6">
+          <label class="block text-sm font-bold mb-2 text-charcoal">📍 选择学习年级:</label>
+          <div id="grade-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+
+        <!-- Unit Selector -->
+        <div class="mb-4">
+          <label for="unit-select" class="block text-sm font-bold mb-2 text-charcoal">📖 选择学习单元 (Unit):</label>
+          <select id="unit-select" onchange="onUnitSelectChange()" class="w-full bg-cream-light border-3 border-charcoal p-3 rounded-xl focus:outline-none font-semibold text-charcoal">
+            <!-- Dynamically populated based on selected Grade -->
+          </select>
+        </div>
+
+        <!-- Unit Cards List (Visual Progress Grid) -->
+        <div class="mb-8">
+          <label class="block text-sm font-bold mb-3 text-charcoal">🎯 单元学习进度:</label>
+          <div id="unit-cards-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pr-1">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+
+        <!-- Play Modes -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button onclick="startChallenge()" class="flex-1 bg-sage text-white text-lg font-bold py-4 px-6 hand-drawn-border flex items-center justify-center gap-2 hover:bg-sage-dark">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+            </svg>
+            开始多维闯关
+          </button>
+          
+          <button onclick="viewEncyclopedia()" class="flex-1 bg-cream-light text-charcoal hover:bg-cream-dark text-lg font-bold py-4 px-6 hand-drawn-border flex items-center justify-center gap-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+            浏览单词列表
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: STAGE CHALLENGE VIEW -->
+    <section id="view-challenge" class="view-section hidden max-w-3xl mx-auto w-full py-4">
+      <!-- Challenge Header & Progress Bar -->
+      <div class="mb-4 flex items-center justify-between px-2">
+        <div>
+          <span id="challenge-grade-unit" class="text-xs md:text-sm font-bold bg-wood text-white px-3 py-1 rounded-full hand-drawn-border-sm no-press">六年级上册 - Unit 1</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <!-- Star/Bookmark Toggle -->
+          <button id="btn-bookmark-current" onclick="toggleBookmarkCurrentWord()" class="p-1 text-charcoal hover:scale-110 transition-transform">
+            <svg id="svg-bookmark-current" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+            </svg>
+          </button>
+          <span id="challenge-progress-num" class="text-sm font-bold font-comic text-charcoal bg-mustard px-2.5 py-0.5 rounded-md hand-drawn-border-sm no-press">1 / 15</span>
+        </div>
+      </div>
+
+      <!-- Outer Progress Bar Shell -->
+      <div class="h-6 w-full bg-cream-dark border-3 border-charcoal p-0.5 mb-6 rounded-full overflow-hidden relative no-press">
+        <div id="challenge-progress-bar" class="h-full bg-sage rounded-full border-r-3 border-charcoal transition-all duration-300" style="width: 0%"></div>
+      </div>
+
+      <!-- Phase Indicators -->
+      <div class="grid grid-cols-3 gap-2 mb-6 text-center text-xs md:text-sm font-bold">
+        <div id="phase-1-indicator" class="py-2 hand-drawn-border-sm no-press bg-mustard text-charcoal transition-colors">
+          第一阶段: 识记 📖
+        </div>
+        <div id="phase-2-indicator" class="py-2 hand-drawn-border-sm no-press bg-cream-light text-charcoal transition-colors opacity-60">
+          第二阶段: 听音 🎧
+        </div>
+        <div id="phase-3-indicator" class="py-2 hand-drawn-border-sm no-press bg-cream-light text-charcoal transition-colors opacity-60">
+          第三阶段: 拼写 ✏️
+        </div>
+      </div>
+
+      <!-- CARD PANEL -->
+      <div id="challenge-card" class="paper-texture p-6 md:p-10 hand-drawn-border no-press relative min-h-[320px] flex flex-col justify-between">
+        
+        <!-- SUB-PHASE 1: RECOGNITION (识记) -->
+        <div id="panel-recognition" class="phase-panel w-full flex flex-col items-center justify-center flex-grow">
+          <button onclick="speakCurrentWord()" class="bg-cream-light hover:bg-cream-dark p-4 rounded-full hand-drawn-border-sm mb-4 group">
+            <svg class="w-12 h-12 text-charcoal group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+            </svg>
+          </button>
+          
+          <h3 id="recog-word" class="text-4xl md:text-5xl font-extrabold text-charcoal font-comic tracking-wide mb-2">word</h3>
+          <p id="recog-phonetic" class="text-lg text-wood font-medium font-comic mb-6">/wɜːd/</p>
+
+          <!-- Toggle Details Button -->
+          <button id="btn-reveal-translation" onclick="revealTranslation()" class="bg-mustard hover:bg-yellow-300 text-charcoal font-bold px-6 py-2.5 hand-drawn-border-sm mb-6">
+            点击显示释义 👀
+          </button>
+
+          <!-- Hidden Content -->
+          <div id="recog-details" class="hidden text-center mb-6 bounce-custom">
+            <div class="pencil-divider mb-3 w-32 mx-auto"></div>
+            <p id="recog-translation" class="text-2xl font-bold text-sage-dark">中文意思</p>
+          </div>
+
+          <!-- Self-evaluation Footer -->
+          <div class="w-full grid grid-cols-2 gap-4 mt-4">
+            <button onclick="handleEvaluation(false)" class="bg-terracotta text-white font-bold py-3.5 px-4 hand-drawn-border hover:bg-opacity-90">
+              我不熟 ❌ (加入错词本)
+            </button>
+            <button onclick="handleEvaluation(true)" class="bg-sage text-white font-bold py-3.5 px-4 hand-drawn-border hover:bg-opacity-90">
+              我认识 ✅
+            </button>
+          </div>
+        </div>
+
+        <!-- SUB-PHASE 2: LISTENING (听音辨意) -->
+        <div id="panel-listening" class="phase-panel hidden w-full flex flex-col items-center justify-center flex-grow">
+          <!-- Audio Play -->
+          <button onclick="speakCurrentWord()" class="bg-cream-light hover:bg-cream-dark p-4 rounded-full hand-drawn-border-sm mb-4 group animate-pulse">
+            <svg class="w-12 h-12 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+            </svg>
+          </button>
+          <p class="text-sm font-bold text-wood-dark mb-6">点击听声音，选择正确的中文释义：</p>
+
+          <!-- 4 Multiple Choice Options -->
+          <div id="listening-options" class="w-full grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+            <!-- Populated dynamically by JS -->
+          </div>
+
+          <!-- Bottom Action -->
+          <button id="btn-listening-next" onclick="nextWord()" class="hidden bg-mustard hover:bg-yellow-300 font-bold px-8 py-3 hand-drawn-border-sm">
+            下一题 👉
+          </button>
+        </div>
+
+        <!-- SUB-PHASE 3: SPELLING (拼写闯关) -->
+        <div id="panel-spelling" class="phase-panel hidden w-full flex flex-col items-center justify-center flex-grow">
+          <!-- Clue Section -->
+          <div class="text-center mb-6">
+            <h4 id="spelling-translation" class="text-3xl font-extrabold text-charcoal mb-2">中文释义</h4>
+            <p id="spelling-phonetic" class="text-lg text-wood font-medium font-comic">/phonetic/</p>
+            <button onclick="speakCurrentWord()" class="mt-2 text-sage hover:underline font-bold flex items-center justify-center gap-1 mx-auto text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+              </svg>
+              听发音
+            </button>
+          </div>
+
+          <!-- Interactive Typing Panel -->
+          <div class="w-full max-w-md mx-auto mb-6 flex flex-col items-center">
+            <!-- Real Input Hidden/Accessible -->
+            <input type="text" id="spelling-input" autocomplete="off" spellcheck="false" class="sr-only">
+            
+            <!-- Styled Letter Display Boxes -->
+            <div id="spelling-display-boxes" class="flex flex-wrap gap-2 justify-center py-4 cursor-pointer w-full min-h-[4rem]" onclick="focusSpellingInput()">
+              <!-- Generated dynamically by JS -->
+            </div>
+            
+            <p class="text-xs text-wood-dark font-medium mt-2">在键盘输入拼写，或者点击方块开始输入</p>
+          </div>
+
+          <!-- Helper keyboard for tablet/mobile -->
+          <div id="spelling-keypad-panel" class="w-full max-w-xl mx-auto mb-6">
+            <!-- Toggle Keypad Button -->
+            <button onclick="toggleMobileKeyboard()" class="text-xs font-bold text-sage hover:underline mx-auto block mb-2 cursor-pointer">
+              显示/隐藏屏幕键盘 ⌨️
+            </button>
+            <div id="spelling-keypad" class="grid grid-cols-10 gap-1.5 p-2.5 bg-cream-dark hand-drawn-border-sm no-press hidden animate-fade-in">
+              <!-- Keypad letters generated by JS -->
+            </div>
+          </div>
+
+          <!-- Error/Feedback banner -->
+          <div id="spelling-feedback" class="hidden mb-6 p-3 hand-drawn-border-sm text-center font-bold no-press w-full max-w-md">
+            <!-- Wrong spell feedback -->
+          </div>
+
+          <!-- Actions -->
+          <div class="flex gap-4">
+            <button id="btn-spelling-check" onclick="checkSpelling()" class="bg-sage text-white font-bold px-8 py-3.5 hand-drawn-border">
+              检查拼写 🔎
+            </button>
+            <button id="btn-spelling-next" onclick="nextWord()" class="hidden bg-mustard text-charcoal font-bold px-8 py-3.5 hand-drawn-border">
+              下一个 👉
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: SUMMARY/RESULT VIEW -->
+    <section id="view-summary" class="view-section hidden max-w-xl mx-auto w-full py-8">
+      <div class="paper-texture p-6 md:p-10 hand-drawn-border no-press text-center relative">
+        <div class="absolute -top-4 -left-4 bg-sage text-white px-4 py-1.5 text-sm font-bold hand-drawn-border-sm no-press -rotate-6">
+          冒险成功! 🎉
+        </div>
+
+        <h2 class="text-4xl font-extrabold font-comic text-charcoal mb-4">通关证书</h2>
+        <p class="text-wood-dark font-semibold text-sm mb-6">恭喜完成当前单元的学习挑战！</p>
+
+        <div class="pencil-divider mb-6"></div>
+
+        <!-- Trophy Visual -->
+        <div class="w-24 h-24 bg-mustard rounded-full flex items-center justify-center mx-auto mb-6 hand-drawn-border no-press">
+          <svg class="w-12 h-12 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+        </div>
+
+        <!-- Statistics -->
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div class="bg-cream p-4 hand-drawn-border-sm no-press">
+            <span class="block text-xs font-bold text-wood">本次通关</span>
+            <span id="summary-total-words" class="text-3xl font-extrabold font-comic text-charcoal">15个单词</span>
+          </div>
+          <div class="bg-cream p-4 hand-drawn-border-sm no-press">
+            <span class="block text-xs font-bold text-wood">生词/错词</span>
+            <span id="summary-wrong-words" class="text-3xl font-extrabold font-comic text-terracotta">0个</span>
+          </div>
+        </div>
+
+        <!-- Wrong words listing -->
+        <div id="summary-wrong-words-box" class="hidden mb-8 text-left bg-cream p-4 hand-drawn-border-sm no-press max-h-48 overflow-y-auto">
+          <h4 class="font-bold text-sm text-terracotta mb-2 flex items-center gap-1">
+            ⚠️ 重点关注的生词/错词 (已记入生词本):
+          </h4>
+          <ul id="summary-wrong-list" class="list-disc list-inside text-sm font-semibold space-y-1 text-charcoal">
+            <!-- Wrong words listed here -->
+          </ul>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <button onclick="startChallenge()" class="bg-sage text-white font-bold py-3.5 px-6 hand-drawn-border">
+            再来一次 🔄
+          </button>
+          <button onclick="switchView('home')" class="bg-cream-light hover:bg-cream-dark font-bold py-3.5 px-6 hand-drawn-border">
+            回主页
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: DICTIONARY/ENCYCLOPEDIA VIEW -->
+    <section id="view-dictionary" class="view-section hidden max-w-4xl mx-auto w-full py-4">
+      <div class="paper-texture p-6 hand-drawn-border no-press">
+        <h2 class="text-2xl font-bold font-comic text-charcoal mb-4 flex items-center justify-between">
+          <span>单词大全 📖</span>
+          <span id="dictionary-stats" class="text-xs font-semibold text-wood-dark bg-cream px-3 py-1 rounded-full hand-drawn-border-sm no-press">
+            共计：0 个单词
+          </span>
+        </h2>
+
+        <!-- Filters controls -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+          <!-- Grade Select -->
+          <div class="flex flex-col">
+            <label class="text-xs font-bold text-wood mb-1">选择年级:</label>
+            <select id="dict-grade-select" onchange="onDictGradeChange()" class="bg-cream-light border-2 border-charcoal p-2 rounded-lg font-bold text-xs">
+              <!-- populated dynamically -->
+            </select>
+          </div>
+          
+          <!-- Unit Filter -->
+          <div class="flex flex-col">
+            <label class="text-xs font-bold text-wood mb-1">选择单元:</label>
+            <select id="dict-unit-select" onchange="filterDictionary()" class="bg-cream-light border-2 border-charcoal p-2 rounded-lg font-bold text-xs">
+              <!-- populated dynamically -->
+            </select>
+          </div>
+
+          <!-- Search Input -->
+          <div class="flex flex-col md:col-span-2">
+            <label class="text-xs font-bold text-wood mb-1">输入单词或中文搜索:</label>
+            <div class="relative">
+              <input type="text" id="dict-search" oninput="filterDictionary()" placeholder="输入英文或中文进行检索..." class="w-full bg-cream-light border-2 border-charcoal p-2 rounded-lg text-xs font-bold focus:outline-none">
+              <button onclick="clearSearch()" class="absolute right-2.5 top-2.5 text-charcoal hover:scale-115">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center mb-4">
+          <!-- Toggle Bookmarked Only -->
+          <button id="btn-show-bookmarks" onclick="toggleShowBookmarksOnly()" class="bg-cream-light hover:bg-cream-dark px-3 py-1.5 text-xs font-bold hand-drawn-border-sm flex items-center gap-1">
+            <svg class="w-4 h-4 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+            </svg>
+            <span id="text-show-bookmarks">只看我的生词本</span>
+          </button>
+          
+          <span class="text-xs text-wood-dark font-medium">提示：点击单词可以直接播放发音</span>
+        </div>
+
+        <div class="pencil-divider mb-4"></div>
+
+        <!-- Dictionary Table Scroll area -->
+        <div class="overflow-x-auto max-h-[460px] border-2 border-charcoal rounded-xl bg-white">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-cream-dark border-b-2 border-charcoal text-xs font-bold text-charcoal">
+                <th class="p-3 w-10">收藏</th>
+                <th class="p-3">英文单词</th>
+                <th class="p-3">音标</th>
+                <th class="p-3">中文释义</th>
+                <th class="p-3 w-20 text-center">发音</th>
+              </tr>
+            </thead>
+            <tbody id="dict-tbody" class="divide-y divide-gray-200 text-sm font-semibold text-charcoal">
+              <!-- populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t-4 border-charcoal bg-white p-4 text-center text-xs font-semibold text-wood-dark">
+    <p>学习就是一次奇妙的发现之旅！🌟 江苏省苏州市小学英语译林版单词学习助手</p>
+    <p class="mt-1 text-gray-400 font-comic">Made with ❤️ for kids | Native Offline TTS | Handcrafted UI</p>
+  </footer>
+
+  <!-- Include Vocabulary Database -->
+  <script src="words_data.js"></script>
+
+  <!-- Core App Logic -->
+  <script>
+    // Profile Management Keys
+    const KIDS_LIST_KEY = 'suz_eng_word_kids';
+    const ACTIVE_KID_KEY = 'suz_eng_word_active_kid';
+    
+    let kidsList = [];
+    let activeKid = '默认小朋友';
+    let bookmarkedWords = new Set();
+    let kidProgress = {}; 
+
+    // State Variables
+    let currentGrade = "G6_S1"; // Default Grade
+    let currentUnit = "";      // Current unit selected
+    let currentWords = [];     // Words list of selected grade+unit
+    let currentWordIndex = 0;  // Index of word in current test
+    
+    // Multi-dimensional learning stages states:
+    // Phase 1: Recognition (识记)
+    // Phase 2: Listening (听音)
+    // Phase 3: Spelling (拼写)
+    let currentPhase = 1;
+    let wrongWordsThisRound = new Set();
+    let currentDistractors = [];
+
+    // TTS Setup
+    let ttsRate = 0.9;
+    let ttsAccent = 'en-GB';
+
+    // Page initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      initProfiles();
+      setupTTSConfig();
+      populateGradeSelector();
+      onGradeChange(currentGrade);
+      switchView('home');
+    });
+
+    // Setup TTS elements
+    function setupTTSConfig() {
+      const accentSelect = document.getElementById('voice-accent');
+      const rateRange = document.getElementById('voice-rate');
+      const rateValue = document.getElementById('rate-value');
+
+      accentSelect.addEventListener('change', (e) => {
+        ttsAccent = e.target.value;
+      });
+
+      rateRange.addEventListener('input', (e) => {
+        ttsRate = parseFloat(e.target.value);
+        rateValue.textContent = ttsRate.toFixed(1) + 'x';
+      });
+
+      // Warm up TTS
+      if (window.speechSynthesis) {
+        window.speechSynthesis.getVoices();
+      }
+    }
+
+    // Core TTS speak function
+    function speak(text) {
+      if (!window.speechSynthesis) {
+        console.warn("浏览器不支持 Web Speech API");
+        return;
+      }
+      // Cancel active speaking
+      window.speechSynthesis.cancel();
+      
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = ttsRate;
+      
+      // Try to find the exact voice based on accent setting
+      const voices = window.speechSynthesis.getVoices();
+      let matchedVoice = null;
+      
+      if (voices.length > 0) {
+        // Preferred locale
+        const locale = ttsAccent === 'en-GB' ? 'en-GB' : 'en-US';
+        
+        // Exact match
+        matchedVoice = voices.find(v => v.lang.toLowerCase() === locale.toLowerCase() || v.lang.toLowerCase().replace('_', '-') === locale.toLowerCase());
+        
+        // Fallback to general English
+        if (!matchedVoice) {
+          matchedVoice = voices.find(v => v.lang.startsWith('en'));
+        }
+      }
+      
+      if (matchedVoice) {
+        utterance.voice = matchedVoice;
+      } else {
+        // Fallback settings if no voices are listed yet
+        utterance.lang = ttsAccent;
+      }
+      
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Populate grade selector on Home page
+    function populateGradeSelector() {
+      const container = document.getElementById('grade-grid');
+      container.innerHTML = "";
+      
+      Object.keys(WORDS_DATA).forEach(gradeKey => {
+        const gradeInfo = WORDS_DATA[gradeKey];
+        const btn = document.createElement('button');
+        btn.id = `btn-grade-${gradeKey}`;
+        btn.textContent = gradeInfo.name;
+        btn.className = "grade-btn p-4 text-base font-bold text-center hand-drawn-border-sm bg-white active:bg-cream-dark key-btn";
+        btn.onclick = () => onGradeChange(gradeKey);
+        container.appendChild(btn);
+      });
+    }
+
+    // Handle grade changes
+    function onGradeChange(gradeKey) {
+      currentGrade = gradeKey;
+      
+      // Update UI classes for active grade
+      document.querySelectorAll('.grade-btn').forEach(btn => {
+        btn.classList.remove('bg-mustard', 'hover:bg-yellow-300');
+        btn.classList.add('bg-cream-light', 'hover:bg-cream-dark');
+      });
+      const activeBtn = document.getElementById(`btn-grade-${gradeKey}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-cream-light', 'hover:bg-cream-dark');
+        activeBtn.classList.add('bg-mustard', 'hover:bg-yellow-300');
+      }
+
+      // Populate Unit Selector
+      const unitSelect = document.getElementById('unit-select');
+      unitSelect.innerHTML = "";
+      const units = WORDS_DATA[gradeKey].units;
+      
+      Object.keys(units).forEach(unitName => {
+        const opt = document.createElement('option');
+        opt.value = unitName;
+        opt.textContent = `${unitName} (${units[unitName].length}词)`;
+        unitSelect.appendChild(opt);
+      });
+
+      // Default unit
+      currentUnit = Object.keys(units)[0] || "";
+      renderGradeUnitProgress();
+    }
+
+    function onUnitSelectChange() {
+      currentUnit = document.getElementById('unit-select').value;
+      renderGradeUnitProgress();
+    }
+
+    // Switch between pages
+    function switchView(viewId) {
+      document.querySelectorAll('.view-section').forEach(sec => {
+        sec.classList.add('hidden');
+      });
+      document.getElementById(`view-${viewId}`).classList.remove('hidden');
+      
+      if (viewId === 'home') {
+        onGradeChange(currentGrade);
+      }
+    }
+
+    // ==========================================
+    // STAGE CHALLENGE CORE LOGIC
+    // ==========================================
+    
+    function startChallenge() {
+      const unitSelect = document.getElementById('unit-select');
+      currentUnit = unitSelect.value;
+      
+      if (!currentUnit) {
+        alert("请选择单元！");
+        return;
+      }
+      
+      currentWords = [...WORDS_DATA[currentGrade].units[currentUnit]];
+      if (currentWords.length === 0) {
+        alert("该单元暂无单词数据。");
+        return;
+      }
+
+      // Shuffle current words for training
+      shuffleArray(currentWords);
+      
+      currentWordIndex = 0;
+      currentPhase = 1; // start from phase 1: Recognition
+      wrongWordsThisRound.clear();
+
+      switchView('challenge');
+      updateChallengeHeader();
+      setupPhase(currentPhase);
+    }
+
+    function updateChallengeHeader() {
+      const headerSpan = document.getElementById('challenge-grade-unit');
+      headerSpan.textContent = `${WORDS_DATA[currentGrade].name} - ${currentUnit}`;
+      
+      const progressNum = document.getElementById('challenge-progress-num');
+      progressNum.textContent = `${currentWordIndex + 1} / ${currentWords.length}`;
+      
+      // Calculate progress percentage
+      // Phase 1 (0-33%), Phase 2 (33-66%), Phase 3 (66-100%)
+      const baseProgress = (currentPhase - 1) * 33.33;
+      const stepProgress = (currentWordIndex / currentWords.length) * 33.33;
+      const totalProgress = Math.min(100, baseProgress + stepProgress);
+      
+      document.getElementById('challenge-progress-bar').style.width = `${totalProgress}%`;
+    }
+
+    function setupPhase(phase) {
+      currentPhase = phase;
+      
+      // Update visual headers for Phase
+      document.querySelectorAll('[id$="-indicator"]').forEach(ind => {
+        ind.classList.remove('bg-mustard', 'opacity-100');
+        ind.classList.add('bg-cream-light', 'opacity-60');
+      });
+      const activeInd = document.getElementById(`phase-${phase}-indicator`);
+      activeInd.classList.remove('bg-cream-light', 'opacity-60');
+      activeInd.classList.add('bg-mustard', 'opacity-100');
+
+      // Hide all panels
+      document.getElementById('panel-recognition').classList.add('hidden');
+      document.getElementById('panel-listening').classList.add('hidden');
+      document.getElementById('panel-spelling').classList.add('hidden');
+
+      // Show targeted panel
+      if (phase === 1) {
+        document.getElementById('panel-recognition').classList.remove('hidden');
+        setupRecognition();
+      } else if (phase === 2) {
+        document.getElementById('panel-listening').classList.remove('hidden');
+        setupListening();
+      } else if (phase === 3) {
+        document.getElementById('panel-spelling').classList.remove('hidden');
+        setupSpelling();
+      }
+      
+      updateChallengeHeader();
+      updateBookmarkIcon();
+    }
+
+    function getCurrentWord() {
+      return currentWords[currentWordIndex];
+    }
+
+    function toggleBookmarkCurrentWord() {
+      const word = getCurrentWord().word;
+      if (bookmarkedWords.has(word)) {
+        bookmarkedWords.delete(word);
+      } else {
+        bookmarkedWords.add(word);
+      }
+      saveBookmarks();
+      updateBookmarkIcon();
+    }
+
+    function updateBookmarkIcon() {
+      const wordObj = getCurrentWord();
+      if (!wordObj) return;
+      
+      const svg = document.getElementById('svg-bookmark-current');
+      if (bookmarkedWords.has(wordObj.word)) {
+        svg.setAttribute('fill', '#E07A5F'); // terracotta color
+        svg.style.color = '#E07A5F';
+      } else {
+        svg.setAttribute('fill', 'none');
+        svg.style.color = '#3D3433';
+      }
+    }
+
+    function speakCurrentWord() {
+      const wordObj = getCurrentWord();
+      if (wordObj) {
+        speak(wordObj.word);
+      }
+    }
+
+    // --- PHASE 1: RECOGNITION (识记) ---
+    function setupRecognition() {
+      const wordObj = getCurrentWord();
+      document.getElementById('recog-word').textContent = wordObj.word;
+      document.getElementById('recog-phonetic').textContent = wordObj.phonetic || '';
+      document.getElementById('recog-translation').textContent = wordObj.translation;
+      
+      // Hide translation by default
+      document.getElementById('recog-details').classList.add('hidden');
+      document.getElementById('btn-reveal-translation').classList.remove('hidden');
+
+      // Pronounce automatically
+      setTimeout(() => speakCurrentWord(), 400);
+    }
+
+    function revealTranslation() {
+      document.getElementById('recog-details').classList.remove('hidden');
+      document.getElementById('btn-reveal-translation').classList.add('hidden');
+    }
+
+    function handleEvaluation(isKnown) {
+      if (!isKnown) {
+        // Mark as bookmark automatically if kid doesn't know it
+        bookmarkedWords.add(getCurrentWord().word);
+        saveBookmarks();
+        wrongWordsThisRound.add(getCurrentWord().word);
+      }
+      
+      nextWord();
+    }
+
+    // --- PHASE 2: LISTENING (听音辨意) ---
+    function setupListening() {
+      const wordObj = getCurrentWord();
+      
+      // Hide Next button
+      document.getElementById('btn-listening-next').classList.add('hidden');
+
+      // Generate Distractors
+      const allWords = WORDS_DATA[currentGrade].units[currentUnit];
+      let distractors = allWords.filter(w => w.word !== wordObj.word);
+      shuffleArray(distractors);
+      
+      // Choose 3 distractors
+      distractors = distractors.slice(0, 3);
+      const options = [wordObj, ...distractors];
+      shuffleArray(options);
+
+      // Render Options
+      const optionsContainer = document.getElementById('listening-options');
+      optionsContainer.innerHTML = "";
+      
+      options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = "listening-opt-btn p-5 md:p-6 text-base md:text-lg font-bold text-left hand-drawn-border-sm bg-white active:bg-cream-dark transition-all flex items-center gap-3 w-full key-btn";
+        btn.innerHTML = `<span class="bg-wood text-white px-2.5 py-1 text-xs rounded hand-drawn-border-sm no-press">${opt === wordObj ? 'A' : 'B'}</span> ${opt.translation}`;
+        
+        btn.onclick = () => selectListeningOption(btn, opt === wordObj, wordObj.translation);
+        optionsContainer.appendChild(btn);
+      });
+
+      // Play audio automatically
+      setTimeout(() => speakCurrentWord(), 400);
+    }
+
+    function selectListeningOption(btn, isCorrect, correctTranslation) {
+      // Disable all buttons in this section to prevent double clicks
+      document.querySelectorAll('.listening-opt-btn').forEach(b => {
+        b.disabled = true;
+        // visual indication of correct one
+        if (b.textContent.includes(correctTranslation)) {
+          b.classList.remove('bg-cream-light', 'bg-cream-dark');
+          b.classList.add('bg-sage', 'text-white', 'border-sage-dark');
+        }
+      });
+
+      if (isCorrect) {
+        btn.classList.add('bounce-custom');
+      } else {
+        btn.classList.remove('bg-cream-light', 'bg-cream-dark');
+        btn.classList.add('bg-terracotta', 'text-white');
+        btn.classList.add('wiggle');
+        
+        // Add to bookmarks as wrong word
+        bookmarkedWords.add(getCurrentWord().word);
+        saveBookmarks();
+        wrongWordsThisRound.add(getCurrentWord().word);
+      }
+
+      document.getElementById('btn-listening-next').classList.remove('hidden');
+    }
+
+    // --- PHASE 3: SPELLING (拼写闯关) ---
+    function setupSpelling() {
+      const wordObj = getCurrentWord();
+      
+      document.getElementById('spelling-translation').textContent = wordObj.translation;
+      document.getElementById('spelling-phonetic').textContent = wordObj.phonetic || '';
+      document.getElementById('spelling-feedback').className = "hidden";
+      document.getElementById('btn-spelling-next').classList.add('hidden');
+      document.getElementById('btn-spelling-check').classList.remove('hidden');
+
+      // Clear input
+      const input = document.getElementById('spelling-input');
+      input.value = "";
+      
+      // Keypad setup
+      setupMobileKeypad();
+
+      // Auto-show custom keyboard on touch/tablet devices by default
+      const keypad = document.getElementById('spelling-keypad');
+      if (isTouchDevice()) {
+        keypad.classList.remove('hidden');
+      }
+
+      // Render Empty Letter Boxes
+      renderSpellingBoxes(wordObj.word, "");
+      
+      // Auto focus input
+      setTimeout(() => focusSpellingInput(), 400);
+      setTimeout(() => speakCurrentWord(), 600);
+    }
+
+    function focusSpellingInput() {
+      const input = document.getElementById('spelling-input');
+      input.focus();
+    }
+
+    // Hook input events to update display boxes
+    document.getElementById('spelling-input').addEventListener('input', (e) => {
+      const word = getCurrentWord().word;
+      let text = e.target.value;
+      
+      // Clean spelling input to only accept chars matching word structure (handling spaces and apostrophes)
+      text = text.replace(/[^a-zA-Z\s']/g, '');
+      e.target.value = text;
+      
+      renderSpellingBoxes(word, text);
+    });
+
+    // Handle enter key press on spelling
+    document.getElementById('spelling-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const checkBtn = document.getElementById('btn-spelling-check');
+        if (!checkBtn.classList.contains('hidden')) {
+          checkSpelling();
+        } else {
+          nextWord();
+        }
+      }
+    });
+
+    function renderSpellingBoxes(targetWord, currentInput) {
+      const container = document.getElementById('spelling-display-boxes');
+      container.innerHTML = "";
+      
+      for (let i = 0; i < targetWord.length; i++) {
+        const char = targetWord[i];
+        const typedChar = currentInput[i] || "";
+        
+        const box = document.createElement('div');
+        
+        if (char === ' ' || char === '\'' || char === '-') {
+          // Special delimiter boxes
+          box.className = "w-8 h-14 flex items-end justify-center font-bold text-3xl font-comic text-charcoal";
+          box.textContent = char;
+        } else {
+          // Standard letter box (taller and slightly wider for fingers)
+          box.className = "w-11 h-14 flex items-center justify-center font-extrabold text-3xl font-comic hand-drawn-border-sm no-press transition-colors " + 
+            (typedChar ? "bg-cream-dark border-charcoal" : "bg-white border-dashed");
+          box.textContent = typedChar;
+        }
+        
+        container.appendChild(box);
+      }
+    }
+
+    function setupMobileKeypad() {
+      const keypad = document.getElementById('spelling-keypad');
+      keypad.innerHTML = "";
+      
+      // QWERTY Layout
+      const rows = ["qwertyuiop", "asdfghjkl", "zxcvbnm' "];
+      
+      rows.forEach((row, rowIndex) => {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = "flex justify-center gap-1 col-span-10";
+        
+        // Add backspace and space special buttons
+        if (rowIndex === 2) {
+          const bsBtn = document.createElement('button');
+          bsBtn.className = "bg-wood text-white px-2 py-3 text-xs font-bold hand-drawn-border-sm flex-grow key-btn";
+          bsBtn.textContent = "退格";
+          bsBtn.onclick = () => {
+            const input = document.getElementById('spelling-input');
+            input.value = input.value.slice(0, -1);
+            // Trigger input event
+            input.dispatchEvent(new Event('input'));
+          };
+          rowDiv.appendChild(bsBtn);
+        }
+
+        row.split('').forEach(char => {
+          const btn = document.createElement('button');
+          btn.className = "bg-white border-2 border-charcoal py-3 font-bold font-comic text-sm hand-drawn-border-sm flex-1 text-center key-btn";
+          btn.textContent = char === ' ' ? '空格' : char;
+          btn.onclick = () => {
+            const input = document.getElementById('spelling-input');
+            if (input.value.length < getCurrentWord().word.length) {
+              input.value += char;
+              input.dispatchEvent(new Event('input'));
+            }
+          };
+          rowDiv.appendChild(btn);
+        });
+
+        keypad.appendChild(rowDiv);
+      });
+    }
+
+    function toggleMobileKeyboard() {
+      const keypad = document.getElementById('spelling-keypad');
+      keypad.classList.toggle('hidden');
+    }
+
+    function isTouchDevice() {
+      return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
+    }
+
+    function checkSpelling() {
+      const wordObj = getCurrentWord();
+      const input = document.getElementById('spelling-input');
+      const typed = input.value.trim().toLowerCase();
+      const target = wordObj.word.trim().toLowerCase();
+      
+      const feedback = document.getElementById('spelling-feedback');
+      feedback.classList.remove('hidden');
+
+      if (typed === target) {
+        feedback.className = "mb-6 p-3 hand-drawn-border-sm text-center font-bold bg-sage text-white bounce-custom";
+        feedback.textContent = "🎉 太棒了，拼写正确！";
+        
+        // Play correct feedback
+        speak(wordObj.word);
+      } else {
+        feedback.className = "mb-6 p-3 hand-drawn-border-sm text-center font-bold bg-terracotta text-white wiggle";
+        feedback.innerHTML = `❌ 拼错啦！正确拼写: <span class="font-comic underline text-lg">${wordObj.word}</span>`;
+        
+        // Add to bookmarks
+        bookmarkedWords.add(wordObj.word);
+        saveBookmarks();
+        wrongWordsThisRound.add(wordObj.word);
+      }
+
+      document.getElementById('btn-spelling-check').classList.add('hidden');
+      document.getElementById('btn-spelling-next').classList.remove('hidden');
+    }
+
+    // --- TRANSITION: NEXT WORD / NEXT PHASE ---
+    function nextWord() {
+      currentWordIndex++;
+      
+      if (currentWordIndex < currentWords.length) {
+        setupPhase(currentPhase);
+      } else {
+        // Current phase complete!
+        if (currentPhase < 3) {
+          // Go to next phase
+          currentWordIndex = 0;
+          setupPhase(currentPhase + 1);
+        } else {
+          // All phases complete! Show summary
+          showSummary();
+        }
+      }
+    }
+
+    function showSummary() {
+      switchView('summary');
+      document.getElementById('summary-total-words').textContent = `${currentWords.length} 个单词`;
+      document.getElementById('summary-wrong-words').textContent = `${wrongWordsThisRound.size} 个`;
+      
+      // Save learning progress for the active kid
+      if (!kidProgress[currentGrade]) {
+        kidProgress[currentGrade] = {};
+      }
+      kidProgress[currentGrade][currentUnit] = {
+        date: Date.now(),
+        wrongCount: wrongWordsThisRound.size,
+        totalCount: currentWords.length
+      };
+      saveProgress();
+      
+      const listContainer = document.getElementById('summary-wrong-words-box');
+      const list = document.getElementById('summary-wrong-list');
+      list.innerHTML = "";
+      
+      if (wrongWordsThisRound.size > 0) {
+        listContainer.classList.remove('hidden');
+        wrongWordsThisRound.forEach(w => {
+          // Find translation
+          const wordObj = currentWords.find(item => item.word === w);
+          if (wordObj) {
+            const li = document.createElement('li');
+            li.innerHTML = `<span class="font-comic font-bold">${wordObj.word}</span> - ${wordObj.translation}`;
+            list.appendChild(li);
+          }
+        });
+      } else {
+        listContainer.classList.add('hidden');
+      }
+    }
+
+    // ==========================================
+    // DICTIONARY / ENCYCLOPEDIA LOGIC
+    // ==========================================
+    let isShowingBookmarksOnly = false;
+
+    function viewEncyclopedia() {
+      switchView('dictionary');
+      populateDictFilters();
+      filterDictionary();
+    }
+
+    function populateDictFilters() {
+      const gradeSelect = document.getElementById('dict-grade-select');
+      gradeSelect.innerHTML = "";
+      
+      Object.keys(WORDS_DATA).forEach(gradeKey => {
+        const opt = document.createElement('option');
+        opt.value = gradeKey;
+        opt.textContent = WORDS_DATA[gradeKey].name;
+        if (gradeKey === currentGrade) opt.selected = true;
+        gradeSelect.appendChild(opt);
+      });
+
+      populateDictUnits();
+    }
+
+    function populateDictUnits() {
+      const gradeKey = document.getElementById('dict-grade-select').value;
+      const unitSelect = document.getElementById('dict-unit-select');
+      unitSelect.innerHTML = "";
+
+      // Add 'All Units' option
+      const allOpt = document.createElement('option');
+      allOpt.value = "all";
+      allOpt.textContent = "—— 所有单元 ——";
+      unitSelect.appendChild(allOpt);
+
+      const units = WORDS_DATA[gradeKey].units;
+      Object.keys(units).forEach(unitName => {
+        const opt = document.createElement('option');
+        opt.value = unitName;
+        opt.textContent = unitName;
+        unitSelect.appendChild(opt);
+      });
+    }
+
+    function onDictGradeChange() {
+      populateDictUnits();
+      filterDictionary();
+    }
+
+    function toggleShowBookmarksOnly() {
+      isShowingBookmarksOnly = !isShowingBookmarksOnly;
+      const btn = document.getElementById('btn-show-bookmarks');
+      const text = document.getElementById('text-show-bookmarks');
+      
+      if (isShowingBookmarksOnly) {
+        btn.classList.remove('bg-cream-light');
+        btn.classList.add('bg-mustard');
+        text.textContent = "正在只看生词本";
+      } else {
+        btn.classList.remove('bg-mustard');
+        btn.classList.add('bg-cream-light');
+        text.textContent = "只看我的生词本";
+      }
+      
+      filterDictionary();
+    }
+
+    function filterDictionary() {
+      const gradeKey = document.getElementById('dict-grade-select').value;
+      const unitKey = document.getElementById('dict-unit-select').value;
+      const search = document.getElementById('dict-search').value.trim().toLowerCase();
+      
+      const tbody = document.getElementById('dict-tbody');
+      tbody.innerHTML = "";
+      
+      let rowsCount = 0;
+      const units = WORDS_DATA[gradeKey].units;
+      
+      Object.keys(units).forEach(unitName => {
+        // Skip if filtered by unit and doesn't match
+        if (unitKey !== 'all' && unitKey !== unitName) return;
+        
+        const list = units[unitName];
+        list.forEach(item => {
+          // Check search query
+          const matchSearch = !search || 
+            item.word.toLowerCase().includes(search) || 
+            item.translation.includes(search);
+            
+          // Check bookmarks filter
+          const matchBookmark = !isShowingBookmarksOnly || bookmarkedWords.has(item.word);
+          
+          if (matchSearch && matchBookmark) {
+            rowsCount++;
+            
+            const tr = document.createElement('tr');
+            tr.className = "hover:bg-cream-light border-b border-gray-100 transition-colors cursor-pointer";
+            tr.onclick = (e) => {
+              // Click anywhere on row speaks word except the bookmark checkbox
+              if (e.target.closest('.bookmark-cell-btn')) return;
+              speak(item.word);
+            };
+
+            const isBookmarked = bookmarkedWords.has(item.word);
+            const starFill = isBookmarked ? '#E07A5F' : 'none';
+            const starColor = isBookmarked ? '#E07A5F' : '#8D7B68';
+
+            tr.innerHTML = `
+              <td class="p-3 text-center">
+                <button class="bookmark-cell-btn hover:scale-120 transition-transform" onclick="toggleDictBookmark('${item.word}')">
+                  <svg class="w-5 h-5" fill="${starFill}" stroke="${starColor}" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+                  </svg>
+                </button>
+              </td>
+              <td class="p-3 font-comic font-bold text-base text-charcoal">${item.word}</td>
+              <td class="p-3 font-comic text-wood font-medium">${item.phonetic || ''}</td>
+              <td class="p-3 text-sage-dark font-bold">${item.translation}</td>
+              <td class="p-3 text-center">
+                <button class="bg-cream p-1.5 rounded-full hand-drawn-border-sm hover:bg-cream-dark">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+                  </svg>
+                </button>
+              </td>
+            `;
+            
+            tbody.appendChild(tr);
+          }
+        });
+      });
+
+      document.getElementById('dictionary-stats').textContent = `共计：${rowsCount} 个单词`;
+    }
+
+    function toggleDictBookmark(word) {
+      if (bookmarkedWords.has(word)) {
+        bookmarkedWords.delete(word);
+      } else {
+        bookmarkedWords.add(word);
+      }
+      saveBookmarks();
+      filterDictionary();
+    }
+
+    function clearSearch() {
+      document.getElementById('dict-search').value = "";
+      filterDictionary();
+    }
+
+    // --- Profile Management Helper Functions ---
+    function initProfiles() {
+      try {
+        const storedKids = localStorage.getItem(KIDS_LIST_KEY);
+        if (storedKids) {
+          kidsList = JSON.parse(storedKids);
+        }
+        if (kidsList.length === 0) {
+          kidsList = ['默认小朋友'];
+          localStorage.setItem(KIDS_LIST_KEY, JSON.stringify(kidsList));
+        }
+        
+        const storedActive = localStorage.getItem(ACTIVE_KID_KEY);
+        if (storedActive && kidsList.includes(storedActive)) {
+          activeKid = storedActive;
+        } else {
+          activeKid = kidsList[0];
+          localStorage.setItem(ACTIVE_KID_KEY, activeKid);
+        }
+
+        renderKidsDropdown();
+        loadKidData(activeKid);
+      } catch (e) {
+        console.error("初始化小朋友档案失败", e);
+        kidsList = ['默认小朋友'];
+        activeKid = '默认小朋友';
+        loadKidData(activeKid);
+      }
+    }
+
+    function renderKidsDropdown() {
+      const select = document.getElementById('kid-select');
+      if (!select) return;
+      select.innerHTML = "";
+      kidsList.forEach(kid => {
+        const opt = document.createElement('option');
+        opt.value = kid;
+        opt.textContent = kid;
+        if (kid === activeKid) opt.selected = true;
+        select.appendChild(opt);
+      });
+    }
+
+    function loadKidData(kidName) {
+      activeKid = kidName;
+      localStorage.setItem(ACTIVE_KID_KEY, activeKid);
+      
+      // Load bookmarks
+      try {
+        const bookmarksKey = `suz_eng_word_bookmarks_${activeKid}`;
+        const stored = localStorage.getItem(bookmarksKey);
+        if (stored) {
+          bookmarkedWords = new Set(JSON.parse(stored));
+        } else {
+          bookmarkedWords = new Set();
+        }
+      } catch (e) {
+        console.error("加载生词本失败", e);
+        bookmarkedWords = new Set();
+      }
+
+      // Load progress
+      try {
+        const progressKey = `suz_eng_word_progress_${activeKid}`;
+        const storedProgress = localStorage.getItem(progressKey);
+        if (storedProgress) {
+          kidProgress = JSON.parse(storedProgress);
+        } else {
+          kidProgress = {};
+        }
+      } catch (e) {
+        console.error("加载学习进度失败", e);
+        kidProgress = {};
+      }
+
+      // Update UI elements
+      renderGradeUnitProgress();
+      
+      // Refresh dictionary table if open
+      if (document.getElementById('view-dictionary').classList.contains('hidden') === false) {
+        filterDictionary();
+      }
+    }
+
+    function saveBookmarks() {
+      try {
+        const bookmarksKey = `suz_eng_word_bookmarks_${activeKid}`;
+        localStorage.setItem(bookmarksKey, JSON.stringify(Array.from(bookmarkedWords)));
+      } catch (e) {
+        console.error("保存生词本失败", e);
+      }
+    }
+
+    // Save progress to localStorage
+    function saveProgress() {
+      try {
+        const progressKey = `suz_eng_word_progress_${activeKid}`;
+        localStorage.setItem(progressKey, JSON.stringify(kidProgress));
+      } catch (e) {
+        console.error("保存学习进度失败", e);
+      }
+    }
+
+    function switchKid(kidName) {
+      loadKidData(kidName);
+    }
+
+    function addKidPrompt() {
+      const name = prompt("请输入小朋友的名字或昵称:");
+      if (!name) return;
+      const cleanName = name.trim();
+      if (!cleanName) return;
+      
+      if (kidsList.includes(cleanName)) {
+        alert("这个名字已经存在啦！");
+        return;
+      }
+      
+      kidsList.push(cleanName);
+      localStorage.setItem(KIDS_LIST_KEY, JSON.stringify(kidsList));
+      activeKid = cleanName;
+      localStorage.setItem(ACTIVE_KID_KEY, activeKid);
+      
+      renderKidsDropdown();
+      loadKidData(activeKid);
+      alert(`成功添加并切换到学习者: ${cleanName} 🎉`);
+    }
+
+    function renderGradeUnitProgress() {
+      const container = document.getElementById('unit-cards-container');
+      if (!container) return;
+      container.innerHTML = "";
+      
+      const units = WORDS_DATA[currentGrade].units;
+      const unitSelect = document.getElementById('unit-select');
+      
+      Object.keys(units).forEach(unitName => {
+        const wordsList = units[unitName];
+        const progressInfo = kidProgress[currentGrade] ? kidProgress[currentGrade][unitName] : null;
+        
+        const card = document.createElement('div');
+        const isSelected = unitName === currentUnit;
+        const activeClass = isSelected ? "bg-mustard border-charcoal" : "bg-white border-charcoal hover:bg-cream-dark";
+        
+        card.className = `p-3 rounded-xl cursor-pointer flex justify-between items-center transition-all hand-drawn-border-sm no-press ${activeClass}`;
+        
+        let statusText = "<span class='text-gray-400 font-medium'>未通关</span>";
+        if (progressInfo) {
+          if (progressInfo.wrongCount === 0) {
+            statusText = "<span class='text-sage-dark font-extrabold flex items-center gap-0.5'>🏆 全对通关</span>";
+          } else {
+            statusText = `<span class='text-wood-dark font-bold'>✅ 已通关 <span class='text-terracotta'>(生词:${progressInfo.wrongCount})</span></span>`;
+          }
+        }
+        
+        card.innerHTML = `
+          <div>
+            <h4 class="font-bold text-xs md:text-sm text-charcoal font-comic">${unitName}</h4>
+            <p class="text-[11px] text-wood font-medium">共 ${wordsList.length} 个单词</p>
+          </div>
+          <div class="text-right text-xs">
+            ${statusText}
+          </div>
+        `;
+        
+        card.onclick = () => {
+          if (unitSelect) {
+            unitSelect.value = unitName;
+            currentUnit = unitName;
+          }
+          renderGradeUnitProgress();
+        };
+        
+        container.appendChild(card);
+      });
+    }
+
+    // Helper: Shuffle Array (Fisher-Yates)
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+  </script>
+</body>
+</html>
