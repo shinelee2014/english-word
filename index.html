@@ -610,6 +610,8 @@
     let currentPhase = 1;
     let wrongWordsThisRound = new Set();
     let currentDistractors = [];
+    let lastSpellingLength = 0; // Tracks input length for auto-skipping delimiters
+
 
     // TTS Setup
     let ttsRate = 0.9;
@@ -1140,6 +1142,7 @@
       // Clear input
       const input = document.getElementById('spelling-input');
       input.value = "";
+      lastSpellingLength = 0;
       
       // Keypad setup
       setupMobileKeypad();
@@ -1170,7 +1173,21 @@
       
       // Clean spelling input to only accept chars matching word structure, normalising all whitespace to a single regular space
       text = text.replace(/[^a-zA-Z\s']/g, '').replace(/\s+/g, ' ');
+      
+      // Auto-insert next delimiters (spaces, apostrophes, hyphens) if typing forward
+      if (text.length > lastSpellingLength) {
+        while (text.length < word.length) {
+          const nextChar = word[text.length];
+          if (nextChar === ' ' || nextChar === '\'' || nextChar === '-') {
+            text += nextChar;
+          } else {
+            break;
+          }
+        }
+      }
+      
       e.target.value = text;
+      lastSpellingLength = text.length;
       
       renderSpellingBoxes(word, text);
     });
