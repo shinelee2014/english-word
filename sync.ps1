@@ -6,7 +6,7 @@ param(
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 $nasPath = "\\192.168.199.63\Web\english"
-$localFiles = @("index.html", "words_data.js", "README.md", "project.md", "memory.md", "sync.ps1", "api.php")
+$localFiles = @("index.html", "words_data.js", "README.md", "project.md", "memory.md", "sync.ps1", "api.php", ".nojekyll")
 
 Write-Host "====== Syncing to QNAP NAS ======" -ForegroundColor Cyan
 if (Test-Path $nasPath) {
@@ -21,7 +21,7 @@ if (Test-Path $nasPath) {
 }
 
 Write-Host "`n====== Syncing to GitHub ======" -ForegroundColor Cyan
-git add index.html words_data.js README.md project.md memory.md sync.ps1 api.php
+git add index.html words_data.js README.md project.md memory.md sync.ps1 api.php .nojekyll
 $status = git status --porcelain
 if ($status) {
     git commit -m $CommitMessage
