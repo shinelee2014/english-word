@@ -3469,658 +3469,609 @@ const WORDS_DATA = {
     "units": {
       "Unit 1 The king's new clothes": [
         {
-          "word": "long long ago",
+          "word": "try one's best",
+          "translation": "尽某人最大的努力",
+          "phonetic": "/traɪ wʌnz best/"
+        },
+        {
+          "word": "act",
+          "translation": "扮演，演出",
+          "phonetic": "/ækt/"
+        },
+        {
+          "word": "play",
+          "translation": "戏剧；扮演",
+          "phonetic": "/pleɪ/"
+        },
+        {
+          "word": "poster",
+          "translation": "海报，招贴画",
+          "phonetic": "/ˈpəʊstə/"
+        },
+        {
+          "word": "last",
+          "translation": "上一个的，最近的",
+          "phonetic": "/lɑːst/"
+        },
+        {
+          "word": "take part",
+          "translation": "参与",
+          "phonetic": "/teɪk pɑːt/"
+        },
+        {
+          "word": "practise",
+          "translation": "练习，训练",
+          "phonetic": "/ˈpræktɪs/"
+        },
+        {
+          "word": "afraid",
+          "translation": "害怕，畏惧",
+          "phonetic": "/əˈfreɪd/"
+        },
+        {
+          "word": "calm down",
+          "translation": "平静，安静",
+          "phonetic": "/kɑːm daʊn/"
+        },
+        {
+          "word": "begin",
+          "translation": "开始",
+          "phonetic": "/bɪˈɡɪn/"
+        },
+        {
+          "word": "forget",
+          "translation": "忘记，遗忘",
+          "phonetic": "/fəˈɡet/"
+        },
+        {
+          "word": "the words",
+          "translation": "歌词",
+          "phonetic": "/ðə wɜːdz/"
+        },
+        {
+          "word": "remember",
+          "translation": "记起；记住",
+          "phonetic": "/rɪˈmembə/"
+        },
+        {
+          "word": "finish",
+          "translation": "完成，做好",
+          "phonetic": "/ˈfɪnɪʃ/"
+        },
+        {
+          "word": "keep",
+          "translation": "继续，重复",
+          "phonetic": "/kiːp/"
+        },
+        {
+          "word": "ago",
+          "translation": "以前",
+          "phonetic": "/əˈɡəʊ/"
+        },
+        {
+          "word": "movement",
+          "translation": "运动，动作",
+          "phonetic": "/ˈmuːvmənt/"
+        },
+        {
+          "word": "skill",
+          "translation": "技能，技术",
+          "phonetic": "/skɪl/"
+        },
+        {
+          "word": "in front of",
+          "translation": "在……前面",
+          "phonetic": "/ɪn frʌnt ɒv/"
+        },
+        {
+          "word": "ready",
+          "translation": "准备好的",
+          "phonetic": "/ˈredi/"
+        },
+        {
+          "word": "long ago",
           "translation": "很久以前",
-          "phonetic": "/lɒŋ lɒŋ əˈɡəʊ/"
+          "phonetic": "/lɒŋ əˈɡəʊ/"
         },
         {
-          "word": "magic",
-          "translation": "有魔力的，神奇的",
-          "phonetic": "/ˈmædʒɪk/"
+          "word": "snail",
+          "translation": "蜗牛",
+          "phonetic": "/sneɪl/"
         },
         {
-          "word": "clever",
-          "translation": "聪明的",
-          "phonetic": "/ˈklevə(r)/"
-        },
-        {
-          "word": "foolish",
-          "translation": "愚蠢的",
-          "phonetic": "/ˈfūlɪʃ/"
-        },
-        {
-          "word": "through",
-          "translation": "穿过",
-          "phonetic": "/θruː/"
-        },
-        {
-          "word": "laugh",
-          "translation": "笑，大笑",
-          "phonetic": "/lɑːf/"
-        },
-        {
-          "word": "wear",
-          "translation": "穿",
-          "phonetic": "/weə(r)/"
-        },
-        {
-          "word": "tell",
-          "translation": "讲，叙述",
-          "phonetic": "/tel/"
-        },
-        {
-          "word": "each",
-          "translation": "每个",
-          "phonetic": "/iːtʃ/"
-        },
-        {
-          "word": "say",
-          "translation": "说",
-          "phonetic": "/seɪ/"
-        },
-        {
-          "word": "sentence",
-          "translation": "句子",
-          "phonetic": "/ˈsentəns/"
-        },
-        {
-          "word": "quick",
-          "translation": "迅速的，快的",
-          "phonetic": "/kwɪk/"
-        },
-        {
-          "word": "next",
-          "translation": "下一个",
-          "phonetic": "/nekst/"
-        },
-        {
-          "word": "little",
-          "translation": "小的，年幼的",
-          "phonetic": "/ˈlɪtl/"
-        },
-        {
-          "word": "turn",
-          "translation": "机会",
-          "phonetic": "/tɜːn/"
-        },
-        {
-          "word": "think",
-          "translation": "想，思考",
-          "phonetic": "/θɪŋk/"
-        },
-        {
-          "word": "hard",
-          "translation": "努力地，费劲地",
-          "phonetic": "/hɑːd/"
-        },
-        {
-          "word": "laugh at",
-          "translation": "嘲笑",
-          "phonetic": "/lɑːf æt/"
-        },
-        {
-          "word": "grandchildren",
-          "translation": "孙子，孙女；外孙，外孙女",
-          "phonetic": "/ˈɡræn_tʃɪldrən/"
-        },
-        {
-          "word": "move ... away",
-          "translation": "把……搬走",
-          "phonetic": "/muːv əˈweɪ/"
-        },
-        {
-          "word": "child",
-          "translation": "孩子",
-          "phonetic": "/tʃaɪld/"
+          "word": "top",
+          "translation": "顶端，顶部",
+          "phonetic": "/tɒp/"
         }
       ],
       "Unit 2 What a day!": [
         {
-          "word": "sunny",
-          "translation": "晴朗的",
-          "phonetic": "/ˈsʌni/"
+          "word": "honesty",
+          "translation": "诚实",
+          "phonetic": "/ˈɒnɪsti/"
         },
         {
-          "word": "show",
-          "translation": "展览，展示",
-          "phonetic": "/ʃəʊ/"
+          "word": "storybook",
+          "translation": "儿童故事书",
+          "phonetic": "/ˈstɔːribʊk/"
         },
         {
-          "word": "interesting",
-          "translation": "有趣的，有意思的",
-          "phonetic": "/ˈɪntrəstɪŋ/"
+          "word": "lie",
+          "translation": "谎言，说话",
+          "phonetic": "/laɪ/"
         },
         {
-          "word": "weather",
-          "translation": "天气",
-          "phonetic": "/ˈweðə(r)/"
+          "word": "break",
+          "translation": "弄坏，损坏",
+          "phonetic": "/breɪk/"
         },
         {
-          "word": "become",
-          "translation": "变成，变为",
-          "phonetic": "/bɪˈkʌm/"
+          "word": "yesterday",
+          "translation": "在昨天；昨天",
+          "phonetic": "/ˈjestədeɪ/"
         },
         {
-          "word": "windy",
-          "translation": "有风的",
-          "phonetic": "/ˈwɪndi/"
+          "word": "repair",
+          "translation": "修理，修补",
+          "phonetic": "/rɪˈpeə/"
         },
         {
-          "word": "cloudy",
-          "translation": "多云的",
-          "phonetic": "/ˈklaʊdi/"
+          "word": "say",
+          "translation": "说，讲",
+          "phonetic": "/seɪ/"
         },
         {
-          "word": "high",
-          "translation": "在高处",
-          "phonetic": "/haɪ/"
+          "word": "poor",
+          "translation": "贫穷的",
+          "phonetic": "/pɔː/"
         },
         {
-          "word": "sky",
-          "translation": "天空",
-          "phonetic": "/skaɪ/"
+          "word": "man",
+          "translation": "男人",
+          "phonetic": "/mæn/"
         },
         {
-          "word": "bring",
-          "translation": "带来",
-          "phonetic": "/brɪŋ/"
+          "word": "old",
+          "translation": "老的，年纪大的",
+          "phonetic": "/əʊld/"
         },
         {
-          "word": "honey",
-          "translation": "蜂蜜",
-          "phonetic": "/ˈhʌni/"
+          "word": "ox",
+          "translation": "牛",
+          "phonetic": "/ɒks/"
         },
         {
-          "word": "drink",
-          "translation": "饮料",
-          "phonetic": "/drɪŋk/"
+          "word": "away from home",
+          "translation": "离开家",
+          "phonetic": "/əˈweɪ frɒm həʊm/"
         },
         {
-          "word": "ant",
-          "translation": "蚂蚁",
-          "phonetic": "/ænt/"
+          "word": "nephew",
+          "translation": "侄子，外甥",
+          "phonetic": "/ˈnefjuː/"
         },
         {
-          "word": "bee",
-          "translation": "蜜蜂",
-          "phonetic": "/biː/"
+          "word": "sell",
+          "translation": "卖，出售",
+          "phonetic": "/sel/"
         },
         {
-          "word": "cloud",
-          "translation": "云",
-          "phonetic": "/klaʊd/"
+          "word": "buyer",
+          "translation": "买主，买方",
+          "phonetic": "/ˈbaɪə/"
         },
         {
-          "word": "rain",
-          "translation": "下雨",
-          "phonetic": "/reɪn/"
+          "word": "get back",
+          "translation": "重新获得",
+          "phonetic": "/ɡet bæk/"
         },
         {
-          "word": "rainy",
-          "translation": "多雨的",
-          "phonetic": "/ˈreɪni/"
+          "word": "name",
+          "translation": "名声，名誉",
+          "phonetic": "/neɪm/"
         },
         {
-          "word": "meet",
-          "translation": "遇见",
-          "phonetic": "/miːt/"
+          "word": "watch",
+          "translation": "照看，看护",
+          "phonetic": "/wɒtʃ/"
         },
         {
-          "word": "lose",
-          "translation": "丢失",
-          "phonetic": "/luːz/"
+          "word": "wolf",
+          "translation": "狼",
+          "phonetic": "/wʊlf/"
         },
         {
-          "word": "know",
-          "translation": "知道",
-          "phonetic": "/nəʊ/"
+          "word": "answer",
+          "translation": "答复，回答",
+          "phonetic": "/ˈɑːnsə/"
         },
         {
-          "word": "What happened?",
-          "translation": "出什么事了？",
-          "phonetic": "/wɒt ˈhæpənd/"
-        },
-        {
-          "word": "climb up",
-          "translation": "爬上",
-          "phonetic": "/klaɪm ʌp/"
-        },
-        {
-          "word": "hold onto",
-          "translation": "抓紧",
-          "phonetic": "/həʊld ˈɒntu/"
-        },
-        {
-          "word": "fly away",
-          "translation": "飞走",
-          "phonetic": "/flaɪ əˈweɪ/"
+          "word": "cry",
+          "translation": "哭，哭泣",
+          "phonetic": "/kraɪ/"
         }
       ],
       "Unit 3 Holiday fun": [
         {
-          "word": "holiday",
-          "translation": "假日，假期",
-          "phonetic": "/ˈhɒlədeɪ/"
+          "word": "hero",
+          "translation": "崇拜的对象",
+          "phonetic": "/ˈhɪərəʊ/"
         },
         {
-          "word": "National Day",
-          "translation": "国庆节",
-          "phonetic": "/ˈnæʃnəl deɪ/"
+          "word": "famous",
+          "translation": "著名的，出名的",
+          "phonetic": "/ˈfeɪməs/"
+        },
+        {
+          "word": "scientist",
+          "translation": "科学家",
+          "phonetic": "/ˈsaɪəntɪst/"
+        },
+        {
+          "word": "inventor",
+          "translation": "发明家，发明者",
+          "phonetic": "/ɪnˈventə/"
+        },
+        {
+          "word": "hybrid rice",
+          "translation": "杂交水稻",
+          "phonetic": "/ˈhaɪbrɪd raɪs/"
+        },
+        {
+          "word": "dream",
+          "translation": "梦想，愿望",
+          "phonetic": "/driːm/"
+        },
+        {
+          "word": "cool",
+          "translation": "凉快，凉爽",
+          "phonetic": "/kuːl/"
+        },
+        {
+          "word": "all over the world",
+          "translation": "世界各地，全世界",
+          "phonetic": "/ɔːl ˈəʊvə ðə wɜːld/"
+        },
+        {
+          "word": "be born",
+          "translation": "出生，诞生",
+          "phonetic": "/bi bɔːn/"
+        },
+        {
+          "word": "pass away",
+          "translation": "去世",
+          "phonetic": "/pɑːs əˈweɪ/"
+        },
+        {
+          "word": "study",
+          "translation": "研究，调查",
+          "phonetic": "/ˈstʌdi/"
         },
         {
           "word": "call",
-          "translation": "打电话",
-          "phonetic": "/cɔːl/"
+          "translation": "称呼，把……叫作",
+          "phonetic": "/kɔːl/"
         },
         {
-          "word": "Bund",
-          "translation": "（上海）外滩",
-          "phonetic": "/bʌnd/"
+          "word": "come true",
+          "translation": "实现，成为现实",
+          "phonetic": "/kʌm truː/"
         },
         {
-          "word": "Shanghai Museum",
-          "translation": "上海博物馆",
-          "phonetic": "/ʃæŋˈhaɪ mjuˈziːəm/"
+          "word": "farming",
+          "translation": "务农",
+          "phonetic": "/ˈfɑːmɪŋ/"
         },
         {
-          "word": "star",
-          "translation": "星星",
-          "phonetic": "/stɑː(r)/"
+          "word": "age",
+          "translation": "年龄，年纪",
+          "phonetic": "/eɪdʒ/"
         },
         {
-          "word": "Great Wall",
-          "translation": "长城",
-          "phonetic": "/ɡreɪt wɔːl/"
+          "word": "grow up",
+          "translation": "长大，成长",
+          "phonetic": "/ɡrəʊ ʌp/"
         },
         {
-          "word": "Palace Museum",
-          "translation": "故宫",
-          "phonetic": "/ˈpæləs mjuˈziːəm/"
+          "word": "work on",
+          "translation": "从事，致力于",
+          "phonetic": "/wɜːk ɒn/"
         },
         {
-          "word": "Summer Palace",
-          "translation": "颐和园",
-          "phonetic": "/ˈsʌmə ˈpæləs/"
+          "word": "difficult",
+          "translation": "困难的",
+          "phonetic": "/ˈdɪfɪkəlt/"
         },
         {
-          "word": "Tian’anmen Square",
-          "translation": "天安门广场",
-          "phonetic": "/tjæn ˈæn mən skweə(r)/"
+          "word": "develop",
+          "translation": "开发，研制",
+          "phonetic": "/dɪˈveləp/"
         },
         {
-          "word": "fashion show",
-          "translation": "时装表演，时装秀",
-          "phonetic": "/ˈfæʃn ʃəʊ/"
+          "word": "bamboo",
+          "translation": "竹，竹子",
+          "phonetic": "/bæmˈbuː/"
         },
         {
-          "word": "excited",
-          "translation": "激动的，兴奋的",
-          "phonetic": "/ɪkˈsaɪtɪd/"
+          "word": "silk",
+          "translation": "丝绸",
+          "phonetic": "/sɪlk/"
+        },
+        {
+          "word": "dear",
+          "translation": "昂贵的，价格高的",
+          "phonetic": "/dɪə/"
         },
         {
           "word": "paper",
-          "translation": "纸",
-          "phonetic": "/ˈpeɪpə(r)/"
-        },
-        {
-          "word": "ask",
-          "translation": "问",
-          "phonetic": "/ɑːsk/"
-        },
-        {
-          "word": "bottle",
-          "translation": "瓶子",
-          "phonetic": "/ˈbɒtl/"
-        },
-        {
-          "word": "go well",
-          "translation": "进展顺利",
-          "phonetic": "/ɡəʊ wel/"
+          "translation": "纸，纸张",
+          "phonetic": "/ˈpeɪpə/"
         },
         {
           "word": "at first",
-          "translation": "开始，最初",
+          "translation": "起初，起先",
           "phonetic": "/æt fɜːst/"
-        },
-        {
-          "word": "heavy rain",
-          "translation": "大雨",
-          "phonetic": "/ˈhevi reɪn/"
         }
       ],
       "Unit 4 Then and now": [
         {
-          "word": "then and now",
-          "translation": "过去和现在",
-          "phonetic": "/ðen ænd naʊ/"
+          "word": "ninth",
+          "translation": "第九",
+          "phonetic": "/naɪnθ/"
         },
         {
-          "word": "ago",
-          "translation": "……以前",
-          "phonetic": "/əˈɡəʊ/"
+          "word": "lunar month",
+          "translation": "农历，阴历",
+          "phonetic": "/ˈluːnə mʌnθ/"
         },
         {
-          "word": "use",
-          "translation": "使用，利用",
-          "phonetic": "/juːz/"
+          "word": "show",
+          "translation": "表示",
+          "phonetic": "/ʃəʊ/"
         },
         {
-          "word": "telephone",
-          "translation": "电话",
-          "phonetic": "/ˈtelɪfəʊn/"
+          "word": "love",
+          "translation": "爱，关爱",
+          "phonetic": "/lʌv/"
         },
         {
-          "word": "office",
-          "translation": "办公室",
-          "phonetic": "/ˈɒfɪs/"
+          "word": "smartphone",
+          "translation": "智能手机",
+          "phonetic": "/ˈsmɑːtfəʊn/"
         },
         {
-          "word": "mobile phone",
-          "translation": "移动电话，手机",
-          "phonetic": "/ˈməʊbaɪl fəʊn/"
+          "word": "wish",
+          "translation": "祝，祝愿",
+          "phonetic": "/wɪʃ/"
         },
         {
-          "word": "anywhere",
-          "translation": "随处，到处",
-          "phonetic": "/ˈeniweə(r)/"
+          "word": "a long life",
+          "translation": "长寿",
+          "phonetic": "/ə lɒŋ laɪf/"
         },
         {
-          "word": "radio",
-          "translation": "收音机",
-          "phonetic": "/ˈreɪdiəʊ/"
+          "word": "blow out",
+          "translation": "吹灭，熄灭",
+          "phonetic": "/bləʊ aʊt/"
         },
         {
-          "word": "newspaper",
-          "translation": "报纸",
-          "phonetic": "/ˈnjuːzpeɪpə(r)/"
+          "word": "candle",
+          "translation": "蜡烛",
+          "phonetic": "/ˈkændl/"
         },
         {
-          "word": "news",
-          "translation": "新闻",
-          "phonetic": "/njuːz/"
+          "word": "photo",
+          "translation": "照片",
+          "phonetic": "/ˈfəʊtəʊ/"
         },
         {
-          "word": "watch",
-          "translation": "观看",
-          "phonetic": "/wɒtʃ/"
+          "word": "time flies",
+          "translation": "时光飞逝，光阴似箭",
+          "phonetic": "/taɪm flaɪz/"
         },
         {
-          "word": "e-book",
-          "translation": "电子书",
-          "phonetic": "/ˈiː bʊk/"
+          "word": "kid",
+          "translation": "小孩",
+          "phonetic": "/kɪd/"
         },
         {
-          "word": "make friends",
-          "translation": "交朋友",
-          "phonetic": "/meɪk frendz/"
+          "word": "March",
+          "translation": "三月",
+          "phonetic": "/mɑːtʃ/"
         },
         {
-          "word": "all over the world",
-          "translation": "全世界",
-          "phonetic": "/ɔːl ˈəʊvə ðə wɜːld/"
+          "word": "April",
+          "translation": "四月",
+          "phonetic": "/ˈeɪprəl/"
         },
         {
-          "word": "do shopping",
-          "translation": "购物",
-          "phonetic": "/duː ˈʃɒpɪŋ/"
+          "word": "July",
+          "translation": "七月",
+          "phonetic": "/dʒuˈlaɪ/"
         },
         {
-          "word": "TV",
-          "translation": "电视",
-          "phonetic": "/ˌtiː ˈviː/"
+          "word": "August",
+          "translation": "八月",
+          "phonetic": "/ˈɔːɡəst/"
         },
         {
-          "word": "look out of",
-          "translation": "朝……外看",
-          "phonetic": "/lʊk aʊt ɒv/"
-        },
-        {
-          "word": "go on",
-          "translation": "继续",
-          "phonetic": "/ɡəʊ ɒn/"
-        },
-        {
-          "word": "still",
-          "translation": "仍然",
-          "phonetic": "/stɪl/"
-        },
-        {
-          "word": "What day is today?",
-          "translation": "今天是星期几？",
-          "phonetic": "/wɒt deɪ ɪz təˈdeɪ/"
-        },
-        {
-          "word": "spell",
-          "translation": "拼读，拼写",
-          "phonetic": "/spel/"
-        },
-        {
-          "word": "make a sentence",
-          "translation": "造句",
-          "phonetic": "/meɪk ə ˈsentəns/"
-        },
-        {
-          "word": "with",
-          "translation": "用",
-          "phonetic": "/wɪð/"
-        },
-        {
-          "word": "yesterday",
-          "translation": "昨天"
+          "word": "November",
+          "translation": "十一月",
+          "phonetic": "/nəʊˈvembə/"
         }
       ],
       "Unit 5 Signs": [
         {
-          "word": "sign",
-          "translation": "标识",
-          "phonetic": "/saɪn/"
+          "word": "rubbish bin",
+          "translation": "垃圾桶",
+          "phonetic": "/ˈrʌbɪʃ bɪn/"
         },
         {
-          "word": "shopping centre",
-          "translation": "购物中心",
-          "phonetic": "/ˈʃɒpɪŋ ˈsentə(r)/"
+          "word": "ground",
+          "translation": "地，地面",
+          "phonetic": "/ɡraʊnd/"
         },
         {
-          "word": "careful",
-          "translation": "小心，当心",
-          "phonetic": "/ˈkeəfl/"
+          "word": "skin",
+          "translation": "（某些水果和蔬菜的）皮，壳",
+          "phonetic": "/skɪn/"
         },
         {
-          "word": "What does it mean?",
-          "translation": "它是什么意思？",
-          "phonetic": "/wɒt dʌz ɪt miːn/"
+          "word": "pick up",
+          "translation": "捡起",
+          "phonetic": "/pɪk ʌp/"
         },
         {
-          "word": "mean",
-          "translation": "意思是",
-          "phonetic": "/miːn/"
+          "word": "throw",
+          "translation": "抛，扔",
+          "phonetic": "/θrəʊ/"
         },
         {
-          "word": "floor",
-          "translation": "地面",
-          "phonetic": "/flɔː(r)/"
+          "word": "will",
+          "translation": "将，将要",
+          "phonetic": "/wɪl/"
         },
         {
-          "word": "litter",
-          "translation": "乱扔垃圾",
-          "phonetic": "/ˈlɪtə(r)/"
+          "word": "fall",
+          "translation": "突然倒下，跌倒",
+          "phonetic": "/fɔːl/"
         },
         {
-          "word": "go in",
-          "translation": "进入，走进",
-          "phonetic": "/ɡəʊ ɪn/"
+          "word": "go plogging",
+          "translation": "去拾荒慢跑",
+          "phonetic": "/ɡəʊ ˈplɒɡɪŋ/"
         },
         {
-          "word": "take ... into",
-          "translation": "带入",
-          "phonetic": "/teɪk ˈɪntu/"
+          "word": "jogging",
+          "translation": "慢跑锻炼",
+          "phonetic": "/ˈdʒɒɡɪŋ/"
         },
         {
-          "word": "restaurant",
-          "translation": "饭店，餐厅",
-          "phonetic": "/ˈrestrɒnt/"
+          "word": "at the same time",
+          "translation": "同时，一起",
+          "phonetic": "/æt ðə seɪm taɪm/"
         },
         {
-          "word": "someone",
-          "translation": "某人",
-          "phonetic": "/ˈsʌmwʌn/"
+          "word": "gate",
+          "translation": "大门",
+          "phonetic": "/ɡeɪt/"
         },
         {
-          "word": "smoke",
-          "translation": "吸烟，抽烟",
-          "phonetic": "/sməʊk/"
+          "word": "on time",
+          "translation": "准时，按时",
+          "phonetic": "/ɒn taɪm/"
         },
         {
-          "word": "smell",
-          "translation": "闻到",
-          "phonetic": "/smel/"
+          "word": "cleaning",
+          "translation": "打扫，清洁",
+          "phonetic": "/ˈkliːnɪŋ/"
         },
         {
-          "word": "No eating or drinking.",
-          "translation": "请勿饮食。",
-          "phonetic": "/nəʊ ˈiːtɪŋ ɔː(r) ˈdrɪŋkɪŋ/"
+          "word": "group",
+          "translation": "组，群",
+          "phonetic": "/ɡruːp/"
         },
         {
-          "word": "No littering.",
-          "translation": "请勿乱扔垃圾。",
-          "phonetic": "/nəʊ ˈlɪtərɪŋ/"
-        },
-        {
-          "word": "No parking.",
-          "translation": "请勿停车。",
-          "phonetic": "/nəʊ ˈpɑːkɪŋ/"
-        },
-        {
-          "word": "No smoking.",
-          "translation": "请勿吸烟。",
-          "phonetic": "/nəʊ ˈsməʊkɪŋ/"
-        },
-        {
-          "word": "Danger!",
-          "translation": "危险！",
-          "phonetic": "/ˈdeɪndʒə(r)/"
-        },
-        {
-          "word": "Wet floor.",
-          "translation": "小心地滑。",
-          "phonetic": "/wet flɔː(r)/"
-        },
-        {
-          "word": "outing",
-          "translation": "外出游玩，远足",
-          "phonetic": "/ˈaʊtɪŋ/"
-        },
-        {
-          "word": "walk on",
-          "translation": "继续走路",
-          "phonetic": "/wɔːk ɒn/"
-        },
-        {
-          "word": "around",
-          "translation": "在……周围",
-          "phonetic": "/əˈraʊnd/"
+          "word": "start",
+          "translation": "发起",
+          "phonetic": "/stɑːt/"
         }
       ],
       "Unit 6 Keep our city clean": [
         {
-          "word": "keep",
-          "translation": "保持，维持",
-          "phonetic": "/kiːp/"
+          "word": "go green",
+          "translation": "践行绿色环保的生活方式",
+          "phonetic": "/ɡəʊ ɡriːn/"
         },
         {
-          "word": "clean",
-          "translation": "干净的，整洁的",
-          "phonetic": "/kliːn/"
+          "word": "turn off",
+          "translation": "关掉",
+          "phonetic": "/tɜːn ɒf/"
         },
         {
-          "word": "make",
-          "translation": "使……变得",
-          "phonetic": "/meɪk/"
+          "word": "tap",
+          "translation": "水龙头",
+          "phonetic": "/tæp/"
         },
         {
-          "word": "air",
-          "translation": "空气",
-          "phonetic": "/eə(r)/"
+          "word": "light",
+          "translation": "电灯",
+          "phonetic": "/laɪt/"
         },
         {
-          "word": "dirty",
-          "translation": "肮脏的",
-          "phonetic": "/ˈdɜːti/"
+          "word": "both",
+          "translation": "两个，两个都",
+          "phonetic": "/bəʊθ/"
         },
         {
-          "word": "smoke",
-          "translation": "烟雾",
-          "phonetic": "/sməʊk/"
+          "word": "side",
+          "translation": "一面",
+          "phonetic": "/saɪd/"
         },
         {
-          "word": "rubbish",
-          "translation": "垃圾",
-          "phonetic": "/ˈrʌbɪʃ/"
+          "word": "eat up",
+          "translation": "吃完，吃光",
+          "phonetic": "/iːt ʌp/"
         },
         {
-          "word": "messy",
-          "translation": "肮脏的，乱七八糟的",
-          "phonetic": "/ˈmesi/"
+          "word": "project",
+          "translation": "项目",
+          "phonetic": "/ˈprɒdʒekt/"
         },
         {
-          "word": "dead",
-          "translation": "死的",
-          "phonetic": "/ded/"
+          "word": "the Earth",
+          "translation": "地球",
+          "phonetic": "/ði ɜːθ/"
         },
         {
-          "word": "move … away from",
-          "translation": "从……搬走",
-          "phonetic": "/muːv əˈweɪ frɒm/"
+          "word": "colour",
+          "translation": "为……着色",
+          "phonetic": "/ˈkʌlə/"
         },
         {
-          "word": "bin",
-          "translation": "垃圾桶",
-          "phonetic": "/bɪn/"
+          "word": "hour",
+          "translation": "小时",
+          "phonetic": "/ˈaʊə/"
         },
         {
-          "word": "plant",
-          "translation": "种植，栽种",
-          "phonetic": "/plɑːnt/"
+          "word": "save",
+          "translation": "节省，节约",
+          "phonetic": "/seɪv/"
         },
         {
-          "word": "more",
-          "translation": "更多的",
-          "phonetic": "/mɔː(r)/"
+          "word": "electricity",
+          "translation": "电，电能",
+          "phonetic": "/ɪˌlekˈtrɪsəti/"
         },
         {
-          "word": "museum",
-          "translation": "博物馆",
-          "phonetic": "/mjuˈziːəm/"
+          "word": "last",
+          "translation": "持续",
+          "phonetic": "/lɑːst/"
         },
         {
-          "word": "throw",
-          "translation": "扔",
-          "phonetic": "/θrəʊ/"
+          "word": "brush",
+          "translation": "刷净",
+          "phonetic": "/brʌʃ/"
         },
         {
-          "word": "skin",
-          "translation": "果皮",
-          "phonetic": "/skɪn/"
+          "word": "tooth",
+          "translation": "牙，齿",
+          "phonetic": "/tuːθ/"
         },
         {
-          "word": "ground",
-          "translation": "地面，地上",
-          "phonetic": "/ɡraʊnd/"
+          "word": "waste",
+          "translation": "浪费",
+          "phonetic": "/weɪst/"
         },
         {
-          "word": "pick … up",
-          "translation": "捡起，拾起",
-          "phonetic": "/pɪk ʌp/"
+          "word": "vegetable",
+          "translation": "蔬菜",
+          "phonetic": "/ˈvedʒtəbl/"
         },
         {
-          "word": "slip",
-          "translation": "滑倒",
-          "phonetic": "/slɪp/"
-        },
-        {
-          "word": "fall",
-          "translation": "摔倒",
-          "phonetic": "/fɔːl/"
+          "word": "plastic",
+          "translation": "塑料的",
+          "phonetic": "/ˈplæstɪk/"
         }
       ],
       "Unit 7 Protect the Earth": [
@@ -4136,8 +4087,13 @@ const WORDS_DATA = {
         },
         {
           "word": "save",
-          "translation": "节约",
+          "translation": "节约；挽救",
           "phonetic": "/seɪv/"
+        },
+        {
+          "word": "water",
+          "translation": "水",
+          "phonetic": "/ˈwɔːtə(r)/"
         },
         {
           "word": "useful",
@@ -4145,19 +4101,9 @@ const WORDS_DATA = {
           "phonetic": "/ˈjuːsfl/"
         },
         {
-          "word": "much",
-          "translation": "很多",
-          "phonetic": "/mʌtʃ/"
-        },
-        {
           "word": "waste",
-          "translation": "浪费",
+          "translation": "浪费；垃圾",
           "phonetic": "/weɪst/"
-        },
-        {
-          "word": "reuse",
-          "translation": "再利用",
-          "phonetic": "/ˌriːˈjuːz/"
         },
         {
           "word": "energy",
@@ -4165,18 +4111,8 @@ const WORDS_DATA = {
           "phonetic": "/ˈenədʒi/"
         },
         {
-          "word": "most",
-          "translation": "大部分",
-          "phonetic": "/məʊst/"
-        },
-        {
-          "word": "come from",
-          "translation": "从……来，来自",
-          "phonetic": "/kʌm frɒm/"
-        },
-        {
           "word": "coal",
-          "translation": "煤炭",
+          "translation": "煤；煤炭",
           "phonetic": "/kəʊl/"
         },
         {
@@ -4186,22 +4122,27 @@ const WORDS_DATA = {
         },
         {
           "word": "drive",
-          "translation": "开车，驾驶",
+          "translation": "驾驶；驱动",
           "phonetic": "/draɪv/"
         },
         {
+          "word": "most",
+          "translation": "最多，大部分",
+          "phonetic": "/məʊst/"
+        },
+        {
+          "word": "plastic",
+          "translation": "塑料",
+          "phonetic": "/ˈplæstɪk/"
+        },
+        {
           "word": "wood",
-          "translation": "木头，木材",
+          "translation": "木头；木材",
           "phonetic": "/wʊd/"
         },
         {
-          "word": "other",
-          "translation": "其他的",
-          "phonetic": "/ˈʌðə(r)/"
-        },
-        {
           "word": "cut down",
-          "translation": "砍伐，砍掉",
+          "translation": "砍倒",
           "phonetic": "/kʌt daʊn/"
         },
         {
@@ -4210,111 +4151,136 @@ const WORDS_DATA = {
           "phonetic": "/tuː ˈmeni/"
         },
         {
-          "word": "too much",
-          "translation": "太多",
-          "phonetic": "/tuː mʌtʃ/"
-        },
-        {
-          "word": "plastic",
-          "translation": "塑料",
-          "phonetic": "/ˈplæstɪk/"
-        },
-        {
           "word": "glass",
           "translation": "玻璃",
           "phonetic": "/ɡlɑːs/"
         },
         {
+          "word": "bottle",
+          "translation": "瓶子",
+          "phonetic": "/ˈbɒtl/"
+        },
+        {
+          "word": "paper",
+          "translation": "纸",
+          "phonetic": "/ˈpeɪpə(r)/"
+        },
+        {
           "word": "project",
-          "translation": "课题",
+          "translation": "项目；课题",
           "phonetic": "/ˈprɒdʒekt/"
         },
         {
           "word": "poster",
           "translation": "海报",
           "phonetic": "/ˈpəʊstə(r)/"
-        },
-        {
-          "word": "gate",
-          "translation": "大门",
-          "phonetic": "/ɡeɪt/"
         }
       ],
       "Unit 8 Chinese New Year": [
         {
-          "word": "get",
-          "translation": "收到，接到",
-          "phonetic": "/ɡet/"
+          "word": "high-speed train",
+          "translation": "高速列车",
+          "phonetic": "/haɪ spiːd treɪn/"
         },
         {
-          "word": "Hong Kong",
-          "translation": "香港",
-          "phonetic": "/hɒŋ kɒŋ/"
+          "word": "e-book",
+          "translation": "电子书",
+          "phonetic": "/iː bʊk/"
         },
         {
-          "word": "next week",
-          "translation": "下周",
-          "phonetic": "/nekst wiːk/"
+          "word": "meeting",
+          "translation": "会议，集会",
+          "phonetic": "/ˈmiːtɪŋ/"
         },
         {
-          "word": "food",
-          "translation": "食物，食品",
-          "phonetic": "/fuːd/"
+          "word": "shop",
+          "translation": "商店，店铺",
+          "phonetic": "/ʃɒp/"
         },
         {
-          "word": "tangyuan",
-          "translation": "汤圆",
-          "phonetic": "/ˈtɑːŋˌjuːˈɑːn/"
+          "word": "smart",
+          "translation": "智能的",
+          "phonetic": "/smɑːt/"
         },
         {
-          "word": "Chinese New Year’s Eve",
-          "translation": "大年夜，除夕",
-          "phonetic": "/tʃaɪˈniːz njuː jɪəz iːv/"
+          "word": "win",
+          "translation": "获胜，赢",
+          "phonetic": "/wɪn/"
         },
         {
-          "word": "Chinese New Year’s Day",
-          "translation": "大年初一，春节",
-          "phonetic": "/tʃaɪˈniːz njuː jɪəz deɪ/"
+          "word": "surprise",
+          "translation": "意想不到的事，令人惊奇的事",
+          "phonetic": "/səˈpraɪz/"
         },
         {
-          "word": "red packet",
-          "translation": "红包",
-          "phonetic": "/red ˈpækɪt/"
+          "word": "wrong",
+          "translation": "有问题的",
+          "phonetic": "/rɒŋ/"
         },
         {
-          "word": "lion dance",
-          "translation": "舞狮",
-          "phonetic": "/ˈlaɪən dɑːns/"
+          "word": "change",
+          "translation": "变化；改变",
+          "phonetic": "/tʃeɪndʒ/"
         },
         {
-          "word": "fireworks",
-          "translation": "烟花表演",
-          "phonetic": "/ˈfaɪəwɜːks/"
+          "word": "life",
+          "translation": "生活",
+          "phonetic": "/laɪf/"
         },
         {
-          "word": "firecracker",
-          "translation": "鞭炮",
-          "phonetic": "/ˈfaɪəkrækə(r)/"
+          "word": "in the past",
+          "translation": "在过去",
+          "phonetic": "/ɪn ðə pɑːst/"
         },
         {
-          "word": "rich",
-          "translation": "富有的，有钱的",
-          "phonetic": "/rɪtʃ/"
+          "word": "travel",
+          "translation": "行进",
+          "phonetic": "/ˈtrævl/"
         },
         {
-          "word": "plan",
-          "translation": "计划，打算",
-          "phonetic": "/plæn/"
+          "word": "office",
+          "translation": "办公室，办公楼",
+          "phonetic": "/ˈɒfɪs/"
         },
         {
-          "word": "hooray",
-          "translation": "好极了",
-          "phonetic": "/huˈreɪ/"
+          "word": "these days",
+          "translation": "如今，而今",
+          "phonetic": "/ðiːz deɪz/"
         },
         {
-          "word": "light",
-          "translation": "点燃",
-          "phonetic": "/laɪt/"
+          "word": "work from home",
+          "translation": "居家办公",
+          "phonetic": "/wɜːk frɒm həʊm/"
+        },
+        {
+          "word": "pay",
+          "translation": "付钱，支付",
+          "phonetic": "/peɪ/"
+        },
+        {
+          "word": "cash",
+          "translation": "现金",
+          "phonetic": "/kæʃ/"
+        },
+        {
+          "word": "helper",
+          "translation": "帮手，助手",
+          "phonetic": "/ˈhelpə/"
+        },
+        {
+          "word": "fifty",
+          "translation": "五十",
+          "phonetic": "/ˈfɪfti/"
+        },
+        {
+          "word": "email",
+          "translation": "电子邮件",
+          "phonetic": "/ˈiːmeɪl/"
+        },
+        {
+          "word": "technology",
+          "translation": "科技",
+          "phonetic": "/tekˈnɒlədʒi/"
         }
       ]
     }
