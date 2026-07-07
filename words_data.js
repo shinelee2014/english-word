@@ -4074,7 +4074,82 @@ const WORDS_DATA = {
           "phonetic": "/ˈplæstɪk/"
         }
       ],
-      "Unit 7 Protect our Earth": [
+      "Unit 7 Protect the Earth": [
+        {
+          "word": "protect",
+          "translation": "保护",
+          "phonetic": "/prəˈtekt/"
+        },
+        {
+          "word": "Earth",
+          "translation": "地球",
+          "phonetic": "/ɜːθ/"
+        },
+        {
+          "word": "save",
+          "translation": "节约；挽救",
+          "phonetic": "/seɪv/"
+        },
+        {
+          "word": "water",
+          "translation": "水",
+          "phonetic": "/ˈwɔːtə(r)/"
+        },
+        {
+          "word": "useful",
+          "translation": "有用的",
+          "phonetic": "/ˈjuːsfl/"
+        },
+        {
+          "word": "waste",
+          "translation": "浪费；垃圾",
+          "phonetic": "/weɪst/"
+        },
+        {
+          "word": "energy",
+          "translation": "能源",
+          "phonetic": "/ˈenədʒi/"
+        },
+        {
+          "word": "coal",
+          "translation": "煤；煤炭",
+          "phonetic": "/kəʊl/"
+        },
+        {
+          "word": "oil",
+          "translation": "石油",
+          "phonetic": "/ɔɪl/"
+        },
+        {
+          "word": "drive",
+          "translation": "驾驶；驱动",
+          "phonetic": "/draɪv/"
+        },
+        {
+          "word": "most",
+          "translation": "最多，大部分",
+          "phonetic": "/məʊst/"
+        },
+        {
+          "word": "plastic",
+          "translation": "塑料",
+          "phonetic": "/ˈplæstɪk/"
+        },
+        {
+          "word": "wood",
+          "translation": "木头；木材",
+          "phonetic": "/wʊd/"
+        },
+        {
+          "word": "cut down",
+          "translation": "砍倒",
+          "phonetic": "/kʌt daʊn/"
+        },
+        {
+          "word": "too many",
+          "translation": "太多",
+          "phonetic": "/tuː ˈmeni/"
+        },
         {
           "word": "glass",
           "translation": "玻璃",
@@ -4086,59 +4161,19 @@ const WORDS_DATA = {
           "phonetic": "/ˈbɒtl/"
         },
         {
-          "word": "cardboard",
-          "translation": "硬纸板，卡纸板",
-          "phonetic": "/ˈkɑːdbɔːd/"
+          "word": "paper",
+          "translation": "纸",
+          "phonetic": "/ˈpeɪpə(r)/"
         },
         {
-          "word": "box",
-          "translation": "盒，箱",
-          "phonetic": "/bɒks/"
+          "word": "project",
+          "translation": "项目；课题",
+          "phonetic": "/ˈprɒdʒekt/"
         },
         {
-          "word": "be made of",
-          "translation": "用……做的",
-          "phonetic": "/bi meɪd ɒv/"
-        },
-        {
-          "word": "button",
-          "translation": "纽扣，扣子",
-          "phonetic": "/ˈbʌtn/"
-        },
-        {
-          "word": "happen",
-          "translation": "发生，出现",
-          "phonetic": "/ˈhæpən/"
-        },
-        {
-          "word": "hat",
-          "translation": "帽子",
-          "phonetic": "/hæt/"
-        },
-        {
-          "word": "do with",
-          "translation": "处理",
-          "phonetic": "/du wɪð/"
-        },
-        {
-          "word": "throw away",
-          "translation": "扔掉，丢弃",
-          "phonetic": "/θrəʊ əˈweɪ/"
-        },
-        {
-          "word": "recycling bin",
-          "translation": "废物回收箱",
-          "phonetic": "/ˌriːˈsaɪklɪŋ bɪn/"
-        },
-        {
-          "word": "truck",
-          "translation": "卡车，货运汽车",
-          "phonetic": "/trʌk/"
-        },
-        {
-          "word": "make friends with",
-          "translation": "和……交朋友",
-          "phonetic": "/meɪk frendz wɪð/"
+          "word": "poster",
+          "translation": "海报",
+          "phonetic": "/ˈpəʊstə(r)/"
         }
       ],
       "Unit 8 Chinese New Year": [
