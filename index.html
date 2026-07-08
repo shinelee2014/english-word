@@ -191,16 +191,17 @@
         <button id="nav-btn-pdf" onclick="openPdfViewer()" class="bg-blue-300 hover:bg-blue-400 px-4 py-1.5 text-sm font-bold hand-drawn-border-sm hidden">
           电子课本 📖
         </button>
-        <!-- Custom Window Controls (Electron only) -->
-        <div id="electron-window-controls" class="hidden flex items-center gap-2">
-          <button onclick="minimizeAppWindow()" class="w-8 h-8 rounded-full bg-cream-light hover:bg-cream-dark border-2 border-charcoal font-bold text-center flex items-center justify-center text-charcoal cursor-pointer" title="最小化">
-            ━
-          </button>
-          <button onclick="closeAppWindow()" class="w-8 h-8 rounded-full bg-peach hover:bg-red-400 border-2 border-charcoal font-bold text-center flex items-center justify-center text-white cursor-pointer" title="关闭">
-            ×
-          </button>
-        </div>
       </div>
+    </div>
+    
+    <!-- Custom Window Controls (Electron only) -->
+    <div id="electron-window-controls" class="hidden absolute top-4 right-4 flex items-center gap-2" style="-webkit-app-region: no-drag;">
+      <button onclick="minimizeAppWindow()" class="w-8 h-8 rounded-full bg-cream-light hover:bg-cream-dark border-2 border-charcoal font-bold text-center flex items-center justify-center text-charcoal cursor-pointer" title="最小化">
+        ━
+      </button>
+      <button onclick="closeAppWindow()" class="w-8 h-8 rounded-full bg-peach hover:bg-red-400 border-2 border-charcoal font-bold text-center flex items-center justify-center text-white cursor-pointer" title="关闭">
+        ×
+      </button>
     </div>
   </header>
 
@@ -861,6 +862,7 @@
       // Check if running inside Electron
       if (window.electron) {
         document.getElementById('electron-window-controls').classList.remove('hidden');
+        document.querySelector('header').classList.add('pr-28');
       }
       await initProfiles();
       setupTTSConfig();
@@ -2194,7 +2196,9 @@
         { progress: kidProgress, bookmarks: Array.from(bookmarkedWords) }
       );
       if (USE_API && result && result.success) {
-        showToast(`${activeKid} 的进度已保存到威联通 NAS！`);
+        const isNas = window.location.pathname.startsWith('/english');
+        const destination = isNas ? '威联通 NAS' : '本地电脑';
+        showToast(`${activeKid} 的进度已保存到${destination}！`);
       } else {
         showToast(`${activeKid} 的学习进度和生词本已保存成功！`);
       }

@@ -12,8 +12,48 @@ app.use(express.json());
 
 // --- Configuration ---
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
-const DATA_DIR = path.join(__dirname, 'data');
-const PDF_DIR = path.join(__dirname, '译林版小学英语【电子课本】');
+
+function getDataDir() {
+  const paths = [
+    path.join(__dirname, 'data'),
+    path.join(process.cwd(), 'data'),
+    path.join(process.cwd(), '..', 'data'),
+    'D:\\antigravity\\app\\English word\\data'
+  ];
+  const cleanPaths = paths.filter(p => !p.includes('Temp') && !p.includes('asar') && !p.includes('app.asar'));
+  for (const p of cleanPaths) {
+    if (fs.existsSync(p)) {
+      return p;
+    }
+  }
+  for (const p of [paths[1], paths[2], paths[3]]) {
+    try {
+      if (!fs.existsSync(p)) {
+        fs.mkdirSync(p, { recursive: true });
+      }
+      return p;
+    } catch (e) {}
+  }
+  return paths[0];
+}
+
+function getPdfDir() {
+  const paths = [
+    path.join(__dirname, '译林版小学英语【电子课本】'),
+    path.join(process.cwd(), '译林版小学英语【电子课本】'),
+    path.join(process.cwd(), '..', '译林版小学英语【电子课本】'),
+    'D:\\antigravity\\app\\English word\\译林版小学英语【电子课本】'
+  ];
+  for (const p of paths) {
+    if (fs.existsSync(p)) {
+      return p;
+    }
+  }
+  return paths[0];
+}
+
+const DATA_DIR = getDataDir();
+const PDF_DIR = getPdfDir();
 const KIDS_LIST_FILE = path.join(DATA_DIR, 'kids_list.json');
 
 // Ensure data directory exists
