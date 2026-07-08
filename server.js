@@ -37,24 +37,9 @@ function getDataDir() {
   return paths[0];
 }
 
-function getPdfDir() {
-  const paths = [
-    path.join(__dirname, '译林版小学英语【电子课本】'),
-    path.join(process.cwd(), '译林版小学英语【电子课本】'),
-    path.join(process.cwd(), '..', '译林版小学英语【电子课本】'),
-    'D:\\antigravity\\app\\English word\\译林版小学英语【电子课本】'
-  ];
-  for (const p of paths) {
-    if (fs.existsSync(p)) {
-      return p;
-    }
-  }
-  return paths[0];
-}
-
 const DATA_DIR = getDataDir();
-const PDF_DIR = getPdfDir();
 const KIDS_LIST_FILE = path.join(DATA_DIR, 'kids_list.json');
+const CONFIG_FILE = path.join(DATA_DIR, 'config.json');
 
 // Ensure data directory exists
 if (!fs.existsSync(DATA_DIR)) {
@@ -93,6 +78,38 @@ function writeJsonFile(filePath, data) {
     console.error(`Error writing file ${filePath}:`, e);
     return false;
   }
+}
+
+function readConfig() {
+  return readJsonFile(CONFIG_FILE, { pdfPath: '' });
+}
+
+function writeConfig(config) {
+  return writeJsonFile(CONFIG_FILE, config);
+}
+
+function getPdfDir() {
+  // 1. Check custom path from config
+  try {
+    const config = readConfig();
+    if (config.pdfPath && fs.existsSync(config.pdfPath)) {
+      return config.pdfPath;
+    }
+  } catch (e) {}
+
+  // 2. Fallbacks
+  const paths = [
+    path.join(__dirname, '译林版小学英语【电子课本】'),
+    path.join(process.cwd(), '译林版小学英语【电子课本】'),
+    path.join(process.cwd(), '..', '译林版小学英语【电子课本】'),
+    'D:\\antigravity\\app\\English word\\译林版小学英语【电子课本】'
+  ];
+  for (const p of paths) {
+    if (fs.existsSync(p)) {
+      return p;
+    }
+  }
+  return paths[0];
 }
 
 // Get the local IPv4 address for LAN access info
@@ -192,11 +209,12 @@ app.all('/api.php', (req, res) => {
 // --- E-Textbook APIs ---
 // GET /api/pdf-list: scan and return the available textbooks
 app.get('/api/pdf-list', (req, res) => {
-  if (!fs.existsSync(PDF_DIR)) {
-    return res.json({ pdfs: [] });
+  const currentPdfDir = getPdfDir();
+  if (!fs.existsSync(currentPdfDir)) {
+    return res.json({ pdfs: [], customPath: currentPdfDir });
   }
   
-  fs.readdir(PDF_DIR, (err, files) => {
+  fs.readdir(currentPdfDir, (err, files) => {
     if (err) {
       console.error('Error scanning PDF directory:', err);
       return res.status(500).json({ error: 'Failed to read PDF directory' });
@@ -210,17 +228,66 @@ app.get('/api/pdf-list', (req, res) => {
         return a.localeCompare(b, 'zh-CN', { numeric: true });
       });
       
-    res.json({ pdfs: pdfFiles });
+    res.json({ pdfs: pdfFiles, customPath: currentPdfDir });
   });
 });
 
-// Host the textbooks statically under /pdf/ route
-if (fs.existsSync(PDF_DIR)) {
-  app.use('/pdf', express.static(PDF_DIR));
-  console.log(`E-Textbooks mounted at /pdf/ serving from: ${PDF_DIR}`);
-} else {
-  console.warn(`Warning: E-Textbooks folder not found at ${PDF_DIR}. E-Textbook viewer will be disabled.`);
-}
+// POST /api/set-pdf-path: save custom folder path
+app.post('/api/set-pdf-path', (req, res) => {
+  const { path: newPath } = req.body || {};
+  if (!newPath) {
+    return res.status(400).json({ error: 'Missing path parameter' });
+  }
+  if (!fs.existsSync(newPath)) {
+    return res.status(400).json({ error: 'Path does not exist' });
+  }
+  const config = readConfig();
+  config.pdfPath = newPath;
+  writeConfig(config);
+  console.log(`Updated custom PDF path to: ${newPath}`);
+  res.json({ success: true });
+});
+
+// POST /api/upload-pdf: receive raw PDF data and save it
+app.post('/api/upload-pdf', express.raw({ type: 'application/pdf', limit: '150mb' }), (req, res) => {
+  const fileNameHeader = req.headers['x-file-name'];
+  if (!fileNameHeader) {
+    return res.status(400).json({ error: 'Missing X-File-Name header' });
+  }
+  const fileName = decodeURIComponent(fileNameHeader);
+  
+  const currentPdfDir = getPdfDir();
+  // Ensure the directory exists
+  if (!fs.existsSync(currentPdfDir)) {
+    try {
+      fs.mkdirSync(currentPdfDir, { recursive: true });
+    } catch (e) {
+      console.error('Error creating PDF directory:', e);
+      return res.status(500).json({ error: 'Failed to create PDF directory' });
+    }
+  }
+  
+  const targetPath = path.join(currentPdfDir, fileName);
+  fs.writeFile(targetPath, req.body, (err) => {
+    if (err) {
+      console.error('Error saving uploaded PDF:', err);
+      return res.status(500).json({ error: 'Failed to save PDF' });
+    }
+    console.log(`Successfully uploaded PDF: ${fileName} to ${targetPath}`);
+    res.json({ success: true, fileName: fileName });
+  });
+});
+
+// Host the textbooks statically under /pdf/ route dynamically
+app.use('/pdf', (req, res, next) => {
+  const currentPdfDir = getPdfDir();
+  if (fs.existsSync(currentPdfDir)) {
+    express.static(currentPdfDir)(req, res, next);
+  } else {
+    res.status(404).send('PDF directory not found');
+  }
+});
+console.log('E-Textbooks dynamic mount active for /pdf/');
 
 // Host all static frontend files in the current folder
 app.use(express.static(__dirname));

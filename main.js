@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const server = require('./server.js');
 
@@ -36,6 +36,18 @@ ipcMain.on('window-minimize', () => {
   if (mainWindow) {
     mainWindow.minimize();
   }
+});
+
+ipcMain.handle('select-pdf-directory', async () => {
+  if (!mainWindow) return null;
+  const result = await dialog.showOpenDialog(mainWindow, {
+    title: '选择译林版小学英语【电子课本】文件夹',
+    properties: ['openDirectory']
+  });
+  if (result.canceled || result.filePaths.length === 0) {
+    return null;
+  }
+  return result.filePaths[0];
 });
 
 // App lifecycle

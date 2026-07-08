@@ -160,11 +160,14 @@
           <select id="kid-select" onchange="switchKid(this.value)" class="bg-transparent text-xs font-bold focus:outline-none cursor-pointer">
             <!-- Dynamically populated -->
           </select>
-          <button onclick="addKidPrompt()" class="bg-sage text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full hover:bg-sage-dark font-extrabold focus:outline-none animate-bounce mr-2" title="添加新学习者">
+          <button onclick="openAddUserModal()" class="bg-sage text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full hover:bg-sage-dark font-extrabold focus:outline-none animate-bounce mr-2" title="添加新学习者">
             ＋
           </button>
           <button onclick="manualSaveProgress()" class="bg-sage hover:bg-sage-dark text-white text-xs px-2 py-0.5 rounded hand-drawn-border-sm font-bold focus:outline-none flex items-center gap-1 cursor-pointer" title="保存学习进度与生词本">
             💾 保存
+          </button>
+          <button onclick="resetCurrentProgressPrompt()" class="bg-peach hover:bg-red-400 text-white text-xs px-2 py-0.5 rounded hand-drawn-border-sm font-bold focus:outline-none flex items-center gap-1 cursor-pointer ml-1.5" title="重置当前小朋友的学习进度与生词本">
+            🗑️ 重置
           </button>
         </div>
         <!-- Voice Accent Selector -->
@@ -740,23 +743,116 @@
   <div id="pdf-viewer-modal" class="fixed inset-0 bg-charcoal bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
     <div class="paper-texture w-full max-w-5xl h-[90vh] hand-drawn-border flex flex-col no-press relative">
       <!-- Close Button -->
-      <button onclick="closePdfViewer()" class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-peach hover:bg-red-400 border-2 border-charcoal font-bold text-center flex items-center justify-center text-white text-lg cursor-pointer">
+      <button onclick="closePdfViewer()" class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-peach hover:bg-red-400 border-2 border-charcoal font-bold text-center flex items-center justify-center text-white text-lg cursor-pointer z-50">
         ×
       </button>
-      <!-- Modal Header -->
-      <div class="p-4 border-b-4 border-charcoal flex justify-between items-center bg-cream-dark">
-        <h3 id="pdf-viewer-title" class="font-bold text-lg text-charcoal">📖 电子课本预览</h3>
-        <div class="flex items-center gap-2">
-          <span class="text-xs font-bold">切换课本:</span>
-          <select id="pdf-select" class="hand-drawn-border-sm px-2 py-1 text-sm font-bold bg-white" onchange="loadSelectedPdf()">
-            <!-- Options populated dynamically -->
-          </select>
+      
+      <!-- 1. Normal Viewer Area (Shown if textbooks loaded) -->
+      <div id="pdf-viewer-content" class="w-full h-full flex flex-col">
+        <!-- Modal Header -->
+        <div class="p-4 border-b-4 border-charcoal flex justify-between items-center bg-cream-dark">
+          <h3 id="pdf-viewer-title" class="font-bold text-lg text-charcoal">📖 电子课本预览</h3>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold">切换课本:</span>
+            <select id="pdf-select" class="hand-drawn-border-sm px-2 py-1 text-sm font-bold bg-white" onchange="loadSelectedPdf()">
+              <!-- Options populated dynamically -->
+            </select>
+          </div>
+        </div>
+        <!-- Modal Content (PDF Embed) -->
+        <div class="flex-grow p-2 bg-cream-light">
+          <iframe id="pdf-iframe" src="" class="w-full h-full rounded border-2 border-charcoal bg-white"></iframe>
         </div>
       </div>
-      <!-- Modal Content (PDF Embed) -->
-      <div class="flex-grow p-2 bg-cream-light">
-        <iframe id="pdf-iframe" src="" class="w-full h-full rounded border-2 border-charcoal bg-white"></iframe>
+
+      <!-- 2. Setup/Upload Wizard Area (Shown if pdfList is empty) -->
+      <div id="pdf-guidance-content" class="w-full h-full flex flex-col hidden overflow-y-auto bg-cream-light p-6 items-center justify-center">
+        <div class="text-center max-w-xl w-full">
+          <div class="inline-block bg-peach p-4 rounded-full hand-drawn-border-sm mb-4">
+            <!-- Book SVG -->
+            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold font-comic text-charcoal mb-2">📚 找不到电子课本 PDF 文件</h3>
+          <p class="text-xs font-semibold text-wood-dark mb-6">
+            为了避免软件过于臃肿，我们没有内置 PDF 教材文件（大小约 1GB）。您可以通过以下几种方式将课本导入系统：
+          </p>
+          
+          <!-- Tab selector -->
+          <div class="flex gap-2 justify-center mb-6">
+            <button onclick="switchGuidanceTab('upload')" id="tab-btn-upload" class="bg-mustard hover:bg-yellow-300 text-xs font-bold py-1.5 px-4 hand-drawn-border-sm cursor-pointer">
+              📂 拖拽/上传课本
+            </button>
+            <button onclick="switchGuidanceTab('local')" id="tab-btn-local" class="bg-cream-light hover:bg-cream-dark text-xs font-bold py-1.5 px-4 hand-drawn-border-sm cursor-pointer">
+              💻 选择电脑文件夹
+            </button>
+            <button onclick="switchGuidanceTab('manual')" id="tab-btn-manual" class="bg-cream-light hover:bg-cream-dark text-xs font-bold py-1.5 px-4 hand-drawn-border-sm cursor-pointer">
+              📖 手动放置教程
+            </button>
+          </div>
+
+          <!-- Tab 1: Upload -->
+          <div id="tab-content-upload" class="paper-texture p-4 hand-drawn-border bg-white text-left mb-4 w-full">
+            <div id="pdf-drop-zone" class="border-4 border-dashed border-charcoal rounded-xl p-8 text-center bg-cream-light cursor-pointer hover:bg-cream transition-all relative">
+              <input type="file" id="pdf-file-input" multiple accept=".pdf" class="hidden">
+              <span class="text-2xl mb-2 block">📥</span>
+              <p class="text-xs font-bold text-charcoal mb-1">将您的 12 本课本 PDF 拖到这里（或点击选择文件）</p>
+              <p class="text-[10px] text-gray-500 font-medium">支持多选，上传完成后会自动重新加载课本列表</p>
+              <!-- Progress Indicator -->
+              <div id="pdf-upload-progress" class="hidden mt-4">
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div id="pdf-upload-bar" class="bg-sage h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p id="pdf-upload-text" class="text-[10px] text-wood-dark font-bold mt-1 text-center">正在上传 (0/0)...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Choose Folder (Electron Only) -->
+          <div id="tab-content-local" class="paper-texture p-4 hand-drawn-border bg-white text-left mb-4 w-full hidden">
+            <p class="text-xs font-bold text-charcoal mb-3">如果您在电脑中已经下载好了这 12 本课本，可以直接告诉软件它们存放在哪个目录：</p>
+            <div class="flex flex-col gap-2">
+              <button onclick="selectLocalPdfFolder()" class="w-full bg-sage hover:bg-sage-dark text-white font-bold py-2 px-4 rounded hand-drawn-border-sm text-xs cursor-pointer flex items-center justify-center gap-1">
+                📁 浏览并选择电脑中的文件夹
+              </button>
+              <p id="electron-path-alert" class="text-[10px] text-red-500 font-bold text-center mt-1 hidden">
+                ⚠️ 本功能仅在 Windows 桌面客户端运行有效，网页访问请选择“拖拽/上传课本”。
+              </p>
+              <p id="selected-path-display" class="text-[10px] text-wood-dark font-mono text-center mt-1 truncate"></p>
+            </div>
+          </div>
+
+          <!-- Tab 3: Manual Guide -->
+          <div id="tab-content-manual" class="paper-texture p-4 hand-drawn-border bg-white text-left mb-4 w-full hidden text-xs font-semibold text-charcoal space-y-2">
+            <p>🔧 您也可以通过手动放置文件夹的方式导入课本：</p>
+            <ol class="list-decimal list-inside space-y-1 text-wood-dark">
+              <li>在您电脑的桌面端程序旁边（同级目录）创建一个文件夹；</li>
+              <li>将文件夹命名为：<code class="bg-cream px-1 py-0.5 rounded font-mono font-black text-charcoal">译林版小学英语【电子课本】</code></li>
+              <li>把您的 12 本高清 PDF 课本全部放入此文件夹内；</li>
+              <li>重新打开本软件，电子课本功能就会自动激活！</li>
+            </ol>
+            <p id="manual-path-tip" class="text-[10px] text-wood font-mono mt-2 text-center truncate"></p>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Add User Modal -->
+  <div id="add-user-modal" class="fixed inset-0 bg-charcoal bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
+    <div class="paper-texture w-full max-w-sm hand-drawn-border flex flex-col no-press relative p-6 bg-white">
+      <button onclick="closeAddUserModal()" class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-peach hover:bg-red-400 border-2 border-charcoal font-bold text-center flex items-center justify-center text-white text-lg cursor-pointer z-50">
+        ×
+      </button>
+      <h3 class="text-xl font-bold font-comic text-charcoal mb-4 text-center">👤 添加新学习者</h3>
+      <div class="mb-4">
+        <label class="block text-xs font-bold text-wood mb-2">请输入新学习者的名字或昵称:</label>
+        <input type="text" id="new-user-name-input" placeholder="例如：贝贝、Lily..." class="w-full bg-cream-light border-2 border-charcoal p-2.5 rounded-lg text-sm font-bold focus:outline-none text-center">
+      </div>
+      <button onclick="submitNewUser()" class="w-full bg-mustard hover:bg-yellow-300 text-charcoal font-black py-2.5 px-6 hand-drawn-border text-sm cursor-pointer text-center">
+        确认添加 🎉
+      </button>
     </div>
   </div>
 
@@ -865,6 +961,9 @@
         document.querySelector('header').classList.add('pr-28');
       }
       await initProfiles();
+      if (USE_API) {
+        await initETextbooks();
+      }
       setupTTSConfig();
       populateGradeSelector();
       onGradeChange(currentGrade);
@@ -1887,7 +1986,7 @@
             shareInfo.textContent = `💡 局域网分享已启动！其他设备（手机/iPad）浏览器访问：http://${apiData.lanIP}:${apiData.port}`;
             shareInfo.classList.remove('hidden');
           }
-          await initETextbooks();
+          // initETextbooks called dynamically on load
         }
       } catch (e) {
         console.error("初始化小朋友档案失败", e);
@@ -1899,12 +1998,14 @@
 
     async function initETextbooks() {
       if (!USE_API) return;
+      // Always show the button so user can access setup/upload wizard
+      document.getElementById('nav-btn-pdf').classList.remove('hidden');
       try {
         const data = await fetch('/api/pdf-list').then(r => r.json());
-        if (data && Array.isArray(data.pdfs) && data.pdfs.length > 0) {
+        if (data && Array.isArray(data.pdfs)) {
           pdfList = data.pdfs;
-          document.getElementById('nav-btn-pdf').classList.remove('hidden');
           
+          // Populate select list if books exist
           const select = document.getElementById('pdf-select');
           select.innerHTML = "";
           pdfList.forEach(pdf => {
@@ -1913,6 +2014,14 @@
             opt.textContent = pdf.replace('译林版', '').replace('【高清教材】.pdf', '');
             select.appendChild(opt);
           });
+
+          // Set custom path info in guidance tabs
+          if (data.customPath) {
+            const manualPathTip = document.getElementById('manual-path-tip');
+            if (manualPathTip) manualPathTip.textContent = `💡 您的磁盘目标目录：${data.customPath}`;
+            const pathDisplay = document.getElementById('selected-path-display');
+            if (pathDisplay) pathDisplay.textContent = `📁 当前保存路径：${data.customPath}`;
+          }
         }
       } catch (e) {
         console.warn('[E-Textbooks] failed to load:', e);
@@ -1943,12 +2052,27 @@
       const modal = document.getElementById('pdf-viewer-modal');
       modal.classList.remove('hidden');
       
-      const defaultPdf = getDefaultPdfForGrade(currentGrade);
-      if (defaultPdf) {
-        const select = document.getElementById('pdf-select');
-        select.value = defaultPdf;
+      const viewContent = document.getElementById('pdf-viewer-content');
+      const guidanceContent = document.getElementById('pdf-guidance-content');
+      
+      if (pdfList.length > 0) {
+        // We have textbooks, show the normal viewer
+        viewContent.classList.remove('hidden');
+        guidanceContent.classList.add('hidden');
+        
+        const defaultPdf = getDefaultPdfForGrade(currentGrade);
+        if (defaultPdf) {
+          const select = document.getElementById('pdf-select');
+          select.value = defaultPdf;
+        }
+        loadSelectedPdf();
+      } else {
+        // No textbooks found, show the guidance wizard
+        viewContent.classList.add('hidden');
+        guidanceContent.classList.remove('hidden');
+        switchGuidanceTab('upload');
+        setupPdfUploadListeners();
       }
-      loadSelectedPdf();
     }
 
     function loadSelectedPdf() {
@@ -1959,10 +2083,147 @@
       iframe.src = `/pdf/${encodeURIComponent(pdfName)}`;
       document.getElementById('pdf-viewer-title').textContent = `📖 电子课本预览：${pdfName.replace('.pdf', '')}`;
     }
+
     function closePdfViewer() {
       const modal = document.getElementById('pdf-viewer-modal');
       modal.classList.add('hidden');
       document.getElementById('pdf-iframe').src = "";
+    }
+
+    // --- Textbook Wizard & Upload JS Logic ---
+    function switchGuidanceTab(tabId) {
+      const tabs = ['upload', 'local', 'manual'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const content = document.getElementById(`tab-content-${t}`);
+        if (t === tabId) {
+          btn.className = "bg-mustard hover:bg-yellow-300 text-xs font-bold py-1.5 px-4 hand-drawn-border-sm cursor-pointer";
+          content.classList.remove('hidden');
+        } else {
+          btn.className = "bg-cream-light hover:bg-cream-dark text-xs font-bold py-1.5 px-4 hand-drawn-border-sm cursor-pointer";
+          content.classList.add('hidden');
+        }
+      });
+      
+      // Path alert for non-electron env on Local Tab
+      if (tabId === 'local') {
+        const pathAlert = document.getElementById('electron-path-alert');
+        if (!window.electron) {
+          pathAlert.classList.remove('hidden');
+        } else {
+          pathAlert.classList.add('hidden');
+        }
+      }
+    }
+
+    async function selectLocalPdfFolder() {
+      if (!window.electron) {
+        alert('⚠️ 本功能仅在 Windows 桌面客户端运行有效，网页访问请选择“拖拽/上传课本”！');
+        return;
+      }
+      try {
+        const selectedPath = await window.electron.selectDirectory();
+        if (selectedPath) {
+          const result = await apiCall({ action: 'setPdfPath' }, { path: selectedPath });
+          if (result && result.success) {
+            showToast('🎉 配置教材文件夹成功！');
+            await initETextbooks();
+            openPdfViewer(); // Re-evaluate and show viewer if PDFs were found
+          } else {
+            alert('❌ 该文件夹不存在或不可读！请重新选择。');
+          }
+        }
+      } catch (e) {
+        console.error('Failed to select directory:', e);
+      }
+    }
+
+    let uploadListenersBound = false;
+    function setupPdfUploadListeners() {
+      if (uploadListenersBound) return;
+      const zone = document.getElementById('pdf-drop-zone');
+      const input = document.getElementById('pdf-file-input');
+      if (!zone || !input) return;
+      
+      zone.addEventListener('click', () => input.click());
+      
+      zone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        zone.classList.add('bg-sage', 'text-white');
+      });
+      
+      const resetZone = () => zone.classList.remove('bg-sage', 'text-white');
+      zone.addEventListener('dragleave', resetZone);
+      zone.addEventListener('dragend', resetZone);
+      
+      zone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        resetZone();
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+          uploadPdfFiles(files);
+        }
+      });
+      
+      input.addEventListener('change', () => {
+        const files = input.files;
+        if (files.length > 0) {
+          uploadPdfFiles(files);
+        }
+      });
+      
+      uploadListenersBound = true;
+    }
+
+    async function uploadPdfFiles(files) {
+      const pdfFiles = Array.from(files).filter(f => f.name.toLowerCase().endsWith('.pdf'));
+      if (pdfFiles.length === 0) {
+        showToast('⚠️ 只支持上传 .pdf 课本文件哦！');
+        return;
+      }
+      
+      const progressDiv = document.getElementById('pdf-upload-progress');
+      const progressBar = document.getElementById('pdf-upload-bar');
+      const progressText = document.getElementById('pdf-upload-text');
+      
+      progressDiv.classList.remove('hidden');
+      
+      let successCount = 0;
+      for (let i = 0; i < pdfFiles.length; i++) {
+        const file = pdfFiles[i];
+        progressText.textContent = `正在上传 (${i+1}/${pdfFiles.length}): ${file.name}`;
+        
+        try {
+          const buffer = await file.arrayBuffer();
+          const resp = await fetch('/api/upload-pdf', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/pdf',
+              'X-File-Name': encodeURIComponent(file.name)
+            },
+            body: buffer
+          });
+          if (resp.ok) {
+            successCount++;
+          }
+        } catch (e) {
+          console.error('Failed to upload file:', file.name, e);
+        }
+        
+        const percent = Math.round(((i + 1) / pdfFiles.length) * 100);
+        progressBar.style.width = `${percent}%`;
+      }
+      
+      progressDiv.classList.add('hidden');
+      progressBar.style.width = '0%';
+      
+      if (successCount > 0) {
+        showToast(`🎉 成功导入 ${successCount} 本课本！`);
+        await initETextbooks();
+        openPdfViewer();
+      } else {
+        showToast('❌ 上传失败，请检查服务器连接。');
+      }
     }
 
     // --- Custom Dashboard & Level Selection Functions (Phase 2) ---
@@ -2208,18 +2469,33 @@
       loadKidData(kidName);
     }
 
-    async function addKidPrompt() {
-      const name = prompt("请输入小朋友的名字或昵称:");
-      if (!name) return;
-      const cleanName = name.trim();
-      if (!cleanName) return;
+    function openAddUserModal() {
+      const modal = document.getElementById('add-user-modal');
+      const input = document.getElementById('new-user-name-input');
+      if (input) input.value = "";
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeAddUserModal() {
+      const modal = document.getElementById('add-user-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    async function submitNewUser() {
+      const input = document.getElementById('new-user-name-input');
+      if (!input) return;
+      const cleanName = input.value.trim();
+      if (!cleanName) {
+        showToast('⚠️ 名字不能为空哦！');
+        return;
+      }
 
       if (kidsList.includes(cleanName)) {
         alert("这个名字已经存在啦！");
         return;
       }
 
-      // Add to NAS first, fall back to localStorage only
+      // Save to server first
       const result = await apiCall({ action: 'addKid' }, { kid: cleanName });
       if (result && result.error === 'exists') {
         alert("这个名字已经存在啦！");
@@ -2233,7 +2509,36 @@
 
       renderKidsDropdown();
       await loadKidData(activeKid);
+      closeAddUserModal();
       showToast(`成功添加学习者: ${cleanName} 🎉`);
+    }
+
+    function resetCurrentProgressPrompt() {
+      const sure = confirm(`⚠️ 确定要重置学习者 "${activeKid}" 的所有学习进度和生词本吗？\n\n此操作将清空所有已学单词、听力关卡和点读记录，且无法撤销！`);
+      if (!sure) return;
+      resetProgressForKid(activeKid);
+    }
+
+    async function resetProgressForKid(kidName) {
+      const emptyProgress = {
+        study: {},
+        listening: {},
+        reading: {}
+      };
+      const emptyBookmarks = [];
+
+      try {
+        localStorage.setItem(`suz_eng_word_progress_${kidName}`, JSON.stringify(emptyProgress));
+        localStorage.setItem(`suz_eng_word_bookmarks_${kidName}`, JSON.stringify(emptyBookmarks));
+      } catch (e) {}
+
+      await apiCall(
+        { action: 'save', kid: kidName },
+        { progress: emptyProgress, bookmarks: emptyBookmarks }
+      );
+
+      await loadKidData(kidName);
+      showToast(`🎉 已成功重置学习者 "${kidName}" 的所有进度！`);
     }
 
     function renderGradeUnitProgress() {
