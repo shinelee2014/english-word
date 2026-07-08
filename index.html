@@ -134,8 +134,8 @@
 </head>
 <body class="bg-cream text-charcoal min-h-screen font-sans flex flex-col antialiased selection:bg-mustard selection:text-charcoal">
 
-  <!-- Header -->
-  <header class="border-b-4 border-charcoal bg-white p-4 relative z-10">
+  <!-- Header (Draggable for desktop app) -->
+  <header class="border-b-4 border-charcoal bg-white p-3 relative z-10 select-none" style="-webkit-app-region: drag;">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
         <!-- Cute Handdrawn Icon -->
@@ -146,14 +146,14 @@
         </div>
         <div>
           <h1 class="text-2xl font-bold font-comic tracking-wide text-charcoal flex items-center gap-2">
-            Suzhou Primary English <span class="bg-sage text-white text-xs px-2 py-0.5 rounded-full hand-drawn-border-sm no-press">江苏译林版</span>
+            悦读英语 <span class="bg-sage text-white text-xs px-2 py-0.5 rounded-full hand-drawn-border-sm no-press">小学版</span>
           </h1>
-          <p class="text-sm font-semibold text-wood-dark">苏州市小学生英语单词快速通关工具 🎒</p>
+          <p class="text-sm font-semibold text-wood-dark">Primary School English Learning 🎒</p>
         </div>
       </div>
 
       <!-- Quick Controls -->
-      <div class="flex flex-wrap items-center gap-3">
+      <div class="flex flex-wrap items-center gap-3" style="-webkit-app-region: no-drag;">
         <!-- Kid Profile Selector -->
         <div class="flex items-center gap-1.5 bg-cream-dark px-3 py-1.5 hand-drawn-border-sm no-press">
           <span class="text-xs font-bold text-charcoal">👤 学习者:</span>
@@ -191,6 +191,15 @@
         <button id="nav-btn-pdf" onclick="openPdfViewer()" class="bg-blue-300 hover:bg-blue-400 px-4 py-1.5 text-sm font-bold hand-drawn-border-sm hidden">
           电子课本 📖
         </button>
+        <!-- Custom Window Controls (Electron only) -->
+        <div id="electron-window-controls" class="hidden flex items-center gap-2">
+          <button onclick="minimizeAppWindow()" class="w-8 h-8 rounded-full bg-cream-light hover:bg-cream-dark border-2 border-charcoal font-bold text-center flex items-center justify-center text-charcoal cursor-pointer" title="最小化">
+            ━
+          </button>
+          <button onclick="closeAppWindow()" class="w-8 h-8 rounded-full bg-peach hover:bg-red-400 border-2 border-charcoal font-bold text-center flex items-center justify-center text-white cursor-pointer" title="关闭">
+            ×
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -199,67 +208,202 @@
   <main class="flex-grow max-w-6xl w-full mx-auto p-4 md:p-6 flex flex-col justify-center">
     
     <!-- SECTION 1: HOME/SETTINGS VIEW -->
-    <section id="view-home" class="view-section py-8 max-w-2xl mx-auto w-full">
-      <div class="paper-texture p-6 md:p-8 hand-drawn-border no-press relative">
+    <section id="view-home" class="view-section py-4 max-w-4xl mx-auto w-full">
+      
+      <!-- Top Row: Hello Message & Quick Progress -->
+      <div class="paper-texture p-6 hand-drawn-border mb-6 no-press flex flex-col md:flex-row justify-between items-center relative">
         <!-- Decorative Pencil drawing effect -->
         <div class="absolute -top-3 -right-3 bg-mustard text-charcoal px-3 py-1 text-xs font-bold hand-drawn-border-sm no-press rotate-6">
           1-6年级全覆盖!
         </div>
 
-        <h2 class="text-3xl font-bold text-center mb-2 font-comic">开启你的单词冒险 🚀</h2>
-        <p class="text-center text-wood-dark font-medium mb-6">选择你的年级和单元，开启快乐通关之路</p>
+        <div class="flex items-center gap-4">
+          <!-- Waving Bear SVG Icon -->
+          <div class="w-16 h-16 flex-shrink-0 text-charcoal">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-current">
+              <!-- Cute simple handdrawn bear head -->
+              <circle cx="50" cy="55" r="30" fill="none" stroke="currentColor" stroke-width="4"/>
+              <circle cx="30" cy="28" r="10" fill="none" stroke="currentColor" stroke-width="4"/>
+              <circle cx="70" cy="28" r="10" fill="none" stroke="currentColor" stroke-width="4"/>
+              <circle cx="30" cy="28" r="5" fill="currentColor"/>
+              <circle cx="70" cy="28" r="5" fill="currentColor"/>
+              <circle cx="40" cy="48" r="4" fill="currentColor"/>
+              <circle cx="60" cy="48" r="4" fill="currentColor"/>
+              <ellipse cx="50" cy="62" rx="8" ry="6" fill="none" stroke="currentColor" stroke-width="3"/>
+              <polygon points="47,60 53,60 50,64" fill="currentColor"/>
+              <circle cx="33" cy="58" r="3" fill="salmon" opacity="0.6"/>
+              <circle cx="67" cy="58" r="3" fill="salmon" opacity="0.6"/>
+            </svg>
+          </div>
+          <div>
+            <h2 id="home-welcome-title" class="text-2xl font-bold font-comic text-charcoal">Hi, 小朋友! 欢迎回来！</h2>
+            <p class="text-xs font-semibold text-wood-dark mt-1">今天又是单词探险的奇妙一天！🌟</p>
+          </div>
+        </div>
         
-        <div class="pencil-divider mb-6"></div>
-
-        <!-- Grade Selector Grid -->
-        <div class="mb-6">
-          <label class="block text-sm font-bold mb-2 text-charcoal">📍 选择学习年级:</label>
-          <div id="grade-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3">
-            <!-- Dynamically populated by JS -->
-          </div>
-        </div>
-
-        <!-- Unit Selector -->
-        <div class="mb-4">
-          <label for="unit-select" class="block text-sm font-bold mb-2 text-charcoal">📖 选择学习单元 (Unit):</label>
-          <select id="unit-select" onchange="onUnitSelectChange()" class="w-full bg-cream-light border-3 border-charcoal p-3 rounded-xl focus:outline-none font-semibold text-charcoal">
-            <!-- Dynamically populated based on selected Grade -->
-          </select>
-        </div>
-
-        <!-- Unit Cards List (Visual Progress Grid) -->
-        <div class="mb-8">
-          <label class="block text-sm font-bold mb-3 text-charcoal">🎯 单元学习进度:</label>
-          <div id="unit-cards-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pr-1">
-            <!-- Dynamically populated by JS -->
-          </div>
-        </div>
-
-        <!-- Play Modes -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 justify-center">
-          <button onclick="startChallenge()" class="bg-sage text-white text-base md:text-lg font-bold py-4 px-4 hand-drawn-border flex items-center justify-center gap-2 key-btn">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
-            </svg>
-            开始单词闯关
-          </button>
-
-          <button onclick="openTextbook()" class="bg-mustard text-charcoal text-base md:text-lg font-bold py-4 px-4 hand-drawn-border flex items-center justify-center gap-2 key-btn">
-            <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-            </svg>
-            课文朗读点读
-          </button>
-          
-          <button onclick="viewEncyclopedia()" class="bg-cream-light text-charcoal hover:bg-cream-dark text-base md:text-lg font-bold py-4 px-4 hand-drawn-border flex items-center justify-center gap-2 key-btn">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            浏览单词列表
-          </button>
+        <!-- Quick Stats Total -->
+        <div class="mt-4 md:mt-0 bg-cream-dark px-4 py-2.5 hand-drawn-border-sm no-press text-center">
+          <span class="text-xs font-bold text-wood-dark block">当前年级总进度</span>
+          <span id="home-total-progress-text" class="text-lg font-black text-charcoal font-comic">已学: 0 / 0 词</span>
         </div>
       </div>
+
+      <!-- Mid Row: Three Statistics Cards (Bento Grid Style) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+        
+        <!-- Card 1: Word Learning Progress -->
+        <div class="paper-texture p-5 hand-drawn-border no-press flex flex-col justify-between relative min-h-[170px]">
+          <div>
+            <h3 class="text-base font-bold text-charcoal flex items-center gap-1.5">
+              <span>单词学习进度</span>
+            </h3>
+            <p id="stats-word-text" class="text-xs font-bold text-wood-dark mt-1">已学: 0 / 0 词</p>
+            <!-- Progress Bar -->
+            <div class="w-full bg-cream-dark h-5 border-3 border-charcoal rounded-full mt-4 overflow-hidden relative">
+              <div id="stats-word-progress" class="bg-mustard h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <!-- Star Mastery -->
+            <div id="stats-word-stars" class="flex gap-1 mt-3 text-orange-400 text-sm">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span class="text-gray-300">★</span>
+            </div>
+          </div>
+          <!-- Teddy Bear Drawing on bottom right -->
+          <div class="absolute bottom-2 right-2 w-14 h-14 opacity-80 text-charcoal pointer-events-none">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-none stroke-current" stroke-width="4">
+              <circle cx="50" cy="50" r="25"/>
+              <circle cx="35" cy="25" r="8"/>
+              <circle cx="65" cy="25" r="8"/>
+              <circle cx="42" cy="45" r="2.5" fill="currentColor"/>
+              <circle cx="58" cy="45" r="2.5" fill="currentColor"/>
+              <ellipse cx="50" cy="58" rx="7" ry="5"/>
+              <rect x="70" y="50" width="8" height="25" transform="rotate(30 70 50)"/>
+              <polygon points="73,43 79,48 83,38" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Card 2: Listening Practice History -->
+        <div class="paper-texture p-5 hand-drawn-border no-press flex flex-col justify-between relative min-h-[170px]">
+          <div>
+            <h3 class="text-base font-bold text-charcoal flex items-center gap-1.5">
+              <span>听力练习记录</span>
+            </h3>
+            <p id="stats-listen-text" class="text-xs font-bold text-wood-dark mt-1">已完成: 0 / 0 关</p>
+            <!-- Audio icons as progress representation -->
+            <div class="flex gap-2.5 mt-5">
+              <span id="listen-speaker-1" class="text-xl opacity-30">🔊</span>
+              <span id="listen-speaker-2" class="text-xl opacity-30">🔊</span>
+              <span id="listen-speaker-3" class="text-xl opacity-30">🔊</span>
+              <span id="listen-speaker-4" class="text-xl opacity-30">🔊</span>
+              <span id="listen-speaker-5" class="text-xl opacity-30">🔊</span>
+            </div>
+            <p class="text-[10px] text-gray-400 font-semibold mt-3">多磨耳朵，语感超级棒！👂</p>
+          </div>
+          <!-- Owl wearing headphones on bottom right -->
+          <div class="absolute bottom-2 right-2 w-14 h-14 opacity-80 text-charcoal pointer-events-none">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-none stroke-current" stroke-width="4">
+              <circle cx="50" cy="55" r="22"/>
+              <circle cx="42" cy="48" r="6"/>
+              <circle cx="58" cy="48" r="6"/>
+              <circle cx="42" cy="48" r="2" fill="currentColor"/>
+              <circle cx="58" cy="48" r="2" fill="currentColor"/>
+              <polygon points="50,52 47,58 53,58" fill="currentColor"/>
+              <path d="M22 55 A 28 28 0 0 1 78 55" stroke-width="6"/>
+              <rect x="20" y="48" width="6" height="15" rx="3" fill="currentColor"/>
+              <rect x="74" y="48" width="6" height="15" rx="3" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Card 3: Text Reading Progress -->
+        <div class="paper-texture p-5 hand-drawn-border no-press flex flex-col justify-between relative min-h-[170px]">
+          <div>
+            <h3 class="text-base font-bold text-charcoal flex items-center gap-1.5">
+              <span>课文点读记录</span>
+            </h3>
+            <p id="stats-read-text" class="text-xs font-bold text-wood-dark mt-1">已读课文: 0 / 0 课</p>
+            <!-- Progress pie ring in pure CSS / SVG -->
+            <div class="flex items-center gap-4 mt-3">
+              <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
+                <path class="text-cream-dark" stroke="currentColor" stroke-width="3.5" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path id="stats-read-pie" class="text-sage" stroke="currentColor" stroke-width="3.5" stroke-dasharray="0, 100" stroke-linecap="round" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="flex flex-col gap-0.5">
+                <span id="stats-read-percent" class="text-base font-black text-charcoal font-comic">0%</span>
+                <span class="text-[9px] text-gray-400 font-bold">课本同步阅读率</span>
+              </div>
+            </div>
+          </div>
+          <!-- Stack of books on bottom right -->
+          <div class="absolute bottom-2 right-2 w-14 h-14 opacity-80 text-charcoal pointer-events-none">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-none stroke-current" stroke-width="4">
+              <rect x="25" y="60" width="50" height="15" rx="2"/>
+              <rect x="30" y="45" width="45" height="15" rx="2"/>
+              <rect x="35" y="30" width="40" height="15" rx="2"/>
+              <line x1="32" y1="67" x2="68" y2="67"/>
+              <line x1="37" y1="52" x2="68" y2="52"/>
+              <line x1="42" y1="37" x2="68" y2="37"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Row: Three Big Colored Crayon Buttons (Bento Grid) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Button 1: Word Challenge (Orange) -->
+        <button onclick="openSelectLevelModal('challenge')" class="paper-texture bg-mustard hover:bg-yellow-300 p-6 hand-drawn-border flex flex-col items-center justify-center text-center cursor-pointer transform hover:-translate-y-1 transition-transform min-h-[160px] group">
+          <!-- Rocket & Book SVG -->
+          <div class="w-16 h-16 text-charcoal group-hover:scale-110 transition-transform">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-none stroke-current" stroke-width="4">
+              <path d="M20 70 C 35 65, 50 68, 50 80 C 50 68, 65 65, 80 70 M50 25 L50 80"/>
+              <path d="M20 30 C 35 25, 50 28, 50 40 L50 80"/>
+              <path d="M80 30 C 65 25, 50 28, 50 40"/>
+              <path d="M60 45 L75 25 L80 30 L65 50 Z" fill="currentColor"/>
+              <polygon points="55,50 60,45 65,50" fill="currentColor"/>
+            </svg>
+          </div>
+          <span class="text-xl font-black text-charcoal mt-3 font-sans">单词闯关</span>
+          <span class="text-xs text-wood-dark mt-1 font-semibold">关卡挑战与记忆飞轮 🚀</span>
+        </button>
+
+        <!-- Button 2: Listening Practice (Blue) -->
+        <button onclick="openSelectLevelModal('listen')" class="paper-texture bg-blue-200 hover:bg-blue-300 p-6 hand-drawn-border flex flex-col items-center justify-center text-center cursor-pointer transform hover:-translate-y-1 transition-transform min-h-[160px] group">
+          <!-- Headphones & Music Note SVG -->
+          <div class="w-16 h-16 text-charcoal group-hover:scale-110 transition-transform">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-none stroke-current" stroke-width="4">
+              <path d="M25 60 A 25 25 0 0 1 75 60" stroke-width="6"/>
+              <rect x="20" y="50" width="10" height="20" rx="4" fill="currentColor"/>
+              <rect x="70" y="50" width="10" height="20" rx="4" fill="currentColor"/>
+              <path d="M12 60 C 15 57, 15 63, 18 60"/>
+              <path d="M82 60 C 85 57, 85 63, 88 60"/>
+              <ellipse cx="45" cy="40" rx="5" ry="4" fill="currentColor"/>
+              <line x1="50" y1="40" x2="50" y2="25"/>
+              <line x1="50" y1="25" x2="62" y2="28"/>
+            </svg>
+          </div>
+          <span class="text-xl font-black text-charcoal mt-3 font-sans">听力练习</span>
+          <span class="text-xs text-wood-dark mt-1 font-semibold">看词辨音与听音认意 🎧</span>
+        </button>
+
+        <!-- Button 3: Text Reading (Green) -->
+        <button onclick="openSelectLevelModal('textbook')" class="paper-texture bg-sage hover:bg-sage-dark p-6 hand-drawn-border flex flex-col items-center justify-center text-center cursor-pointer transform hover:-translate-y-1 transition-transform min-h-[160px] group">
+          <!-- Speaker & Book SVG -->
+          <div class="w-16 h-16 text-charcoal group-hover:scale-110 transition-transform">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-none stroke-current" stroke-width="4">
+              <rect x="30" y="25" width="40" height="55" rx="3"/>
+              <path d="M42 45 L50 40 L50 60 L42 55 L38 55 L38 45 Z" fill="currentColor"/>
+              <path d="M56 42 A 8 8 0 0 1 56 58" stroke-linecap="round"/>
+              <path d="M62 37 A 15 15 0 0 1 62 63" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="text-xl font-black text-charcoal mt-3 font-sans">课文点读</span>
+          <span class="text-xs text-wood-dark mt-1 font-semibold">教材原文点读与朗读 📖</span>
+        </button>
+
+      </div>
+
     </section>
 
     <!-- SECTION 2: STAGE CHALLENGE VIEW -->
@@ -615,6 +759,44 @@
     </div>
   </div>
 
+  <!-- Level Selection Modal -->
+  <div id="level-select-modal" class="fixed inset-0 bg-charcoal bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
+    <div class="paper-texture w-full max-w-2xl hand-drawn-border flex flex-col no-press relative p-6">
+      <!-- Close Button -->
+      <button onclick="closeLevelSelectModal()" class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-peach hover:bg-red-400 border-2 border-charcoal font-bold text-center flex items-center justify-center text-white text-lg cursor-pointer">
+        ×
+      </button>
+      
+      <h3 id="level-modal-title" class="font-bold text-xl text-charcoal text-center mb-4">📖 关卡选择</h3>
+      
+      <!-- Grade Grid Selector (Original ID reused) -->
+      <div class="mb-5">
+        <label class="block text-sm font-bold mb-2 text-charcoal">📍 第一步：选择年级与学期</label>
+        <div id="grade-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <!-- Dynamically populated by JS -->
+        </div>
+      </div>
+      
+      <!-- Hidden Original Unit Select to maintain compatibility -->
+      <select id="unit-select" onchange="onUnitSelectChange()" class="hidden">
+        <!-- Dynamically populated based on selected Grade -->
+      </select>
+
+      <!-- Unit Cards List (Original ID reused) -->
+      <div class="mb-6">
+        <label class="block text-sm font-bold mb-3 text-charcoal">🎯 第二步：选择单元 (Unit)</label>
+        <div id="unit-cards-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[220px] overflow-y-auto pr-1">
+          <!-- Dynamically populated by JS -->
+        </div>
+      </div>
+      
+      <!-- Confirm Action Button -->
+      <button id="modal-start-btn" onclick="confirmLevelSelection()" class="w-full bg-mustard hover:bg-yellow-300 text-charcoal font-black py-3.5 px-6 hand-drawn-border text-lg cursor-pointer text-center">
+        开启探险 🚀
+      </button>
+    </div>
+  </div>
+
   <!-- Include Vocabulary Database -->
   <script src="words_data.js?v=20260707_v1"></script>
 
@@ -676,6 +858,10 @@
 
     // Page initialization
     window.addEventListener('DOMContentLoaded', async () => {
+      // Check if running inside Electron
+      if (window.electron) {
+        document.getElementById('electron-window-controls').classList.remove('hidden');
+      }
       await initProfiles();
       setupTTSConfig();
       populateGradeSelector();
@@ -826,6 +1012,13 @@
     let textbookSentences = [];
 
     function openTextbook() {
+      // Mark as read in kidProgress
+      if (!kidProgress[currentGrade]) kidProgress[currentGrade] = {};
+      if (!kidProgress[currentGrade][currentUnit]) kidProgress[currentGrade][currentUnit] = {};
+      kidProgress[currentGrade][currentUnit].textbookRead = true;
+      saveProgress();
+      updateHomeDashboard();
+
       const gradeTexts = TEXTS_DATA[currentGrade];
       const unitText = gradeTexts ? gradeTexts[currentUnit] : null;
       
@@ -1060,7 +1253,7 @@
         // 重新乱序开始
         shuffleArray(currentWords);
         currentWordIndex = 0;
-        currentPhase = 1; 
+        currentPhase = targetStartPhase; 
         wrongWordsThisRound.clear();
         saveActiveSession();
       }
@@ -1765,10 +1958,142 @@
       document.getElementById('pdf-viewer-title').textContent = `📖 电子课本预览：${pdfName.replace('.pdf', '')}`;
     }
 
-    function closePdfViewer() {
-      const modal = document.getElementById('pdf-viewer-modal');
-      modal.classList.add('hidden');
-      document.getElementById('pdf-iframe').src = "";
+    }
+
+    // --- Custom Dashboard & Level Selection Functions (Phase 2) ---
+    let targetStartPhase = 1;
+
+    function updateHomeDashboard() {
+      // 1. Update Welcome Message
+      const welcomeTitle = document.getElementById('home-welcome-title');
+      if (welcomeTitle) {
+        welcomeTitle.textContent = `Hi, ${activeKid}! 欢迎回来！`;
+      }
+
+      // 2. Calculate Stats
+      if (!currentGrade || !WORDS_DATA[currentGrade]) return;
+
+      const units = WORDS_DATA[currentGrade].units;
+      let totalWordsInGrade = 0;
+      let learnedWordsInGrade = 0;
+      let totalUnits = Object.keys(units).length;
+      let completedListenUnits = 0;
+      let completedReadUnits = 0;
+
+      Object.keys(units).forEach(unitName => {
+        const wordsList = units[unitName];
+        totalWordsInGrade += wordsList.length;
+
+        const progressInfo = kidProgress[currentGrade] ? kidProgress[currentGrade][unitName] : null;
+        if (progressInfo) {
+          if (progressInfo.completed !== false) {
+            learnedWordsInGrade += wordsList.length;
+          }
+          if (progressInfo.completed !== false || (progressInfo.activeSession && progressInfo.activeSession.phase > 2)) {
+            completedListenUnits++;
+          }
+          if (progressInfo.textbookRead === true) {
+            completedReadUnits++;
+          }
+        }
+      });
+
+      // 3. Update DOM elements
+      const totalProgressText = document.getElementById('home-total-progress-text');
+      if (totalProgressText) {
+        totalProgressText.textContent = `已学: ${learnedWordsInGrade} / ${totalWordsInGrade} 词`;
+      }
+
+      const statsWordText = document.getElementById('stats-word-text');
+      if (statsWordText) {
+        statsWordText.textContent = `已学: ${learnedWordsInGrade} / ${totalWordsInGrade} 词`;
+      }
+      
+      const statsWordProgress = document.getElementById('stats-word-progress');
+      if (statsWordProgress) {
+        const pct = totalWordsInGrade > 0 ? (learnedWordsInGrade / totalWordsInGrade) * 100 : 0;
+        statsWordProgress.style.width = `${pct}%`;
+        
+        const starsContainer = document.getElementById('stats-word-stars');
+        if (starsContainer) {
+          const starCount = Math.round(pct / 20); // 0 to 5
+          starsContainer.innerHTML = Array(starCount).fill('★').join('') + Array(5 - starCount).fill('☆').join('');
+        }
+      }
+
+      const statsListenText = document.getElementById('stats-listen-text');
+      if (statsListenText) {
+        statsListenText.textContent = `已完成: ${completedListenUnits} / ${totalUnits} 单元`;
+      }
+      for (let i = 1; i <= 5; i++) {
+        const speaker = document.getElementById(`listen-speaker-${i}`);
+        if (speaker) {
+          const activeThreshold = totalUnits > 0 ? Math.ceil((completedListenUnits / totalUnits) * 5) : 0;
+          if (i <= activeThreshold) {
+            speaker.classList.remove('opacity-30');
+            speaker.classList.add('opacity-100');
+          } else {
+            speaker.classList.remove('opacity-100');
+            speaker.classList.add('opacity-30');
+          }
+        }
+      }
+
+      const statsReadText = document.getElementById('stats-read-text');
+      if (statsReadText) {
+        statsReadText.textContent = `已读课文: ${completedReadUnits} / ${totalUnits} 课`;
+      }
+      const statsReadPercent = document.getElementById('stats-read-percent');
+      if (statsReadPercent) {
+        const percent = totalUnits > 0 ? Math.round((completedReadUnits / totalUnits) * 100) : 0;
+        statsReadPercent.textContent = `${percent}%`;
+        const pie = document.getElementById('stats-read-pie');
+        if (pie) {
+          pie.setAttribute('stroke-dasharray', `${percent}, 100`);
+        }
+      }
+    }
+
+    function openSelectLevelModal(mode = 'challenge') {
+      if (mode === 'challenge') {
+        targetStartPhase = 1;
+        document.getElementById('level-modal-title').textContent = "📖 选择闯关单元";
+      } else if (mode === 'listen') {
+        targetStartPhase = 2;
+        document.getElementById('level-modal-title').textContent = "🎧 选择听力单元";
+      } else if (mode === 'textbook') {
+        targetStartPhase = 'textbook';
+        document.getElementById('level-modal-title').textContent = "📘 选择课文点读单元";
+      }
+      
+      const modal = document.getElementById('level-select-modal');
+      modal.classList.remove('hidden');
+      
+      // Render Grade Grid & Unit Cards inside Level Selection Modal
+      populateGradeSelector();
+      renderGradeUnitProgress();
+    }
+
+    function closeLevelSelectModal() {
+      document.getElementById('level-select-modal').classList.add('hidden');
+    }
+
+    function confirmLevelSelection() {
+      closeLevelSelectModal();
+      if (targetStartPhase === 'textbook') {
+        openTextbook();
+      } else {
+        startChallenge();
+      }
+    }
+
+    // Custom Electron control wrappers (if running in Electron)
+    function minimizeAppWindow() {
+      if (window.electron) window.electron.minimizeWindow();
+    }
+
+    function closeAppWindow() {
+      if (window.electron) window.electron.closeWindow();
     }
 
     function renderKidsDropdown() {
@@ -1814,6 +2139,7 @@
 
       // Update UI elements
       renderGradeUnitProgress();
+      updateHomeDashboard();
       if (!document.getElementById('view-dictionary').classList.contains('hidden')) {
         filterDictionary();
       }

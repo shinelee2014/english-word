@@ -186,26 +186,39 @@ if (fs.existsSync(PDF_DIR)) {
 app.use(express.static(__dirname));
 
 // --- Dynamic Port Binding & Server Startup ---
+let serverPortPromise = null;
+
 function startServer(port) {
-  const server = http.createServer(app);
-  
-  server.listen(port, () => {
-    const localIP = getLocalIP();
-    console.log('\n==================================================');
-    console.log(`🎉 English Word Local Server started successfully!`);
-    console.log(`- Local Access:   http://localhost:${port}`);
-    console.log(`- LAN Access:     http://${localIP}:${port}`);
-    console.log(`==================================================\n`);
-  });
-  
-  server.on('error', (err) => {
-    if (err.code === 'EADDRINUSE') {
-      console.warn(`⚠️ Port ${port} is currently in use. Trying next port ${port + 1}...`);
-      startServer(port + 1);
-    } else {
-      console.error('Server startup error:', err);
-    }
-  });
+  if (!serverPortPromise) {
+    serverPortPromise = new Promise((resolve) => {
+      function tryListen(p) {
+        const server = http.createServer(app);
+        server.listen(p, () => {
+          const localIP = getLocalIP();
+          console.log('\n==================================================');
+          console.log(`🎉 English Word Local Server started successfully!`);
+          console.log(`- Local Access:   http://localhost:${p}`);
+          console.log(`- LAN Access:     http://${localIP}:${p}`);
+          console.log(`==================================================\n`);
+          resolve(p);
+        });
+        server.on('error', (err) => {
+          if (err.code === 'EADDRINUSE') {
+            console.warn(`⚠️ Port ${p} is currently in use. Trying next port ${p + 1}...`);
+            tryListen(p + 1);
+          } else {
+            console.error('Server startup error:', err);
+          }
+        });
+      }
+      tryListen(port);
+    });
+  }
+  return serverPortPromise;
 }
 
-startServer(DEFAULT_PORT);
+const listenPromise = startServer(DEFAULT_PORT);
+
+module.exports = {
+  getListenPort: () => listenPromise
+};

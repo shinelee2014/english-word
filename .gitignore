@@ -4,3 +4,4 @@ data/
 *.pdf
 ocr_result.txt
 译林版小学英语【电子课本】/
+dist/

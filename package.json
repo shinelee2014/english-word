@@ -1,15 +1,49 @@
 {
-  "name": "suz-english-word-server",
+  "name": "suz-english-word-desktop",
   "version": "1.0.0",
-  "description": "Local LAN Server and Desktop helper for Suzhou Primary English Word Learning System",
-  "main": "server.js",
+  "description": "Local LAN Server and Desktop App for Suzhou Primary English Word Learning System",
+  "main": "main.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "electron .",
+    "server": "node server.js",
+    "build": "electron-builder"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2"
   },
+  "devDependencies": {
+    "electron": "^30.0.9",
+    "electron-builder": "^24.13.3"
+  },
   "author": "Antigravity",
-  "license": "MIT"
+  "license": "MIT",
+  "build": {
+    "appId": "com.suz.english.word",
+    "productName": "悦读英语",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "files": [
+      "index.html",
+      "words_data.js",
+      "main.js",
+      "preload.js",
+      "server.js",
+      "package.json",
+      "data/**/*"
+    ],
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
 }
