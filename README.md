@@ -5,6 +5,13 @@
 ## 🌐 在线访问
 👉 **直接点击访问**：[https://shinelee2014.github.io/english-word/](https://shinelee2014.github.io/english-word/)
 
+## 💻 Windows 桌面客户端下载
+为了获得更好的独立防干扰学习体验、内置 12 本高清电子课本一键点读、且免去浏览器缓存被清理的烦恼，您可以下载我们的 **Windows 桌面客户端**：
+* 🚀 **绿色免安装版 (Portable)**：[点击下载 悦读英语 1.0.0.exe](https://github.com/shinelee2014/english-word/releases/download/v1.0.0/%E6%82%A6%E8%AF%BB%E8%8B%B1%E8%AF%AD.1.0.0.exe) — 双击直接运行，省时省力，数据永久保存在本目录下。
+* 🚚 **一键安装版 (Installer)**：[点击下载 悦读英语 Setup 1.0.0.exe](https://github.com/shinelee2014/english-word/releases/download/v1.0.0/%E6%82%A6%E8%AF%BB%E8%8B%B1%E8%AF%AD.Setup.1.0.0.exe) — 自动生成桌面和开始菜单图标。
+
+*(提示：下载后，您可以在本项目的 [GitHub Releases 页面](https://github.com/shinelee2014/english-word/releases) 找到所有版本的下载安装包。)*
+
 
 ## 🌟 核心特性
 
