@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  suz-english-word:
+    build: .
+    container_name: suz-english-word
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+      - "./译林版小学英语【电子课本】:/app/译林版小学英语【电子课本】"
+    restart: always

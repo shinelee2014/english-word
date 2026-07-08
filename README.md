@@ -23,25 +23,57 @@
 
 ## 🚀 局域网/威联通 NAS 部署与数据持久化
 
-为了给家里的孩子保存通关进度与生词本，且不受设备浏览器缓存清除的影响，本项目已升级为 **“前后台结合”的轻量化持久方案**：
+为了给家里的孩子保存通关进度与生词本，且不受设备浏览器缓存清除的影响，本项目已支持两种持久化部署方案：**Docker 容器化部署（推荐）** 和 **Web/PHP 部署**：
 
-### 1. 威联通 NAS 部署步骤
+### 🐳 方案一：Docker 容器化部署 (推荐 ⭐⭐⭐)
+本方式最干净、安全，支持通过挂载本地目录的方式实现进度与教材数据的物理隔离。
+
+#### 1. 使用 Docker Compose 一键启动（命令行模式）
+1. 将本项目所有代码下载/同步到您的 NAS 某个目录下。
+2. 确保教材已放入该目录下的 `译林版小学英语【电子课本】` 文件夹中。
+3. 在该目录下直接运行以下命令启动服务：
+   ```bash
+   docker compose up -d --build
+   ```
+4. 服务启动后，局域网内的平板、手机通过浏览器直接访问 `http://[QNAP的局域网IP]:3000` 即可。
+
+#### 2. 在威联通 Container Station (图形界面) 部署
+1. 打开威联通 **Container Station (容器工作站)**，点击 **“应用程序 (Applications)”** -> **“创建 (Create)”**。
+2. 在 YAML 编辑器中复制并修改以下内容：
+   ```yaml
+   version: '3.8'
+   services:
+     suz-english-word:
+       image: node:20-alpine
+       container_name: suz-english-word
+       working_dir: /app
+       command: node server.js
+       ports:
+         - "3000:3000"
+       volumes:
+         # 映射您的学习进度目录
+         - /share/Container/english-word/data:/app/data
+         # 映射您的电子课本文件夹路径
+         - "/share/Container/english-word/译林版小学英语【电子课本】:/app/译林版小学英语【电子课本】"
+       restart: always
+   ```
+   *(注：请将冒号左侧的 `/share/Container/...` 路径替换为您的 NAS 真实物理共享路径。)*
+
+---
+
+### 🌐 方案二：威联通 Web Server 部署 (PHP 经典模式)
 1. **启用网页服务器与 PHP**：
-   * 在 QNAP 控制台的 **“应用服务”** -> **“网页服务器”** (Web Server / Web Station) 中，启用 Web 服务器。
-   * 确保勾选或启用 **PHP 支持**（PHP 7.x 或 8.x 均可）。
+   * 在 QNAP 控制台的 **“应用服务”** -> **“网页服务器”** 中，启用 Web 服务器并勾选 **PHP 支持**。
 2. **复制文件**：
-   * 将项目所有文件（包括新加入的 `api.php`）拷贝到威联通默认共享文件夹 **`Web`** 下的 `english` 目录中。
-   * 局域网内的平板、手机通过浏览器直接访问 `http://[QNAP的局域网IP]/english/` 即可。
+   * 将项目所有文件（包括 `api.php`）拷贝到威联通默认共享文件夹 **`Web`** 下的 `english` 目录中。
+   * 局域网内的设备访问 `http://[QNAP的局域网IP]/english/` 即可。
 
-### 2. 多用户进度保存机制
-* **自动/手动保存**：应用内提供了 `💾 保存` 按钮。点击后，数据会通过局域网发送给威联通的 `api.php`，自动在 `Web/english/data/` 目录下生成各学习者的 JSON 进度与生词本文件。
+### 💾 进度保存与永久化机制
+* **跨设备云同步**：应用内提供了 `💾 保存` 按钮。保存的数据会自动写入 NAS 的 `data/` 目录中生成 JSON 进度文件。
 * **数据永久化**：即使清除 iPad 浏览器缓存，或者更换学习设备，只要在威联通局域网内访问并选择对应学习者，进度和生词本都会自动加载。
 
-### 3. GitHub Pages 的局限与替代方案（BaaS）
-* **GitHub Pages 限制**：由于 GitHub Pages 仅支持静态网页托管，不支持 PHP 等后端服务，因此在该地址下访问时，系统会**自动降级使用浏览器的 localStorage** 来保存进度。
-* **如果希望 GitHub Pages 也支持跨设备云同步**：
-  * 可以选择使用 **BaaS（后端即服务）** 方案（如 **Vercel / Supabase / LeanCloud**）。
-  * 它们提供免费的云端数据库，前端 JavaScript 可以直接通过 API 接口把进度和生词本存入云端，不需要我们自己编写和维护服务器后端代码。
+### 3. GitHub Pages 静态访问降级
+* 由于 GitHub Pages 仅支持静态网页托管，不支持 Docker/PHP 等后端服务，因此通过 GitHub Pages 访问时，系统会自动安全降级使用浏览器的本地 localStorage。
 
 ---
 *由 AI 助理 Antigravity 设计并搭建 ❤️*
