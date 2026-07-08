@@ -1957,7 +1957,10 @@
       iframe.src = `/pdf/${encodeURIComponent(pdfName)}`;
       document.getElementById('pdf-viewer-title').textContent = `📖 电子课本预览：${pdfName.replace('.pdf', '')}`;
     }
-
+    function closePdfViewer() {
+      const modal = document.getElementById('pdf-viewer-modal');
+      modal.classList.add('hidden');
+      document.getElementById('pdf-iframe').src = "";
     }
 
     // --- Custom Dashboard & Level Selection Functions (Phase 2) ---
