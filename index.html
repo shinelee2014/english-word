@@ -188,6 +188,9 @@
         <button onclick="viewEncyclopedia()" class="bg-mustard hover:bg-yellow-300 px-4 py-1.5 text-sm font-bold hand-drawn-border-sm">
           单词大全 📖
         </button>
+        <button id="nav-btn-pdf" onclick="openPdfViewer()" class="bg-blue-300 hover:bg-blue-400 px-4 py-1.5 text-sm font-bold hand-drawn-border-sm hidden">
+          电子课本 📖
+        </button>
       </div>
     </div>
   </header>
@@ -585,7 +588,32 @@
   <footer class="mt-auto border-t-4 border-charcoal bg-white p-4 text-center text-xs font-semibold text-wood-dark">
     <p>学习就是一次奇妙的发现之旅！🌟 江苏省苏州市小学英语译林版单词学习助手</p>
     <p class="mt-1 text-gray-400 font-comic">Made with ❤️ for kids | Native Offline TTS | Handcrafted UI</p>
+    <p id="lan-share-info" class="mt-2 text-green-700 font-bold hidden"></p>
   </footer>
+
+  <!-- E-Textbook Viewer Modal -->
+  <div id="pdf-viewer-modal" class="fixed inset-0 bg-charcoal bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
+    <div class="paper-texture w-full max-w-5xl h-[90vh] hand-drawn-border flex flex-col no-press relative">
+      <!-- Close Button -->
+      <button onclick="closePdfViewer()" class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-peach hover:bg-red-400 border-2 border-charcoal font-bold text-center flex items-center justify-center text-white text-lg cursor-pointer">
+        ×
+      </button>
+      <!-- Modal Header -->
+      <div class="p-4 border-b-4 border-charcoal flex justify-between items-center bg-cream-dark">
+        <h3 id="pdf-viewer-title" class="font-bold text-lg text-charcoal">📖 电子课本预览</h3>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold">切换课本:</span>
+          <select id="pdf-select" class="hand-drawn-border-sm px-2 py-1 text-sm font-bold bg-white" onchange="loadSelectedPdf()">
+            <!-- Options populated dynamically -->
+          </select>
+        </div>
+      </div>
+      <!-- Modal Content (PDF Embed) -->
+      <div class="flex-grow p-2 bg-cream-light">
+        <iframe id="pdf-iframe" src="" class="w-full h-full rounded border-2 border-charcoal bg-white"></iframe>
+      </div>
+    </div>
+  </div>
 
   <!-- Include Vocabulary Database -->
   <script src="words_data.js?v=20260707_v1"></script>
@@ -596,12 +624,13 @@
     const KIDS_LIST_KEY  = 'suz_eng_word_kids';
     const ACTIVE_KID_KEY = 'suz_eng_word_active_kid';
 
-    // Detect whether we are running on the NAS (has api.php) or on GitHub Pages
-    const USE_API = (window.location.hostname !== 'shinelee2014.github.io' &&
-                     window.location.hostname !== 'localhost' &&
-                     window.location.protocol !== 'file:');
-    // API base path (relative to current host so it works regardless of port)
-    const API_BASE = '/english/api.php';
+    // Detect whether we are running on a server (NAS or Local Node.js server)
+    const USE_API = (window.location.protocol !== 'file:' && window.location.hostname !== 'shinelee2014.github.io');
+    
+    // API base path: handle NAS subdirectory vs local server root
+    const API_BASE = window.location.pathname.startsWith('/english') ? '/english/api.php' : '/api.php';
+
+    let pdfList = [];
 
     // Unified async API helper
     async function apiCall(params, body = null) {
@@ -1657,12 +1686,89 @@
         }
         renderKidsDropdown();
         await loadKidData(activeKid);
+        if (apiData && apiData.lanIP) {
+          const shareInfo = document.getElementById('lan-share-info');
+          if (shareInfo) {
+            shareInfo.textContent = `💡 局域网分享已启动！其他设备（手机/iPad）浏览器访问：http://${apiData.lanIP}:${apiData.port}`;
+            shareInfo.classList.remove('hidden');
+          }
+          await initETextbooks();
+        }
       } catch (e) {
         console.error("初始化小朋友档案失败", e);
         kidsList = ['默认小朋友'];
         activeKid = '默认小朋友';
         await loadKidData(activeKid);
       }
+    }
+
+    async function initETextbooks() {
+      if (!USE_API) return;
+      try {
+        const data = await fetch('/api/pdf-list').then(r => r.json());
+        if (data && Array.isArray(data.pdfs) && data.pdfs.length > 0) {
+          pdfList = data.pdfs;
+          document.getElementById('nav-btn-pdf').classList.remove('hidden');
+          
+          const select = document.getElementById('pdf-select');
+          select.innerHTML = "";
+          pdfList.forEach(pdf => {
+            const opt = document.createElement('option');
+            opt.value = pdf;
+            opt.textContent = pdf.replace('译林版', '').replace('【高清教材】.pdf', '');
+            select.appendChild(opt);
+          });
+        }
+      } catch (e) {
+        console.warn('[E-Textbooks] failed to load:', e);
+      }
+    }
+
+    function getDefaultPdfForGrade(gradeKey) {
+      const gradeMapping = {
+        "G1_S1": "1年级英语上册",
+        "G1_S2": "1年级英语下册",
+        "G2_S1": "2年级英语上册",
+        "G2_S2": "2年级英语下册",
+        "G3_S1": "3年级英语上册",
+        "G3_S2": "3年级英语下册",
+        "G4_S1": "4年级英语上册",
+        "G4_S2": "4年级英语下册",
+        "G5_S1": "5年级英语上册",
+        "G5_S2": "5年级英语下册",
+        "G6_S1": "6年级英语上册",
+        "G6_S2": "6年级英语下册"
+      };
+      const part = gradeMapping[gradeKey];
+      if (!part) return "";
+      return pdfList.find(pdf => pdf.includes(part)) || "";
+    }
+
+    function openPdfViewer() {
+      const modal = document.getElementById('pdf-viewer-modal');
+      modal.classList.remove('hidden');
+      
+      const defaultPdf = getDefaultPdfForGrade(currentGrade);
+      if (defaultPdf) {
+        const select = document.getElementById('pdf-select');
+        select.value = defaultPdf;
+      }
+      loadSelectedPdf();
+    }
+
+    function loadSelectedPdf() {
+      const select = document.getElementById('pdf-select');
+      const pdfName = select.value;
+      if (!pdfName) return;
+      const iframe = document.getElementById('pdf-iframe');
+      iframe.src = `/pdf/${encodeURIComponent(pdfName)}`;
+      document.getElementById('pdf-viewer-title').textContent = `📖 电子课本预览：${pdfName.replace('.pdf', '')}`;
+    }
+
+    function closePdfViewer() {
+      const modal = document.getElementById('pdf-viewer-modal');
+      modal.classList.add('hidden');
+      document.getElementById('pdf-iframe').src = "";
     }
 
     function renderKidsDropdown() {
