@@ -9,4 +9,5 @@
 3.  **威联通 NAS (QNAP NAS)**：
     *   通过 SSH/SFTP 连接到威联通 NAS (`192.168.199.63`)，用户名为 `admin`，密码为 `19821026lxn`。
     *   将最新的核心代码文件（`index.html`、`server.js`、`words_data.js`、`package.json`、`package-lock.json`、`Dockerfile`、`docker-compose.yml`）同步上传覆盖到 NAS 部署目录 `/share/CACHEDEV1_DATA/Container/english-word/`。
-    *   若是代码或 Docker 依赖发生改变，在本地打包导出最新镜像（`docker save`），上传并使用 `docker load` 载入 NAS，然后重启容器以保证威联通端的网页/Docker 版本与本地电脑、GitHub 实时同步。
+    *   若是代码或 Docker 依赖发生改变，在本地打包导出最新镜像（`docker save`），上传并使用 `docker load` 载入 NAS，然后重启容器以保证威联通端的 Docker 版本与本地电脑、GitHub 实时同步。
+    *   *(注：原威联通轻量 PHP 网页版已废弃删除，后续更新仅发布至 Docker 容器版，不再进行 PHP 目录同步。)*
