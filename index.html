@@ -2384,12 +2384,34 @@
       // Try NAS API first, fall back to localStorage
       const apiData = await apiCall({ action: 'load', kid: activeKid });
       if (apiData) {
-        // Force progress to be an object if it was serialized as an empty array []
-        kidProgress     = (apiData.progress && !Array.isArray(apiData.progress)) ? apiData.progress : {};
-        bookmarkedWords = new Set(apiData.bookmarks || []);
-        // Sync to localStorage cache
+        // Read local progress first to enable smart merging
+        let localProgress = {};
+        try {
+          const sp = localStorage.getItem(`suz_eng_word_progress_${activeKid}`);
+          localProgress = sp ? JSON.parse(sp) : {};
+          if (Array.isArray(localProgress)) localProgress = {};
+        } catch (e) {}
+
+        // Read local bookmarks
+        let localBookmarks = [];
+        try {
+          const sb = localStorage.getItem(`suz_eng_word_bookmarks_${activeKid}`);
+          localBookmarks = sb ? JSON.parse(sb) : [];
+        } catch (e) {}
+
+        const serverProgress = (apiData.progress && !Array.isArray(apiData.progress)) ? apiData.progress : {};
+        const serverBookmarks = apiData.bookmarks || [];
+
+        // Smart merge: combine local cache and server backups
+        kidProgress = { ...localProgress, ...serverProgress };
+        bookmarkedWords = new Set([...localBookmarks, ...serverBookmarks]);
+
+        // Sync back to local storage and update NAS immediately
         localStorage.setItem(`suz_eng_word_progress_${activeKid}`,  JSON.stringify(kidProgress));
         localStorage.setItem(`suz_eng_word_bookmarks_${activeKid}`, JSON.stringify(Array.from(bookmarkedWords)));
+        
+        // Push merged state to NAS to guarantee sync
+        apiCall({ action: 'save', kid: activeKid }, { progress: kidProgress, bookmarks: Array.from(bookmarkedWords) });
       } else {
         // localStorage fallback
         try {
