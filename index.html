@@ -1983,7 +1983,17 @@
         if (apiData && apiData.lanIP) {
           const shareInfo = document.getElementById('lan-share-info');
           if (shareInfo) {
-            shareInfo.textContent = `💡 局域网分享已启动！其他设备（手机/iPad）浏览器访问：http://${apiData.lanIP}:${apiData.port}`;
+            // Intelligent client-side LAN IP evaluation
+            let ipToDisplay = apiData.lanIP;
+            const currentHost = window.location.hostname;
+            const isLanIP = (ip) => /^(192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.)/.test(ip);
+
+            // If the user accessed the server via a real physical LAN IP, prioritize that IP
+            if (isLanIP(currentHost)) {
+              ipToDisplay = currentHost;
+            }
+
+            shareInfo.textContent = `💡 局域网分享已启动！其他设备（手机/iPad）浏览器访问：http://${ipToDisplay}:${apiData.port} (或您电脑/NAS的实际局域网IP)`;
             shareInfo.classList.remove('hidden');
           }
           // initETextbooks called dynamically on load

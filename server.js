@@ -112,18 +112,48 @@ function getPdfDir() {
   return paths[0];
 }
 
-// Get the local IPv4 address for LAN access info
+// Get the local IPv4 address for LAN access info, prioritizing physical adapters and filtering virtual ones
 function getLocalIP() {
   const interfaces = os.networkInterfaces();
+  let fallbackIP = '127.0.0.1';
+  
+  // Sort interface names to prioritize physical-like interfaces (WLAN, Wi-Fi, Ethernet, 以太网)
+  const keys = Object.keys(interfaces).sort((a, b) => {
+    const isPhysical = (name) => /wi-fi|wlan|ethernet|以太网|无线|en[0-9]|eth[0-9]/i.test(name);
+    const aPhys = isPhysical(a);
+    const bPhys = isPhysical(b);
+    if (aPhys && !bPhys) return -1;
+    if (!aPhys && bPhys) return 1;
+    return a.localeCompare(b);
+  });
+
+  for (const name of keys) {
+    // Skip virtual adapters to prevent incorrect IP addresses in WSL/Docker/VirtualBox environments
+    if (/virtual|vbox|vmware|docker|wsl|vEthernet|vpn|tunnel|loopback|isatap/i.test(name)) {
+      continue;
+    }
+    for (const iface of interfaces[name]) {
+      if (iface.family === 'IPv4' && !iface.internal) {
+        // Only return link-local as ultimate fallback
+        if (iface.address.startsWith('169.254.')) {
+          if (fallbackIP === '127.0.0.1') fallbackIP = iface.address;
+          continue;
+        }
+        return iface.address;
+      }
+    }
+  }
+  
+  // Ultimate fallback: return any non-internal IPv4
   for (const name of Object.keys(interfaces)) {
     for (const iface of interfaces[name]) {
-      // Skip internal (loopback) and non-ipv4 addresses
       if (iface.family === 'IPv4' && !iface.internal) {
         return iface.address;
       }
     }
   }
-  return '127.0.0.1';
+  
+  return fallbackIP;
 }
 
 // --- Mock api.php Routes ---
