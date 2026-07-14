@@ -4550,7 +4550,474 @@ const WORDS_DATA = {
         }
       ]
     }
-  }
+  },
+  "G6_XSC": {
+    "name": "小升初单词",
+    "units": {
+        "Unit 1 不规则动词变形": [
+            {
+                "word": "bring",
+                "translation": "带来 (过去式: brought, 过去分词: brought)",
+                "phonetic": "/brɪŋ/"
+            },
+            {
+                "word": "buy",
+                "translation": "买 (过去式: bought, 过去分词: bought)",
+                "phonetic": "/baɪ/"
+            },
+            {
+                "word": "catch",
+                "translation": "抓住，赶上 (过去式: caught, 过去分词: caught)",
+                "phonetic": "/kætʃ/"
+            },
+            {
+                "word": "fight",
+                "translation": "打架，战斗 (过去式: fought, 过去分词: fought)",
+                "phonetic": "/faɪt/"
+            },
+            {
+                "word": "think",
+                "translation": "认为，思考 (过去式: thought, 过去分词: thought)",
+                "phonetic": "/θɪŋk/"
+            },
+            {
+                "word": "keep",
+                "translation": "保持，保留 (过去式: kept, 过去分词: kept)",
+                "phonetic": "/kiːp/"
+            },
+            {
+                "word": "sleep",
+                "translation": "睡觉 (过去式: slept, 过去分词: slept)",
+                "phonetic": "/sliːp/"
+            },
+            {
+                "word": "sweep",
+                "translation": "扫，打扫 (过去式: swept, 过去分词: swept)",
+                "phonetic": "/swiːp/"
+            },
+            {
+                "word": "feel",
+                "translation": "感觉 (过去式: felt, 过去分词: felt)",
+                "phonetic": "/fiːl/"
+            },
+            {
+                "word": "leave",
+                "translation": "离开，落下 (过去式: left, 过去分词: left)",
+                "phonetic": "/liːv/"
+            },
+            {
+                "word": "meet",
+                "translation": "遇见，会面 (过去式: met, 过去分词: met)",
+                "phonetic": "/miːt/"
+            },
+            {
+                "word": "teach",
+                "translation": "教，教学 (过去式: taught, 过去分词: taught)",
+                "phonetic": "/tiːtʃ/"
+            },
+            {
+                "word": "find",
+                "translation": "找到，发现 (过去式: found, 过去分词: found)",
+                "phonetic": "/faɪnd/"
+            },
+            {
+                "word": "spend",
+                "translation": "花费(时间/金钱) (过去式: spent, 过去分词: spent)",
+                "phonetic": "/spend/"
+            },
+            {
+                "word": "build",
+                "translation": "建造，构建 (过去式: built, 过去分词: built)",
+                "phonetic": "/bɪld/"
+            },
+            {
+                "word": "mean",
+                "translation": "意思是，意味着 (过去式: meant, 过去分词: meant)",
+                "phonetic": "/miːn/"
+            },
+            {
+                "word": "become",
+                "translation": "变成，成为 (过去式: became, 过去分词: become)",
+                "phonetic": "/bɪˈkʌm/"
+            },
+            {
+                "word": "come",
+                "translation": "来 (过去式: came, 过去分词: come)",
+                "phonetic": "/kʌm/"
+            },
+            {
+                "word": "run",
+                "translation": "跑 (过去式: ran, 过去分词: run)",
+                "phonetic": "/rʌn/"
+            },
+            {
+                "word": "begin",
+                "translation": "开始 (过去式: began, 过去分词: begun)",
+                "phonetic": "/bɪˈɡɪn/"
+            },
+            {
+                "word": "draw",
+                "translation": "画，拉 (过去式: drew, 过去分词: drawn)",
+                "phonetic": "/drɔː/"
+            },
+            {
+                "word": "drink",
+                "translation": "喝 (过去式: drank, 过去分词: drunk)",
+                "phonetic": "/drɪŋk/"
+            },
+            {
+                "word": "sing",
+                "translation": "唱歌 (过去式: sang, 过去分词: sung)",
+                "phonetic": "/sɪŋ/"
+            },
+            {
+                "word": "swim",
+                "translation": "游泳 (过去式: swam, 过去分词: swum)",
+                "phonetic": "/swɪm/"
+            },
+            {
+                "word": "fly",
+                "translation": "飞，放(风筝) (过去式: flew, 过去分词: flown)",
+                "phonetic": "/flaɪ/"
+            },
+            {
+                "word": "grow",
+                "translation": "生长，种植 (过去式: grew, 过去分词: grown)",
+                "phonetic": "/ɡrəʊ/"
+            },
+            {
+                "word": "know",
+                "translation": "知道，认识 (过去式: knew, 过去分词: known)",
+                "phonetic": "/nəʊ/"
+            },
+            {
+                "word": "throw",
+                "translation": "扔，投掷 (过去式: threw, 过去分词: thrown)",
+                "phonetic": "/θrəʊ/"
+            },
+            {
+                "word": "ride",
+                "translation": "骑(马/车) (过去式: rode, 过去分词: ridden)",
+                "phonetic": "/raɪd/"
+            },
+            {
+                "word": "write",
+                "translation": "写 (过去式: wrote, 过去分词: written)",
+                "phonetic": "/raɪt/"
+            },
+            {
+                "word": "speak",
+                "translation": "说(语言) (过去式: spoke, 过去分词: spoken)",
+                "phonetic": "/spiːk/"
+            },
+            {
+                "word": "choose",
+                "translation": "选择 (过去式: chose, 过去分词: chosen)",
+                "phonetic": "/tʃuːz/"
+            },
+            {
+                "word": "eat",
+                "translation": "吃 (过去式: ate, 过去分词: eaten)",
+                "phonetic": "/iːt/"
+            },
+            {
+                "word": "give",
+                "translation": "给，付出 (过去式: gave, 过去分词: given)",
+                "phonetic": "/ɡɪv/"
+            },
+            {
+                "word": "see",
+                "translation": "看见 (过去式: saw, 过去分词: seen)",
+                "phonetic": "/siː/"
+            },
+            {
+                "word": "take",
+                "translation": "拿走，花费 (过去式: took, 过去分词: taken)",
+                "phonetic": "/teɪk/"
+            },
+            {
+                "word": "let",
+                "translation": "让 (过去式: let, 过去分词: let)",
+                "phonetic": "/let/"
+            },
+            {
+                "word": "put",
+                "translation": "放，置 (过去式: put, 过去分词: put)",
+                "phonetic": "/pʊt/"
+            },
+            {
+                "word": "read",
+                "translation": "读 (过去式: read, 过去分词: read)",
+                "phonetic": "/riːd/"
+            },
+            {
+                "word": "hurt",
+                "translation": "伤害，疼 (过去式: hurt, 过去分词: hurt)",
+                "phonetic": "/hɜːt/"
+            },
+            {
+                "word": "cut",
+                "translation": "剪，切 (过去式: cut, 过去分词: cut)",
+                "phonetic": "/kʌt/"
+            }
+        ],
+        "Unit 2 比较级与最高级": [
+            {
+                "word": "good / well",
+                "translation": "好的/好地 (比较级: better, 最高级: best)",
+                "phonetic": "/ɡʊd / wel/"
+            },
+            {
+                "word": "bad / badly / ill",
+                "translation": "坏的/糟糕地 (比较级: worse, 最高级: worst)",
+                "phonetic": "/bæd / ˈbædli / ɪl/"
+            },
+            {
+                "word": "many / much",
+                "translation": "多的 (比较级: more, 最高级: most)",
+                "phonetic": "/ˈmeni / mʌtʃ/"
+            },
+            {
+                "word": "little",
+                "translation": "少的 (比较级: less, 最高级: least)",
+                "phonetic": "/ˈlɪtl/"
+            },
+            {
+                "word": "far",
+                "translation": "远的 (比较级: farther / further, 最高级: farthest/furthest)",
+                "phonetic": "/fɑː/"
+            }
+        ],
+        "Unit 3 易混淆词对": [
+            {
+                "word": "quiet",
+                "translation": "安静的",
+                "phonetic": "/ˈkwaɪət/"
+            },
+            {
+                "word": "quite",
+                "translation": "非常，十分",
+                "phonetic": "/kwaɪt/"
+            },
+            {
+                "word": "weather",
+                "translation": "天气",
+                "phonetic": "/ˈweðə/"
+            },
+            {
+                "word": "whether",
+                "translation": "是否",
+                "phonetic": "/ˈweðə/"
+            },
+            {
+                "word": "their",
+                "translation": "他们的",
+                "phonetic": "/ðeə/"
+            },
+            {
+                "word": "there",
+                "translation": "那里",
+                "phonetic": "/ðeə/"
+            },
+            {
+                "word": "through",
+                "translation": "穿过，穿透",
+                "phonetic": "/θruː/"
+            },
+            {
+                "word": "threw",
+                "translation": "扔，throw的过去式",
+                "phonetic": "/θruː/"
+            },
+            {
+                "word": "whose",
+                "translation": "谁的",
+                "phonetic": "/huːz/"
+            },
+            {
+                "word": "who's",
+                "translation": "who is 的缩写",
+                "phonetic": "/huːz/"
+            },
+            {
+                "word": "hear",
+                "translation": "听见",
+                "phonetic": "/hɪə/"
+            },
+            {
+                "word": "here",
+                "translation": "这里",
+                "phonetic": "/hɪə/"
+            },
+            {
+                "word": "present",
+                "translation": "礼物，现在的",
+                "phonetic": "/ˈpreznt/"
+            },
+            {
+                "word": "parent",
+                "translation": "家长，父亲或母亲",
+                "phonetic": "/ˈpeərənt/"
+            },
+            {
+                "word": "excited",
+                "translation": "感到兴奋的，主语是人",
+                "phonetic": "/ɪkˈsaɪtɪd/"
+            },
+            {
+                "word": "exciting",
+                "translation": "令人兴奋的，主语是物/事",
+                "phonetic": "/ɪkˈsaɪtɪŋ/"
+            }
+        ],
+        "Unit 4 写作提分副词": [
+            {
+                "word": "suddenly",
+                "translation": " (adv.)",
+                "phonetic": "/ˈsʌdənli/"
+            },
+            {
+                "word": "excitedly",
+                "translation": " (adv.)",
+                "phonetic": "/ɪkˈsaɪtɪdli/"
+            },
+            {
+                "word": "carefully",
+                "translation": " (adv.)",
+                "phonetic": "/ˈkeəfəli/"
+            },
+            {
+                "word": "happily",
+                "translation": " (adv.)",
+                "phonetic": "/ˈhæpɪli/"
+            },
+            {
+                "word": "sadly",
+                "translation": " (adv.)",
+                "phonetic": "/ˈsædli/"
+            },
+            {
+                "word": "firstly",
+                "translation": "首先 (adv.)",
+                "phonetic": "/ˈfɜːstli/"
+            },
+            {
+                "word": "secondly",
+                "translation": "其次 (adv.)",
+                "phonetic": "/ˈsekəndli/"
+            },
+            {
+                "word": "finally",
+                "translation": "最后 (adv.)",
+                "phonetic": "/ˈfaɪnəli/"
+            }
+        ],
+        "Unit 5 公共场所词汇": [
+            {
+                "word": "museum",
+                "translation": "博物馆",
+                "phonetic": "/mjuːˈziːəm/"
+            },
+            {
+                "word": "library",
+                "translation": "图书馆",
+                "phonetic": "/ˈlaɪbrəri/"
+            },
+            {
+                "word": "cinema",
+                "translation": "电影院",
+                "phonetic": "/ˈsɪnəmə/"
+            },
+            {
+                "word": "theater",
+                "translation": "剧院，戏院",
+                "phonetic": "/ˈθɪətə/"
+            },
+            {
+                "word": "stadium",
+                "translation": "体育场，运动场",
+                "phonetic": "/ˈsteɪdiəm/"
+            },
+            {
+                "word": "hospital",
+                "translation": "医院",
+                "phonetic": "/ˈhɒspɪtl/"
+            },
+            {
+                "word": "restaurant",
+                "translation": "饭馆，餐厅",
+                "phonetic": "/ˈrestrɒnt/"
+            },
+            {
+                "word": "airport",
+                "translation": "机场",
+                "phonetic": "/ˈeəpɔːt/"
+            },
+            {
+                "word": "station",
+                "translation": "车站，站台",
+                "phonetic": "/ˈsteɪʃn/"
+            }
+        ],
+        "Unit 6 学科与学习生活": [
+            {
+                "word": "Chinese",
+                "translation": "* 语文，中文；汉语 (n.)",
+                "phonetic": "/ˌtʃaɪˈniːz/"
+            },
+            {
+                "word": "maths",
+                "translation": "数学 (n.)",
+                "phonetic": "/mæθs/"
+            },
+            {
+                "word": "English",
+                "translation": "* 英语 (n.)",
+                "phonetic": "/ˈɪŋɡlɪʃ/"
+            },
+            {
+                "word": "science",
+                "translation": "* 科学 (n.)",
+                "phonetic": "/ˈsaɪəns/"
+            },
+            {
+                "word": "art",
+                "translation": "* 美术，艺术 (n.)",
+                "phonetic": "/ɑːt/"
+            },
+            {
+                "word": "music",
+                "translation": "* 音乐 (n.)",
+                "phonetic": "/ˈmjuːzɪk/"
+            },
+            {
+                "word": "PE",
+                "translation": "体育 (n.)",
+                "phonetic": "/ˌpiː ˈiː/"
+            },
+            {
+                "word": "computer",
+                "translation": "计算机，信息技术 (n.)",
+                "phonetic": "/kəmˈpjuːtə/"
+            },
+            {
+                "word": "history",
+                "translation": "* 历史 (n.)",
+                "phonetic": "/ˈhɪstri/"
+            },
+            {
+                "word": "geography",
+                "translation": "* 地理 (n.)",
+                "phonetic": "/dʒiˈɒɡrəfi/"
+            },
+            {
+                "word": "information",
+                "translation": "* 信息；资讯 (n.)",
+                "phonetic": "/ˌɪnfəˈmeɪʃn/"
+            }
+        ]
+    }
+}
 };
 
 const TEXTS_DATA = {
