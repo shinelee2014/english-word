@@ -7319,7 +7319,7 @@ const TEXTS_DATA = {
   }
 };
 
-const XSC_SPECIAL_DATA = {
+var XSC_SPECIAL_DATA = {
   "verbs": [
     {
       "word": "bring",
@@ -7969,3 +7969,7 @@ const XSC_SPECIAL_DATA = {
     }
   ]
 };
+
+if (typeof window !== 'undefined') {
+  window.XSC_SPECIAL_DATA = XSC_SPECIAL_DATA;
+}

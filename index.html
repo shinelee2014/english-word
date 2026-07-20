@@ -910,7 +910,7 @@
   </div>
 
   <!-- Include Vocabulary Database -->
-  <script src="words_data.js?v=20260720_xsc"></script>
+  <script src="words_data.js?v=20260720_v2"></script>
 
   <!-- Core App Logic -->
   <script>
@@ -2690,7 +2690,7 @@
 
     // 1. Verbs
     function initXscVerb() {
-      if (!window.XSC_SPECIAL_DATA || !XSC_SPECIAL_DATA.verbs) return;
+      if (typeof XSC_SPECIAL_DATA === 'undefined' || !XSC_SPECIAL_DATA.verbs) return;
       const list = XSC_SPECIAL_DATA.verbs;
       if (xscVerbIndex >= list.length) xscVerbIndex = 0;
       const item = list[xscVerbIndex];
@@ -2739,7 +2739,7 @@
 
     // 2. Comparatives
     function initXscComp() {
-      if (!window.XSC_SPECIAL_DATA || !XSC_SPECIAL_DATA.comparatives) return;
+      if (typeof XSC_SPECIAL_DATA === 'undefined' || !XSC_SPECIAL_DATA.comparatives) return;
       const list = XSC_SPECIAL_DATA.comparatives;
       if (xscCompIndex >= list.length) xscCompIndex = 0;
       const item = list[xscCompIndex];
@@ -2788,7 +2788,7 @@
 
     // 3. Confusables
     function initXscConf() {
-      if (!window.XSC_SPECIAL_DATA || !XSC_SPECIAL_DATA.confusables) return;
+      if (typeof XSC_SPECIAL_DATA === 'undefined' || !XSC_SPECIAL_DATA.confusables) return;
       const list = XSC_SPECIAL_DATA.confusables;
       if (xscConfIndex >= list.length) xscConfIndex = 0;
       const item = list[xscConfIndex];
@@ -2836,7 +2836,7 @@
 
     // 4. Essay Words
     function initXscEssay() {
-      if (!window.XSC_SPECIAL_DATA || !XSC_SPECIAL_DATA.essay_words) return;
+      if (typeof XSC_SPECIAL_DATA === 'undefined' || !XSC_SPECIAL_DATA.essay_words) return;
       const list = XSC_SPECIAL_DATA.essay_words;
       if (xscEssayIndex >= list.length) xscEssayIndex = 0;
       const item = list[xscEssayIndex];
