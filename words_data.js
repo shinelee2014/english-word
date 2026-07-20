@@ -7318,3 +7318,654 @@ const TEXTS_DATA = {
     }
   }
 };
+
+const XSC_SPECIAL_DATA = {
+  "verbs": [
+    {
+      "word": "bring",
+      "past": "brought",
+      "past_p": "brought",
+      "cn": "带来",
+      "tip": "易与 buy 混淆，注意拼写中含有字母 r"
+    },
+    {
+      "word": "buy",
+      "past": "bought",
+      "past_p": "bought",
+      "cn": "买",
+      "tip": "过去式无字母 r：b-o-u-g-h-t"
+    },
+    {
+      "word": "catch",
+      "past": "caught",
+      "past_p": "caught",
+      "cn": "抓住，赶上",
+      "tip": "注意元音字母组合为 au：c-a-u-g-h-t"
+    },
+    {
+      "word": "fight",
+      "past": "fought",
+      "past_p": "fought",
+      "cn": "打架，战斗",
+      "tip": "小升初阅读理解常见词汇"
+    },
+    {
+      "word": "think",
+      "past": "thought",
+      "past_p": "thought",
+      "cn": "认为，思考",
+      "tip": "常考句型：I thought you were... (我原以为...)"
+    },
+    {
+      "word": "keep",
+      "past": "kept",
+      "past_p": "kept",
+      "cn": "保持，保留",
+      "tip": "考查持续状态：keep healthy / keep quiet"
+    },
+    {
+      "word": "sleep",
+      "past": "slept",
+      "past_p": "slept",
+      "cn": "睡觉",
+      "tip": "易错写为 sleeped"
+    },
+    {
+      "word": "sweep",
+      "past": "swept",
+      "past_p": "swept",
+      "cn": "扫，打扫",
+      "tip": "常考家务场景：sweep the floor"
+    },
+    {
+      "word": "feel",
+      "past": "felt",
+      "past_p": "felt",
+      "cn": "感觉",
+      "tip": "考查感官形容词前置：feel tired"
+    },
+    {
+      "word": "leave",
+      "past": "left",
+      "past_p": "left",
+      "cn": "离开，落下",
+      "tip": "易考“把某物落在家中”：leave sth at home"
+    },
+    {
+      "word": "meet",
+      "past": "met",
+      "past_p": "met",
+      "cn": "遇见，会面",
+      "tip": "双元音 e 变单元音 e"
+    },
+    {
+      "word": "teach",
+      "past": "taught",
+      "past_p": "taught",
+      "cn": "教，教学",
+      "tip": "注意拼写为 au：t-a-u-g-h-t"
+    },
+    {
+      "word": "find",
+      "past": "found",
+      "past_p": "found",
+      "cn": "找到，发现",
+      "tip": "过去式 found 易与 build 过去式 built 混淆"
+    },
+    {
+      "word": "spend",
+      "past": "spent",
+      "past_p": "spent",
+      "cn": "花费(时间/金钱)",
+      "tip": "主语只能是人：sb spend time/money on sth"
+    },
+    {
+      "word": "build",
+      "past": "built",
+      "past_p": "built",
+      "cn": "建造，构建",
+      "tip": "字母 d 变 t"
+    },
+    {
+      "word": "mean",
+      "past": "meant",
+      "past_p": "meant",
+      "cn": "意思是，意味着",
+      "tip": "读音发生变化，meant 读音为 /ment/"
+    },
+    {
+      "word": "become",
+      "past": "became",
+      "past_p": "become",
+      "cn": "变成，成为",
+      "tip": "过去式中间是 a"
+    },
+    {
+      "word": "come",
+      "past": "came",
+      "past_p": "come",
+      "cn": "来",
+      "tip": "过去式中间是 a"
+    },
+    {
+      "word": "run",
+      "past": "ran",
+      "past_p": "run",
+      "cn": "跑",
+      "tip": "过去式中间是 a"
+    },
+    {
+      "word": "begin",
+      "past": "began",
+      "past_p": "begun",
+      "cn": "开始",
+      "tip": "区分时态：began (一般过去)，begun (现在完成)"
+    },
+    {
+      "word": "draw",
+      "past": "drew",
+      "past_p": "drawn",
+      "cn": "画，拉",
+      "tip": "易错写为 drawed"
+    },
+    {
+      "word": "drink",
+      "past": "drank",
+      "past_p": "drunk",
+      "cn": "喝",
+      "tip": "过去式 drank，过去分词 drunk"
+    },
+    {
+      "word": "sing",
+      "past": "sang",
+      "past_p": "sung",
+      "cn": "唱歌",
+      "tip": "过去式 sang"
+    },
+    {
+      "word": "swim",
+      "past": "swam",
+      "past_p": "swum",
+      "cn": "游泳",
+      "tip": "双写m规则不适用于过去式：s-w-a-m"
+    },
+    {
+      "word": "fly",
+      "past": "flew",
+      "past_p": "flown",
+      "cn": "飞，放(风筝)",
+      "tip": "常考放风筝：fly a kite -> flew a kite"
+    },
+    {
+      "word": "grow",
+      "past": "grew",
+      "past_p": "grown",
+      "cn": "生长，种植",
+      "tip": "过去式 grew"
+    },
+    {
+      "word": "know",
+      "past": "knew",
+      "past_p": "known",
+      "cn": "知道，认识",
+      "tip": "过去式 knew"
+    },
+    {
+      "word": "throw",
+      "past": "threw",
+      "past_p": "thrown",
+      "cn": "扔，投掷",
+      "tip": "过去式 threw"
+    },
+    {
+      "word": "ride",
+      "past": "rode",
+      "past_p": "ridden",
+      "cn": "骑(马/车)",
+      "tip": "过去分词要双写 d：r-i-d-d-e-n"
+    },
+    {
+      "word": "write",
+      "past": "wrote",
+      "past_p": "written",
+      "cn": "写",
+      "tip": "过去分词要双写 t：w-r-i-t-t-e-n"
+    },
+    {
+      "word": "speak",
+      "past": "spoke",
+      "past_p": "spoken",
+      "cn": "说(语言)",
+      "tip": "过去式 spoke"
+    },
+    {
+      "word": "choose",
+      "past": "chose",
+      "past_p": "chosen",
+      "cn": "选择",
+      "tip": "过去式少一个 o：c-h-o-s-e"
+    },
+    {
+      "word": "eat",
+      "past": "ate",
+      "past_p": "eaten",
+      "cn": "吃",
+      "tip": "过去式 ate，字母颠倒：a-t-e"
+    },
+    {
+      "word": "give",
+      "past": "gave",
+      "past_p": "given",
+      "cn": "给，付出",
+      "tip": "过去式 gave"
+    },
+    {
+      "word": "see",
+      "past": "saw",
+      "past_p": "seen",
+      "cn": "看见",
+      "tip": "过去式 saw"
+    },
+    {
+      "word": "take",
+      "past": "took",
+      "past_p": "taken",
+      "cn": "拿走，花费",
+      "tip": "主语可以是物：It takes sb time to do sth"
+    },
+    {
+      "word": "let",
+      "past": "let",
+      "past_p": "let",
+      "cn": "让",
+      "tip": "过去式仍是 let"
+    },
+    {
+      "word": "put",
+      "past": "put",
+      "past_p": "put",
+      "cn": "放，置",
+      "tip": "过去式仍是 put"
+    },
+    {
+      "word": "read",
+      "past": "read",
+      "past_p": "read",
+      "cn": "读",
+      "tip": "拼写完全相同，但过去式读音变为 /red/"
+    },
+    {
+      "word": "hurt",
+      "past": "hurt",
+      "past_p": "hurt",
+      "cn": "伤害，疼",
+      "tip": "过去式仍是 hurt"
+    },
+    {
+      "word": "cut",
+      "past": "cut",
+      "past_p": "cut",
+      "cn": "剪，切",
+      "tip": "过去式仍是 cut"
+    }
+  ],
+  "comparatives": [
+    {
+      "base": "good / well",
+      "comp": "better",
+      "sup": "best",
+      "cn": "好的 / 好地",
+      "sentence": "My English is better than before."
+    },
+    {
+      "base": "bad / badly / ill",
+      "comp": "worse",
+      "sup": "worst",
+      "cn": "坏的 / 糟糕地",
+      "sentence": "The weather is getting worse."
+    },
+    {
+      "base": "many / much",
+      "comp": "more",
+      "sup": "most",
+      "cn": "多的",
+      "sentence": "Who has more books, you or Tom?"
+    },
+    {
+      "base": "little",
+      "comp": "less",
+      "sup": "least",
+      "cn": "少的",
+      "sentence": "We should drink less cola and more water."
+    },
+    {
+      "base": "far",
+      "comp": "farther / further",
+      "sup": "farthest / furthest",
+      "cn": "远的",
+      "sentence": "He lives farther from school than I do."
+    }
+  ],
+  "confusables": [
+    {
+      "sentence": "Be _____ , please! The baby is sleeping.",
+      "answer": "quiet",
+      "optionA": "quiet",
+      "optionB": "quite",
+      "transA": "安静的",
+      "transB": "非常",
+      "tip": "t在e后面就是“安静的”；e在t后面就是“非常”。"
+    },
+    {
+      "sentence": "It is _____ hot today in summer.",
+      "answer": "quite",
+      "optionA": "quiet",
+      "optionB": "quite",
+      "transA": "安静的",
+      "transB": "非常",
+      "tip": "quite用来修饰形容词，表示“非常”。"
+    },
+    {
+      "sentence": "What is the _____ like today?",
+      "answer": "weather",
+      "optionA": "weather",
+      "optionB": "whether",
+      "transA": "天气",
+      "transB": "是否",
+      "tip": "weather表示天气；whether表示“是否”。"
+    },
+    {
+      "sentence": "I do not know _____ he will come tomorrow.",
+      "answer": "whether",
+      "optionA": "weather",
+      "optionB": "whether",
+      "transA": "天气",
+      "transB": "是否",
+      "tip": "whether引导宾语从句表示“是否”。"
+    },
+    {
+      "sentence": "It is _____ school building.",
+      "answer": "their",
+      "optionA": "their",
+      "optionB": "there",
+      "transA": "他们的",
+      "transB": "那里",
+      "tip": "their是形容词性物主代词，后面加名词。"
+    },
+    {
+      "sentence": "There is a cute puppy over _____.",
+      "answer": "there",
+      "optionA": "their",
+      "optionB": "there",
+      "transA": "他们的",
+      "transB": "那里",
+      "tip": "there表示地点“那里”。"
+    },
+    {
+      "sentence": "We walked _____ the green forest.",
+      "answer": "through",
+      "optionA": "through",
+      "optionB": "threw",
+      "transA": "穿过",
+      "transB": "扔(过去式)",
+      "tip": "through是介词，表示从空间内部穿过。"
+    },
+    {
+      "sentence": "He _____ the ball to me yesterday.",
+      "answer": "threw",
+      "optionA": "through",
+      "optionB": "threw",
+      "transA": "穿过",
+      "transB": "扔(过去式)",
+      "tip": "threw是动词throw的过去式。"
+    },
+    {
+      "sentence": "_____ book is this on the desk?",
+      "answer": "whose",
+      "optionA": "whose",
+      "optionB": "who's",
+      "transA": "谁的",
+      "transB": "谁是",
+      "tip": "whose询问物品归属“谁的”。"
+    },
+    {
+      "sentence": "_____ that tall boy over there?",
+      "answer": "who's",
+      "optionA": "whose",
+      "optionB": "who's",
+      "transA": "谁的",
+      "transB": "谁是",
+      "tip": "who's是“who is”的缩写，意为“谁是”。"
+    },
+    {
+      "sentence": "I can _____ the beautiful music.",
+      "answer": "hear",
+      "optionA": "hear",
+      "optionB": "here",
+      "transA": "听见",
+      "transB": "这里",
+      "tip": "hear带有ear(耳朵)，意为用耳朵“听见”。"
+    },
+    {
+      "sentence": "Please come _____ quickly.",
+      "answer": "here",
+      "optionA": "hear",
+      "optionB": "here",
+      "transA": "听见",
+      "transB": "这里",
+      "tip": "here表示“这里”。"
+    },
+    {
+      "sentence": "I got many Christmas _____.",
+      "answer": "present",
+      "optionA": "present",
+      "optionB": "parent",
+      "transA": "礼物",
+      "transB": "家长",
+      "tip": "present表示“礼物”。"
+    },
+    {
+      "sentence": "My _____ are both teachers.",
+      "answer": "parent",
+      "optionA": "present",
+      "optionB": "parent",
+      "transA": "礼物",
+      "transB": "家长",
+      "tip": "parent表示“父母，家长”。"
+    },
+    {
+      "sentence": "We are very _____ about the trip.",
+      "answer": "excited",
+      "optionA": "excited",
+      "optionB": "exciting",
+      "transA": "感到兴奋的",
+      "transB": "令人兴奋的",
+      "tip": "excited主语通常是人；exciting主语通常是物/事。"
+    },
+    {
+      "sentence": "The football match is very _____.",
+      "answer": "exciting",
+      "optionA": "excited",
+      "optionB": "exciting",
+      "transA": "感到兴奋的",
+      "transB": "令人兴奋的",
+      "tip": "exciting用来形容比赛、故事等物或事件。"
+    }
+  ],
+  "essay_words": [
+    {
+      "word": "suddenly",
+      "phonetic": "/ˈsʌdənli/",
+      "cn": "突然地",
+      "usage": "Suddenly, it began to rain. (记叙文事件突变)"
+    },
+    {
+      "word": "excitedly",
+      "phonetic": "/ɪkˈsaɪtɪdli/",
+      "cn": "兴奋地",
+      "usage": "They talked excitedly about the plan. (形容心情)"
+    },
+    {
+      "word": "carefully",
+      "phonetic": "/ˈkeəfəli/",
+      "cn": "仔细地，认真地",
+      "usage": "We should listen to our teachers carefully. (学习习惯)"
+    },
+    {
+      "word": "happily",
+      "phonetic": "/ˈhæpɪli/",
+      "cn": "高兴地，幸福地",
+      "usage": "They played games happily in the park. (游记与活动)"
+    },
+    {
+      "word": "sadly",
+      "phonetic": "/ˈsædli/",
+      "cn": "伤心地，难过地",
+      "usage": "He left the room sadly. (情感变化)"
+    },
+    {
+      "word": "firstly",
+      "phonetic": "/ˈfɜːstli/",
+      "cn": "首先",
+      "usage": "Firstly, we should protect our environment. (结构分明)"
+    },
+    {
+      "word": "secondly",
+      "phonetic": "/ˈsekəndli/",
+      "cn": "其次",
+      "usage": "Secondly, we need to save water. (论述要点)"
+    },
+    {
+      "word": "finally",
+      "phonetic": "/ˈfaɪnəli/",
+      "cn": "最后",
+      "usage": "Finally, we arrived at the top of the mountain. (文章结尾)"
+    },
+    {
+      "word": "museum",
+      "phonetic": "/mjuːˈziːəm/",
+      "cn": "博物馆",
+      "usage": "We visited the science museum last Sunday. (场所)"
+    },
+    {
+      "word": "library",
+      "phonetic": "/ˈlaɪbrəri/",
+      "cn": "图书馆",
+      "usage": "Keep quiet in the library. (规则与场所)"
+    },
+    {
+      "word": "cinema",
+      "phonetic": "/ˈsɪnəmə/",
+      "cn": "电影院",
+      "usage": "We go to the cinema on weekends. (娱乐活动)"
+    },
+    {
+      "word": "theater",
+      "phonetic": "/ˈθɪətə/",
+      "cn": "剧院",
+      "usage": "They watched an exciting play in the theater. (文化设施)"
+    },
+    {
+      "word": "stadium",
+      "phonetic": "/ˈsteɪdiəm/",
+      "cn": "体育场",
+      "usage": "The sports meeting was held in the stadium. (运动场景)"
+    },
+    {
+      "word": "hospital",
+      "phonetic": "/ˈhɒspɪtl/",
+      "cn": "医院",
+      "usage": "The doctor works in the hospital. (职业与地点)"
+    },
+    {
+      "word": "restaurant",
+      "phonetic": "/ˈrestrɒnt/",
+      "cn": "餐厅，饭馆",
+      "usage": "They had lunch in a Chinese restaurant. (饮食)"
+    },
+    {
+      "word": "airport",
+      "phonetic": "/ˈeəpɔːt/",
+      "cn": "机场",
+      "usage": "My father went to the airport by taxi. (交通出行)"
+    },
+    {
+      "word": "station",
+      "phonetic": "/ˈsteɪʃn/",
+      "cn": "车站",
+      "usage": "The subway station is near our school. (日常生活)"
+    },
+    {
+      "word": "subject",
+      "phonetic": "/ˈsʌbdʒɪkt/",
+      "cn": "学科，科目",
+      "usage": "What is your favorite subject? (学校生活)"
+    },
+    {
+      "word": "Chinese",
+      "phonetic": "/ˌtʃaɪˈniːz/",
+      "cn": "语文，中文",
+      "usage": "Chinese is a rich and meaningful language. (学科)"
+    },
+    {
+      "word": "Maths",
+      "phonetic": "/mæθs/",
+      "cn": "数学",
+      "usage": "Maths helps us develop logical thinking. (学科)"
+    },
+    {
+      "word": "English",
+      "phonetic": "/ˈɪŋɡlɪʃ/",
+      "cn": "英语",
+      "usage": "Learning English is fun and useful. (学科)"
+    },
+    {
+      "word": "Science",
+      "phonetic": "/ˈsaɪəns/",
+      "cn": "科学",
+      "usage": "We do experiments in Science class. (学科)"
+    },
+    {
+      "word": "Art",
+      "phonetic": "/ɑːt/",
+      "cn": "美术，艺术",
+      "usage": "She likes drawing in Art lessons. (兴趣特长)"
+    },
+    {
+      "word": "Music",
+      "phonetic": "/ˈmjuːzɪk/",
+      "cn": "音乐",
+      "usage": "Music brings us joy and relaxation. (兴趣特长)"
+    },
+    {
+      "word": "PE",
+      "phonetic": "/ˌpiː ˈiː/",
+      "cn": "体育",
+      "usage": "We play basketball in PE class. (运动与健康)"
+    },
+    {
+      "word": "Computer",
+      "phonetic": "/kəmˈpjuːtə/",
+      "cn": "计算机，信息技术",
+      "usage": "We learn coding in Computer class. (现代科技)"
+    },
+    {
+      "word": "History",
+      "phonetic": "/ˈhɪstri/",
+      "cn": "历史",
+      "usage": "History helps us understand the past. (初中衔接)"
+    },
+    {
+      "word": "Geography",
+      "phonetic": "/dʒiˈɒɡrəfi/",
+      "cn": "地理",
+      "usage": "We study maps in Geography class. (初中衔接)"
+    },
+    {
+      "word": "Information",
+      "phonetic": "/ˌɪnfəˈmeɪʃn/",
+      "cn": "信息，资讯",
+      "usage": "We search for useful information online. (综合素养)"
+    }
+  ]
+};
